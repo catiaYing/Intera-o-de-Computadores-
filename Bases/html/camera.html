@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BANDy - Câmara</title>
+
+    <link rel="stylesheet" href="../styles/camera.css">
+    <script src="../scripts/camera.js" defer></script>
+</head>
+
+<body>
+
+    <main class="camera-page">
+
+        <!-- Close camera -->
+        <button type="button" class="camera-icon" onclick="history.back()">
+            ✕
+        </button>
+
+        <!-- Camera preview -->
+        <section class="camera-preview">
+
+            <video id="camera" autoplay playsinline></video>
+
+            <!-- Zoom controls -->
+            <div class="zoom-controls">
+                <button type="button" id="zoom-out">−</button>
+                <span id="zoom-level">1x</span>
+                <button type="button" id="zoom-in">+</button>
+            </div>
+
+        </section>
+
+        <!-- Camera controls -->
+        <footer class="camera-controls">
+
+
+            <!-- Open album -->
+            <a href="album.html" class="camera-icon">
+                <span>▧</span>
+            </a>
+
+            <!-- Take photo -->
+            <button type="button" id="take-photo"
+                    class="capture-button">
+            </button>
+
+            <!-- Switch front / back camera -->
+            <button type="button" id="switch-camera"
+                    class="camera-icon">
+                ↻
+            </button>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
