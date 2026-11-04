@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Pedido - BANDy</title>
+    <link rel="stylesheet" href="../../styles/catia/pedido_amizade.css">
+</head>
+
+<body>
+
+    <main class="request-page">
+
+        <!-- Cabeçalho -->
+        <header class="page-header">
+            <a href="javascript:history.back()" class="back-button">‹</a>
+            <h1>Enviar Pedido</h1>
+        </header>
+
+        <!-- Formulário do pedido -->
+        <section class="request-content">
+
+            <div class="message-box">
+
+                <textarea
+                    placeholder="Escreve uma mensagem..."
+                    maxlength="300">
+                </textarea>
+
+                <!-- Botão para adicionar fotografia -->
+                <div class="photo-option">
+                    <label for="photo-modal" class="add-photo">
+                        <span class="photo-icon">▧</span>
+                        <span>Adicionar foto</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <button type="button" class="send-button">
+                Enviar
+            </button>
+
+        </section>
+
+        <!-- Controla a abertura da janela -->
+        <input type="checkbox" id="photo-modal" class="modal-toggle">
+
+        <!-- Janela de seleção -->
+        <div class="modal-overlay">
+
+            <div class="photo-modal">
+
+                <div class="modal-handle"></div>
+
+                <h2>Adicionar fotografia</h2>
+                <p>Escolhe como queres adicionar uma fotografia.</p>
+
+                <a href="camera.html" class="modal-option">
+                    <span class="option-icon">◎</span>
+                    <span>Fotografar</span>
+                </a>
+
+                <a href="album.html" class="modal-option">
+                    <span class="option-icon">▧</span>
+                    <span>Selecionar da galeria</span>
+                </a>
+
+                <label for="photo-modal" class="cancel-button">
+                    Cancelar
+                </label>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
