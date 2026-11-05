@@ -1,0 +1,492 @@
+/* ====================================
+   1. 整个网站的基础样式
+==================================== */
+
+/* 让 padding 和 border 包含在元素宽度里面 */
+* {
+    box-sizing: border-box;
+}
+
+/* 网页背景 */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+    color: #181818;
+}
+
+/* 手机页面：最大宽度 390px */
+.pagina {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100dvh;
+
+    margin: 0 auto;
+    padding: 16px 20px 18px;
+
+    background-color: white;
+
+    /* 让内部内容从上到下排列 */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ====================================
+   2. 顶部导航
+==================================== */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 为返回按钮提供定位参考 */
+    position: relative;
+
+    min-height: 46px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.cabecalho h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* 左上角返回箭头 */
+.voltar {
+    position: absolute;
+    left: 0;
+
+    color: #181818;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+
+/* ====================================
+   3. 页面标题和介绍
+==================================== */
+
+.introducao {
+    margin-bottom: 20px;
+}
+
+/* MÉTODO DE PAGAMENTO 小标题 */
+.etiqueta {
+    margin: 0 0 8px;
+
+    color: #7d8926;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* 页面主要标题 */
+.introducao h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+/* 说明文字 */
+.descricao {
+    margin: 0;
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+
+/* ====================================
+   4. 购买摘要卡片
+==================================== */
+
+.resumo {
+    background-color: #f7f7f7;
+    border: 1px solid #eaeaea;
+    border-radius: 18px;
+
+    padding: 16px;
+    margin-bottom: 22px;
+}
+
+/* 第一个页面的 RESUMO DA COMPRA */
+.resumo-titulo {
+    margin: 0 0 14px;
+    color: #777777;
+    font-size: 11px;
+}
+
+/* 图标和文字横向排列 */
+.festival {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 左侧方形图标 */
+.icone-festival {
+    width: 46px;
+    height: 46px;
+
+    /* 不允许图标被挤小 */
+    flex-shrink: 0;
+
+    background-color: #ecf2a5;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.festival h3 {
+    margin: 0 0 5px;
+    font-size: 15px;
+}
+
+.festival p {
+    margin: 0;
+    color: #777777;
+    font-size: 12px;
+}
+
+/* 分隔线 */
+.resumo hr {
+    border: none;
+    border-top: 1px solid #dddddd;
+    margin: 14px 0;
+}
+
+/* 总价左右排列 */
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total span {
+    color: #555555;
+    font-size: 14px;
+}
+
+.total strong {
+    font-size: 21px;
+}
+
+
+/* ====================================
+   5. 第一个页面：选择支付方式
+==================================== */
+
+.pagamentos {
+    margin-bottom: 16px;
+}
+
+.pagamentos h2 {
+    margin: 0 0 14px;
+    font-size: 19px;
+}
+
+/* 每种支付方式的按钮 */
+.metodo {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 11px 12px;
+    margin-bottom: 10px;
+
+    border: 1px solid #dedede;
+    border-radius: 14px;
+    background-color: white;
+
+    text-align: left;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.metodo:last-child {
+    margin-bottom: 0;
+}
+
+/* 支付方式左边的图标 */
+.icone {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
+    background-color: #f2f2f2;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* 支付名称和说明上下排列 */
+.informacao {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.informacao strong {
+    font-size: 14px;
+}
+
+.informacao small {
+    font-size: 12px;
+    color: #777777;
+}
+
+/* 右侧未选择的圆圈 */
+.circulo {
+    width: 18px;
+    height: 18px;
+
+    border: 2px solid #cccccc;
+    border-radius: 50%;
+
+    flex-shrink: 0;
+}
+
+/* 被选中的支付方式 */
+.metodo.selecionado {
+    border: 2px solid #7d8926;
+    background-color: #fbfce9;
+}
+
+/* 选中时右边圆圈变绿 */
+.metodo.selecionado .circulo {
+    border-color: #7d8926;
+    background-color: #7d8926;
+    box-shadow: inset 0 0 0 4px white;
+}
+
+/* 第一个页面的 Continuar 按钮 */
+#continuar {
+    width: 100%;
+    min-height: 48px;
+
+    margin-top: auto;
+
+    background-color: #7d8926;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 没有选择支付方式时，按钮变灰 */
+#continuar:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* 第一个页面的提示文字 */
+#mensagem {
+    min-height: 18px;
+    margin: 8px 0 0;
+
+    text-align: center;
+    font-size: 12px;
+    color: #7d8926;
+}
+
+
+/* ====================================
+   6. 第二个页面：MB WAY 输入表单
+==================================== */
+
+/* 手机号码输入框的标题 */
+.label-numero {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 输入电话号码的方框 */
+#numero {
+    width: 100%;
+    padding: 15px;
+
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-family: inherit;
+}
+
+/* 当用户点击输入框时，边框变绿 */
+#numero:focus {
+    outline: none;
+    border: 2px solid #7d8926;
+}
+
+/* 格式不正确时，边框变红 */
+#numero[aria-invalid="true"] {
+    border: 2px solid #c94d4d;
+}
+
+/* 输入框下方的提示 */
+.ajuda {
+    margin: 8px 0 24px;
+
+    color: #777777;
+    font-size: 12px;
+}
+
+/* MB WAY 页面的按钮 */
+.botao-principal {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+
+    background-color: #7d8926;
+    color: white;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: bold;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* 用于取消操作的按钮 */
+.botao-secundario {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+
+    background-color: white;
+    color: #555555;
+
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* 说明这是原型支付 */
+.nota-simulacao {
+    margin: 12px 0;
+
+    color: #777777;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* 模拟授权完成后的提示 */
+.resultado {
+    padding: 12px;
+
+    background-color: #f2f6d8;
+    color: #52621e;
+    border-radius: 10px;
+
+    font-size: 13px;
+    text-align: center;
+}
+
+/* 没有结果时，隐藏提示框 */
+.resultado:empty {
+    display: none;
+}
+
+
+/* ====================================
+   7. MB WAY 的三个弹窗
+==================================== */
+
+/* 所有弹窗共用相同样式 */
+.dialogo {
+    width: 85%;
+    max-width: 320px;
+    padding: 24px;
+
+    border: none;
+    border-radius: 18px;
+
+    background-color: white;
+    color: #181818;
+
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* 弹窗打开时，背景变暗 */
+.dialogo::backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+/* 弹窗标题 */
+.dialogo h2 {
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+/* 弹窗说明文字 */
+.dialogo p {
+    margin: 0 0 22px;
+
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 等待授权、成功弹窗顶部的图标 */
+.icone-dialogo {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 18px;
+
+    background-color: #f2f2f2;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+}
+
+/* 成功图标使用浅绿色 */
+.icone-dialogo.sucesso {
+    background-color: #ecf2a5;
+    color: #52621e;
+}
+
+/* 很窄的手机也可以正常显示 */
+@media (max-width: 360px) {
+    .pagina {
+        padding: 14px 16px;
+    }
+
+    .introducao h2 {
+        font-size: 25px;
+    }
+}

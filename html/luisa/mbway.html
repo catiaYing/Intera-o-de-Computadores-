@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <!-- 1. 设置字符编码，支持葡萄牙语的特殊字符 -->
+    <meta charset="UTF-8">
+
+    <!-- 2. 让网页适应手机屏幕 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 3. 浏览器标签页的标题 -->
+    <title>BANDy - MB WAY</title>
+
+    <!-- 4. 使用和第一个支付页面相同的 CSS -->
+    <link rel="stylesheet" href="../../styles/luisa/pagamento.css">
+</head>
+
+<body>
+
+    <!-- 整个手机页面 -->
+    <main class="pagina pagina-mbway">
+
+        <!-- ===== 1. 顶部导航 ===== -->
+        <header class="cabecalho">
+
+            <!-- 点击箭头返回支付方式选择页面 -->
+            <a href="pagamento.html" class="voltar" aria-label="Voltar">
+                &#8592;
+            </a>
+
+            <h1>Pagamento MB WAY</h1>
+
+        </header>
+
+
+        <!-- ===== 2. 页面标题 ===== -->
+        <section class="introducao">
+
+            <p class="etiqueta">MÉTODO DE PAGAMENTO</p>
+
+            <h2>Pagar com MB WAY</h2>
+
+            <p class="descricao">
+                Introduz o teu número de telemóvel para continuar.
+            </p>
+
+        </section>
+
+
+        <!-- ===== 3. 支付摘要 ===== -->
+        <section class="resumo">
+
+            <div class="festival">
+
+                <!-- 临时 MB WAY 图标 -->
+                <div class="icone-festival">MB</div>
+
+                <div>
+                    <h3>MB WAY</h3>
+                    <p>Pagamento por telemóvel</p>
+                </div>
+
+            </div>
+
+            <!-- 分隔线 -->
+            <hr>
+
+            <!-- 总金额（目前是测试金额） -->
+            <div class="total">
+                <span>Total</span>
+                <strong>45,00 €</strong>
+            </div>
+
+        </section>
+
+
+        <!-- ===== 4. 手机号码表单 ===== -->
+        <form id="form-mbway" novalidate>
+
+            <!-- label：告诉用户输入什么 -->
+            <label for="numero" class="label-numero">
+                Número de telemóvel
+            </label>
+
+            <!--
+                type="tel"：电话号码输入框
+                inputmode="numeric"：手机显示数字键盘
+                maxlength="9"：最多输入9位
+                required：表示这个字段必须填写
+            -->
+            <input
+                type="tel"
+                id="numero"
+                name="numero"
+                placeholder="9XXXXXXXX"
+                inputmode="numeric"
+                maxlength="9"
+                autocomplete="off"
+                aria-describedby="ajuda-numero"
+                required
+            >
+
+            <!-- 输入提示 -->
+            <p class="ajuda" id="ajuda-numero">
+                Introduz 9 dígitos, começando por 9.
+            </p>
+
+            <!-- 提交表单，交给 JavaScript 验证 -->
+            <button type="submit" class="botao-principal">
+                Confirmar pagamento
+            </button>
+
+        </form>
+
+        <!-- 提示这是原型，不是真实银行支付 -->
+        <p class="nota-simulacao">
+            Protótipo demonstrativo. Nenhum pagamento real será efetuado.
+        </p>
+
+        <!-- 授权流程结束后显示的文字 -->
+        <p id="resultado" class="resultado" role="status"></p>
+
+    </main>
+
+
+    <!-- ===== 5. 电话号码错误弹窗 ===== -->
+    <dialog id="erro-dialog" class="dialogo">
+
+        <h2>Dados inválidos</h2>
+
+        <p>
+            Introduz um número de telemóvel
+            com 9 dígitos, começando por 9.
+        </p>
+
+        <!-- 用户可以关闭弹窗，重新输入 -->
+        <button type="button" id="fechar-erro" class="botao-principal">
+            Corrigir
+        </button>
+
+    </dialog>
+
+
+    <!-- ===== 6. 等待 MB WAY 授权弹窗 ===== -->
+    <dialog id="aguardar-dialog" class="dialogo">
+
+        <div class="icone-dialogo">⌛</div>
+
+        <h2>A aguardar autorização</h2>
+
+        <p>
+            Pedido enviado. Autoriza o pagamento
+            na aplicação MB WAY.
+        </p>
+
+        <!--
+            在真实 App 中需要等待 MB WAY 返回授权结果。
+            在 PF1 中，点击 Continuar 模拟完成授权。
+        -->
+        <button type="button" id="autorizar" class="botao-principal">
+            Continuar
+        </button>
+
+        <!-- 允许用户取消等待，返回表单 -->
+        <button type="button" id="cancelar-aguardar" class="botao-secundario">
+            Cancelar
+        </button>
+
+    </dialog>
+
+
+    <!-- ===== 7. 授权成功弹窗 ===== -->
+    <dialog id="sucesso-dialog" class="dialogo">
+
+        <div class="icone-dialogo sucesso">✓</div>
+
+        <h2>Pagamento autorizado</h2>
+
+        <p>
+            O pagamento foi autorizado com sucesso!
+        </p>
+
+        <!-- 点击 OK 结束模拟流程 -->
+        <button type="button" id="terminar" class="botao-principal">
+            OK
+        </button>
+
+    </dialog>
+
+
+    <!-- 连接共用的 JavaScript 文件 -->
+    <script src="../../scripts/luisa/pagamento.js"></script>
+
+</body>
+</html>

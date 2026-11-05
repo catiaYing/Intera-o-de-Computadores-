@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <!-- 设置文字编码，保证葡语特殊字符正常显示 -->
+    <meta charset="UTF-8">
+
+    <!-- 让网页适应手机屏幕宽度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 浏览器标签页显示的名字 -->
+    <title>BANDy - Pagamento</title>
+
+    <!-- 连接自己的 CSS 文件 -->
+    <link rel="stylesheet" href="../../styles/luisa/pagamento.css">
+</head>
+
+<body>
+
+    <!-- 整个支付页面 -->
+    <main class="pagina">
+
+        <!-- ========== 1. 顶部导航 ========== -->
+        <header class="cabecalho">
+
+            <!-- 返回首页，之后可改成购票页面 -->
+            <a href="../index.html" class="voltar">←</a>
+
+            <h1>Pagamento</h1>
+
+        </header>
+
+
+        <!-- ========== 2. 页面标题 ========== -->
+        <section class="introducao">
+
+            <p class="etiqueta">FINALIZAR COMPRA</p>
+
+            <h2>Está quase!</h2>
+
+            <p class="descricao">
+                Escolhe como queres pagar o teu bilhete.
+            </p>
+
+        </section>
+
+
+        <!-- ========== 3. 购买摘要 ========== -->
+        <section class="resumo">
+
+            <p class="resumo-titulo">RESUMO DA COMPRA</p>
+
+            <!-- 音乐节信息 -->
+            <div class="festival">
+
+                <!-- 临时音乐图标 -->
+                <div class="icone-festival">♫</div>
+
+                <div>
+                    <h3>Festival de Música</h3>
+                    <p>Bilhete geral · 1 unidade</p>
+                </div>
+
+            </div>
+
+            <!-- 分隔线 -->
+            <hr>
+
+            <!-- 显示总价 -->
+            <div class="total">
+                <span>Total</span>
+                <strong>45,00 €</strong>
+            </div>
+
+        </section>
+
+
+        <!-- ========== 4. 选择支付方式 ========== -->
+        <section class="pagamentos">
+
+            <h2>Como queres pagar?</h2>
+
+            <!-- MB WAY -->
+            <button type="button" class="metodo" data-metodo="mbway">
+
+                <span class="icone">MB</span>
+
+                <span class="informacao">
+                    <strong>MB WAY</strong>
+                    <small>Pagamento com telemóvel</small>
+                </span>
+
+                <!-- 右侧圆圈，CSS负责改变外观 -->
+                <span class="circulo"></span>
+
+            </button>
+
+
+            <!-- 银行卡 -->
+            <button type="button" class="metodo" data-metodo="cartao">
+
+                <span class="icone">▤</span>
+
+                <span class="informacao">
+                    <strong>Cartão bancário</strong>
+                    <small>Crédito ou débito</small>
+                </span>
+
+                <span class="circulo"></span>
+
+            </button>
+
+
+            <!-- PayPal -->
+            <button type="button" class="metodo" data-metodo="paypal">
+
+                <span class="icone">P</span>
+
+                <span class="informacao">
+                    <strong>PayPal</strong>
+                    <small>Pagamento online</small>
+                </span>
+
+                <span class="circulo"></span>
+
+            </button>
+
+        </section>
+
+
+        <!-- ========== 5. 底部按钮 ========== -->
+
+        <!-- disabled 表示用户选择前不能点击 -->
+        <button type="button" id="continuar" disabled>
+            Continuar
+        </button>
+
+        <!-- 用于显示 JavaScript 的提示信息 -->
+        <p id="mensagem" role="status"></p>
+
+    </main>
+
+
+    <!-- 连接自己的 JavaScript 文件 -->
+    <script src="../../scripts/luisa/pagamento.js"></script>
+
+</body>
+</html>
