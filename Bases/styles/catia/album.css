@@ -128,3 +128,26 @@ body {
     }
 }
 
+.photo-box.selected {
+    border: 3px solid #D7FF45;
+    box-sizing: border-box;
+}
+
+/* Círculo de seleção */
+.photo-box {
+    position: relative;
+    cursor: pointer;
+}
+
+/* Círculo selecionado */
+.photo-box.selected::after {
+    background-color: #D7FF45;
+    border-color: #D7FF45;
+    content: "✓";
+    color: #111216;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
