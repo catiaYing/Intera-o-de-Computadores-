@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BANDy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- 1. ECRÃ INICIAL  -->
+    <section id="ecra-inicial" class="screen active">
+      <div class="marca">
+        <h1>BANDy</h1>
+      </div>
+      <div class="acoes">
+        <button class="botao-login" onclick="showScreen('screen-login')">Entrar</button>
+        <button class="botao-criarconta" onclick="showScreen('screen-criarconta')">Criar Conta</button>
+      </div>
+    </section>
+
+    <!-- 2. ECRÃ DE LOGIN -->
+    <section id="ecra-login" class="screen">
+      <h2>Iniciar Sessão</h2>
+      <form id="login-formulario" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" placeholder="exemplo@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Palavra-passe</label>
+          <input type="password" id="login-password" placeholder="Digite a sua palavra-passe" required>
+        </div>
+        <button type="submit" class="botao-login">Entrar</button>
+      </form>
+      <div class="ligacoes">
+        <a href="#" onclick="showScreen('ecra-recuperacao')">Esqueci-me da palavra-passe</a>
+        <p>Ainda não tens conta? <a href="#" onclick="showScreen('ecra-criarconta')">Criar conta</a></p>
+      </div>
+    </section>
+
+    <!-- 3. ECRÃ DE REGISTO -->
+    <section id="ecra-criarconta" class="screen">
+      <h2>Criar Conta</h2>
+      <form id="registo-formulario" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label for="nome-utilizador">Nome Completo</label>
+          <input type="text" id="nome-utilizador" placeholder="Digite o seu nome completo" required>
+        </div>
+        <div class="form-group">
+          <label for="email-utilizador">E-mail</label>
+          <input type="email" id="email-utilizador" placeholder="exemplo@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="password-utilizador">Palavra-passe</label>
+          <input type="password" id="password-utilizador" placeholder="Digite a sua palavra-passe" required>
+        </div>
+        <button type="submit" class="botao-login">Registar</button>
+      </form>
+      <div class="ligacoes">
+        <p>Já tens conta? <a href="#" onclick="showScreen('ecra-login')">Entrar</a></p>
+      </div>
+    </section>
+
+    <!-- 4. ECRÃ DE RECUPERAÇÃO DE PALAVRA-PASSE -->
+    <section id="ecra-recuperacao" class="screen">
+      <h2>Recuperar Conta</h2>
+      <p>Introduz o teu e-mail para receberes as instruções de recuperação.</p>
+      <form id="recuperacao-formulario" onsubmit="handleRecovery(event)">
+        <div class="form-group">
+          <label for="email-recuperacao">E-mail</label>
+          <input type="email" id="email-recuperacao" placeholder="exemplo@email.com" required>
+        </div>
+        <button type="submit" class="botao-login">Enviar Instruções</button>
+      </form>
+      <div class="ligacoes">
+        <a href="#" onclick="showScreen('ecra-login')">Voltar ao Login</a>
+      </div>
+    </section>
+
+    <!-- 5. ECRÃ DE CONFIRMAÇÃO / SUCESSO -->
+    <section id="ecra-sucesso" class="screen">
+      <h2>Sucesso!</h2>
+      <p id="mensagem-sucesso">A tua conta foi criada com sucesso.</p>
+      <button class="botao-login" onclick="showScreen('ecra-login')">Continuar para Login</button>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
