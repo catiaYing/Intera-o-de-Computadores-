@@ -16,10 +16,17 @@ document.addEventListener("DOMContentLoaded", function () {
         { nome: "Miguel", id: "1006", telefone: "917890123" }
     ];
 
-    // Pesquisar novos utilizadores
-    searchInput.addEventListener("input", function () {
+    // Recuperar os pedidos que já foram enviados
+    function obterPedidosEnviados() {
+        try {
+            return JSON.parse(localStorage.getItem("pedidosEnviados")) || [];
+        } catch (error) {
+            return [];
+        }
+    }
 
-        const pesquisa = this.value.trim().toLowerCase();
+    // Criar resultados de pesquisa
+    function mostrarResultados(pesquisa) {
 
         resultsList.innerHTML = "";
 
@@ -28,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        // Excluir utilizadores já adicionados ou com pedido recebido
         const resultados = utilizadores.filter(user =>
             user.nome.toLowerCase().includes(pesquisa) ||
             user.id.includes(pesquisa) ||
@@ -36,49 +42,73 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         resultsSection.style.display = "block";
-
-        if (resultados.length === 0) {
-            noResults.style.display = "block";
-            return;
-        }
-
-        noResults.style.display = "none";
+        noResults.style.display = resultados.length === 0 ? "block" : "none";
 
         resultados.forEach(user => {
 
             const card = document.createElement("div");
             card.className = "user-card";
 
-            card.innerHTML = `
-                <div class="user-avatar">
-                    ${user.nome.charAt(0)}
-                </div>
+            const info = document.createElement("div");
+            info.className = "user-info";
 
-                <div class="user-info">
-                    <h3>${user.nome}</h3>
-                    <p>ID: ${user.id}</p>
-                </div>
+            const nome = document.createElement("h3");
+            nome.textContent = user.nome;
 
-                <button class="action-button">
-                    Adicionar
-                </button>
-            `;
+            const id = document.createElement("p");
+            id.textContent = "ID: " + user.id;
 
-            card.querySelector("button").addEventListener("click", function () {
-                this.textContent = "Pedido enviado";
-                this.disabled = true;
-                this.classList.add("requested");
-            });
+            info.appendChild(nome);
+            info.appendChild(id);
+
+            const button = document.createElement("button");
+            button.className = "action-button";
+
+            const pedidosEnviados = obterPedidosEnviados();
+            const jaEnviado = pedidosEnviados.some(
+                pedido => String(pedido.id) === String(user.id)
+            );
+
+            if (jaEnviado) {
+                button.textContent = "Pedido enviado";
+                button.classList.add("sent-button");
+                button.disabled = true;
+            } else {
+                button.textContent = "Adicionar";
+
+                button.addEventListener("click", function () {
+
+                    // Guardar o destinatário, mas ainda NÃO marcar como enviado
+                    sessionStorage.setItem(
+                        "destinatarioPedido",
+                        JSON.stringify(user)
+                    );
+
+                    // Abrir a página de pedido de amizade
+                    window.location.href = "pedido_amizade.html";
+                });
+            }
+
+            card.appendChild(info);
+            card.appendChild(button);
 
             resultsList.appendChild(card);
         });
+    }
 
-    });
+    // Pesquisar novos utilizadores
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            mostrarResultados(this.value.trim().toLowerCase());
+        });
+    }
 
-    // Aceitar pedido de amizade
+    // Aceitar pedido de amizade recebido
     window.aceitarPedido = function (button) {
 
         const card = button.closest(".user-card");
+
+        if (!card) return;
 
         const nome = card.querySelector(".user-info h3").textContent;
         const descricao = card.querySelector(".user-info p").textContent;
@@ -104,8 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const lista = document.getElementById("pendingList");
         const mensagem = document.getElementById("emptyPending");
 
-        mensagem.style.display =
-            lista.children.length === 0 ? "block" : "none";
+        if (mensagem && lista) {
+            mensagem.style.display =
+                lista.children.length === 0 ? "block" : "none";
+        }
     };
 
 });

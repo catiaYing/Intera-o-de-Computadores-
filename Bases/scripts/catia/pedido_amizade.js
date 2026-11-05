@@ -1,7 +1,10 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Guardar a página de origem
+    // =========================================
+    // GUARDAR A PÁGINA DE ORIGEM
+    // =========================================
+
     const paginaAnterior = document.referrer;
 
     if (
@@ -13,15 +16,22 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.setItem("paginaOrigemPedido", paginaAnterior);
     }
 
-    // Elementos do formulário
+    // =========================================
+    // ELEMENTOS DO FORMULÁRIO
+    // =========================================
+
     const requestForm = document.getElementById("requestForm");
     const messageInput = document.getElementById("requestMessage");
 
-    // Elementos da fotografia
+    // =========================================
+    // ELEMENTOS DA FOTOGRAFIA
+    // =========================================
+
     const photoInput = document.getElementById("photoInput");
     const photoModal = document.getElementById("photo-modal");
 
     const addPhotoButton = document.getElementById("addPhotoButton");
+
     const selectedPhotoContainer =
         document.getElementById("selectedPhotoContainer");
 
@@ -31,15 +41,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const removeAlbumPhoto =
         document.getElementById("removeAlbumPhoto");
 
-    // Modal de sucesso
+    // =========================================
+    // MODAIS
+    // =========================================
+
     const successModal = document.getElementById("successModal");
     const successButton = document.getElementById("successButton");
+
     const errorModal = document.getElementById("errorModal");
     const errorButton = document.getElementById("errorButton");
 
     let selectedPhoto = null;
 
-    // Mostrar fotografia no lugar de Adicionar foto
+    // =========================================
+    // MOSTRAR FOTOGRAFIA
+    // =========================================
+
     function mostrarFotografia(foto) {
 
         selectedPhoto = foto;
@@ -48,10 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         addPhotoButton.style.display = "none";
         selectedPhotoContainer.style.display = "flex";
-
     }
 
-    // Receber fotografia selecionada no álbum
+    // =========================================
+    // RECEBER FOTOGRAFIA DO ÁLBUM
+    // =========================================
+
     const fotoGuardada =
         sessionStorage.getItem("fotoPedidoAmizade");
 
@@ -60,10 +79,12 @@ document.addEventListener("DOMContentLoaded", function () {
         mostrarFotografia(fotoGuardada);
 
         sessionStorage.removeItem("fotoPedidoAmizade");
-
     }
 
-    // Selecionar fotografia do dispositivo
+    // =========================================
+    // SELECIONAR FOTOGRAFIA DO DISPOSITIVO
+    // =========================================
+
     photoInput.addEventListener("change", function () {
 
         const file = this.files[0];
@@ -76,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
             this.value = "";
             return;
-
         }
 
         const reader = new FileReader();
@@ -84,16 +104,17 @@ document.addEventListener("DOMContentLoaded", function () {
         reader.onload = function (event) {
 
             mostrarFotografia(event.target.result);
-
         };
 
         reader.readAsDataURL(file);
 
         photoModal.checked = false;
-
     });
 
-    // Remover fotografia
+    // =========================================
+    // REMOVER FOTOGRAFIA
+    // =========================================
+
     removeAlbumPhoto.addEventListener("click", function () {
 
         selectedPhoto = null;
@@ -106,43 +127,101 @@ document.addEventListener("DOMContentLoaded", function () {
         photoInput.value = "";
 
         sessionStorage.removeItem("fotoPedidoAmizade");
-
     });
 
-    // Enviar pedido de amizade
+    // =========================================
+    // ENVIAR PEDIDO DE AMIZADE
+    // =========================================
+
     requestForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
 
         const message = messageInput.value.trim();
 
-        // Verificar mensagem
+        // Verificar se existe mensagem
         if (message === "") {
 
             errorModal.style.display = "flex";
             return;
-
         }
 
-        // Simular envio
+        // Recuperar o destinatário escolhido
+        const destinatarioGuardado =
+            sessionStorage.getItem("destinatarioPedido");
+
+        let destinatario = null;
+
+        if (destinatarioGuardado) {
+
+            try {
+                destinatario = JSON.parse(destinatarioGuardado);
+            } catch (error) {
+                destinatario = null;
+            }
+        }
+
+        // Criar pedido
         const pedido = {
+
+            destinatario: destinatario,
 
             mensagem: message,
 
             fotografia: selectedPhoto,
 
             data: new Date().toISOString()
-
         };
 
         console.log("Pedido de amizade enviado:", pedido);
 
+        // =====================================
+        // REGISTAR COMO ENVIADO
+        // Só depois de validar e enviar
+        // =====================================
+
+        if (destinatario && destinatario.id) {
+
+            let pedidosEnviados = [];
+
+            try {
+                pedidosEnviados = JSON.parse(
+                    localStorage.getItem("pedidosEnviados")
+                ) || [];
+            } catch (error) {
+                pedidosEnviados = [];
+            }
+
+            const jaExiste = pedidosEnviados.some(
+                p => String(p.id) === String(destinatario.id)
+            );
+
+            if (!jaExiste) {
+
+                pedidosEnviados.push({
+
+                    id: String(destinatario.id),
+
+                    nome: destinatario.nome,
+
+                    data: pedido.data
+                });
+            }
+
+            localStorage.setItem(
+                "pedidosEnviados",
+                JSON.stringify(pedidosEnviados)
+            );
+        }
+
         // Mostrar sucesso
         successModal.style.display = "flex";
-
     });
 
-    // Fechar modal de sucesso
+    // =========================================
+    // FECHAR MODAL DE SUCESSO
+    // =========================================
+
     successButton.addEventListener("click", function () {
 
         successModal.style.display = "none";
@@ -160,27 +239,33 @@ document.addEventListener("DOMContentLoaded", function () {
         photoInput.value = "";
 
         sessionStorage.removeItem("fotoPedidoAmizade");
+        sessionStorage.removeItem("destinatarioPedido");
 
-        // Voltar à página onde o pedido começou
-        const paginaOrigem = sessionStorage.getItem("paginaOrigemPedido");
+        // Voltar à página de origem
+        const paginaOrigem =
+            sessionStorage.getItem("paginaOrigemPedido");
 
         sessionStorage.removeItem("paginaOrigemPedido");
 
         if (paginaOrigem) {
-            window.location.href = paginaOrigem;
-        } else {
-            window.location.href = "contactos.html";
-        }
 
+            window.location.href = paginaOrigem;
+
+        } else {
+
+            window.location.href = "novos_amigos.html";
+        }
     });
 
-});
+    // =========================================
+    // FECHAR MODAL DE ERRO
+    // =========================================
 
-// Fechar modal de erro
-errorButton.addEventListener("click", function () {
+    errorButton.addEventListener("click", function () {
 
-    errorModal.style.display = "none";
+        errorModal.style.display = "none";
 
-    messageInput.focus();
+        messageInput.focus();
+    });
 
 });

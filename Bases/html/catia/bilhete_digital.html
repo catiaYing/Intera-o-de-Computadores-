@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bilhete Digital - MEO Alive</title>
+
+    <link rel="stylesheet" href="../../styles/catia/bilhete_digital.css">
+</head>
+
+<body>
+
+<main class="ticket-page">
+
+    <!-- Cabeçalho -->
+    <header class="page-header">
+        <a href="bilhetes.html" class="back-button">‹</a>
+        <h1>Bilhete Digital</h1>
+    </header>
+
+    <!-- Cartão do bilhete -->
+    <section class="digital-ticket">
+
+        <!-- Imagem do festival -->
+        <div class="ticket-banner">
+            <img src="../../media/catia/fundobilhete.png"
+                 alt="MEO Alive Festival">
+
+            <div class="banner-overlay">
+                <span class="festival-label">FESTIVAL DE MÚSICA</span>
+                <h2>MEO Alive</h2>
+            </div>
+        </div>
+
+        <div class="ticket-body">
+
+            <div class="ticket-heading">
+                <span class="ticket-type">PASSE 3 DIAS</span>
+                <span class="ticket-status">● Válido</span>
+            </div>
+
+            <!-- QR Code -->
+            <div class="qr-container">
+                <img src="../../media/catia/qrbilhete.png"
+                     alt="QR Code do bilhete">
+            </div>
+
+            <p class="qr-description">
+                Apresenta este código à entrada do festival.
+            </p>
+
+            <div class="ticket-code">
+                CÓDIGO DO BILHETE
+                <strong>MEAL-2027-0001</strong>
+            </div>
+
+            <div class="ticket-separator"></div>
+
+            <!-- Informações -->
+            <div class="ticket-information">
+
+                <div class="information-row">
+                    <span class="information-icon">▦</span>
+                    <div>
+                        <p>Data</p>
+                        <h3>8 – 10 Julho 2027</h3>
+                    </div>
+                </div>
+
+                <div class="information-row">
+                    <span class="information-icon">◷</span>
+                    <div>
+                        <p>Horário</p>
+                        <h3>17:00 – 03:00</h3>
+                    </div>
+                </div>
+
+                <div class="information-row">
+                    <span class="information-icon">⌖</span>
+                    <div>
+                        <p>Local</p>
+                        <h3>Passeio Marítimo de Algés</h3>
+                        <small>Oeiras, Lisboa</small>
+                    </div>
+                </div>
+
+                <div class="information-row">
+                    <span class="information-icon">♙</span>
+                    <div>
+                        <p>Titular</p>
+                        <h3>Cátia Ying</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="ticket-footer">
+            <span>BANDy</span>
+            <span>Bilhete Digital</span>
+        </div>
+
+    </section>
+
+    <!-- Botão PDF -->
+    <button type="button" class="download-button" id="downloadButton">
+        <span>↓</span>
+        Descarregar em PDF
+    </button>
+
+    <!-- Informações -->
+    <button type="button" class="info-button" id="infoButton">
+        ⓘ Informações do festival
+    </button>
+
+</main>
+
+
+<!-- Modal informações -->
+<div class="modal" id="infoModal">
+
+    <div class="modal-content">
+
+        <button type="button" class="close-button" id="closeModal">
+            ×
+        </button>
+
+        <h2>MEO Alive</h2>
+
+        <p>
+            O MEO Alive é um festival de música realizado no
+            Passeio Marítimo de Algés, com vários artistas e palcos.
+        </p>
+
+        <div class="modal-detail">
+            <strong>Data:</strong> 8 – 10 Julho 2027
+        </div>
+
+        <div class="modal-detail">
+            <strong>Local:</strong> Passeio Marítimo de Algés
+        </div>
+
+        <div class="modal-detail">
+            <strong>Tipo de bilhete:</strong> Passe 3 dias
+        </div>
+
+        <button type="button" class="modal-ok" id="modalOk">
+            Fechar
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="../../scripts/catia/bilhete_digital.js"></script>
+
+</body>
+</html>
