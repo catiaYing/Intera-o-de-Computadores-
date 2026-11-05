@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Novos Amigos - BANDy</title>
+
+    <link rel="stylesheet" href="../../styles/catia/novos_amigos.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+</head>
+
+<body>
+
+    <main class="friends-page">
+
+        <!-- Cabeçalho -->
+        <header class="page-header">
+            <a href="contactos.html" class="back-button">←</a>
+            <h1>Novos Amigos</h1>
+            <span></span>
+        </header>
+    <!-- Pesquisa por ID ou número de telefone -->
+        <div class="search-box">
+            <span>⌕</span>
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Pesquisar por ID / Número de telefone"
+            >
+        </div>
+
+        <!-- Pedidos aceites -->
+        <section class="accepted-section">
+
+            <h2>Pedidos de Amizade Aceites</h2>
+
+            <div class="user-list" id="acceptedList">
+
+                <!-- Maria -->
+                <div class="user-card">
+
+                    <a href="perfil_users.html" class="user-avatar maria-avatar">
+                        M
+                    </a>
+
+                    <a href="perfil_users.html" class="user-info">
+                        <h3>Maria</h3>
+                        <p>@maria_123</p>
+                    </a>
+
+                    <span class="added-label">✓ Adicionado</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Pedidos pendentes -->
+        <section class="pending-section">
+
+            <h2>Pedidos Pendentes</h2>
+
+            <div class="user-list" id="pendingList">
+
+                <div class="user-card">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <h3>User 352</h3>
+                        <p>ID: 352</p>
+                    </div>
+
+                    <button class="action-button" onclick="aceitarPedido(this)">
+                        Aceitar
+                    </button>
+                </div>
+
+                <div class="user-card">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <h3>User 3721</h3>
+                        <p>Quer ser teu amigo</p>
+                    </div>
+
+                    <button class="action-button" onclick="aceitarPedido(this)">
+                        Aceitar
+                    </button>
+                </div>
+
+                <div class="user-card">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <h3>User 888</h3>
+                        <p>ID: 888</p>
+                    </div>
+
+                    <button class="action-button" onclick="aceitarPedido(this)">
+                        Aceitar
+                    </button>
+                </div>
+
+                <div class="user-card">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <h3>User 118</h3>
+                        <p>Também gosta de música</p>
+                    </div>
+
+                    <button class="action-button" onclick="aceitarPedido(this)">
+                        Aceitar
+                    </button>
+                </div>
+
+                <div class="user-card">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <h3>User 111</h3>
+                        <p>ID: 111</p>
+                    </div>
+
+                    <button class="action-button" onclick="aceitarPedido(this)">
+                        Aceitar
+                    </button>
+                </div>
+
+                <div class="user-card">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <h3>User 123</h3>
+                        <p>ID: 123</p>
+                    </div>
+
+                    <button class="action-button" onclick="aceitarPedido(this)">
+                        Aceitar
+                    </button>
+                </div>
+
+                <div class="user-card">
+                    <div class="user-avatar">U</div>
+
+                    <div class="user-info">
+                        <h3>User 411</h3>
+                        <p>ID: 411</p>
+                    </div>
+
+                    <button class="action-button" onclick="aceitarPedido(this)">
+                        Aceitar
+                    </button>
+                </div>
+
+            </div>
+
+            <p class="empty-message" id="emptyPending">
+                Não existem pedidos pendentes.
+            </p>
+
+        </section>
+
+
+        <!-- Navegação inferior -->
+        <nav class="bottom-nav">
+
+            <a href="../index.html" class="nav-item">
+                <img src="../../media/inicio-home.png" alt="">
+                <span>Início</span>
+            </a>
+
+            <a href="../pesquisar.html" class="nav-item">
+                <img src="../../media/pesquisar-search.png" alt="">
+                <span>Pesquisar</span>
+            </a>
+
+            <a href="../bilhetes.html" class="nav-item">
+                <img src="../../media/bilhetes-ticket.png" alt="">
+                <span>Bilhetes</span>
+            </a>
+
+            <a href="contactos.html" class="nav-item active">
+                <img src="../../media/contactos-people.png" alt="">
+                <span>Contactos</span>
+            </a>
+
+            <a href="../perfil.html" class="nav-item">
+                <img src="../../media/perfil-user.png" alt="">
+                <span>Perfil</span>
+            </a>
+
+        </nav>
+
+    </main>
+
+
+    <script>
+
+        // Aceitar pedido de amizade
+        function aceitarPedido(button) {
+
+            const card = button.closest(".user-card");
+
+            const nome = card.querySelector(".user-info h3").textContent;
+            const descricao = card.querySelector(".user-info p").textContent;
+            const inicial = nome.charAt(0).toUpperCase();
+
+            // Criar novo amigo
+            const novoAmigo = document.createElement("div");
+            novoAmigo.className = "user-card";
+
+            novoAmigo.innerHTML = `
+                <div class="user-avatar">${inicial}</div>
+
+                <div class="user-info">
+                    <h3>${nome}</h3>
+                    <p>${descricao}</p>
+                </div>
+
+                <span class="added-label">✓ Adicionado</span>
+            `;
+
+            // Colocar na lista de pedidos aceites
+            document.getElementById("acceptedList").appendChild(novoAmigo);
+
+            // Remover dos pedidos pendentes
+            card.remove();
+
+            // Verificar se ainda existem pedidos
+            verificarPedidos();
+
+        }
+
+
+        // Verificar pedidos pendentes
+        function verificarPedidos() {
+
+            const lista = document.getElementById("pendingList");
+            const mensagem = document.getElementById("emptyPending");
+
+            mensagem.style.display =
+                lista.children.length === 0 ? "block" : "none";
+
+        }
+
+    </script>
+
+</body>
+</html>

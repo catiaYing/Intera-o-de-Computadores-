@@ -1,0 +1,239 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #111216;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.friends-page {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 100px;
+}
+
+/* Cabeçalho */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+    border-bottom: 1px solid #35363b;
+    padding-bottom: 10px;
+}
+
+.page-header h1 {
+    font-size: 20px;
+}
+
+.back-button {
+    color: white;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+/* Barra de pesquisa */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    margin-top: 20px;
+    padding: 0 15px;
+    background: #292a30;
+    border: 1px solid #414249;
+    border-radius: 25px;
+}
+
+.search-box span {
+    color: #D7FF45;
+    font-size: 23px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #858995;
+}
+
+/* Secções */
+.accepted-section,
+.pending-section {
+    margin-top: 30px;
+}
+
+.accepted-section h2,
+.pending-section h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+/* Lista */
+.user-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 82px;
+    padding: 12px 5px;
+    border-bottom: 1px solid #35363b;
+}
+
+/* Avatar */
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #292a30;
+    border: 1px solid #666974;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #D7FF45;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.maria-avatar {
+    background: #383b2b;
+    border-color: #D7FF45;
+}
+
+/* Informações */
+.user-info {
+    flex: 1;
+    min-width: 0;
+    text-decoration: none;
+    color: white;
+}
+
+.user-info h3 {
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.user-info p {
+    margin-top: 5px;
+    color: #999da8;
+    font-size: 13px;
+}
+
+/* Estado adicionado */
+.added-label {
+    color: #D7FF45;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* Botão aceitar */
+.action-button {
+    min-width: 95px;
+    padding: 10px 12px;
+    border: 1px solid #D7FF45;
+    border-radius: 22px;
+    background: transparent;
+    color: #D7FF45;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.action-button:active {
+    background: #383b2b;
+}
+
+/* Lista vazia */
+.empty-message {
+    display: none;
+    text-align: center;
+    color: #858995;
+    font-size: 13px;
+    padding: 20px 0;
+}
+
+/* Navegação inferior */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    height: 75px;
+    background: #1c1d22;
+    border-top: 1px solid #35363b;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #858995;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.nav-item.active {
+    color: #D7FF45;
+}
+
+/* Ecrãs pequenos */
+@media (max-width: 360px) {
+
+    .friends-page {
+        padding: 15px;
+        padding-bottom: 90px;
+    }
+
+    .user-card {
+        gap: 8px;
+    }
+
+    .action-button {
+        min-width: 80px;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .added-label {
+        font-size: 11px;
+    }
+
+    .nav-item {
+        font-size: 11px;
+    }
+}
+

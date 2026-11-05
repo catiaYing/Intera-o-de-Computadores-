@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil - Maria</title>
+
+    <link rel="stylesheet" href="../../styles/catia/perfil_users.css">
+</head>
+
+<body>
+
+    <main class="profile-page">
+
+        <!-- Cabeçalho -->
+        <header class="profile-header">
+
+            <a href="contactos.html" class="back-button">←</a>
+
+            <h1>Perfil</h1>
+
+            <details class="menu">
+                <summary>⋮</summary>
+
+                <div class="menu-options">
+
+                    <button type="button" onclick="copiarLink()">
+                        Copiar ligação
+                    </button>
+
+                    <button type="button" onclick="abrirQR()">
+                        QR Code
+                    </button>
+
+                    <button type="button" class="report-option"
+                        onclick="abrirDenuncia()">
+                        Denunciar
+                    </button>
+
+                </div>
+            </details>
+
+        </header>
+
+
+        <!-- Informações do perfil -->
+        <section class="profile-info">
+
+            <div class="profile-avatar">M</div>
+
+            <h2>Maria</h2>
+
+            <p class="user-id">@maria_123</p>
+
+            <div class="profile-stats">
+
+                <div>
+                    <strong>3</strong>
+                    <span>Fotos</span>
+                </div>
+
+                <div>
+                    <strong>4</strong>
+                    <span>Amigos</span>
+                </div>
+
+                <div>
+                    <strong>5</strong>
+                    <span>Favoritos</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Fotografias -->
+        <section class="photos-section">
+
+            <h3>Fotografias</h3>
+
+            <div class="photo-grid">
+                <div class="photo-placeholder">Foto 1</div>
+                <div class="photo-placeholder">Foto 2</div>
+                <div class="photo-placeholder">Foto 3</div>
+            </div>
+
+        </section>
+
+
+        <!-- Botão Chat -->
+        <a href="chat.html" class="chat-button">
+            Chat
+        </a>
+
+    </main>
+
+
+    <!-- Janela QR Code -->
+    <div class="modal" id="qrModal">
+
+        <div class="modal-content">
+
+            <button class="close-button" onclick="fecharQR()">×</button>
+
+            <h2>QR Code</h2>
+
+            <div class="qr-placeholder">
+                <img src="../../../Bases/media/catia/qrcode.png" alt="QR Code BANDy">
+            </div>
+
+            <p>@maria_123</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- Janela de denúncia -->
+    <div class="modal" id="reportModal">
+
+        <div class="modal-content report-content">
+
+            <button class="close-button" onclick="fecharDenuncia()">×</button>
+
+            <h2>Denunciar Maria</h2>
+
+            <p>Indica o motivo da denúncia:</p>
+
+            <form id="reportForm">
+
+                <label>
+                    <input type="radio" name="motivo"
+                        value="Conteúdo inadequado" required>
+                    Conteúdo inadequado
+                </label>
+
+                <label>
+                    <input type="radio" name="motivo"
+                        value="Assédio ou bullying">
+                    Assédio ou bullying
+                </label>
+
+                <label>
+                    <input type="radio" name="motivo"
+                        value="Conta falsa">
+                    Conta falsa
+                </label>
+
+                <label>
+                    <input type="radio" name="motivo"
+                        value="Spam">
+                    Spam
+                </label>
+
+                <label>
+                    <input type="radio" name="motivo"
+                        value="Outro">
+                    Outro
+                </label>
+
+                <textarea
+                    id="reportReason"
+                    placeholder="Descreve o motivo da denúncia..."
+                    rows="4"
+                ></textarea>
+
+                <div class="modal-buttons">
+
+                    <button type="button" onclick="fecharDenuncia()">
+                        Cancelar
+                    </button>
+
+                    <button type="submit" class="confirm-button">
+                        Enviar denúncia
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- Janela de confirmação -->
+    <div class="modal" id="successModal">
+
+        <div class="modal-content success-content">
+
+            <div class="success-icon">✓</div>
+
+            <h2>Denúncia enviada!</h2>
+
+            <p>A tua denúncia foi enviada com sucesso.</p>
+
+            <button class="confirm-button" onclick="fecharSucesso()">
+                OK
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Copiar ligação do perfil
+        function copiarLink() {
+
+            const link = window.location.href;
+
+            document.querySelector(".menu").removeAttribute("open");
+
+            navigator.clipboard.writeText(link)
+                .then(() => {
+                    mostrarSucesso("Ligação copiada!");
+                })
+                .catch(() => {
+                    mostrarSucesso("Não foi possível copiar a ligação.");
+                });
+
+        }
+
+
+        // Abrir QR Code
+        function abrirQR() {
+
+            document.querySelector(".menu").removeAttribute("open");
+
+            document.getElementById("qrModal").style.display = "flex";
+
+        }
+
+        function fecharQR() {
+
+            document.getElementById("qrModal").style.display = "none";
+
+        }
+
+
+        // Abrir denúncia
+        function abrirDenuncia() {
+
+            document.querySelector(".menu").removeAttribute("open");
+
+            document.getElementById("reportModal").style.display = "flex";
+
+        }
+
+        function fecharDenuncia() {
+
+            document.getElementById("reportModal").style.display = "none";
+
+        }
+
+
+        // Enviar denúncia
+        document.getElementById("reportForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const motivo = document.querySelector(
+                'input[name="motivo"]:checked'
+            );
+
+            const descricao = document.getElementById("reportReason").value.trim();
+
+            if (!motivo) {
+                return;
+            }
+
+            if (motivo.value === "Outro" && descricao === "") {
+                document.getElementById("reportReason").focus();
+                return;
+            }
+
+            fecharDenuncia();
+
+            document.getElementById("reportForm").reset();
+
+            document.getElementById("successModal").style.display = "flex";
+
+        });
+
+
+        // Mostrar confirmação
+        function mostrarSucesso(mensagem) {
+
+            document.querySelector("#successModal h2").textContent = mensagem;
+            document.querySelector("#successModal p").textContent = "";
+
+            document.getElementById("successModal").style.display = "flex";
+
+        }
+
+        // Fechar confirmação
+        function fecharSucesso() {
+
+            document.getElementById("successModal").style.display = "none";
+
+        }
+
+    </script>
+
+</body>
+</html>
