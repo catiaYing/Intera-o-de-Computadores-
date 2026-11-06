@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Perfil - BANDy</title>
+
+    <link rel="stylesheet" href="../../styles/rodrigo/comum.css">
+    <link rel="stylesheet" href="../../styles/rodrigo/perfil.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <header class="cabecalho">
+        <a href="../index.html" class="voltar" aria-label="Voltar">&larr;</a>
+        <h1>Perfil</h1>
+    </header>
+
+    <section class="perfil-topo">
+
+        <div class="avatar" id="avatar">AS</div>
+
+        <h2 id="nome-perfil">Ana Santos</h2>
+        <p class="utilizador" id="utilizador-perfil">@ana-santos</p>
+
+        <button type="button" class="botao-secundario" id="editar-perfil">
+            Editar perfil
+        </button>
+
+    </section>
+
+    <section class="estatisticas">
+
+        <div class="estatistica">
+            <strong>3</strong>
+            <span>Festivais</span>
+        </div>
+
+        <div class="estatistica">
+            <strong>8</strong>
+            <span>Amigos</span>
+        </div>
+
+        <div class="estatistica">
+            <strong>5</strong>
+            <span>Favoritos</span>
+        </div>
+
+    </section>
+
+    <nav class="menu">
+
+        <a href="#" class="menu-item" data-em-breve>
+            <span>Notificações</span>
+            <span>›</span>
+        </a>
+
+        <a href="../luisa/pagamento.html" class="menu-item">
+            <span>Métodos de pagamento</span>
+            <span>›</span>
+        </a>
+
+        <a href="#" class="menu-item" data-em-breve>
+            <span>Definições</span>
+            <span>›</span>
+        </a>
+
+        <a href="#" class="menu-item" data-em-breve>
+            <span>Dados pessoais</span>
+            <span>›</span>
+        </a>
+
+        <a href="dados_saude.html" class="menu-item">
+            <span>Saúde</span>
+            <span>›</span>
+        </a>
+
+    </nav>
+
+    <p class="mensagem" id="mensagem" role="status"></p>
+
+    <nav class="bottom-nav">
+
+        <a href="../index.html" class="nav-item">
+            <img src="../../media/inicio-home.png" alt="">
+            <span>Início</span>
+        </a>
+
+        <a href="pesquisar.html" class="nav-item">
+            <img src="../../media/pesquisar-search.png" alt="">
+            <span>Pesquisar</span>
+        </a>
+
+        <a href="../catia/bilhetes.html" class="nav-item">
+            <img src="../../media/bilhetes-ticket.png" alt="">
+            <span>Bilhetes</span>
+        </a>
+
+        <a href="../catia/contactos.html" class="nav-item">
+            <img src="../../media/contactos-people.png" alt="">
+            <span>Contactos</span>
+        </a>
+
+        <a href="perfil.html" class="nav-item active">
+            <img src="../../media/perfil-user.png" alt="">
+            <span>Perfil</span>
+        </a>
+
+    </nav>
+
+</main>
+
+
+<div class="modal" id="modal-edicao">
+
+    <form class="modal-content" id="form-edicao" novalidate>
+
+        <h2>Editar perfil</h2>
+
+        <div class="campo">
+            <label for="campo-nome">Nome</label>
+            <input type="text" id="campo-nome" maxlength="40">
+        </div>
+
+        <div class="campo">
+            <label for="campo-utilizador">Nome de utilizador</label>
+            <input type="text" id="campo-utilizador" maxlength="25">
+        </div>
+
+        <div class="modal-botoes">
+            <button type="button" id="cancelar-edicao">Cancelar</button>
+            <button type="submit" id="guardar-edicao">Guardar</button>
+        </div>
+
+    </form>
+
+</div>
+
+
+<script src="../../scripts/rodrigo/perfil.js"></script>
+
+</body>
+</html>
