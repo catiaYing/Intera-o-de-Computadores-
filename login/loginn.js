@@ -12,13 +12,15 @@ function showScreen(screenId) {
   }
 }
 
-//Login
+// Login
 function handleLogin(event) {
-  event.preventDefault(); // nao deixa que a página faça refresh
+  event.preventDefault(); 
   const email = document.getElementById('login-email').value;
-  // mostra um aviso no ecrã e limpa o formulário
-  alert(`Bem-vindo(a) de volta à BANDy, ${email}!`);
+  document.getElementById('mensagem-boas-vindas').innerText = `Bem-vindo(a), ${email}!`;
   document.getElementById('login-formulario').reset();
+  
+  // Mudar para ecra principal
+  showScreen('ecra-principal');
 }
 
 // Criar conta
@@ -40,3 +42,4 @@ function handleRecovery(event) {
   showScreen('ecra-login');
   document.getElementById('recuperacao-formulario').reset();
 }
+
