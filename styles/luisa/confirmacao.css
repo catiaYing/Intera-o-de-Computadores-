@@ -1,0 +1,130 @@
+/* ===== 页面基础设置 ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e8e8e8;
+}
+
+/* ===== 手机页面 ===== */
+
+.pagina {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 24px;
+
+    background-color: #fbfce9;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== 顶部导航 ===== */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.voltar {
+    font-size: 28px;
+    color: #333;
+    text-decoration: none;
+}
+
+.cabecalho h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+/* ===== 支付成功区域 ===== */
+
+.resultado {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.icone-sucesso {
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+    background-color: #ecf2a5;
+
+    color: #7d8926;
+    font-size: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.resultado h1 {
+    font-size: 23px;
+    color: #292929;
+    margin-bottom: 15px;
+}
+
+.resultado p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* ===== 底部按钮 ===== */
+
+.acoes {
+    margin-top: auto;
+    padding-top: 40px;
+    padding-bottom: 25px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.acoes button {
+    width: 100%;
+    padding: 16px;
+
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* 主按钮 */
+.btn-principal {
+    border: none;
+    background-color: #7d8926;
+    color: white;
+}
+
+/* 次要按钮 */
+.btn-secundario {
+    border: 2px solid #7d8926;
+    background-color: transparent;
+    color: #7d8926;
+}
+
+/* 返回首页 */
+.link-inicio {
+    text-align: center;
+    margin-top: 8px;
+
+    color: #666;
+    font-size: 14px;
+    text-decoration: underline;
+}

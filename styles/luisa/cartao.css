@@ -1,0 +1,70 @@
+/* =====================================
+   BANDy - Pagamento Cartão
+===================================== */
+
+
+/* 1. 每组输入区域 */
+
+.grupo-campo {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 18px;
+}
+
+/* 输入框上面的文字 */
+.grupo-campo label {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* 2. 银行卡表单输入框 */
+
+.grupo-campo input {
+    width: 100%;
+    padding: 14px;
+
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+
+    font-size: 15px;
+}
+
+/* 点击输入框时边框变绿 */
+.grupo-campo input:focus {
+    outline: none;
+    border: 2px solid #7d8926;
+}
+
+/* 格式错误时边框变红 */
+.grupo-campo input[aria-invalid="true"] {
+    border: 2px solid #c94d4d;
+}
+
+
+/* 3. 有效期和CVV放在同一行 */
+
+.linha-cartao {
+    display: flex;
+    gap: 12px;
+}
+
+
+/* 4. 压缩页面之间的距离 */
+
+.pagina-cartao .introducao {
+    margin-bottom: 16px;
+}
+
+.pagina-cartao .resumo {
+    margin-bottom: 18px;
+}
+
+/* 确认按钮和表单之间的间距 */
+.pagina-cartao .botao-principal {
+    margin-top: 6px;
+}

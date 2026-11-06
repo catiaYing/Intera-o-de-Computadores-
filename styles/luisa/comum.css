@@ -1,0 +1,318 @@
+/* =====================================
+   BANDy - Estilos Comuns
+   所有支付页面共用
+===================================== */
+
+
+/* 1. 基础设置 */
+
+/* padding 和 border 不会让元素额外变宽 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #eeeeee;
+    color: #181818;
+}
+
+/* 按钮和输入框使用相同字体 */
+button, input {
+    font-family: inherit;
+}
+
+
+/* 2. 手机页面布局 */
+
+.pagina {
+    width: 100%;
+    max-width: 390px;
+    min-height: 100dvh;
+
+    margin: 0 auto;
+    padding: 16px 20px;
+
+    background-color: white;
+
+    /* 子元素从上到下排列 */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* 3. 顶部导航栏 */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* 方便返回按钮定位 */
+    position: relative;
+
+    min-height: 46px;
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.cabecalho h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+/* 左上角返回箭头 */
+.voltar {
+    position: absolute;
+    left: 0;
+
+    color: #181818;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+
+/* 4. 页面介绍 */
+
+.introducao {
+    margin-bottom: 18px;
+}
+
+/* 绿色小标题 */
+.etiqueta {
+    margin: 0 0 8px;
+
+    color: #7d8926;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* 例如 Está quase! */
+.introducao h2 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+/* 标题下方的说明 */
+.descricao {
+    margin: 0;
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+
+/* 5. 购买摘要 */
+
+.resumo {
+    padding: 16px;
+    margin-bottom: 18px;
+
+    background-color: #f7f7f7;
+    border: 1px solid #eaeaea;
+    border-radius: 16px;
+}
+
+/* RESUMO DA COMPRA */
+.resumo-titulo {
+    margin: 0 0 12px;
+    color: #777777;
+    font-size: 11px;
+}
+
+/* 图标和文字横向排列 */
+.festival {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 左侧音乐节或支付图标 */
+.icone-festival {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ecf2a5;
+    border-radius: 12px;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.festival h3 {
+    margin: 0 0 5px;
+    font-size: 15px;
+}
+
+.festival p {
+    margin: 0;
+    color: #777777;
+    font-size: 12px;
+}
+
+/* 卡片中的分隔线 */
+.resumo hr {
+    border: none;
+    border-top: 1px solid #dddddd;
+    margin: 12px 0;
+}
+
+/* Total 在左，价格在右 */
+.total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.total span {
+    color: #555555;
+    font-size: 13px;
+}
+
+.total strong {
+    font-size: 19px;
+}
+
+
+/* 6. 公共主要按钮 */
+
+.botao-principal {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+
+    border: none;
+    border-radius: 12px;
+
+    background-color: #7d8926;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 鼠标移上去，稍微变深 */
+.botao-principal:hover {
+    background-color: #68751f;
+}
+
+
+/* 7. 公共次要按钮 */
+
+/* 例如 Cancelar */
+.botao-secundario {
+    width: 100%;
+    min-height: 44px;
+    padding: 12px;
+    margin-top: 10px;
+
+    background-color: white;
+    color: #555555;
+
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+/* 8. 原型说明 */
+
+.nota-simulacao {
+    margin: 12px 0;
+
+    color: #777777;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+
+/* 9. 所有页面共用的弹窗 */
+
+.dialogo {
+    width: 85%;
+    max-width: 320px;
+    padding: 24px;
+
+    border: none;
+    border-radius: 18px;
+
+    background-color: white;
+    color: #181818;
+
+    text-align: center;
+}
+
+/* 弹窗出现时，后面的页面变暗 */
+.dialogo::backdrop {
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.dialogo h2 {
+    margin: 0 0 12px;
+    font-size: 20px;
+}
+
+.dialogo p {
+    margin: 0 0 20px;
+
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 弹窗上方的圆形图标 */
+.icone-dialogo {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f2f2f2;
+    border-radius: 50%;
+
+    font-size: 26px;
+}
+
+/* 成功时显示浅绿色 */
+.icone-dialogo.sucesso {
+    background-color: #ecf2a5;
+    color: #52621e;
+}
+
+
+/* 10. 键盘操作时显示焦点 */
+
+button:focus-visible,
+a:focus-visible {
+    outline: 2px solid #7d8926;
+    outline-offset: 3px;
+}
+
+
+/* 11. 适应比较窄的手机 */
+
+@media (max-width: 360px) {
+    .pagina {
+        padding: 14px 16px;
+    }
+
+    .introducao h2 {
+        font-size: 25px;
+    }
+}

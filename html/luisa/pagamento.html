@@ -2,36 +2,40 @@
 <html lang="pt">
 
 <head>
-    <!-- 设置文字编码，保证葡语特殊字符正常显示 -->
+    <!-- 支持葡萄牙语字符 -->
     <meta charset="UTF-8">
 
-    <!-- 让网页适应手机屏幕宽度 -->
+    <!-- 适应手机屏幕 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- 浏览器标签页显示的名字 -->
     <title>BANDy - Pagamento</title>
 
-    <!-- 连接自己的 CSS 文件 -->
+    <!-- 公共 CSS：手机尺寸、字体、导航、摘要 -->
+    <link rel="stylesheet" href="../../styles/luisa/comum.css">
+
+    <!-- 当前页面专属 CSS：支付选择按钮 -->
     <link rel="stylesheet" href="../../styles/luisa/pagamento.css">
 </head>
 
 <body>
 
-    <!-- 整个支付页面 -->
+    <!-- 整个手机页面 -->
     <main class="pagina">
 
-        <!-- ========== 1. 顶部导航 ========== -->
+        <!-- ===== 1. 顶部导航 ===== -->
         <header class="cabecalho">
 
-            <!-- 返回首页，之后可改成购票页面 -->
-            <a href="../index.html" class="voltar">←</a>
+            <!-- 返回首页，整合时改成购票页面 -->
+            <a href="../index.html" class="voltar" aria-label="Voltar">
+                &larr;
+            </a>
 
             <h1>Pagamento</h1>
 
         </header>
 
 
-        <!-- ========== 2. 页面标题 ========== -->
+        <!-- ===== 2. 页面介绍 ===== -->
         <section class="introducao">
 
             <p class="etiqueta">FINALIZAR COMPRA</p>
@@ -45,15 +49,14 @@
         </section>
 
 
-        <!-- ========== 3. 购买摘要 ========== -->
+        <!-- ===== 3. 购买摘要 ===== -->
         <section class="resumo">
 
             <p class="resumo-titulo">RESUMO DA COMPRA</p>
 
-            <!-- 音乐节信息 -->
             <div class="festival">
 
-                <!-- 临时音乐图标 -->
+                <!-- 临时图标，之后可以换成小组的图片 -->
                 <div class="icone-festival">♫</div>
 
                 <div>
@@ -63,10 +66,8 @@
 
             </div>
 
-            <!-- 分隔线 -->
             <hr>
 
-            <!-- 显示总价 -->
             <div class="total">
                 <span>Total</span>
                 <strong>45,00 €</strong>
@@ -75,13 +76,15 @@
         </section>
 
 
-        <!-- ========== 4. 选择支付方式 ========== -->
+        <!-- ===== 4. 选择支付方式 ===== -->
         <section class="pagamentos">
 
             <h2>Como queres pagar?</h2>
 
             <!-- MB WAY -->
-            <button type="button" class="metodo" data-metodo="mbway">
+            <!-- data-metodo 让 JS 知道用户选择的方式 -->
+            <button type="button" class="metodo"
+                    data-metodo="mbway" aria-pressed="false">
 
                 <span class="icone">MB</span>
 
@@ -90,14 +93,14 @@
                     <small>Pagamento com telemóvel</small>
                 </span>
 
-                <!-- 右侧圆圈，CSS负责改变外观 -->
                 <span class="circulo"></span>
 
             </button>
 
 
-            <!-- 银行卡 -->
-            <button type="button" class="metodo" data-metodo="cartao">
+            <!-- Cartão -->
+            <button type="button" class="metodo"
+                    data-metodo="cartao" aria-pressed="false">
 
                 <span class="icone">▤</span>
 
@@ -112,7 +115,8 @@
 
 
             <!-- PayPal -->
-            <button type="button" class="metodo" data-metodo="paypal">
+            <button type="button" class="metodo"
+                    data-metodo="paypal" aria-pressed="false">
 
                 <span class="icone">P</span>
 
@@ -128,20 +132,20 @@
         </section>
 
 
-        <!-- ========== 5. 底部按钮 ========== -->
+        <!-- ===== 5. 继续按钮 ===== -->
 
-        <!-- disabled 表示用户选择前不能点击 -->
+        <!-- 没选支付方式前，按钮不能点击 -->
         <button type="button" id="continuar" disabled>
             Continuar
         </button>
 
-        <!-- 用于显示 JavaScript 的提示信息 -->
+        <!-- 用于显示 JS 提示 -->
         <p id="mensagem" role="status"></p>
 
     </main>
 
 
-    <!-- 连接自己的 JavaScript 文件 -->
+    <!-- 当前页面自己的 JS -->
     <script src="../../scripts/luisa/pagamento.js"></script>
 
 </body>
