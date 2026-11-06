@@ -98,10 +98,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (tipoSelecionado === null) return;
 
         try {
-            sessionStorage.setItem("bandyFestival", nomeFestival.textContent);
-            sessionStorage.setItem("bandyTipo", tipoSelecionado);
-            sessionStorage.setItem("bandyQuantidade", String(quantidade));
-            sessionStorage.setItem("bandyTotal", String(precoUnitario * quantidade));
+            sessionStorage.setItem("bandyCompra", JSON.stringify({
+                festival: nomeFestival.textContent,
+                tipo: tipoSelecionado,
+                preco: precoUnitario,
+                quantidade: quantidade
+            }));
         } catch (erro) {
         }
 
