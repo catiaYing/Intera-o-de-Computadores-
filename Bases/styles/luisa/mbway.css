@@ -1,0 +1,53 @@
+/* =====================================
+   BANDy - MB WAY
+===================================== */
+
+/* 电话号码标签 */
+.label-numero {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 电话输入框 */
+#numero {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+/* 输入时边框绿色 */
+#numero:focus {
+    outline: none;
+    border: 2px solid #7d8926;
+}
+
+/* 数据错误时边框红色 */
+#numero[aria-invalid="true"] {
+    border: 2px solid #c94d4d;
+}
+
+/* 输入提示 */
+.ajuda {
+    margin: 8px 0 24px;
+    color: #777777;
+    font-size: 12px;
+}
+
+/* 授权状态提示 */
+.resultado {
+    padding: 12px;
+    background-color: #f2f6d8;
+    color: #52621e;
+    border-radius: 10px;
+    font-size: 13px;
+    text-align: center;
+}
+
+/* 无文字时隐藏 */
+.resultado:empty {
+    display: none;
+}
