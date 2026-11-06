@@ -1,5 +1,7 @@
 
-/* Configurações gerais */
+/*  BANDy - CONTACTOS
+   Warm Beige & Olive Green Theme*/
+
 * {
     margin: 0;
     padding: 0;
@@ -8,8 +10,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #101114;
-    color: white;
+    background: #F1F0E9;
+    color: #303329;
 }
 
 /* Ecrã principal */
@@ -18,27 +20,31 @@ body {
     max-width: 430px;
     min-height: 100vh;
     margin: 0 auto;
-    background: #101114;
+    background: #F1F0E9;
     position: relative;
     padding-bottom: 85px;
 }
 
-/* Cabeçalho */
+/* cabeçalho */
+
 .contacts-header {
     height: 65px;
     padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #303239;
+    border-bottom: 1px solid #DAD9D0;
+    background: #F1F0E9;
 }
 
 .contacts-header h1 {
     font-size: 21px;
-    font-weight: 650;
+    font-weight: 700;
+    color: #303329;
 }
 
-/* Menu para adicionar amigos */
+/* menu de adicionar amigos */
+
 .add-menu {
     position: relative;
 }
@@ -48,29 +54,36 @@ body {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: #D7FF45;
-    color: #101114;
+    background: #B9C77A;
+    color: #303329;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 27px;
     cursor: pointer;
+    transition: background .2s;
+}
+
+.add-button:hover {
+    background: #A9B66B;
 }
 
 .add-button::-webkit-details-marker {
     display: none;
 }
 
+/* Menu suspenso */
 .add-popup {
     position: absolute;
     top: 48px;
     right: 0;
     width: 205px;
     padding: 8px;
-    background: #25282F;
-    border: 1px solid #3A3D45;
+    background: #F8F7F1;
+    border: 1px solid #DEDDD4;
     border-radius: 14px;
     z-index: 5;
+    box-shadow: 0 6px 20px rgba(48, 51, 41, .12);
 }
 
 .add-menu:not([open]) .add-popup {
@@ -82,22 +95,23 @@ body {
     align-items: center;
     gap: 12px;
     padding: 13px 10px;
-    color: white;
+    color: #303329;
     text-decoration: none;
     font-size: 14px;
     border-radius: 8px;
+    transition: background .2s;
 }
 
 .popup-option:hover {
-    background: #363A43;
+    background: #EAE9E1;
 }
 
 .popup-option span {
-    color: #D7FF45;
+    color: #78864B;
     font-size: 21px;
 }
 
-/* Pesquisa de mensagens e contactos */
+/*  pesquisa de amigos */
 
 .search-section {
     padding: 15px 18px;
@@ -109,14 +123,19 @@ body {
     gap: 10px;
     height: 52px;
     padding: 0 16px;
-    background: #25282F;
-    border: 1px solid #373A43;
+    background: #E7E6DE;
+    border: 1px solid #DEDDD4;
     border-radius: 16px;
+    transition: border-color .2s;
+}
+
+.search-form:focus-within {
+    border-color: #AEBB7C;
 }
 
 .search-form span {
     font-size: 21px;
-    color: #A0A3AC;
+    color: #78864B;
 }
 
 .search-form input {
@@ -125,24 +144,24 @@ body {
     border: none;
     outline: none;
     background: transparent;
-    color: white;
+    color: #303329;
     font-size: 14px;
 }
 
 .search-form input::placeholder {
-    color: #92959F;
+    color: #898A80;
 }
 
 .search-form button {
     border: none;
     background: transparent;
-    color: #C6FF35;
+    color: #718044;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
 }
 
-/* Lista de conversas */
+/* lista de conversas */
 .conversation-list {
     padding: 0 18px;
 }
@@ -152,31 +171,37 @@ body {
     align-items: center;
     gap: 14px;
     padding: 17px 3px;
-    border-bottom: 1px solid #303239;
+    border-bottom: 1px solid #DAD9D0;
     text-decoration: none;
-    color: white;
+    color: #303329;
+    transition: background .2s;
+}
+
+.conversation:hover {
+    background: rgba(255, 255, 255, .25);
 }
 
 .conversation:active {
-    background: #202228;
+    background: #E7E6DE;
 }
 
-/* Avatar */
+/* avatar do contacto */
 .avatar {
     width: 51px;
     height: 51px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #30343D;
+    background: #E2E1D8;
+    border: 1px solid #D8D7CD;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D7FF45;
+    color: #78864B;
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 650;
 }
 
-/* Informações da conversa */
+/* informações da conversa */
 .conversation-info {
     flex: 1;
     min-width: 0;
@@ -192,25 +217,27 @@ body {
 
 .conversation-top h2 {
     font-size: 15px;
-    font-weight: 600;
+    font-weight: 700;
+    color: #303329;
 }
 
 .time {
-    color: #858995;
+    color: #898A80;
     font-size: 11px;
     white-space: nowrap;
     transform: translateX(-8px);
 }
 
 .conversation-info p {
-    color: #9A9DA6;
+    color: #77786D;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-/* Adaptação para ecrãs pequenos */
+/* ecrares pequenos */
+
 @media (max-width: 360px) {
     .contacts-header {
         padding: 0 15px;
@@ -222,5 +249,10 @@ body {
 
     .conversation {
         gap: 10px;
+    }
+
+    .search-section {
+        padding-left: 13px;
+        padding-right: 13px;
     }
 }

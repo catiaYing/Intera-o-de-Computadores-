@@ -1,4 +1,7 @@
 
+/* BANDy - NOVOS AMIGOS
+   Warm Beige & Olive Green Theme*/
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,9 +9,9 @@
 }
 
 body {
-    background: #111216;
-    color: white;
-    font-family: Arial, sans-serif;
+    background: #E8E6DC;
+    color: #303329;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .friends-page {
@@ -18,29 +21,41 @@ body {
     margin: auto;
     padding: 20px;
     padding-bottom: 100px;
+    background: #F1F0E9;
 }
 
-/* Cabeçalho */
+/* cabeçalho */
 .page-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 45px;
-    border-bottom: 1px solid #35363b;
-    padding-bottom: 10px;
+    height: 65px;
+    padding: 0 15px;
+    margin: -20px -20px 0;
+    background: #696963;
+    border-radius: 0 0 14px 14px;
 }
 
 .page-header h1 {
     font-size: 20px;
+    font-weight: 750;
+    color: #c4c7bb;
 }
 
 .back-button {
-    color: white;
+    color: #23241f;
     text-decoration: none;
     font-size: 28px;
 }
 
-/* Barra de pesquisa */
+.back-button {
+    color: #303329;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+/* botão de pesquisa */
+
 .search-box {
     display: flex;
     align-items: center;
@@ -48,13 +63,18 @@ body {
     height: 48px;
     margin-top: 20px;
     padding: 0 15px;
-    background: #292a30;
-    border: 1px solid #414249;
+    background: #E7E6DE;
+    border: 1px solid #DEDDD4;
     border-radius: 25px;
+    transition: border-color .2s;
+}
+
+.search-box:focus-within {
+    border-color: #AEBB7C;
 }
 
 .search-box span {
-    color: #D7FF45;
+    color: #78864B;
     font-size: 23px;
 }
 
@@ -64,15 +84,16 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    color: white;
+    color: #303329;
     font-size: 14px;
 }
 
 .search-box input::placeholder {
-    color: #858995;
+    color: #898A80;
 }
 
-/* Secções */
+/* section de amigos aceites e pendentes */
+
 .accepted-section,
 .pending-section {
     margin-top: 30px;
@@ -81,10 +102,13 @@ body {
 .accepted-section h2,
 .pending-section h2 {
     font-size: 18px;
+    font-weight: 750;
+    color: #303329;
     margin-bottom: 15px;
 }
 
-/* Lista */
+/* lista de amigos aceites e pendentes */
+
 .user-list {
     display: flex;
     flex-direction: column;
@@ -96,121 +120,97 @@ body {
     gap: 12px;
     min-height: 82px;
     padding: 12px 5px;
-    border-bottom: 1px solid #35363b;
+    border-bottom: 1px solid #DAD9D0;
+    background: transparent;
 }
 
-/* Avatar */
+/*avatar do contacto */
+
 .user-avatar {
     width: 45px;
     height: 45px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #292a30;
-    border: 1px solid #666974;
+    background: #E2E1D8;
+    border: 1px solid #C6C5B9;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #D7FF45;
+    color: #78864B;
     font-size: 20px;
+    font-weight: 650;
     text-decoration: none;
 }
 
 .maria-avatar {
-    background: #383b2b;
-    border-color: #D7FF45;
+    background: #E5E7D8;
+    border-color: #AEBB7C;
+    color: #65743B;
 }
 
-/* Informações */
+/* informações do contacto */
+
 .user-info {
     flex: 1;
     min-width: 0;
     text-decoration: none;
-    color: white;
+    color: #303329;
 }
 
 .user-info h3 {
     font-size: 15px;
-    font-weight: normal;
+    font-weight: 650;
+    color: #303329;
 }
 
 .user-info p {
     margin-top: 5px;
-    color: #999da8;
+    color: #898A80;
     font-size: 13px;
 }
 
-/* Estado adicionado */
+/* etiqueta de adicionado */
 .added-label {
-    color: #D7FF45;
+    color: #718044;
     font-size: 13px;
+    font-weight: 700;
     white-space: nowrap;
 }
 
-/* Botão aceitar */
+/* aceitar  */
+
 .action-button {
     min-width: 95px;
     padding: 10px 12px;
-    border: 1px solid #D7FF45;
+    border: 1px solid #AEBB7C;
     border-radius: 22px;
     background: transparent;
-    color: #D7FF45;
+    color: #65743B;
     font-size: 13px;
+    font-weight: 650;
     cursor: pointer;
+    transition: background .2s;
+}
+
+.action-button:hover {
+    background: #E5E8D9;
 }
 
 .action-button:active {
-    background: #383b2b;
+    background: #DDE2CB;
 }
 
-/* Lista vazia */
+/* label de pedido enviado */
+
 .empty-message {
     display: none;
     text-align: center;
-    color: #858995;
+    color: #898A80;
     font-size: 13px;
     padding: 20px 0;
 }
 
-/* Navegação inferior */
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 430px;
-    height: 75px;
-    background: #1c1d22;
-    border-top: 1px solid #35363b;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 100;
-}
-
-.nav-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    color: #858995;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.nav-item img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-}
-
-.nav-item.active {
-    color: #D7FF45;
-}
-
-/* Ecrãs pequenos */
+/* ecrãs pequenos */
 @media (max-width: 360px) {
 
     .friends-page {
@@ -231,9 +231,12 @@ body {
     .added-label {
         font-size: 11px;
     }
-
-    .nav-item {
-        font-size: 11px;
-    }
 }
 
+.sent-button {
+    background: #D8D8C9;
+    border: 1px solid #B9C77A;
+    color: #65743B;
+    cursor: default;
+    opacity: 1;
+}

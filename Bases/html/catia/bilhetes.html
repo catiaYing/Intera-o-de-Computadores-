@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Os meus bilhetes - BANDy</title>
+
+    <link rel="stylesheet" href="../../styles/catia/bilhetes.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+</head>
+</head>
+
+<body>
+
+<main class="tickets-page">
+
+    <!-- Cabeçalho -->
+    <header class="page-header">
+
+        <h1>Os meus bilhetes</h1>
+
+        <div class="search-row">
+
+            <div class="search-box">
+                <span>⌕</span>
+
+                <input
+                    type="search"
+                    id="ticketSearch"
+                    placeholder="Pesquisar festivais..."
+                >
+            </div>
+
+            <button type="button" id="selectButton">
+                Selecionar
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Categorias por mês -->
+    <section class="categories">
+
+        <button class="category active" data-month="all">
+            Todos
+        </button>
+
+        <button class="category" data-month="6">
+            Junho
+        </button>
+
+        <button class="category" data-month="7">
+            Julho
+        </button>
+
+        <button class="category" data-month="8">
+            Agosto
+        </button>
+
+    </section>
+
+    <!-- Barra de seleção -->
+    <div class="selection-bar" id="selectionBar">
+
+        <button type="button" id="cancelSelection">
+            Cancelar
+        </button>
+
+        <span id="selectedCount">
+            0 selecionados
+        </span>
+
+        <button type="button" id="deleteSelected" disabled>
+            Eliminar
+        </button>
+
+    </div>
+
+    <!-- Lista de bilhetes -->
+    <section class="ticket-list" id="ticketList">
+
+        <!-- MEO Alive - Junho -->
+        <article class="ticket-item" data-month="6">
+
+            <div class="select-circle"></div>
+
+            <div class="ticket-image image-one">
+                <span>♫</span>
+            </div>
+
+            <div class="ticket-details">
+
+                <span class="ticket-type">PASSE GERAL</span>
+
+                <h3>MEO Alive</h3>
+
+                <p>20 – 21 Junho 2027</p>
+
+                <span class="ticket-price">€ 120,00</span>
+            
+
+            </div>
+
+            <a href="bilhete_digital.html" class="ticket-arrow">›</a>
+
+        </article>
+
+
+        <!-- Meo Kalorama - Agosto -->
+        <article class="ticket-item" data-month="8">
+
+            <div class="select-circle"></div>
+
+            <div class="ticket-image image-two">
+                <span>♫</span>
+            </div>
+
+            <div class="ticket-details">
+
+                <span class="ticket-type">BILHETE DIÁRIO</span>
+
+                <h3>Meo Kalorama</h3>
+
+                <p>29 Agosto 2027</p>
+
+                <span class="ticket-price">€ 65,00</span>
+
+            </div>
+
+            <span class="ticket-arrow">›</span>
+
+        </article>
+
+
+        <!-- Sumol Summer Fest - Julho -->
+        <article class="ticket-item" data-month="7">
+
+            <div class="select-circle"></div>
+
+            <div class="ticket-image image-three">
+                <span>♫</span>
+            </div>
+
+            <div class="ticket-details">
+
+                <span class="ticket-type">PASSE GERAL</span>
+
+                <h3>Sumol Summer Fest</h3>
+
+                <p>3 – 4 Julho 2027</p>
+
+                <span class="ticket-price">€ 90,00</span>
+
+            </div>
+
+            <span class="ticket-arrow">›</span>
+
+        </article>
+
+
+        <!-- Primavera Sound - Junho -->
+        <article class="ticket-item" data-month="6">
+
+            <div class="select-circle"></div>
+
+            <div class="ticket-image image-four">
+                <span>♫</span>
+            </div>
+
+            <div class="ticket-details">
+
+                <span class="ticket-type">BILHETE DIÁRIO</span>
+
+                <h3>Primavera Sound</h3>
+
+                <p>12 Junho 2027</p>
+
+                <span class="ticket-price">€ 75,00</span>
+
+            </div>
+
+            <span class="ticket-arrow">›</span>
+
+        </article>
+
+    </section>
+
+    <!-- Nenhum bilhete encontrado -->
+    <p class="empty-message" id="emptyMessage" hidden>
+        Não foram encontrados bilhetes.
+    </p>
+
+
+    <!-- Navegação inferior -->
+    <nav class="bottom-nav">
+
+        <a href="../index.html" class="nav-item">
+            <img src="../../media/inicio-home.png" alt="">
+            <span>Início</span>
+        </a>
+
+        <a href="../pesquisar.html" class="nav-item">
+            <img src="../../media/pesquisar-search.png" alt="">
+            <span>Pesquisar</span>
+        </a>
+
+        <a href="bilhetes.html" class="nav-item active">
+            <img src="../../media/bilhetes-ticket.png" alt="">
+            <span>Bilhetes</span>
+        </a>
+
+        <a href="contactos.html" class="nav-item">
+            <img src="../../media/contactos-people.png" alt="">
+            <span>Contactos</span>
+        </a>
+
+        <a href="../perfil.html" class="nav-item">
+            <img src="../../media/perfil-user.png" alt="">
+            <span>Perfil</span>
+        </a>
+
+    </nav>
+
+</main>
+
+
+<!-- Confirmação de eliminação -->
+<div class="modal" id="deleteModal">
+
+    <div class="modal-content">
+
+        <div class="delete-icon">♧</div>
+
+        <h2 id="deleteTitle">
+            Remover bilhetes?
+        </h2>
+
+        <p id="deleteDescription">
+            Tens a certeza de que queres eliminar os bilhetes selecionados?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button type="button" id="cancelDelete">
+                Cancelar
+            </button>
+
+            <button type="button" id="confirmDelete">
+                Confirmar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Sucesso -->
+<div class="modal" id="successModal">
+
+    <div class="modal-content">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Bilhetes eliminados!</h2>
+
+        <p>
+            Os bilhetes selecionados foram removidos com sucesso.
+        </p>
+
+        <button type="button" id="successButton" class="success-button">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- JavaScript -->
+<script src="../../scripts/catia/bilhetes.js"></script>
+
+</body>
+</html>

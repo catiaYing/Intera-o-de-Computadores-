@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BANDy - Confirmação</title>
+
+    <!-- 本页面的 CSS -->
+    <link rel="stylesheet" href="../../styles/luisa/confirmacao.css">
+
+    <!-- 本页面的 JavaScript -->
+    <script src="../../scripts/luisa/confirmacao.js" defer></script>
+</head>
+
+<body>
+
+    <!-- 手机页面容器 -->
+    <main class="pagina">
+
+        <!-- ===== 1. 顶部导航 ===== -->
+        <header class="cabecalho">
+
+            <!-- 返回 Cátia 的门票列表 -->
+            <a href="../catia/bilhetes.html"
+               class="voltar"
+               aria-label="Voltar aos bilhetes">
+                &#8592;
+            </a>
+
+            <h2>Confirmação</h2>
+
+        </header>
+
+
+        <!-- ===== 2. 支付成功信息 ===== -->
+        <section class="resultado">
+
+            <!-- 绿色成功图标 -->
+            <div class="icone-sucesso">
+                &#10003;
+            </div>
+
+            <h1>Pagamento Concluído!</h1>
+
+            <p>
+                O teu pagamento foi realizado com sucesso.
+                O teu bilhete já está disponível!
+            </p>
+
+        </section>
+
+
+        <!-- ===== 3. 操作按钮 ===== -->
+        <section class="acoes">
+
+            <!-- 查看刚购买的数字门票 -->
+            <!-- 跳转由 confirmacao.js 处理 -->
+            <button type="button"
+                    id="verBilhete"
+                    class="btn-principal">
+                Ver o meu bilhete
+            </button>
+
+
+            <!-- 查看门票列表 -->
+            <!-- 暂时连接 Cátia 的 bilhetes.html -->
+            <button type="button"
+                    id="verFestivais"
+                    class="btn-secundario">
+                Ver os meus festivais
+            </button>
+
+
+            <!-- 返回 BANDy 首页 -->
+            <!-- 当前 index.html 仍然是测试页面 -->
+            <a href="../index.html"
+               class="link-inicio">
+                Voltar ao Início
+            </a>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

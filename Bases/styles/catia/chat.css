@@ -1,24 +1,36 @@
 
+/* BANDy - Chat */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html,
 body {
-    background: #111216;
-    color: white;
-    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
+body {
+    background: #F1F0E9;
+    color: #303329;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Página principal */
 .chat-page {
     width: 100%;
     max-width: 430px;
     height: 100vh;
-    margin: auto;
+    height: 100dvh;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    background: #F1F0E9;
+    overflow: hidden;
 }
 
 /* Cabeçalho */
@@ -26,12 +38,16 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 0 15px;
-    border-bottom: 1px solid #35363b;
+    padding: 14px 18px 10px;
+    border-bottom: 1px solid #DAD9D0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    background: #F1F0E9;
 }
 
 .back-button {
-    color: white;
+    color: #303329;
     text-decoration: none;
     font-size: 28px;
 }
@@ -39,19 +55,21 @@ body {
 .user-info {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex: 1;
     text-decoration: none;
-    color: white;
+    color: #303329;
 }
 
+/* Avatar */
 .avatar {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
     border-radius: 50%;
-    background: #292a30;
-    border: 1px solid #555761;
-    color: #D7FF45;
+    background: #E7E6DE;
+    border: 1px solid #DEDDD4;
+    color: #78864B;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,114 +77,182 @@ body {
 }
 
 .user-info h2 {
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 700;
 }
 
 .user-info span {
-    font-size: 12px;
-    color: #D7FF45;
     display: block;
-    margin-top: 4px;
+    margin-top: 3px;
+    font-size: 13px;
+    color: #78864B;
 }
 
+/* Área das mensagens */
+.messages {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 14px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 12px 16px 20px;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 1;
+}
 
 /* Data */
 .chat-date {
-    text-align: center;
-    color: #858995;
-    font-size: 12px;
-    margin: 20px 0;
+    align-self: center;
+    color: #898A80;
+    background: #EAE6DE;
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 7px 20px;
+    margin: auto 0 14px;
+    flex-shrink: 0;
 }
 
-/* Mensagens */
-.messages {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    overflow-y: auto;
-    padding: 5px 2px 20px;
-}
-
+/* Balões */
 .message {
+    width: fit-content;
     max-width: 78%;
-    padding: 12px 14px 8px;
-    border-radius: 15px;
+    padding: 10px 14px 8px;
+    border-radius: 18px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     overflow-wrap: anywhere;
+    flex-shrink: 0;
 }
 
 .message p {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.4;
 }
 
 .message span {
-    font-size: 10px;
-    color: #aeb0b8;
     align-self: flex-end;
+    font-size: 11px;
+    color: #898A80;
+    white-space: nowrap;
 }
 
+/* Mensagens recebidas */
 .received {
     align-self: flex-start;
-    background: #292a30;
-    border-bottom-left-radius: 4px;
+    margin-right: auto;
+    background: #E7E6DE;
+    color: #303329;
+    border-bottom-left-radius: 5px;
 }
 
+/* Mensagens enviadas */
 .sent {
     align-self: flex-end;
-    background: #D7FF45;
-    color: #171813;
-    border-bottom-right-radius: 4px;
+    margin-left: auto;
+    background: #B9C77A;
+    color: #303329;
+    border-bottom-right-radius: 5px;
 }
 
 .sent span {
-    color: #555b36;
+    color: #606A40;
 }
 
-/* Caixa de mensagem */
+/* Duplo visto */
+.sent span::after {
+    content: " ✓✓";
+    color: #303329;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Caixa de envio */
 .message-form {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 0;
-    border-top: 1px solid #35363b;
+    padding: 12px 15px 18px;
+    border-top: 1px solid #DAD9D0;
+    background: #F1F0E9;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
 }
 
 .message-form input {
     flex: 1;
     min-width: 0;
-    padding: 13px 15px;
-    background: #292a30;
-    border: 1px solid #414249;
+    height: 46px;
+    padding: 0 17px;
+    background: #EAE6DE;
+    border: 1px solid #DEDAD1;
     border-radius: 25px;
-    color: white;
+    color: #303329;
     font-size: 14px;
     outline: none;
 }
 
-.message-form input::placeholder {
-    color: #858995;
+.message-form input:focus {
+    border-color: #AEBB7C;
 }
 
+.message-form input::placeholder {
+    color: #898A80;
+}
+
+/* Botões */
 .attach-button,
 .send-button {
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
     border: none;
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 21px;
 }
 
 .attach-button {
-    background: #292a30;
-    color: white;
+    background: #EAE6DE;
+    color: #62665A;
 }
 
 .send-button {
-    background: #D7FF45;
-    color: #171813;
+    background: #899B4D;
+    color: white;
+    transition: background .2s;
+}
+
+.send-button:hover {
+    background: #788943;
+}
+
+/* Telemóveis pequenos */
+@media (max-width: 360px) {
+
+    .chat-header {
+        padding: 12px;
+    }
+
+    .messages {
+        padding: 10px 12px 16px;
+        gap: 12px;
+    }
+
+    .message {
+        max-width: 82%;
+    }
+
+    .message-form {
+        padding: 10px 12px 14px;
+        gap: 7px;
+    }
 }

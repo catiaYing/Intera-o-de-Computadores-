@@ -1,9 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Enviar Pedido - BANDy</title>
+
     <link rel="stylesheet" href="../../styles/catia/pedido_amizade.css">
 </head>
 
@@ -13,40 +17,79 @@
 
         <!-- Cabeçalho -->
         <header class="page-header">
-            <a href="javascript:history.back()" class="back-button">‹</a>
+            <a href="contactos.html" class="back-button">‹</a>
             <h1>Enviar Pedido</h1>
         </header>
 
-        <!-- Formulário do pedido -->
+        <!-- Formulário -->
         <section class="request-content">
 
-            <div class="message-box">
+            <form id="requestForm">
 
-                <textarea
-                    placeholder="Escreve uma mensagem..."
-                    maxlength="300">
-                </textarea>
+                <div class="message-box">
 
-                <!-- Botão para adicionar fotografia -->
-                <div class="photo-option">
-                    <label for="photo-modal" class="add-photo">
-                        <span class="photo-icon">▧</span>
-                        <span>Adicionar foto</span>
-                    </label>
+                    <!-- Mensagem -->
+                    <textarea
+                        id="requestMessage"
+                        placeholder="Escreve uma mensagem..."
+                        maxlength="300"></textarea>
+
+                    <!-- Adicionar fotografia -->
+                    <div class="photo-option">
+
+                        <!-- Botão original -->
+                        <label
+                            for="photo-modal"
+                            class="add-photo"
+                            id="addPhotoButton">
+
+                            <span class="photo-icon">▧</span>
+                            <span>Adicionar foto</span>
+
+                        </label>
+
+                        <!-- Fotografia selecionada -->
+                        <div id="selectedPhotoContainer" style="display: none;">
+
+                            <img
+                                id="selectedAlbumPhoto"
+                                src=""
+                                alt="Fotografia selecionada">
+
+                            <button
+                                type="button"
+                                id="removeAlbumPhoto">
+                                Remover foto
+                            </button>
+
+                        </div>
+
+                        <!-- Selecionar ficheiro do dispositivo -->
+                        <input
+                            type="file"
+                            id="photoInput"
+                            accept="image/*"
+                            hidden>
+
+                    </div>
+
                 </div>
 
-            </div>
+                <!-- Enviar -->
+                <button type="submit" class="send-button">
+                    Enviar
+                </button>
 
-            <button type="button" class="send-button">
-                Enviar
-            </button>
+            </form>
 
         </section>
 
-        <!-- Controla a abertura da janela -->
-        <input type="checkbox" id="photo-modal" class="modal-toggle">
+        <!-- Janela para adicionar fotografia -->
+        <input
+            type="checkbox"
+            id="photo-modal"
+            class="modal-toggle">
 
-        <!-- Janela de seleção -->
         <div class="modal-overlay">
 
             <div class="photo-modal">
@@ -54,18 +97,22 @@
                 <div class="modal-handle"></div>
 
                 <h2>Adicionar fotografia</h2>
+
                 <p>Escolhe como queres adicionar uma fotografia.</p>
 
+                <!-- Fotografar -->
                 <a href="camera.html" class="modal-option">
                     <span class="option-icon">◎</span>
                     <span>Fotografar</span>
                 </a>
 
+                <!-- Álbum -->
                 <a href="album.html" class="modal-option">
                     <span class="option-icon">▧</span>
                     <span>Selecionar da galeria</span>
                 </a>
 
+                <!-- Cancelar -->
                 <label for="photo-modal" class="cancel-button">
                     Cancelar
                 </label>
@@ -74,7 +121,52 @@
 
         </div>
 
+    
+        <div
+            class="success-modal"
+            id="successModal"
+            style="display: none;">
+
+            <div class="success-content">
+
+                <div class="success-icon">✓</div>
+
+                <h2>Pedido enviado!</h2>
+
+                <p>
+                    O teu pedido de amizade foi enviado com sucesso.
+                </p>
+
+                <button type="button" id="successButton">
+                    OK
+                </button>
+
+            </div>
+
+        </div>
+
     </main>
+
+    <!-- Modal de mensagem em falta -->
+    <div class="success-modal" id="errorModal" style="display: none;">
+
+        <div class="success-content">
+
+            <div class="success-icon error-icon">!</div>
+
+            <h2>Mensagem em falta</h2>
+
+            <p>Escreve uma mensagem antes de enviar o pedido.</p>
+
+            <button type="button" id="errorButton">
+            OK
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="../../scripts/catia/pedido_amizade.js"></script>
 
 </body>
 </html>

@@ -9,7 +9,6 @@
     <title>Novos Amigos - BANDy</title>
 
     <link rel="stylesheet" href="../../styles/catia/novos_amigos.css">
-    <link rel="stylesheet" href="../../styles/navbar.css">
 </head>
 
 <body>
@@ -22,7 +21,8 @@
             <h1>Novos Amigos</h1>
             <span></span>
         </header>
-    <!-- Pesquisa por ID ou número de telefone -->
+
+        <!-- Pesquisa por ID ou número de telefone -->
         <div class="search-box">
             <span>⌕</span>
             <input
@@ -31,6 +31,19 @@
                 placeholder="Pesquisar por ID / Número de telefone"
             >
         </div>
+
+        <!-- Resultados da pesquisa de novos utilizadores -->
+        <section class="search-results" id="searchResults" style="display: none;">
+
+            <h2>Novos Utilizadores</h2>
+
+            <div class="user-list" id="searchResultsList"></div>
+
+            <p class="empty-message" id="noSearchResults" style="display: none;">
+                Nenhum utilizador encontrado.
+            </p>
+
+        </section>
 
         <!-- Pedidos aceites -->
         <section class="accepted-section">
@@ -58,7 +71,6 @@
             </div>
 
         </section>
-
 
         <!-- Pedidos pendentes -->
         <section class="pending-section">
@@ -167,89 +179,9 @@
         </section>
 
 
-        <!-- Navegação inferior -->
-        <nav class="bottom-nav">
-
-            <a href="../index.html" class="nav-item">
-                <img src="../../media/inicio-home.png" alt="">
-                <span>Início</span>
-            </a>
-
-            <a href="../pesquisar.html" class="nav-item">
-                <img src="../../media/pesquisar-search.png" alt="">
-                <span>Pesquisar</span>
-            </a>
-
-            <a href="../bilhetes.html" class="nav-item">
-                <img src="../../media/bilhetes-ticket.png" alt="">
-                <span>Bilhetes</span>
-            </a>
-
-            <a href="contactos.html" class="nav-item active">
-                <img src="../../media/contactos-people.png" alt="">
-                <span>Contactos</span>
-            </a>
-
-            <a href="../perfil.html" class="nav-item">
-                <img src="../../media/perfil-user.png" alt="">
-                <span>Perfil</span>
-            </a>
-
-        </nav>
-
     </main>
 
-
-    <script>
-
-        // Aceitar pedido de amizade
-        function aceitarPedido(button) {
-
-            const card = button.closest(".user-card");
-
-            const nome = card.querySelector(".user-info h3").textContent;
-            const descricao = card.querySelector(".user-info p").textContent;
-            const inicial = nome.charAt(0).toUpperCase();
-
-            // Criar novo amigo
-            const novoAmigo = document.createElement("div");
-            novoAmigo.className = "user-card";
-
-            novoAmigo.innerHTML = `
-                <div class="user-avatar">${inicial}</div>
-
-                <div class="user-info">
-                    <h3>${nome}</h3>
-                    <p>${descricao}</p>
-                </div>
-
-                <span class="added-label">✓ Adicionado</span>
-            `;
-
-            // Colocar na lista de pedidos aceites
-            document.getElementById("acceptedList").appendChild(novoAmigo);
-
-            // Remover dos pedidos pendentes
-            card.remove();
-
-            // Verificar se ainda existem pedidos
-            verificarPedidos();
-
-        }
-
-
-        // Verificar pedidos pendentes
-        function verificarPedidos() {
-
-            const lista = document.getElementById("pendingList");
-            const mensagem = document.getElementById("emptyPending");
-
-            mensagem.style.display =
-                lista.children.length === 0 ? "block" : "none";
-
-        }
-
-    </script>
+    <script src="../../scripts/catia/novos_amigos.js"></script>
 
 </body>
 </html>

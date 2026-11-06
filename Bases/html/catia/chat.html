@@ -22,22 +22,22 @@
 
             <a href="perfil_users.html" class="user-info">
                 <div class="avatar">M</div>
+
                 <div>
                     <h2>Maria</h2>
                     <span>Online</span>
                 </div>
             </a>
 
-
         </header>
 
-        <!-- Data -->
-        <div class="chat-date">
-            Hoje
-        </div>
+        <!-- Área de mensagens -->
+        <section class="messages" id="messages">
 
-        <!-- Mensagens -->
-        <section class="messages">
+            <!-- Data -->
+            <div class="chat-date">
+                Hoje
+            </div>
 
             <div class="message received">
                 <p>Olá! Tudo bem?</p>
@@ -108,19 +108,29 @@
 
     <script>
 
+        const messages = document.getElementById("messages");
+        const messageForm = document.getElementById("messageForm");
+        const messageInput = document.getElementById("messageInput");
+
+        // Abrir a conversa na mensagem mais recente
+        function scrollToLatestMessage() {
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        window.addEventListener("load", function() {
+            scrollToLatestMessage();
+        });
+
         // Enviar mensagem
-        document.getElementById("messageForm").addEventListener("submit", function(event) {
+        messageForm.addEventListener("submit", function(event) {
 
             event.preventDefault();
 
-            const input = document.getElementById("messageInput");
-            const text = input.value.trim();
+            const text = messageInput.value.trim();
 
             if (text === "") {
                 return;
             }
-
-            const messages = document.querySelector(".messages");
 
             const message = document.createElement("div");
             message.className = "message sent";
@@ -129,6 +139,7 @@
             paragraph.textContent = text;
 
             const time = document.createElement("span");
+
             time.textContent = new Date().toLocaleTimeString("pt-PT", {
                 hour: "2-digit",
                 minute: "2-digit"
@@ -139,9 +150,10 @@
 
             messages.appendChild(message);
 
-            input.value = "";
+            messageInput.value = "";
 
-            messages.scrollTop = messages.scrollHeight;
+            // Descer automaticamente para a nova mensagem
+            requestAnimationFrame(scrollToLatestMessage);
 
         });
 

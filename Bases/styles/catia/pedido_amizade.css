@@ -1,4 +1,6 @@
+
 /* Configurações gerais */
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +14,7 @@ body {
 }
 
 /* Ecrã principal */
+
 .request-page {
     width: 100%;
     max-width: 430px;
@@ -21,7 +24,8 @@ body {
     position: relative;
 }
 
-/* Cabeçalho */
+/* cabeçalho */
+
 .page-header {
     height: 65px;
     display: flex;
@@ -42,12 +46,14 @@ body {
     text-decoration: none;
 }
 
-/* Conteúdo do pedido */
+/* conteúdo do pedido */
+
 .request-content {
     padding: 25px 20px;
 }
 
 /* Caixa da mensagem */
+
 .message-box {
     background: #202228;
     border: 1px solid #363942;
@@ -72,45 +78,103 @@ body {
     color: #858995;
 }
 
-/* Opção para adicionar fotografia */
+/* adicionar fotografia */
+
 .photo-option {
     border-top: 1px solid #363942;
 }
+
+/* Botão Adicionar foto */
 
 .add-photo {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 13px 16px;
+    padding: 16px 20px;
     color: #B7BAC4;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-photo:hover {
+    color: white;
 }
 
 .photo-icon {
-    font-size: 23px;
+    font-size: 25px;
 }
 
-/* Botão Enviar */
-.send-button {
+/* Fotografia selecionada */
+
+#selectedPhotoContainer {
     width: 100%;
-    height: 48px;
-    margin-top: 22px;
-    border: none;
-    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+}
+
+/* Imagem */
+
+#selectedAlbumPhoto {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 14px;
+    flex-shrink: 0;
+}
+
+/* Botão remover */
+
+#removeAlbumPhoto {
+    background: transparent;
+    border: 1px solid #D7FF45;
+    color: #D7FF45;
+    border-radius: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#removeAlbumPhoto:hover {
     background: #D7FF45;
     color: #101114;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
 }
 
-/* Esconder o controlo do modal */
+/* botão enviar */
+.send-button {
+    width: 100%;
+    height: 58px;
+    margin-top: 22px;
+    border: none;
+    border-radius: 30px;
+    background: #D7FF45;
+    color: #101114;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.send-button:hover {
+    background: #c6ed35;
+}
+
+.send-button:active {
+    transform: scale(0.98);
+}
+
+/* fotografar */
+
 .modal-toggle {
     display: none;
 }
 
-/* Fundo escuro da janela */
+/* Fundo escuro */
+
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -124,13 +188,13 @@ body {
     z-index: 10;
 }
 
-/* Abrir janela ao clicar na fotografia */
 .modal-toggle:checked ~ .modal-overlay {
     opacity: 1;
     visibility: visible;
 }
 
 /* Janela inferior */
+
 .photo-modal {
     width: 100%;
     max-width: 430px;
@@ -145,7 +209,8 @@ body {
     transform: translateY(0);
 }
 
-/* Indicador da janela */
+/* Indicador */
+
 .modal-handle {
     width: 38px;
     height: 4px;
@@ -155,6 +220,7 @@ body {
 }
 
 /* Título e descrição */
+
 .photo-modal h2 {
     font-size: 18px;
     margin-bottom: 7px;
@@ -166,7 +232,8 @@ body {
     margin-bottom: 18px;
 }
 
-/* Opções de fotografia */
+/* Opções */
+
 .modal-option {
     display: flex;
     align-items: center;
@@ -185,7 +252,8 @@ body {
     color: #D7FF45;
 }
 
-/* Botão cancelar */
+/* Cancelar */
+
 .cancel-button {
     display: block;
     text-align: center;
@@ -196,4 +264,90 @@ body {
     color: #D7FF45;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* sucesso */
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.success-content {
+    width: 100%;
+    max-width: 340px;
+    background: #22252B;
+    border: 1px solid #41454D;
+    border-radius: 24px;
+    padding: 30px 24px;
+    text-align: center;
+    color: white;
+    animation: successAppear 0.25s ease;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #D7FF45;
+    color: #111216;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+}
+
+.success-content h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.success-content p {
+    color: #B9BBC3;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.success-content button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background: #D7FF45;
+    color: #111216;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.success-content button:hover {
+    background: #c6ed35;
+}
+
+/* Animação */
+
+@keyframes successAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Ícone de aviso */
+.error-icon {
+    background: #D7FF45;
+    color: #101114;
 }

@@ -1,0 +1,457 @@
+
+/* BANDy - BILHETES
+   Warm Beige & Olive Green Theme */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #F1F0E9;
+    color: #303329;
+}
+
+/* Página principal */
+.tickets-page {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    background: #F1F0E9;
+}
+
+/* Cabeçalho */
+
+.page-header {
+    padding: 25px 20px 18px;
+    border-bottom: 1px solid #DAD9D0;
+}
+
+.page-header h1 {
+    font-size: 23px;
+    font-weight: 750;
+    color: #303329;
+    margin-bottom: 20px;
+}
+
+/* Pesquisa */
+.search-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search-box {
+    flex: 1;
+    height: 45px;
+    background: #E7E6DE;
+    border: 1px solid #DEDDD4;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    padding: 0 13px;
+    gap: 9px;
+    transition: border-color .2s;
+}
+
+.search-box:focus-within {
+    border-color: #AEBB7C;
+}
+
+.search-box span {
+    color: #78864B;
+    font-size: 21px;
+}
+
+.search-box input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #303329;
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: #898A80;
+}
+
+/* Botão selecionar */
+#selectButton {
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #AEBB7C;
+    border-radius: 13px;
+    background: #F1F0E9;
+    color: #65743B;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s;
+}
+
+#selectButton:hover {
+    background: #E5E8D9;
+}
+
+/* categorias */
+
+.categories {
+    display: flex;
+    gap: 9px;
+    padding: 19px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+    display: none;
+}
+
+.category {
+    padding: 9px 16px;
+    border: 1px solid #DEDDD4;
+    border-radius: 22px;
+    background: #E7E6DE;
+    color: #68695F;
+    font-size: 12px;
+    font-weight: 550;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.category:hover {
+    border-color: #AEBB7C;
+}
+
+.category.active {
+    background: #B9C77A;
+    border-color: #B9C77A;
+    color: #303329;
+    font-weight: 750;
+}
+
+/* botão de voltar */
+
+.selection-bar {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 20px;
+    border-top: 1px solid #DAD9D0;
+    border-bottom: 1px solid #DAD9D0;
+    background: #E9E8E0;
+}
+
+.selection-bar.show {
+    display: flex;
+}
+
+.selection-bar span {
+    font-size: 12px;
+    color: #68695F;
+}
+
+.selection-bar button {
+    border: none;
+    background: transparent;
+    color: #718044;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.selection-bar #deleteSelected {
+    background: #B9C77A;
+    color: #303329;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.selection-bar #deleteSelected:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+/* lista de bilhetes */
+
+.ticket-list {
+    padding: 0 20px;
+}
+
+.ticket-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 112px;
+    padding: 15px 5px;
+    border-bottom: 1px solid #DAD9D0;
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+    transition: background .2s;
+}
+
+.ticket-item:hover {
+    background: rgba(255, 255, 255, .25);
+}
+
+/* Imagens dos festivais */
+.ticket-image {
+    width: 78px;
+    height: 78px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.image-one {
+    background: linear-gradient(135deg, #622B91, #D34B8D, #171B38);
+}
+
+.image-two {
+    background: linear-gradient(135deg, #E6A45C, #8A4774, #24213C);
+}
+
+.image-three {
+    background: linear-gradient(135deg, #176B9E, #5142A3, #171B38);
+}
+
+.image-four {
+    background: linear-gradient(135deg, #258C83, #263C70, #171B38);
+}
+
+/* Informações dos bilhetes */
+.ticket-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.ticket-type {
+    color: #78864B;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .7px;
+}
+
+.ticket-details h3 {
+    font-size: 15px;
+    font-weight: 750;
+    color: #303329;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ticket-details p {
+    font-size: 11px;
+    color: #898A80;
+}
+
+.ticket-price {
+    display: block;
+    font-size: 12px;
+    font-weight: 750;
+    color: #303329;
+    margin-top: 7px;
+}
+
+/* Seta para abrir o bilhete */
+.ticket-arrow {
+    text-decoration: none;
+    color: #898A80;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: color .2s, transform .2s;
+}
+
+.ticket-arrow:hover {
+    color: #78864B;
+    transform: translateX(3px);
+}
+
+/* seleção de bilhetes */
+
+.select-circle {
+    display: none;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #A8AA9D;
+    border-radius: 50%;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.selection-mode .select-circle {
+    display: flex;
+}
+
+.selection-mode .ticket-arrow {
+    display: none;
+}
+
+.ticket-item.selected {
+    background: #E8EBD9;
+}
+
+.ticket-item.selected .select-circle {
+    background: #B9C77A;
+    border-color: #B9C77A;
+}
+
+.ticket-item.selected .select-circle::after {
+    content: "✓";
+    color: #303329;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* lista vazia */
+
+.empty-message {
+    text-align: center;
+    color: #898A80;
+    font-size: 13px;
+    padding: 35px 15px;
+}
+
+/* confirmação de eliminação */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(35, 37, 29, .48);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 330px;
+    padding: 25px 20px;
+    border: 1px solid #DEDDD4;
+    border-radius: 20px;
+    background: #F8F7F1;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+}
+
+/* Ícones dos modais */
+.delete-icon,
+.success-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.delete-icon {
+    color: #C65E54;
+    background: #F4E5E1;
+}
+
+.success-icon {
+    color: #303329;
+    background: #B9C77A;
+}
+
+/* Texto dos modais */
+.modal-content h2 {
+    font-size: 19px;
+    font-weight: 750;
+    color: #303329;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    color: #77786D;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Botões dos modais */
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.modal-buttons button,
+.success-button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#cancelDelete {
+    background: #E7E6DE;
+    color: #55564D;
+}
+
+#confirmDelete,
+.success-button {
+    background: #B9C77A;
+    color: #303329;
+}
+
+.success-button {
+    width: 100%;
+    margin-top: 22px;
+}
+
+/* ecrares pequenos */
+
+@media (max-width: 360px) {
+
+    .page-header {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .categories {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .ticket-list {
+        padding: 0 15px;
+    }
+
+    .ticket-image {
+        width: 68px;
+        height: 68px;
+    }
+
+    .ticket-details h3 {
+        font-size: 14px;
+    }
+}
