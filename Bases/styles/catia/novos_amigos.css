@@ -1,8 +1,6 @@
 
-/* =========================================
-   BANDy - NOVOS AMIGOS
-   Warm Beige & Olive Green Theme
-========================================= */
+/* BANDy - NOVOS AMIGOS
+   Warm Beige & Olive Green Theme*/
 
 * {
     box-sizing: border-box;
@@ -26,9 +24,7 @@ body {
     background: #F1F0E9;
 }
 
-/* =========================================
-   CABEÇALHO
-========================================= */
+/* cabeçalho */
 .page-header {
     display: flex;
     align-items: center;
@@ -58,9 +54,7 @@ body {
     font-size: 28px;
 }
 
-/* =========================================
-   BARRA DE PESQUISA
-========================================= */
+/* botão de pesquisa */
 
 .search-box {
     display: flex;
@@ -98,9 +92,7 @@ body {
     color: #898A80;
 }
 
-/* =========================================
-   SECÇÕES
-========================================= */
+/* section de amigos aceites e pendentes */
 
 .accepted-section,
 .pending-section {
@@ -115,9 +107,7 @@ body {
     margin-bottom: 15px;
 }
 
-/* =========================================
-   LISTA DE UTILIZADORES
-========================================= */
+/* lista de amigos aceites e pendentes */
 
 .user-list {
     display: flex;
@@ -134,9 +124,7 @@ body {
     background: transparent;
 }
 
-/* =========================================
-   AVATAR
-========================================= */
+/*avatar do contacto */
 
 .user-avatar {
     width: 45px;
@@ -160,9 +148,7 @@ body {
     color: #65743B;
 }
 
-/* =========================================
-   INFORMAÇÕES
-========================================= */
+/* informações do contacto */
 
 .user-info {
     flex: 1;
@@ -183,10 +169,7 @@ body {
     font-size: 13px;
 }
 
-/* =========================================
-   ESTADO ADICIONADO
-========================================= */
-
+/* etiqueta de adicionado */
 .added-label {
     color: #718044;
     font-size: 13px;
@@ -194,9 +177,7 @@ body {
     white-space: nowrap;
 }
 
-/* =========================================
-   BOTÃO ACEITAR
-========================================= */
+/* aceitar  */
 
 .action-button {
     min-width: 95px;
@@ -219,9 +200,7 @@ body {
     background: #DDE2CB;
 }
 
-/* =========================================
-   LISTA VAZIA
-========================================= */
+/* label de pedido enviado */
 
 .empty-message {
     display: none;
@@ -231,10 +210,7 @@ body {
     padding: 20px 0;
 }
 
-/* =========================================
-   ECRÃS PEQUENOS
-========================================= */
-
+/* ecrãs pequenos */
 @media (max-width: 360px) {
 
     .friends-page {

@@ -1,13 +1,17 @@
 
-/* =========================================
-   BANDy - CHAT
-   Warm Beige & Olive Green Theme
-========================================= */
+/* BANDy - Chat */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -16,28 +20,30 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Ecrã principal */
+/* Página principal */
 .chat-page {
     width: 100%;
     max-width: 430px;
     height: 100vh;
-    margin: auto;
+    height: 100dvh;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    padding: 15px;
     background: #F1F0E9;
+    overflow: hidden;
 }
 
-/* =========================================
-   CABEÇALHO
-========================================= */
-
+/* Cabeçalho */
 .chat-header {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 0 15px;
+    padding: 14px 18px 10px;
     border-bottom: 1px solid #DAD9D0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    background: #F1F0E9;
 }
 
 .back-button {
@@ -49,7 +55,7 @@ body {
 .user-info {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     flex: 1;
     text-decoration: none;
     color: #303329;
@@ -57,8 +63,9 @@ body {
 
 /* Avatar */
 .avatar {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
     border-radius: 50%;
     background: #E7E6DE;
     border: 1px solid #DEDDD4;
@@ -70,107 +77,124 @@ body {
 }
 
 .user-info h2 {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 700;
-    color: #303329;
 }
 
 .user-info span {
-    font-size: 12px;
-    color: #78864B;
     display: block;
-    margin-top: 4px;
+    margin-top: 3px;
+    font-size: 13px;
+    color: #78864B;
 }
 
-/* =========================================
-   DATA
-========================================= */
-
-.chat-date {
-    text-align: center;
-    color: #898A80;
-    font-size: 12px;
-    margin: 20px 0;
-}
-
-/* =========================================
-   MENSAGENS
-========================================= */
-
+/* Área das mensagens */
 .messages {
     flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    justify-content: flex-start;
+    gap: 14px;
     overflow-y: auto;
-    padding: 5px 2px 20px;
+    overflow-x: hidden;
+    padding: 12px 16px 20px;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 1;
 }
 
+/* Data */
+.chat-date {
+    align-self: center;
+    color: #898A80;
+    background: #EAE6DE;
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 7px 20px;
+    margin: auto 0 14px;
+    flex-shrink: 0;
+}
+
+/* Balões */
 .message {
+    width: fit-content;
     max-width: 78%;
-    padding: 12px 14px 8px;
-    border-radius: 15px;
+    padding: 10px 14px 8px;
+    border-radius: 18px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
     overflow-wrap: anywhere;
+    flex-shrink: 0;
 }
 
 .message p {
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: 15px;
+    line-height: 1.4;
 }
 
 .message span {
-    font-size: 10px;
-    color: #898A80;
     align-self: flex-end;
+    font-size: 11px;
+    color: #898A80;
+    white-space: nowrap;
 }
 
 /* Mensagens recebidas */
 .received {
     align-self: flex-start;
+    margin-right: auto;
     background: #E7E6DE;
     color: #303329;
-    border-bottom-left-radius: 4px;
+    border-bottom-left-radius: 5px;
 }
 
 /* Mensagens enviadas */
 .sent {
     align-self: flex-end;
+    margin-left: auto;
     background: #B9C77A;
     color: #303329;
-    border-bottom-right-radius: 4px;
+    border-bottom-right-radius: 5px;
 }
 
 .sent span {
     color: #606A40;
 }
 
-/* =========================================
-   CAIXA DE MENSAGEM
-========================================= */
+/* Duplo visto */
+.sent span::after {
+    content: " ✓✓";
+    color: #303329;
+    font-size: 12px;
+    font-weight: 600;
+}
 
+/* Caixa de envio */
 .message-form {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 0;
+    padding: 12px 15px 18px;
     border-top: 1px solid #DAD9D0;
     background: #F1F0E9;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
 }
 
 .message-form input {
     flex: 1;
     min-width: 0;
-    padding: 13px 15px;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
+    height: 46px;
+    padding: 0 17px;
+    background: #EAE6DE;
+    border: 1px solid #DEDAD1;
     border-radius: 25px;
     color: #303329;
     font-size: 14px;
     outline: none;
-    transition: border-color .2s;
 }
 
 .message-form input:focus {
@@ -181,54 +205,54 @@ body {
     color: #898A80;
 }
 
-/* =========================================
-   BOTÕES
-========================================= */
-
+/* Botões */
 .attach-button,
 .send-button {
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 21px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 21px;
 }
 
-/* Anexar */
 .attach-button {
-    background: #E7E6DE;
+    background: #EAE6DE;
     color: #62665A;
 }
 
-/* Enviar */
 .send-button {
-    background: #B9C77A;
-    color: #303329;
+    background: #899B4D;
+    color: white;
     transition: background .2s;
 }
 
 .send-button:hover {
-    background: #A9B66B;
+    background: #788943;
 }
 
-/* =========================================
-   ECRÃS PEQUENOS
-========================================= */
-
+/* Telemóveis pequenos */
 @media (max-width: 360px) {
-    .chat-page {
+
+    .chat-header {
         padding: 12px;
     }
 
+    .messages {
+        padding: 10px 12px 16px;
+        gap: 12px;
+    }
+
     .message {
-        max-width: 85%;
+        max-width: 82%;
     }
 
     .message-form {
+        padding: 10px 12px 14px;
         gap: 7px;
     }
 }

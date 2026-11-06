@@ -1,8 +1,6 @@
 
-/* =========================================
-   BANDy - BILHETES
-   Warm Beige & Olive Green Theme
-========================================= */
+/* BANDy - BILHETES
+   Warm Beige & Olive Green Theme */
 
 * {
     margin: 0;
@@ -26,9 +24,7 @@ body {
     background: #F1F0E9;
 }
 
-/* =========================================
-   CABEÇALHO
-========================================= */
+/* Cabeçalho */
 
 .page-header {
     padding: 25px 20px 18px;
@@ -103,9 +99,7 @@ body {
     background: #E5E8D9;
 }
 
-/* =========================================
-   CATEGORIAS
-========================================= */
+/* categorias */
 
 .categories {
     display: flex;
@@ -143,9 +137,7 @@ body {
     font-weight: 750;
 }
 
-/* =========================================
-   BARRA DE SELEÇÃO
-========================================= */
+/* botão de voltar */
 
 .selection-bar {
     display: none;
@@ -187,9 +179,7 @@ body {
     cursor: not-allowed;
 }
 
-/* =========================================
-   LISTA DE BILHETES
-========================================= */
+/* lista de bilhetes */
 
 .ticket-list {
     padding: 0 20px;
@@ -294,9 +284,7 @@ body {
     transform: translateX(3px);
 }
 
-/* =========================================
-   SELEÇÃO DOS BILHETES
-========================================= */
+/* seleção de bilhetes */
 
 .select-circle {
     display: none;
@@ -333,9 +321,7 @@ body {
     font-weight: 800;
 }
 
-/* =========================================
-   LISTA VAZIA
-========================================= */
+/* lista vazia */
 
 .empty-message {
     text-align: center;
@@ -344,10 +330,7 @@ body {
     padding: 35px 15px;
 }
 
-/* =========================================
-   MODAIS
-========================================= */
-
+/* confirmação de eliminação */
 .modal {
     position: fixed;
     inset: 0;
@@ -445,9 +428,7 @@ body {
     margin-top: 22px;
 }
 
-/* =========================================
-   ECRÃS PEQUENOS
-========================================= */
+/* ecrares pequenos */
 
 @media (max-width: 360px) {
 

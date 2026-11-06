@@ -1,5 +1,5 @@
 
-/* ===== App base ===== */
+/*  App base */
 
 * {
     box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
     color: #f0f4fb;
 }
 
-/* ===== Album App Screen ===== */
+/*  Album App Screen  */
 
 .album-page {
     width: 100%;
@@ -24,7 +24,7 @@ body {
     position: relative;
 }
 
-/* ===== Header ===== */
+/*  Header  */
 
 .album-page header {
     display: flex;
@@ -53,7 +53,7 @@ body {
     cursor: pointer;
 }
 
-/* ===== Photo Grid ===== */
+/*  Photo Grid  */
 
 .photo-grid {
     display: grid;
@@ -88,7 +88,7 @@ body {
     background: #FFFFFF;
 }
 
-/* ===== Confirm Button ===== */
+/*  Confirm Button  */
 
 .album-page footer {
     position: fixed;
@@ -115,7 +115,7 @@ body {
     cursor: pointer;
 }
 
-/* ===== Responsive ===== */
+/*  Responsive  */
 
 @media (max-width: 360px) {
     .album-page {

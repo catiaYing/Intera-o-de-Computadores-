@@ -1,9 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // =========================================
-    // GUARDAR A PÁGINA DE ORIGEM
-    // =========================================
+    // guardar a pagina origem
 
     const paginaAnterior = document.referrer;
 
@@ -16,16 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.setItem("paginaOrigemPedido", paginaAnterior);
     }
 
-    // =========================================
-    // ELEMENTOS DO FORMULÁRIO
-    // =========================================
+    // formulario
 
     const requestForm = document.getElementById("requestForm");
     const messageInput = document.getElementById("requestMessage");
 
-    // =========================================
-    // ELEMENTOS DA FOTOGRAFIA
-    // =========================================
+    // elementos da foto
 
     const photoInput = document.getElementById("photoInput");
     const photoModal = document.getElementById("photo-modal");
@@ -41,9 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const removeAlbumPhoto =
         document.getElementById("removeAlbumPhoto");
 
-    // =========================================
-    // MODAIS
-    // =========================================
+    // modais
 
     const successModal = document.getElementById("successModal");
     const successButton = document.getElementById("successButton");
@@ -53,9 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let selectedPhoto = null;
 
-    // =========================================
-    // MOSTRAR FOTOGRAFIA
-    // =========================================
+    // mostrar foto
 
     function mostrarFotografia(foto) {
 
@@ -67,9 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedPhotoContainer.style.display = "flex";
     }
 
-    // =========================================
-    // RECEBER FOTOGRAFIA DO ÁLBUM
-    // =========================================
+    // receber foto do album
 
     const fotoGuardada =
         sessionStorage.getItem("fotoPedidoAmizade");
@@ -81,9 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("fotoPedidoAmizade");
     }
 
-    // =========================================
-    // SELECIONAR FOTOGRAFIA DO DISPOSITIVO
-    // =========================================
+     // selecionar foto
 
     photoInput.addEventListener("change", function () {
 
@@ -111,9 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         photoModal.checked = false;
     });
 
-    // =========================================
-    // REMOVER FOTOGRAFIA
-    // =========================================
+    // remover foto
 
     removeAlbumPhoto.addEventListener("click", function () {
 
@@ -129,9 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("fotoPedidoAmizade");
     });
 
-    // =========================================
-    // ENVIAR PEDIDO DE AMIZADE
-    // =========================================
+    // pedido de amizade
 
     requestForm.addEventListener("submit", function (event) {
 
@@ -175,10 +157,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Pedido de amizade enviado:", pedido);
 
-        // =====================================
-        // REGISTAR COMO ENVIADO
+        // Registar como eniado
         // Só depois de validar e enviar
-        // =====================================
 
         if (destinatario && destinatario.id) {
 
@@ -218,9 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
         successModal.style.display = "flex";
     });
 
-    // =========================================
-    // FECHAR MODAL DE SUCESSO
-    // =========================================
+    // SUCESSO
 
     successButton.addEventListener("click", function () {
 
@@ -257,9 +235,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // =========================================
-    // FECHAR MODAL DE ERRO
-    // =========================================
+   
+    // ERRO
 
     errorButton.addEventListener("click", function () {
 

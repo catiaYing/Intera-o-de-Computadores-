@@ -1,8 +1,6 @@
 
-/* =========================================
-   BANDy - CONTACTOS
-   Warm Beige & Olive Green Theme
-========================================= */
+/*  BANDy - CONTACTOS
+   Warm Beige & Olive Green Theme*/
 
 * {
     margin: 0;
@@ -27,9 +25,7 @@ body {
     padding-bottom: 85px;
 }
 
-/* =========================================
-   CABEÇALHO
-========================================= */
+/* cabeçalho */
 
 .contacts-header {
     height: 65px;
@@ -47,9 +43,7 @@ body {
     color: #303329;
 }
 
-/* =========================================
-   MENU PARA ADICIONAR AMIGOS
-========================================= */
+/* menu de adicionar amigos */
 
 .add-menu {
     position: relative;
@@ -117,9 +111,7 @@ body {
     font-size: 21px;
 }
 
-/* =========================================
-   PESQUISA
-========================================= */
+/*  pesquisa de amigos */
 
 .search-section {
     padding: 15px 18px;
@@ -169,10 +161,7 @@ body {
     cursor: pointer;
 }
 
-/* =========================================
-   LISTA DE CONVERSAS
-========================================= */
-
+/* lista de conversas */
 .conversation-list {
     padding: 0 18px;
 }
@@ -196,10 +185,7 @@ body {
     background: #E7E6DE;
 }
 
-/* =========================================
-   AVATAR
-========================================= */
-
+/* avatar do contacto */
 .avatar {
     width: 51px;
     height: 51px;
@@ -215,10 +201,7 @@ body {
     font-weight: 650;
 }
 
-/* =========================================
-   INFORMAÇÕES DA CONVERSA
-========================================= */
-
+/* informações da conversa */
 .conversation-info {
     flex: 1;
     min-width: 0;
@@ -253,9 +236,7 @@ body {
     text-overflow: ellipsis;
 }
 
-/* =========================================
-   ECRÃS PEQUENOS
-========================================= */
+/* ecrares pequenos */
 
 @media (max-width: 360px) {
     .contacts-header {

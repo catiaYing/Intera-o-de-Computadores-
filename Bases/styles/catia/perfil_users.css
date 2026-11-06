@@ -1,8 +1,6 @@
 
-/* =========================================
-   BANDy - USER PROFILE
-   Warm Beige & Olive Green Theme
-========================================= */
+/*BANDy - USER PROFILE
+   Warm Beige & Olive Green Theme */
 
 * {
     box-sizing: border-box;
@@ -26,9 +24,7 @@ body {
     background: #E8E6DC;
 }
 
-/* =========================================
-   CABEÇALHO
-========================================= */
+/* cabeçalho */
 
 .profile-header {
     display: flex;
@@ -103,9 +99,7 @@ body {
     color: #A45E49;
 }
 
-/* =========================================
-   PERFIL
-========================================= */
+/* perfil info */
 
 .profile-info {
     text-align: center;
@@ -139,9 +133,7 @@ body {
     font-size: 14px;
 }
 
-/* =========================================
-   ESTATÍSTICAS
-========================================= */
+/* estatisticas do perfil */
 
 .profile-stats {
     display: flex;
@@ -170,9 +162,7 @@ body {
     font-size: 13px;
 }
 
-/* =========================================
-   FOTOGRAFIAS
-========================================= */
+/* fotograficas section */
 
 .photos-section {
     margin-top: 25px;
@@ -202,10 +192,7 @@ body {
     font-size: 12px;
 }
 
-/* =========================================
-   BOTÃO CHAT
-========================================= */
-
+/* chat button */
 .chat-button {
     position: fixed;
     bottom: 25px;
@@ -227,9 +214,7 @@ body {
     background: #A9B66B;
 }
 
-/* =========================================
-   JANELAS MODAIS
-========================================= */
+/* janelas modais */
 
 .modal {
     display: none;
@@ -277,9 +262,7 @@ body {
     cursor: pointer;
 }
 
-/* =========================================
-   QR CODE
-========================================= */
+/* qr code modal */
 
 .qr-placeholder {
     width: 220px;
@@ -306,9 +289,7 @@ body {
         0 0 / 16px 16px;
 }
 
-/* =========================================
-   FORMULÁRIO DE DENÚNCIA
-========================================= */
+/* denuncia */
 
 .report-content {
     text-align: left;
@@ -375,9 +356,7 @@ body {
     border-color: #AEBB7C;
 }
 
-/* =========================================
-   BOTÕES DO FORMULÁRIO
-========================================= */
+/* botão de enviar denúncia */
 
 .modal-buttons {
     display: flex;
@@ -408,9 +387,7 @@ body {
     opacity: .75;
 }
 
-/* =========================================
-   JANELA DE SUCESSO
-========================================= */
+/*success modal */
 
 .success-content {
     width: 100%;
@@ -469,9 +446,7 @@ body {
     opacity: .7;
 }
 
-/* =========================================
-   ECRÃS PEQUENOS
-========================================= */
+/* ecrãs pequenos */
 
 @media (max-width: 360px) {
 
