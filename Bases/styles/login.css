@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* fundo da pagina */
+body {
+  background-color: #121214;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* ecra telefone */
+.app-container {
+  width: 100%;
+  max-width: 380px;
+  height: 680px;
+  background-color: #1a1a1e;
+  border-radius: 24px;
+  padding: 32px 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.screen {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.screen.active {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.marca {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.marca h1 {
+  font-size: 3rem;
+  color: #6d47c4; 
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #6d47c4;
+  text-align: center;
+}
+
+p {
+  color: #a8a8b3;
+  margin-bottom: 24px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* texto */
+.form-group {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  color: #a8a8b3;
+}
+
+.form-group input {
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #29292e;
+  background-color: #121214;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+/* efeito ao clicar para escrever */
+.form-group input:focus {
+  outline: none;
+  border-color: #6d47c4;
+}
+
+/* botoes entrar e criar conta */
+.acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.botao-login, .botao-criarconta {
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 0.2s, transform 0.1s;
+  margin-top: 8px;
+}
+
+/* efito de passar o rato e clicar */
+.botao-login:hover, .botao-criarconta:hover {
+  opacity: 0.9;
+}
+
+.botao-login:active, .botao-criarconta:active {
+  transform: scale(0.98);
+}
+
+/* cor do botao */
+.botao-login {
+  background-color: #6d47c4;
+  color: #d3d1d1;
+}
+.botao-criarconta {
+  background-color: transparent;
+  border: 2px solid #6d47c4;
+  color: #d3d1d1;
+}
+
+/* links */
+.ligacoes {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ligacoes a {
+  color: #8257e5;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.ligacoes a:hover {
+  text-decoration: underline;
+}
