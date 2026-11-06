@@ -1,5 +1,278 @@
+
+/* ========== 1. 整体页面设置 ========== */
+
+/* * 表示选中所有 HTML 元素 */
+* {
+    /* 让 padding 和 border 计算在元素宽度以内 */
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: Arial, Helvetica;
+    margin: 0;                  /* 去掉浏览器默认外边距 */
+    font-family: Arial, sans-serif;  /* 设置字体 */
+    background-color: #eeeeee;  /* 电脑浏览器外围浅灰背景 */
+    color: #171717;             /* 默认文字颜色 */
+}
+
+/* 手机主体 */
+.pag-telemovel {
+    width: 100%;                /* 宽度根据屏幕调整 */
+    max-width: 390px;           /* 最大宽度为390px */
+    min-height: 100vh;          /* 最小高度等于屏幕高度 */
+    margin: auto;               /* 在电脑屏幕上水平居中 */
+    padding: 22px;              /* 页面内部留白 */
+    background-color: white;    /* App白色背景 */
+}
+
+
+/* ========== 2. 页面顶部 ========== */
+
+.pag-topo {
+    display: flex;                 /* 横向排列里面的元素 */
+    justify-content: space-between; /* 元素分布在两侧 */
+    align-items: center;           /* 垂直居中 */
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eeeeee; /* 底部细线 */
+}
+
+.pag-topo h1 {
+    font-size: 19px;   /* 标题字体大小 */
+    margin: 0;
+}
+
+.pag-voltar {
+    color: #171717;
+    font-size: 28px;
+    text-decoration: none; /* 去掉链接默认的下划线 */
+}
+
+.pag-topo span {
+    width: 20px;
+}
+
+
+/* ========== 3. 页面介绍 ========== */
+
+.pag-intro {
+    margin-top: 32px;     /* 距离顶部32px */
+    margin-bottom: 28px;  /* 距离下一部分28px */
+}
+
+.pag-etiqueta {
+    color: #737f10;       /* 深绿色文字 */
+    font-size: 11px;
+    font-weight: bold;    /* 粗体 */
+    letter-spacing: 1px;  /* 字母之间增加间距 */
+}
+
+.pag-intro h2 {
+    font-size: 29px;
+    margin: 10px 0;
+}
+
+/* 选择介绍部分的最后一个p元素 */
+.pag-intro > p:last-child {
+    color: #777777;
+    font-size: 14px;
+    line-height: 1.5;    /* 行间距 */
+}
+
+
+/* ========== 4. 购票信息卡片 ========== */
+
+.pag-resumo {
+    padding: 18px;
+    background-color: #f7f7f8;  /* 浅灰色卡片 */
+    border: 1px solid #eeeeee;
+    border-radius: 20px;         /* 圆角 */
+}
+
+.pag-resumo-topo {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #777777;
+    margin-bottom: 20px;
+}
+
+.pag-resumo-topo span:last-child {
+    color: #737f10;
+}
+
+/* 门票图标与文字横向排列 */
+.pag-bilhete {
+    display: flex;
+    align-items: center;
+    gap: 14px;  /* 图标和文字间的距离 */
+}
+
+/* 音乐符号的背景方块 */
+.pag-icone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background-color: #e7f39a;
+    font-size: 25px;
+}
+
+.pag-bilhete h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+}
+
+.pag-bilhete p {
+    margin: 0;
+    color: #777777;
+    font-size: 12px;
+}
+
+/* 购票卡片中的分隔线 */
+.pag-resumo hr {
+    border: none;
+    border-top: 1px solid #e3e3e3;
+    margin: 20px 0;
+}
+
+/* Total 和价格左右排列 */
+.pag-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pag-total span {
+    color: #555555;
+    font-size: 14px;
+}
+
+.pag-total strong {
+    font-size: 21px;
+}
+
+
+/* ========== 5. 支付方式区域 ========== */
+
+.pag-escolha {
+    margin-top: 30px;
+}
+
+.pag-escolha h3 {
+    margin-bottom: 8px;
+    font-size: 19px;
+}
+
+.pag-escolha > p {
+    color: #777777;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* 让三个支付按钮竖着排列 */
+.pag-metodos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 每个支付按钮的共同样式 */
+.pag-metodo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 14px;
+    gap: 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 15px;
+    background-color: white;
+    text-align: left;
+    cursor: pointer;  /* 鼠标移上去变成小手 */
+    font-family: Arial, sans-serif;
+}
+
+/* 支付方式左侧的小图标区域 */
+.pag-simbolo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 43px;
+    height: 43px;
+    border-radius: 11px;
+    background-color: #f3f4f4;
+    font-size: 17px;
+    font-weight: bold;
+    flex-shrink: 0;  /* 防止图标区域被压缩 */
+}
+
+/* 文字区域占据剩余空间 */
+.pag-texto {
+    flex: 1;
+}
+
+.pag-texto strong {
+    display: block; /* 独占一行 */
+    font-size: 14px;
+}
+
+.pag-texto small {
+    display: block;
+    margin-top: 5px;
+    color: #777777;
+    font-size: 12px;
+}
+
+/* 右侧未选中的圆圈 */
+.pag-circulo {
+    width: 19px;
+    height: 19px;
+    border: 2px solid #cccccc;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+
+/* ========== 6. 选中支付方式后的效果 ========== */
+
+/* .selecionado 由 JavaScript 动态添加 */
+.pag-metodo.selecionado {
+    border: 2px solid #a7c829;   /* 绿色边框 */
+    background-color: #f9fdeb;   /* 浅绿色背景 */
+}
+
+/* 选中时右侧圆圈变绿 */
+.pag-metodo.selecionado .pag-circulo {
+    border: 6px solid #a7c829;
+}
+
+
+/* ========== 7. Continuar 按钮 ========== */
+
+#pag-continuar {
+    width: 100%;
+    margin-top: 28px;
+    padding: 17px;
+    border: none;
+    border-radius: 30px;
+    background-color: #dfff69;  /* BANDy主题色 */
+    color: #171717;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* :disabled 表示按钮处于禁用状态 */
+#pag-continuar:disabled {
+    background-color: #e7e7e7;
+    color: #888888;
+    cursor: not-allowed;
+}
+
+/* 底部说明文字 */
+.pag-aviso {
+    text-align: center;
+    font-size: 12px;
+    color: #888888;
+    margin-top: 18px;
 }

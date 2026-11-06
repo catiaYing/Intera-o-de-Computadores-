@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <!-- 葡语编码 -->
+    <meta charset="UTF-8">
+
+    <!-- 手机尺寸 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BANDy - PayPal</title>
+
+    <!-- 公共 CSS -->
+    <link rel="stylesheet" href="../../styles/luisa/comum.css">
+
+    <!-- PayPal 专属 CSS -->
+    <link rel="stylesheet" href="../../styles/luisa/paypal.css">
+</head>
+
+<body>
+
+    <main class="pagina pagina-paypal">
+
+        <!-- ===== 1. 顶部导航 ===== -->
+        <header class="cabecalho">
+
+            <a href="pagamento.html"
+               class="voltar"
+               aria-label="Voltar">
+                &larr;
+            </a>
+
+            <h1>Pagamento PayPal</h1>
+
+        </header>
+
+
+        <!-- ===== 2. 页面介绍 ===== -->
+        <section class="introducao">
+
+            <p class="etiqueta">MÉTODO DE PAGAMENTO</p>
+
+            <h2>Pagar com PayPal</h2>
+
+            <p class="descricao">
+                Confirma o método de pagamento para continuar.
+            </p>
+
+        </section>
+
+
+        <!-- ===== 3. 支付摘要 ===== -->
+        <section class="resumo">
+
+            <div class="festival">
+
+                <div class="icone-festival">P</div>
+
+                <div>
+                    <h3>PayPal</h3>
+                    <p>Pagamento online</p>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="total">
+                <span>Total</span>
+                <strong>45,00 €</strong>
+            </div>
+
+        </section>
+
+
+        <!-- ===== 4. PayPal 说明 ===== -->
+        <section class="paypal-informacao">
+
+            <h3>Confirmação PayPal</h3>
+
+            <p>
+                Neste protótipo, a autorização do PayPal
+                será representada por uma confirmação
+                na BANDy.
+            </p>
+
+        </section>
+
+
+        <!-- ===== 5. 继续按钮 ===== -->
+        <button type="button"
+                id="continuar-paypal"
+                class="botao-principal">
+            Continuar com PayPal
+        </button>
+
+        <p class="nota-simulacao">
+            Protótipo demonstrativo.
+            Sem ligação ao PayPal real.
+        </p>
+
+    </main>
+
+
+    <!-- ===== 6. PayPal 确认弹窗 ===== -->
+    <dialog id="confirmar-paypal" class="dialogo">
+
+        <div class="icone-dialogo">P</div>
+
+        <h2>Confirmar pagamento</h2>
+
+        <p>
+            Pretendes confirmar o pagamento
+            de 45,00 € com PayPal?
+        </p>
+
+        <!-- 用户确认模拟支付 -->
+        <button type="button"
+                id="confirmar-pagamento"
+                class="botao-principal">
+            Confirmar
+        </button>
+
+        <!-- 用户取消，返回当前页面 -->
+        <button type="button"
+                id="cancelar-paypal"
+                class="botao-secundario">
+            Cancelar
+        </button>
+
+    </dialog>
+
+
+    <!-- PayPal 专属 JS -->
+    <script src="../../scripts/luisa/paypal.js"></script>
+
+</body>
+</html>
