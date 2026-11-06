@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pesquisar festivais - BANDy</title>
+
+    <link rel="stylesheet" href="../../styles/rodrigo/comum.css">
+    <link rel="stylesheet" href="../../styles/rodrigo/pesquisar.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <header class="cabecalho cabecalho-pesquisa">
+
+        <h1>Pesquisar festivais</h1>
+
+        <div class="caixa-pesquisa">
+            <span>⌕</span>
+
+            <input
+                type="search"
+                id="pesquisa"
+                placeholder="Pesquisar festivais..."
+            >
+        </div>
+
+    </header>
+
+    <section class="filtros">
+
+        <button type="button" class="filtro ativo" data-mes="todos">
+            Todos
+        </button>
+
+        <button type="button" class="filtro" data-mes="6">
+            Junho
+        </button>
+
+        <button type="button" class="filtro" data-mes="7">
+            Julho
+        </button>
+
+        <button type="button" class="filtro" data-mes="8">
+            Agosto
+        </button>
+
+    </section>
+
+    <p class="contador" id="contador"></p>
+
+    <section class="lista-festivais" id="lista-festivais">
+
+        <a href="selecionar_bilhete.html?festival=MEO Alive" class="festival" data-mes="6">
+
+            <div class="festival-imagem imagem-um">
+                <span>♫</span>
+            </div>
+
+            <div class="festival-detalhes">
+                <span class="festival-local">ALGÉS, LISBOA</span>
+                <h3>MEO Alive</h3>
+                <p>10 – 12 Junho 2027</p>
+                <span class="festival-preco">Desde € 45,00</span>
+            </div>
+
+            <span class="festival-seta">›</span>
+
+        </a>
+
+        <a href="selecionar_bilhete.html?festival=Primavera Sound" class="festival" data-mes="6">
+
+            <div class="festival-imagem imagem-quatro">
+                <span>♫</span>
+            </div>
+
+            <div class="festival-detalhes">
+                <span class="festival-local">PORTO</span>
+                <h3>Primavera Sound</h3>
+                <p>12 – 14 Junho 2027</p>
+                <span class="festival-preco">Desde € 75,00</span>
+            </div>
+
+            <span class="festival-seta">›</span>
+
+        </a>
+
+        <a href="selecionar_bilhete.html?festival=Sumol Summer Fest" class="festival" data-mes="7">
+
+            <div class="festival-imagem imagem-tres">
+                <span>♫</span>
+            </div>
+
+            <div class="festival-detalhes">
+                <span class="festival-local">ERICEIRA</span>
+                <h3>Sumol Summer Fest</h3>
+                <p>3 – 4 Julho 2027</p>
+                <span class="festival-preco">Desde € 45,00</span>
+            </div>
+
+            <span class="festival-seta">›</span>
+
+        </a>
+
+        <a href="selecionar_bilhete.html?festival=Meo Kalorama" class="festival" data-mes="8">
+
+            <div class="festival-imagem imagem-dois">
+                <span>♫</span>
+            </div>
+
+            <div class="festival-detalhes">
+                <span class="festival-local">LISBOA</span>
+                <h3>Meo Kalorama</h3>
+                <p>29 Agosto 2027</p>
+                <span class="festival-preco">Desde € 65,00</span>
+            </div>
+
+            <span class="festival-seta">›</span>
+
+        </a>
+
+    </section>
+
+    <p class="sem-resultados" id="sem-resultados" hidden>
+        Não foram encontrados festivais.
+    </p>
+
+    <nav class="bottom-nav">
+
+        <a href="../index.html" class="nav-item">
+            <img src="../../media/inicio-home.png" alt="">
+            <span>Início</span>
+        </a>
+
+        <a href="pesquisar.html" class="nav-item active">
+            <img src="../../media/pesquisar-search.png" alt="">
+            <span>Pesquisar</span>
+        </a>
+
+        <a href="../catia/bilhetes.html" class="nav-item">
+            <img src="../../media/bilhetes-ticket.png" alt="">
+            <span>Bilhetes</span>
+        </a>
+
+        <a href="../catia/contactos.html" class="nav-item">
+            <img src="../../media/contactos-people.png" alt="">
+            <span>Contactos</span>
+        </a>
+
+        <a href="perfil.html" class="nav-item">
+            <img src="../../media/perfil-user.png" alt="">
+            <span>Perfil</span>
+        </a>
+
+    </nav>
+
+</main>
+
+<script src="../../scripts/rodrigo/pesquisar.js"></script>
+
+</body>
+</html>

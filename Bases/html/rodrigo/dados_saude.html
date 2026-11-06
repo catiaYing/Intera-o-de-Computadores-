@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saúde - BANDy</title>
+
+    <link rel="stylesheet" href="../../styles/rodrigo/comum.css">
+    <link rel="stylesheet" href="../../styles/rodrigo/dados_saude.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <header class="cabecalho">
+        <a href="perfil.html" class="voltar" aria-label="Voltar ao perfil">&larr;</a>
+        <h1>Saúde</h1>
+    </header>
+
+    <section class="utilizador-saude">
+
+        <div class="utilizador-info">
+
+            <div class="avatar-pequeno">AS</div>
+
+            <div>
+                <h2>Ana Santos</h2>
+                <p id="ultima-sincronizacao">Última sincronização: hoje, 14:30</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="cartoes">
+
+        <article class="cartao-saude">
+            <div class="cartao-icone">♡</div>
+            <span class="cartao-titulo">RITMO CARDÍACO</span>
+            <strong class="cartao-valor">
+                <span id="valor-ritmo">78</span> <small>bpm</small>
+            </strong>
+            <p class="cartao-estado">Normal</p>
+        </article>
+
+        <article class="cartao-saude">
+            <div class="cartao-icone">☰</div>
+            <span class="cartao-titulo">PASSOS</span>
+            <strong class="cartao-valor">
+                <span id="valor-passos">8 420</span>
+            </strong>
+            <p class="cartao-estado">Meta: 10 000</p>
+        </article>
+
+        <article class="cartao-saude">
+            <div class="cartao-icone">✦</div>
+            <span class="cartao-titulo">CALORIAS</span>
+            <strong class="cartao-valor">
+                <span id="valor-calorias">540</span> <small>kcal</small>
+            </strong>
+            <p class="cartao-estado">Hoje</p>
+        </article>
+
+        <article class="cartao-saude">
+            <div class="cartao-icone">☾</div>
+            <span class="cartao-titulo">SONO</span>
+            <strong class="cartao-valor">
+                <span id="valor-sono">7,5</span> <small>h</small>
+            </strong>
+            <p class="cartao-estado">Noite passada</p>
+        </article>
+
+    </section>
+
+    <section class="privacidade">
+
+        <div>
+            <strong>Partilhar com amigos</strong>
+            <small>Os teus amigos podem ver os teus dados de saúde.</small>
+        </div>
+
+        <button type="button" class="interruptor" id="interruptor-partilha"
+                aria-pressed="false" aria-label="Partilhar com amigos">
+        </button>
+
+    </section>
+
+    <section class="acoes">
+
+        <button type="button" class="botao-principal" id="sincronizar">
+            Sincronizar pulseira
+        </button>
+
+        <p class="mensagem" id="mensagem" role="status"></p>
+
+    </section>
+
+    <nav class="bottom-nav">
+
+        <a href="../index.html" class="nav-item">
+            <img src="../../media/inicio-home.png" alt="">
+            <span>Início</span>
+        </a>
+
+        <a href="pesquisar.html" class="nav-item">
+            <img src="../../media/pesquisar-search.png" alt="">
+            <span>Pesquisar</span>
+        </a>
+
+        <a href="../catia/bilhetes.html" class="nav-item">
+            <img src="../../media/bilhetes-ticket.png" alt="">
+            <span>Bilhetes</span>
+        </a>
+
+        <a href="../catia/contactos.html" class="nav-item">
+            <img src="../../media/contactos-people.png" alt="">
+            <span>Contactos</span>
+        </a>
+
+        <a href="perfil.html" class="nav-item active">
+            <img src="../../media/perfil-user.png" alt="">
+            <span>Perfil</span>
+        </a>
+
+    </nav>
+
+</main>
+
+<script src="../../scripts/rodrigo/dados_saude.js"></script>
+
+</body>
+</html>

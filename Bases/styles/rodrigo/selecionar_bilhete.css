@@ -1,0 +1,177 @@
+.festival-resumo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+}
+
+.festival-icone {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #622B91, #D34B8D, #171B38);
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+.festival-resumo h2 {
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.festival-resumo p {
+    margin-top: 4px;
+    color: #898A80;
+    font-size: 12px;
+}
+
+.secao {
+    padding: 0 20px;
+    margin-bottom: 22px;
+}
+
+.secao-titulo {
+    margin-bottom: 12px;
+    color: #78864B;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: #E7E6DE;
+    border: 1px solid #DEDDD4;
+    border-radius: 14px;
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+}
+
+.opcao:hover {
+    border-color: #AEBB7C;
+}
+
+.opcao-texto {
+    flex: 1;
+}
+
+.opcao-texto strong {
+    display: block;
+    font-size: 14px;
+}
+
+.opcao-texto small {
+    display: block;
+    margin-top: 4px;
+    color: #898A80;
+    font-size: 11px;
+}
+
+.opcao-preco {
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.opcao-circulo {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    border: 2px solid #A8AA9D;
+    border-radius: 50%;
+}
+
+.opcao.selecionada {
+    background: #E8EBD9;
+    border: 2px solid #B9C77A;
+}
+
+.opcao.selecionada .opcao-circulo {
+    border-color: #78864B;
+    background: #78864B;
+    box-shadow: inset 0 0 0 3px #E8EBD9;
+}
+
+.quantidade {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    background: #E7E6DE;
+    border: 1px solid #DEDDD4;
+    border-radius: 14px;
+}
+
+.quantidade > span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.contador-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.contador-quantidade button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #AEBB7C;
+    border-radius: 50%;
+    background: #F1F0E9;
+    color: #65743B;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.contador-quantidade button:hover:not(:disabled) {
+    background: #E5E8D9;
+}
+
+.contador-quantidade button:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+.contador-quantidade output {
+    min-width: 20px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.total-linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-top: 1px solid #DAD9D0;
+    border-bottom: 1px solid #DAD9D0;
+    background: #E9E8E0;
+}
+
+.total-linha span {
+    color: #68695F;
+    font-size: 13px;
+}
+
+.total-linha strong {
+    font-size: 21px;
+    font-weight: 750;
+}
+
+.rodape {
+    padding: 20px;
+}

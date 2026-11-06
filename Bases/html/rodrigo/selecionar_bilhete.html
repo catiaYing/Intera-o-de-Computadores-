@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Selecionar bilhete - BANDy</title>
+
+    <link rel="stylesheet" href="../../styles/rodrigo/comum.css">
+    <link rel="stylesheet" href="../../styles/rodrigo/selecionar_bilhete.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <header class="cabecalho">
+        <a href="pesquisar.html" class="voltar" aria-label="Voltar">&larr;</a>
+        <h1>Selecionar bilhete</h1>
+    </header>
+
+    <section class="festival-resumo">
+
+        <div class="festival-icone">♫</div>
+
+        <div>
+            <h2 id="nome-festival">MEO Alive</h2>
+            <p>Algés, Lisboa · 10 – 12 Junho 2027</p>
+        </div>
+
+    </section>
+
+    <section class="secao">
+
+        <p class="secao-titulo">TIPO DE BILHETE</p>
+
+        <button type="button" class="opcao" data-tipo="Passe 1 dia" data-preco="45">
+            <span class="opcao-texto">
+                <strong>Passe 1 dia</strong>
+                <small>Acesso a um dia à escolha</small>
+            </span>
+            <span class="opcao-preco">45 €</span>
+            <span class="opcao-circulo"></span>
+        </button>
+
+        <button type="button" class="opcao" data-tipo="Passe 3 dias" data-preco="120">
+            <span class="opcao-texto">
+                <strong>Passe 3 dias</strong>
+                <small>Acesso a todos os dias do festival</small>
+            </span>
+            <span class="opcao-preco">120 €</span>
+            <span class="opcao-circulo"></span>
+        </button>
+
+        <button type="button" class="opcao" data-tipo="Passe VIP" data-preco="190">
+            <span class="opcao-texto">
+                <strong>Passe VIP</strong>
+                <small>3 dias com zona VIP e acesso prioritário</small>
+            </span>
+            <span class="opcao-preco">190 €</span>
+            <span class="opcao-circulo"></span>
+        </button>
+
+    </section>
+
+    <section class="secao">
+
+        <p class="secao-titulo">QUANTIDADE</p>
+
+        <div class="quantidade">
+
+            <span>Bilhetes</span>
+
+            <div class="contador-quantidade">
+
+                <button type="button" id="diminuir" aria-label="Diminuir quantidade">
+                    &minus;
+                </button>
+
+                <output id="quantidade" aria-live="polite">1</output>
+
+                <button type="button" id="aumentar" aria-label="Aumentar quantidade">
+                    +
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="total-linha">
+        <span>Total</span>
+        <strong id="total">0,00 €</strong>
+    </div>
+
+    <section class="rodape">
+
+        <button type="button" class="botao-principal" id="continuar" disabled>
+            Continuar
+        </button>
+
+        <p class="mensagem" id="mensagem" role="status"></p>
+
+    </section>
+
+    <nav class="bottom-nav">
+
+        <a href="../index.html" class="nav-item">
+            <img src="../../media/inicio-home.png" alt="">
+            <span>Início</span>
+        </a>
+
+        <a href="pesquisar.html" class="nav-item active">
+            <img src="../../media/pesquisar-search.png" alt="">
+            <span>Pesquisar</span>
+        </a>
+
+        <a href="../catia/bilhetes.html" class="nav-item">
+            <img src="../../media/bilhetes-ticket.png" alt="">
+            <span>Bilhetes</span>
+        </a>
+
+        <a href="../catia/contactos.html" class="nav-item">
+            <img src="../../media/contactos-people.png" alt="">
+            <span>Contactos</span>
+        </a>
+
+        <a href="perfil.html" class="nav-item">
+            <img src="../../media/perfil-user.png" alt="">
+            <span>Perfil</span>
+        </a>
+
+    </nav>
+
+</main>
+
+<script src="../../scripts/rodrigo/selecionar_bilhete.js"></script>
+
+</body>
+</html>
