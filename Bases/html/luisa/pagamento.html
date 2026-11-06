@@ -1,222 +1,306 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
-    <!-- 支持葡萄牙语字符 -->
     <meta charset="UTF-8">
-
-    <!-- 适应手机屏幕 -->
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
     <title>BANDy - Pagamento</title>
 
-    <!-- 所有支付页面共用的 CSS -->
     <link rel="stylesheet"
           href="../../styles/luisa/comum.css">
 
-    <!-- 当前页面自己的 CSS -->
     <link rel="stylesheet"
           href="../../styles/luisa/pagamento.css">
 </head>
 
 <body>
 
-    <!-- 整个手机页面 -->
-    <main class="pagina">
+<main class="pagina">
 
-        <!-- ===== 1. 顶部导航 ===== -->
-        <header class="cabecalho">
+    <!-- 1. Cabeçalho -->
+    <header class="cabecalho">
 
-            <!-- 返回 Rodrigo 的 Pesquisa 页面 -->
-            <a href="../rodrigo/pesquisar.html"
-               class="voltar"
-               aria-label="Voltar à pesquisa">
-                &larr;
-            </a>
+        <a href="../rodrigo/selecionar_bilhete.html"
+           id="voltar-bilhete"
+           class="voltar"
+           aria-label="Voltar à seleção de bilhetes">
+            &larr;
+        </a>
 
-            <h1>Pagamento</h1>
+        <h1>Pagamento</h1>
 
-        </header>
+    </header>
 
+    <!-- 2. Introdução -->
+    <section class="introducao">
 
-        <!-- ===== 2. 页面介绍 ===== -->
-        <section class="introducao">
+        <p class="etiqueta">FINALIZAR COMPRA</p>
 
-            <p class="etiqueta">
-                FINALIZAR COMPRA
-            </p>
+        <h2>Está quase!</h2>
 
-            <h2>Está quase!</h2>
+        <p class="descricao">
+            Escolhe como queres pagar o teu bilhete.
+        </p>
 
-            <p class="descricao">
-                Escolhe como queres pagar o teu bilhete.
-            </p>
+    </section>
 
-        </section>
+    <!-- 3. Resumo -->
+    <section class="resumo">
 
+        <p class="resumo-titulo">
+            RESUMO DA COMPRA
+        </p>
 
-        <!-- ===== 3. 购买摘要 ===== -->
-        <section class="resumo">
+        <div class="festival">
 
-            <p class="resumo-titulo">
-                RESUMO DA COMPRA
-            </p>
+            <div class="icone-festival">♫</div>
 
-            <!-- 音乐节和门票信息 -->
-            <div class="festival">
+            <div>
+                <h3 id="festival-compra">
+                    Festival de Música
+                </h3>
 
-                <div class="icone-festival">
-                    ♫
-                </div>
-
-                <div>
-
-                    <!--
-                        compra.js 根据用户选择，
-                        自动更新音乐节名称
-                    -->
-                    <h3 id="festival-compra">
-                        Festival de Música
-                    </h3>
-
-                    <!--
-                        compra.js 自动更新：
-                        门票类型和购买数量
-                    -->
-                    <p id="bilhete-compra">
-                        Bilhete geral · 1 unidade
-                    </p>
-
-                </div>
-
+                <p id="bilhete-compra">
+                    Bilhete geral · 1 unidade
+                </p>
             </div>
 
-            <hr>
+        </div>
 
-            <!-- 总金额由 compra.js 自动计算 -->
-            <div class="total">
+        <hr>
 
-                <span>Total</span>
+        <div class="total">
+            <span>Total</span>
+            <strong id="total-compra">—</strong>
+        </div>
 
-                <strong>—</strong>
+    </section>
 
-            </div>
+    <!-- 4. Métodos de pagamento -->
+    <section class="pagamentos">
 
-        </section>
+        <h2>Como queres pagar?</h2>
 
-
-        <!-- ===== 4. 选择支付方式 ===== -->
-        <section class="pagamentos">
-
-            <h2>Como queres pagar?</h2>
-
-
-            <!-- MB WAY -->
-            <button type="button"
-                    class="metodo"
-                    data-metodo="mbway"
-                    aria-pressed="false">
-
-                <span class="icone">
-                    MB
-                </span>
-
-                <span class="informacao">
-
-                    <strong>MB WAY</strong>
-
-                    <small>
-                        Pagamento com telemóvel
-                    </small>
-
-                </span>
-
-                <!-- 选择状态的圆圈 -->
-                <span class="circulo"></span>
-
-            </button>
-
-
-            <!-- Cartão bancário -->
-            <button type="button"
-                    class="metodo"
-                    data-metodo="cartao"
-                    aria-pressed="false">
-
-                <span class="icone">
-                    ▤
-                </span>
-
-                <span class="informacao">
-
-                    <strong>Cartão bancário</strong>
-
-                    <small>
-                        Crédito ou débito
-                    </small>
-
-                </span>
-
-                <span class="circulo"></span>
-
-            </button>
-
-
-            <!-- PayPal -->
-            <button type="button"
-                    class="metodo"
-                    data-metodo="paypal"
-                    aria-pressed="false">
-
-                <span class="icone">
-                    P
-                </span>
-
-                <span class="informacao">
-
-                    <strong>PayPal</strong>
-
-                    <small>
-                        Pagamento online
-                    </small>
-
-                </span>
-
-                <span class="circulo"></span>
-
-            </button>
-
-        </section>
-
-
-        <!-- ===== 5. 继续按钮 ===== -->
-
-        <!-- 未选择支付方式时，按钮不可点击 -->
+        <!-- MB WAY -->
         <button type="button"
-                id="continuar"
-                disabled>
-            Continuar
+                class="metodo"
+                data-metodo="mbway"
+                aria-pressed="false">
+
+            <span class="icone">MB</span>
+
+            <span class="informacao">
+                <strong>MB WAY</strong>
+                <small>Pagamento com telemóvel</small>
+            </span>
+
+            <span class="circulo"></span>
         </button>
 
-        <!-- JavaScript 提示区域 -->
-        <p id="mensagem" role="status"></p>
+        <!-- Cartão -->
+        <button type="button"
+                class="metodo"
+                data-metodo="cartao"
+                aria-pressed="false">
 
-    </main>
+            <span class="icone">▤</span>
 
+            <span class="informacao">
+                <strong>Cartão bancário</strong>
+                <small>Crédito ou débito</small>
+            </span>
 
-    <!-- ===== 6. JavaScript ===== -->
+            <span class="circulo"></span>
+        </button>
 
-    <!--
-        选择支付方式、取消选择和页面跳转
-    -->
-    <script src="../../scripts/luisa/pagamento.js"></script>
+        <!-- PayPal -->
+        <button type="button"
+                class="metodo"
+                data-metodo="paypal"
+                aria-pressed="false">
 
-    <!--
-        读取票种和数量，
-        自动更新购买摘要和总金额
-    -->
-    <script src="../../scripts/luisa/compra.js"></script>
+            <span class="icone">P</span>
+
+            <span class="informacao">
+                <strong>PayPal</strong>
+                <small>Pagamento online</small>
+            </span>
+
+            <span class="circulo"></span>
+        </button>
+
+    </section>
+
+    <!-- 5. Continuar -->
+    <button type="button"
+            id="continuar"
+            disabled>
+        Continuar
+    </button>
+
+    <p id="mensagem" role="status"></p>
+
+</main>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+function lerCompra() {
+    const guardada = sessionStorage.getItem("bandyCompra");
+
+    if (guardada) {
+        try {
+            return JSON.parse(guardada);
+        } catch (erro) {
+            console.error("Dados de compra inválidos", erro);
+        }
+    }
+
+    const festival = params.get("festival");
+    const tipo = params.get("tipo");
+    const preco = Number(params.get("preco"));
+    const quantidade = Number(params.get("quantidade"));
+
+    if (
+        festival &&
+        tipo &&
+        Number.isFinite(preco) &&
+        preco > 0 &&
+        Number.isInteger(quantidade) &&
+        quantidade >= 1 &&
+        quantidade <= 10
+    ) {
+        return {
+            festival: festival,
+            tipo: tipo,
+            preco: preco,
+            quantidade: quantidade,
+            total: preco * quantidade
+        };
+    }
+
+    return null;
+}
+
+const compra = lerCompra();
+const mensagem = document.getElementById("mensagem");
+const continuar = document.getElementById("continuar");
+
+function formatar(valor) {
+    return valor.toFixed(2).replace(".", ",") + " €";
+}
+
+if (!compra ||
+    !compra.festival ||
+    !compra.tipo ||
+    !Number.isFinite(Number(compra.preco)) ||
+    Number(compra.preco) <= 0 ||
+    !Number.isInteger(Number(compra.quantidade)) ||
+    Number(compra.quantidade) < 1 ||
+    Number(compra.quantidade) > 10) {
+
+    mensagem.textContent =
+        "Não existem dados de compra válidos. Seleciona primeiro um bilhete.";
+
+    continuar.disabled = true;
+
+    document.querySelectorAll(".metodo").forEach(function(botao) {
+        botao.disabled = true;
+    });
+
+} else {
+
+    compra.preco = Number(compra.preco);
+    compra.quantidade = Number(compra.quantidade);
+    compra.total = compra.preco * compra.quantidade;
+
+    sessionStorage.setItem(
+        "bandyCompra",
+        JSON.stringify(compra)
+    );
+
+    document.getElementById("festival-compra").textContent =
+        compra.festival;
+
+    document.getElementById("bilhete-compra").textContent =
+        compra.tipo + " · " +
+        compra.quantidade +
+        (compra.quantidade === 1 ? " unidade" : " unidades");
+
+    document.getElementById("total-compra").textContent =
+        formatar(compra.total);
+
+    document.getElementById("voltar-bilhete").href =
+        "../rodrigo/selecionar_bilhete.html?festival=" +
+        encodeURIComponent(compra.festival);
+
+    const metodos = document.querySelectorAll(".metodo");
+    let metodoEscolhido = null;
+
+    metodos.forEach(function(botao) {
+        botao.addEventListener("click", function() {
+
+            if (metodoEscolhido === botao.dataset.metodo) {
+                metodoEscolhido = null;
+
+                botao.classList.remove("ativo");
+                botao.setAttribute("aria-pressed", "false");
+
+                continuar.disabled = true;
+                return;
+            }
+
+            metodos.forEach(function(item) {
+                item.classList.remove("ativo");
+                item.setAttribute("aria-pressed", "false");
+            });
+
+            metodoEscolhido = botao.dataset.metodo;
+
+            botao.classList.add("ativo");
+            botao.setAttribute("aria-pressed", "true");
+
+            continuar.disabled = false;
+            mensagem.textContent = "";
+        });
+    });
+
+    continuar.addEventListener("click", function() {
+        if (!metodoEscolhido) {
+            mensagem.textContent =
+                "Seleciona um método de pagamento.";
+            return;
+        }
+
+        compra.metodo = metodoEscolhido;
+
+        sessionStorage.setItem(
+            "bandyCompra",
+            JSON.stringify(compra)
+        );
+
+        const paginas = {
+            mbway: "mbway.html",
+            cartao: "cartao.html",
+            paypal: "paypal.html"
+        };
+
+        const destino = new URL(
+            paginas[metodoEscolhido],
+            window.location.href
+        );
+
+        destino.searchParams.set("festival", compra.festival);
+        destino.searchParams.set("tipo", compra.tipo);
+        destino.searchParams.set("preco", compra.preco);
+        destino.searchParams.set("quantidade", compra.quantidade);
+        destino.searchParams.set("total", compra.total);
+
+        window.location.href = destino.href;
+    });
+}
+</script>
 
 </body>
 </html>

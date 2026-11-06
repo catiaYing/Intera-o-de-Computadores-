@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Pesquisar festivais - BANDy</title>
 
     <link rel="stylesheet" href="../../styles/rodrigo/comum.css">
@@ -13,50 +11,41 @@
 </head>
 
 <body>
-
 <main class="pagina">
 
     <header class="cabecalho cabecalho-pesquisa">
-
         <h1>Pesquisar festivais</h1>
 
         <div class="caixa-pesquisa">
             <span>⌕</span>
-
-            <input
-                type="search"
-                id="pesquisa"
-                placeholder="Pesquisar festivais..."
-            >
+            <input type="search"
+                   id="pesquisa"
+                   placeholder="Pesquisar festivais...">
         </div>
-
     </header>
 
     <section class="filtros">
-
         <button type="button" class="filtro ativo" data-mes="todos">
             Todos
         </button>
-
         <button type="button" class="filtro" data-mes="6">
             Junho
         </button>
-
         <button type="button" class="filtro" data-mes="7">
             Julho
         </button>
-
         <button type="button" class="filtro" data-mes="8">
             Agosto
         </button>
-
     </section>
 
     <p class="contador" id="contador"></p>
 
     <section class="lista-festivais" id="lista-festivais">
 
-        <a href="selecionar_bilhete.html?festival=MEO Alive" class="festival" data-mes="6">
+        <!-- MEO Alive -->
+        <a href="../luisa/detalhes.html?festival=MEO%20Alive"
+           class="festival" data-mes="6">
 
             <div class="festival-imagem imagem-um">
                 <span>♫</span>
@@ -70,10 +59,11 @@
             </div>
 
             <span class="festival-seta">›</span>
-
         </a>
 
-        <a href="selecionar_bilhete.html?festival=Primavera Sound" class="festival" data-mes="6">
+        <!-- Primavera Sound -->
+        <a href="../luisa/detalhes.html?festival=Primavera%20Sound"
+           class="festival" data-mes="6">
 
             <div class="festival-imagem imagem-quatro">
                 <span>♫</span>
@@ -87,10 +77,11 @@
             </div>
 
             <span class="festival-seta">›</span>
-
         </a>
 
-        <a href="selecionar_bilhete.html?festival=Sumol Summer Fest" class="festival" data-mes="7">
+        <!-- Sumol Summer Fest -->
+        <a href="../luisa/detalhes.html?festival=Sumol%20Summer%20Fest"
+           class="festival" data-mes="7">
 
             <div class="festival-imagem imagem-tres">
                 <span>♫</span>
@@ -104,10 +95,11 @@
             </div>
 
             <span class="festival-seta">›</span>
-
         </a>
 
-        <a href="selecionar_bilhete.html?festival=Meo Kalorama" class="festival" data-mes="8">
+        <!-- Meo Kalorama -->
+        <a href="../luisa/detalhes.html?festival=Meo%20Kalorama"
+           class="festival" data-mes="8">
 
             <div class="festival-imagem imagem-dois">
                 <span>♫</span>
@@ -121,7 +113,6 @@
             </div>
 
             <span class="festival-seta">›</span>
-
         </a>
 
     </section>
@@ -131,7 +122,6 @@
     </p>
 
     <nav class="bottom-nav">
-
         <a href="../index.html" class="nav-item">
             <img src="../../media/inicio-home.png" alt="">
             <span>Início</span>
@@ -156,12 +146,61 @@
             <img src="../../media/perfil-user.png" alt="">
             <span>Perfil</span>
         </a>
-
     </nav>
 
 </main>
 
-<script src="../../scripts/rodrigo/pesquisar.js"></script>
+<script>
+const pesquisa = document.getElementById("pesquisa");
+const filtros = document.querySelectorAll(".filtro");
+const festivais = document.querySelectorAll(".festival");
+const contador = document.getElementById("contador");
+const semResultados = document.getElementById("sem-resultados");
+
+let mesAtual = "todos";
+
+function atualizarPesquisa() {
+    const texto = pesquisa.value.trim().toLocaleLowerCase("pt-PT");
+    let encontrados = 0;
+
+    festivais.forEach(function(festival) {
+        const nome = festival.textContent.toLocaleLowerCase("pt-PT");
+        const correspondeTexto = nome.includes(texto);
+        const correspondeMes =
+            mesAtual === "todos" ||
+            festival.dataset.mes === mesAtual;
+
+        const mostrar = correspondeTexto && correspondeMes;
+        festival.hidden = !mostrar;
+        festival.style.display = mostrar ? "" : "none";
+
+        if (mostrar) encontrados++;
+    });
+
+    contador.textContent =
+        encontrados + (encontrados === 1
+            ? " festival encontrado"
+            : " festivais encontrados");
+
+    semResultados.hidden = encontrados !== 0;
+}
+
+pesquisa.addEventListener("input", atualizarPesquisa);
+
+filtros.forEach(function(filtro) {
+    filtro.addEventListener("click", function() {
+        filtros.forEach(function(item) {
+            item.classList.remove("ativo");
+        });
+
+        filtro.classList.add("ativo");
+        mesAtual = filtro.dataset.mes;
+        atualizarPesquisa();
+    });
+});
+
+atualizarPesquisa();
+</script>
 
 </body>
 </html>
