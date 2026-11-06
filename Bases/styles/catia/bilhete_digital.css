@@ -1,0 +1,359 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FFFFFF;
+    color: #171717;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.ticket-page {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 22px 18px 35px;
+    background: #FFFFFF;
+}
+
+/* Cabeçalho */
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.page-header h1 {
+    font-size: 22px;
+    font-weight: 750;
+}
+
+.back-button {
+    color: #171717;
+    font-size: 35px;
+    line-height: 1;
+    text-decoration: none;
+}
+
+/* Cartão */
+.digital-ticket {
+    overflow: hidden;
+    border: 1px solid #E5E5E5;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .07);
+}
+
+/* Imagem */
+.ticket-banner {
+    height: 165px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ticket-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, .65)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    color: white;
+}
+
+.festival-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.banner-overlay h2 {
+    font-size: 29px;
+    font-weight: 850;
+}
+
+/* Conteúdo */
+.ticket-body {
+    padding: 19px;
+}
+
+.ticket-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket-type {
+    background: #D7FF45;
+    color: #171717;
+    padding: 8px 13px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 850;
+}
+
+.ticket-status {
+    color: #418A38;
+    font-size: 12px;
+    font-weight: 650;
+}
+
+/* QR Code */
+.qr-container {
+    width: 165px;
+    height: 165px;
+    margin: 20px auto 9px;
+    padding: 8px;
+    background: white;
+    border: 1px solid #E6E6E6;
+    border-radius: 10px;
+}
+
+.qr-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.qr-description {
+    text-align: center;
+    font-size: 11px;
+    color: #777777;
+}
+
+.ticket-code {
+    margin-top: 17px;
+    text-align: center;
+    color: #888888;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.ticket-code strong {
+    display: block;
+    color: #171717;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    margin-top: 5px;
+}
+
+/* Separador */
+.ticket-separator {
+    border-top: 1px dashed #D2D2D2;
+    margin: 19px 0 8px;
+}
+
+/* Informações */
+.ticket-information {
+    display: flex;
+    flex-direction: column;
+}
+
+.information-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 2px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.information-row:last-child {
+    border-bottom: none;
+}
+
+.information-icon {
+    width: 35px;
+    text-align: center;
+    color: #9AB600;
+    font-size: 25px;
+}
+
+.information-row p {
+    color: #888888;
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.information-row h3 {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.information-row small {
+    display: block;
+    margin-top: 3px;
+    color: #888888;
+    font-size: 11px;
+}
+
+/* Rodapé do bilhete */
+.ticket-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 19px;
+    border-top: 1px dashed #D2D2D2;
+    color: #888888;
+    font-size: 10px;
+}
+
+.ticket-footer span:first-child {
+    color: #171717;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* Botões */
+.download-button,
+.info-button {
+    width: 100%;
+    min-height: 52px;
+    margin-top: 17px;
+    border-radius: 28px;
+    font-size: 14px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.download-button {
+    background: #D7FF45;
+    color: #171717;
+    border: none;
+}
+
+.download-button span {
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.info-button {
+    background: white;
+    border: 1px solid #DADADA;
+    color: #171717;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: rgba(0, 0, 0, .55);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 340px;
+    padding: 25px 20px;
+    border-radius: 20px;
+    background: white;
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.modal-content p {
+    color: #666666;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.close-button {
+    position: absolute;
+    right: 16px;
+    top: 10px;
+    border: none;
+    background: transparent;
+    color: #171717;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+.modal-detail {
+    padding: 11px 0;
+    border-top: 1px solid #EEEEEE;
+    font-size: 13px;
+    color: #555555;
+}
+
+.modal-detail strong {
+    color: #171717;
+}
+
+.modal-ok {
+    width: 100%;
+    padding: 13px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 25px;
+    background: #D7FF45;
+    color: #171717;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+/* PDF */
+@media print {
+
+    body {
+        background: white;
+    }
+
+    .ticket-page {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .page-header,
+    .download-button,
+    .info-button,
+    .modal {
+        display: none !important;
+    }
+
+    .digital-ticket {
+        box-shadow: none;
+        border: 1px solid #CCCCCC;
+        break-inside: avoid;
+    }
+
+    .ticket-banner {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .ticket-type,
+    .banner-overlay,
+    .ticket-footer {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

@@ -1,0 +1,266 @@
+
+/* =========================================
+   BANDy - NOVOS AMIGOS
+   Warm Beige & Olive Green Theme
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #E8E6DC;
+    color: #303329;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.friends-page {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 100px;
+    background: #F1F0E9;
+}
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+.page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+    padding: 0 15px;
+    margin: -20px -20px 0;
+    background: #696963;
+    border-radius: 0 0 14px 14px;
+}
+
+.page-header h1 {
+    font-size: 20px;
+    font-weight: 750;
+    color: #c4c7bb;
+}
+
+.back-button {
+    color: #23241f;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+.back-button {
+    color: #303329;
+    text-decoration: none;
+    font-size: 28px;
+}
+
+/* =========================================
+   BARRA DE PESQUISA
+========================================= */
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    margin-top: 20px;
+    padding: 0 15px;
+    background: #E7E6DE;
+    border: 1px solid #DEDDD4;
+    border-radius: 25px;
+    transition: border-color .2s;
+}
+
+.search-box:focus-within {
+    border-color: #AEBB7C;
+}
+
+.search-box span {
+    color: #78864B;
+    font-size: 23px;
+}
+
+.search-box input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #303329;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #898A80;
+}
+
+/* =========================================
+   SECÇÕES
+========================================= */
+
+.accepted-section,
+.pending-section {
+    margin-top: 30px;
+}
+
+.accepted-section h2,
+.pending-section h2 {
+    font-size: 18px;
+    font-weight: 750;
+    color: #303329;
+    margin-bottom: 15px;
+}
+
+/* =========================================
+   LISTA DE UTILIZADORES
+========================================= */
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 82px;
+    padding: 12px 5px;
+    border-bottom: 1px solid #DAD9D0;
+    background: transparent;
+}
+
+/* =========================================
+   AVATAR
+========================================= */
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #E2E1D8;
+    border: 1px solid #C6C5B9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #78864B;
+    font-size: 20px;
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.maria-avatar {
+    background: #E5E7D8;
+    border-color: #AEBB7C;
+    color: #65743B;
+}
+
+/* =========================================
+   INFORMAÇÕES
+========================================= */
+
+.user-info {
+    flex: 1;
+    min-width: 0;
+    text-decoration: none;
+    color: #303329;
+}
+
+.user-info h3 {
+    font-size: 15px;
+    font-weight: 650;
+    color: #303329;
+}
+
+.user-info p {
+    margin-top: 5px;
+    color: #898A80;
+    font-size: 13px;
+}
+
+/* =========================================
+   ESTADO ADICIONADO
+========================================= */
+
+.added-label {
+    color: #718044;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* =========================================
+   BOTÃO ACEITAR
+========================================= */
+
+.action-button {
+    min-width: 95px;
+    padding: 10px 12px;
+    border: 1px solid #AEBB7C;
+    border-radius: 22px;
+    background: transparent;
+    color: #65743B;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background .2s;
+}
+
+.action-button:hover {
+    background: #E5E8D9;
+}
+
+.action-button:active {
+    background: #DDE2CB;
+}
+
+/* =========================================
+   LISTA VAZIA
+========================================= */
+
+.empty-message {
+    display: none;
+    text-align: center;
+    color: #898A80;
+    font-size: 13px;
+    padding: 20px 0;
+}
+
+/* =========================================
+   ECRÃS PEQUENOS
+========================================= */
+
+@media (max-width: 360px) {
+
+    .friends-page {
+        padding: 15px;
+        padding-bottom: 90px;
+    }
+
+    .user-card {
+        gap: 8px;
+    }
+
+    .action-button {
+        min-width: 80px;
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .added-label {
+        font-size: 11px;
+    }
+}
+
+.sent-button {
+    background: #D8D8C9;
+    border: 1px solid #B9C77A;
+    color: #65743B;
+    cursor: default;
+    opacity: 1;
+}

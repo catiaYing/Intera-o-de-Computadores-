@@ -1,0 +1,493 @@
+
+/* =========================================
+   BANDy - USER PROFILE
+   Warm Beige & Olive Green Theme
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #E8E6DC;
+    color: #303329;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.profile-page {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 100px;
+    background: #E8E6DC;
+}
+
+/* =========================================
+   CABEÇALHO
+========================================= */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 45px;
+}
+
+.profile-header h1 {
+    font-size: 20px;
+    font-weight: 750;
+    color: #303329;
+}
+
+.back-button {
+    color: #45483C;
+    text-decoration: none;
+    font-size: 30px;
+    width: 30px;
+}
+
+.menu {
+    position: relative;
+    z-index: 20;
+}
+
+.menu summary {
+    list-style: none;
+    cursor: pointer;
+    font-size: 28px;
+    padding: 5px;
+    color: #45483C;
+}
+
+.menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.menu-options {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 180px;
+    background: #F3F1E9;
+    border: 1px solid #D2D0C5;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(48, 51, 41, .12);
+}
+
+.menu-options button {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: transparent;
+    color: #303329;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menu-options button + button {
+    border-top: 1px solid #DEDDD4;
+}
+
+.menu-options button:hover {
+    background: #E7E6DE;
+}
+
+.menu-options .report-option {
+    color: #A45E49;
+}
+
+/* =========================================
+   PERFIL
+========================================= */
+
+.profile-info {
+    text-align: center;
+    padding: 45px 0 25px;
+}
+
+.profile-avatar {
+    width: 155px;
+    height: 155px;
+    border-radius: 50%;
+    background: #DCDACF;
+    border: 2px solid #AEBB7C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 65px;
+    color: #78864B;
+}
+
+.profile-info h2 {
+    margin-top: 15px;
+    font-size: 25px;
+    color: #303329;
+    font-weight: 750;
+}
+
+.user-id {
+    margin-top: 7px;
+    color: #77786D;
+    font-size: 14px;
+}
+
+/* =========================================
+   ESTATÍSTICAS
+========================================= */
+
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    padding: 18px 0;
+    border-top: 1px solid #CBC9BD;
+    border-bottom: 1px solid #CBC9BD;
+}
+
+.profile-stats div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+}
+
+.profile-stats strong {
+    font-size: 20px;
+    color: #303329;
+}
+
+.profile-stats span {
+    color: #77786D;
+    font-size: 13px;
+}
+
+/* =========================================
+   FOTOGRAFIAS
+========================================= */
+
+.photos-section {
+    margin-top: 25px;
+}
+
+.photos-section h3 {
+    font-size: 17px;
+    margin-bottom: 15px;
+    color: #303329;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.photo-placeholder {
+    aspect-ratio: 1;
+    background: #DCDACF;
+    border: 1px solid #D0CEC2;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #77786D;
+    font-size: 12px;
+}
+
+/* =========================================
+   BOTÃO CHAT
+========================================= */
+
+.chat-button {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    padding: 13px;
+    background: #B9C77A;
+    color: #303329;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 750;
+    border-radius: 25px;
+    z-index: 5;
+    transition: background .2s;
+}
+
+.chat-button:hover {
+    background: #A9B66B;
+}
+
+/* =========================================
+   JANELAS MODAIS
+========================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(35, 37, 29, .55);
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    padding: 28px 24px;
+    background: #F3F1E9;
+    border: 1px solid #D2D0C5;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
+}
+
+.modal-content h2 {
+    font-size: 21px;
+    margin-bottom: 12px;
+    color: #303329;
+}
+
+.modal-content p {
+    color: #77786D;
+    font-size: 14px;
+    margin: 12px 0 18px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #45483C;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* =========================================
+   QR CODE
+========================================= */
+
+.qr-placeholder {
+    width: 220px;
+    height: 220px;
+    margin: 20px auto;
+    background: #FFFFFF;
+    padding: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.qr-pattern {
+    width: 100%;
+    height: 100%;
+    background:
+        repeating-conic-gradient(#303329 0% 25%, white 0% 50%)
+        0 0 / 16px 16px;
+}
+
+/* =========================================
+   FORMULÁRIO DE DENÚNCIA
+========================================= */
+
+.report-content {
+    text-align: left;
+}
+
+.report-content h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.report-content > p {
+    margin-bottom: 18px;
+}
+
+#reportForm {
+    width: 100%;
+}
+
+/* Motivos da denúncia */
+.report-content label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 0;
+    color: #45483C;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.report-content input[type="radio"] {
+    flex-shrink: 0;
+    accent-color: #87965A;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+/* Caixa de descrição */
+.report-content textarea {
+    display: block;
+    width: 100%;
+    min-height: 95px;
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 9px;
+    border: 1px solid #D2D0C5;
+    background: #E7E6DE;
+    color: #303329;
+    font-family: inherit;
+    font-size: 14px;
+    text-align: left;
+    direction: ltr;
+    resize: vertical;
+}
+
+.report-content textarea::placeholder {
+    color: #898A80;
+}
+
+.report-content textarea:focus {
+    outline: 1px solid #AEBB7C;
+    border-color: #AEBB7C;
+}
+
+/* =========================================
+   BOTÕES DO FORMULÁRIO
+========================================= */
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 12px 8px;
+    border-radius: 25px;
+    border: 1px solid #AEB0A2;
+    background: transparent;
+    color: #45483C;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.modal-buttons .confirm-button {
+    background: #B9C77A;
+    color: #303329;
+    border: none;
+    font-weight: 750;
+}
+
+.modal-buttons button:active {
+    opacity: .75;
+}
+
+/* =========================================
+   JANELA DE SUCESSO
+========================================= */
+
+.success-content {
+    width: 100%;
+    max-width: 340px;
+    padding: 30px 25px;
+    text-align: center;
+}
+
+/* Ícone de sucesso */
+.success-icon {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #B9C77A;
+    color: #303329;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Título */
+.success-content h2 {
+    font-size: 21px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: #303329;
+}
+
+/* Texto */
+.success-content p {
+    font-size: 14px;
+    color: #77786D;
+    line-height: 1.5;
+    margin: 10px 0 20px;
+}
+
+/* Botão OK */
+.success-content .confirm-button {
+    display: block;
+    width: 110px;
+    margin: 20px auto 0;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: #B9C77A;
+    color: #303329;
+    font-size: 14px;
+    font-weight: 750;
+    cursor: pointer;
+}
+
+.success-content .confirm-button:active {
+    opacity: .7;
+}
+
+/* =========================================
+   ECRÃS PEQUENOS
+========================================= */
+
+@media (max-width: 360px) {
+
+    .profile-page {
+        padding: 15px;
+    }
+
+    .report-content {
+        padding: 25px 18px;
+    }
+
+    .modal-buttons button {
+        font-size: 12px;
+    }
+
+    .success-content {
+        padding: 25px 18px;
+    }
+}

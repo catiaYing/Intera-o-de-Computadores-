@@ -1,0 +1,369 @@
+
+/* =========================
+   Configurações gerais
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #101114;
+    color: white;
+}
+
+/* Ecrã principal */
+
+.request-page {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background: #101114;
+    position: relative;
+}
+
+/* =========================
+   Cabeçalho
+========================= */
+
+.page-header {
+    height: 65px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 0 20px;
+    border-bottom: 1px solid #303239;
+}
+
+.page-header h1 {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.back-button {
+    color: white;
+    font-size: 32px;
+    text-decoration: none;
+}
+
+/* =========================
+   Conteúdo do pedido
+========================= */
+
+.request-content {
+    padding: 25px 20px;
+}
+
+/* Caixa da mensagem */
+
+.message-box {
+    background: #202228;
+    border: 1px solid #363942;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.message-box textarea {
+    width: 100%;
+    height: 150px;
+    padding: 16px;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.message-box textarea::placeholder {
+    color: #858995;
+}
+
+/* =========================
+   Adicionar fotografia
+========================= */
+
+.photo-option {
+    border-top: 1px solid #363942;
+}
+
+/* Botão Adicionar foto */
+
+.add-photo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    color: #B7BAC4;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-photo:hover {
+    color: white;
+}
+
+.photo-icon {
+    font-size: 25px;
+}
+
+/* Fotografia selecionada */
+
+#selectedPhotoContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+}
+
+/* Imagem */
+
+#selectedAlbumPhoto {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 14px;
+    flex-shrink: 0;
+}
+
+/* Botão remover */
+
+#removeAlbumPhoto {
+    background: transparent;
+    border: 1px solid #D7FF45;
+    color: #D7FF45;
+    border-radius: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+#removeAlbumPhoto:hover {
+    background: #D7FF45;
+    color: #101114;
+}
+
+/* =========================
+   Botão Enviar
+========================= */
+
+.send-button {
+    width: 100%;
+    height: 58px;
+    margin-top: 22px;
+    border: none;
+    border-radius: 30px;
+    background: #D7FF45;
+    color: #101114;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.send-button:hover {
+    background: #c6ed35;
+}
+
+.send-button:active {
+    transform: scale(0.98);
+}
+
+/* =========================
+   Modal de fotografia
+========================= */
+
+.modal-toggle {
+    display: none;
+}
+
+/* Fundo escuro */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s;
+    z-index: 10;
+}
+
+.modal-toggle:checked ~ .modal-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Janela inferior */
+
+.photo-modal {
+    width: 100%;
+    max-width: 430px;
+    padding: 15px 22px 30px;
+    background: #202228;
+    border-radius: 24px 24px 0 0;
+    transform: translateY(100%);
+    transition: 0.25s;
+}
+
+.modal-toggle:checked ~ .modal-overlay .photo-modal {
+    transform: translateY(0);
+}
+
+/* Indicador */
+
+.modal-handle {
+    width: 38px;
+    height: 4px;
+    margin: 0 auto 22px;
+    border-radius: 10px;
+    background: #666A75;
+}
+
+/* Título e descrição */
+
+.photo-modal h2 {
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.photo-modal p {
+    color: #999DA8;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* Opções */
+
+.modal-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 12px;
+    margin-bottom: 10px;
+    background: #30333C;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.option-icon {
+    font-size: 23px;
+    color: #D7FF45;
+}
+
+/* Cancelar */
+
+.cancel-button {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    margin-top: 8px;
+    border-radius: 12px;
+    background: #30333C;
+    color: #D7FF45;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* =========================
+   Modal de sucesso
+========================= */
+
+.success-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.success-content {
+    width: 100%;
+    max-width: 340px;
+    background: #22252B;
+    border: 1px solid #41454D;
+    border-radius: 24px;
+    padding: 30px 24px;
+    text-align: center;
+    color: white;
+    animation: successAppear 0.25s ease;
+}
+
+.success-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #D7FF45;
+    color: #111216;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+}
+
+.success-content h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.success-content p {
+    color: #B9BBC3;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.success-content button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 30px;
+    background: #D7FF45;
+    color: #111216;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.success-content button:hover {
+    background: #c6ed35;
+}
+
+/* Animação */
+
+@keyframes successAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Ícone de aviso */
+.error-icon {
+    background: #D7FF45;
+    color: #101114;
+}

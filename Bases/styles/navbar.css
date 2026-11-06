@@ -1,0 +1,85 @@
+
+/* =========================================
+   BANDy - NAVBAR
+   Warm Beige & Olive Green Theme
+========================================= */
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 430px;
+    height: 75px;
+
+    background-color: #171714;
+    border-top: 1px solid #45483C;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    z-index: 100;
+}
+
+/* Cada opção da navegação */
+.nav-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    color: #B7B8AC;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Ícones - HTML utiliza img diretamente */
+.nav-item img {
+    width: 25px;
+    height: 25px;
+    max-width: 25px;
+    max-height: 25px;
+    object-fit: contain;
+    display: block;
+    opacity: .75;
+}
+
+/* Opção ativa */
+.nav-item.active {
+    color: #B9C77A;
+    font-weight: 700;
+}
+
+.nav-item.active img {
+    opacity: 1;
+}
+
+/* Efeito ao clicar */
+.nav-item:active {
+    opacity: .7;
+}
+
+/* Ecrãs pequenos */
+@media (max-width: 360px) {
+    .bottom-nav {
+        height: 68px;
+    }
+
+    .nav-item {
+        font-size: 11px;
+        gap: 5px;
+    }
+
+    .nav-item img {
+        width: 21px;
+        height: 21px;
+        max-width: 21px;
+        max-height: 21px;
+    }
+}
