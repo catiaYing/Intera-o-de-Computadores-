@@ -2,28 +2,33 @@
 <html lang="pt">
 
 <head>
-    <!-- 葡语编码 -->
+    <!-- 支持葡语字符 -->
     <meta charset="UTF-8">
 
-    <!-- 手机尺寸 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 手机页面适配 -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>BANDy - PayPal</title>
 
-    <!-- 公共 CSS -->
-    <link rel="stylesheet" href="../../styles/luisa/comum.css">
+    <!-- 所有支付页面共用的 CSS -->
+    <link rel="stylesheet"
+          href="../../styles/luisa/comum.css">
 
-    <!-- PayPal 专属 CSS -->
-    <link rel="stylesheet" href="../../styles/luisa/paypal.css">
+    <!-- PayPal 页面自己的 CSS -->
+    <link rel="stylesheet"
+          href="../../styles/luisa/paypal.css">
 </head>
 
 <body>
 
+    <!-- 整个手机页面 -->
     <main class="pagina pagina-paypal">
 
         <!-- ===== 1. 顶部导航 ===== -->
         <header class="cabecalho">
 
+            <!-- 返回支付方式选择页面 -->
             <a href="pagamento.html"
                class="voltar"
                aria-label="Voltar">
@@ -38,18 +43,21 @@
         <!-- ===== 2. 页面介绍 ===== -->
         <section class="introducao">
 
-            <p class="etiqueta">MÉTODO DE PAGAMENTO</p>
+            <p class="etiqueta">
+                MÉTODO DE PAGAMENTO
+            </p>
 
             <h2>Pagar com PayPal</h2>
 
             <p class="descricao">
-                Confirma o método de pagamento para continuar.
+                Confirma o método de pagamento
+                para continuar.
             </p>
 
         </section>
 
 
-        <!-- ===== 3. 支付摘要 ===== -->
+        <!-- ===== 3. 订单金额 ===== -->
         <section class="resumo">
 
             <div class="festival">
@@ -66,8 +74,12 @@
             <hr>
 
             <div class="total">
+
                 <span>Total</span>
-                <strong>45,00 €</strong>
+
+                <!-- 由 compra.js 自动填写 -->
+                <strong>—</strong>
+
             </div>
 
         </section>
@@ -79,9 +91,9 @@
             <h3>Confirmação PayPal</h3>
 
             <p>
-                Neste protótipo, a autorização do PayPal
-                será representada por uma confirmação
-                na BANDy.
+                Neste protótipo, a autorização
+                do PayPal será representada por
+                uma confirmação na BANDy.
             </p>
 
         </section>
@@ -102,26 +114,27 @@
     </main>
 
 
-    <!-- ===== 6. PayPal 确认弹窗 ===== -->
+    <!-- ===== 6. 确认弹窗 ===== -->
     <dialog id="confirmar-paypal" class="dialogo">
 
         <div class="icone-dialogo">P</div>
 
         <h2>Confirmar pagamento</h2>
 
+        <!-- 金额由 compra.js 更新 -->
         <p>
             Pretendes confirmar o pagamento
-            de 45,00 € com PayPal?
+            com PayPal?
         </p>
 
-        <!-- 用户确认模拟支付 -->
+        <!-- 确认模拟支付 -->
         <button type="button"
                 id="confirmar-pagamento"
                 class="botao-principal">
             Confirmar
         </button>
 
-        <!-- 用户取消，返回当前页面 -->
+        <!-- 取消并关闭弹窗 -->
         <button type="button"
                 id="cancelar-paypal"
                 class="botao-secundario">
@@ -131,8 +144,13 @@
     </dialog>
 
 
-    <!-- PayPal 专属 JS -->
+    <!-- ===== 7. JavaScript ===== -->
+
+    <!-- PayPal 的按钮交互 -->
     <script src="../../scripts/luisa/paypal.js"></script>
+
+    <!-- 读取选票页面保存的金额 -->
+    <script src="../../scripts/luisa/compra.js"></script>
 
 </body>
 </html>

@@ -122,3 +122,29 @@ document.getElementById("terminar-cartao").onclick = function() {
     window.location.href = "confirmacao.html";
 
 };
+
+
+/* 输入时自动整理银行卡信息 */
+
+// 1. 卡号：只接受数字，每4位加空格
+numero.addEventListener("input", function() {
+    let digitos = numero.value.replace(/\D/g, "").slice(0, 16);
+    numero.value = digitos.replace(/(.{4})/g, "$1 ").trim();
+});
+
+// 2. 有效期：自动加入 /
+validade.addEventListener("input", function() {
+    let digitos = validade.value.replace(/\D/g, "").slice(0, 4);
+
+    if (digitos.length > 2) {
+        validade.value = digitos.slice(0, 2) + "/" + digitos.slice(2);
+    } else {
+        validade.value = digitos;
+    }
+});
+
+// 3. CVV：只接受最多4位数字
+cvv.addEventListener("input", function() {
+    cvv.value = cvv.value.replace(/\D/g, "").slice(0, 4);
+});
+
