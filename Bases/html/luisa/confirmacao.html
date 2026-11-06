@@ -7,22 +7,24 @@
 
     <title>BANDy - Confirmação</title>
 
-    <!-- 本页面的 CSS -->
-    <link rel="stylesheet" href="../../styles/luisa/confirmacao.css">
+    <!-- CSS da página -->
+    <link rel="stylesheet"
+          href="../../styles/luisa/confirmacao.css">
 
-    <!-- 本页面的 JavaScript -->
-    <script src="../../scripts/luisa/confirmacao.js" defer></script>
+    <!-- JavaScript da página -->
+    <script src="../../scripts/luisa/confirmacao.js"
+            defer></script>
 </head>
 
 <body>
 
-    <!-- 手机页面容器 -->
+    <!-- Página principal -->
     <main class="pagina">
 
-        <!-- ===== 1. 顶部导航 ===== -->
+        <!-- ===== 1. CABEÇALHO ===== -->
         <header class="cabecalho">
 
-            <!-- 返回 Cátia 的门票列表 -->
+            <!-- Voltar à lista de bilhetes -->
             <a href="../catia/bilhetes.html"
                class="voltar"
                aria-label="Voltar aos bilhetes">
@@ -34,10 +36,10 @@
         </header>
 
 
-        <!-- ===== 2. 支付成功信息 ===== -->
+        <!-- ===== 2. CONFIRMAÇÃO DO PAGAMENTO ===== -->
         <section class="resultado">
 
-            <!-- 绿色成功图标 -->
+            <!-- Ícone de sucesso -->
             <div class="icone-sucesso">
                 &#10003;
             </div>
@@ -52,11 +54,11 @@
         </section>
 
 
-        <!-- ===== 3. 操作按钮 ===== -->
+        <!-- ===== 3. BOTÕES DE NAVEGAÇÃO ===== -->
         <section class="acoes">
 
-            <!-- 查看刚购买的数字门票 -->
-            <!-- 跳转由 confirmacao.js 处理 -->
+            <!-- Ver o bilhete comprado -->
+            <!-- Navegação controlada por confirmacao.js -->
             <button type="button"
                     id="verBilhete"
                     class="btn-principal">
@@ -64,8 +66,8 @@
             </button>
 
 
-            <!-- 查看门票列表 -->
-            <!-- 暂时连接 Cátia 的 bilhetes.html -->
+            <!-- Ver os festivais e bilhetes -->
+            <!-- Navegação controlada por confirmacao.js -->
             <button type="button"
                     id="verFestivais"
                     class="btn-secundario">
@@ -73,9 +75,9 @@
             </button>
 
 
-            <!-- 返回 BANDy 首页 -->
-            <!-- 当前 index.html 仍然是测试页面 -->
-            <a href="../index.html"
+            <!-- ===== VOLTAR AO INÍCIO ===== -->
+            <!-- Voltar à página home.html -->
+            <a href="../home.html"
                class="link-inicio">
                 Voltar ao Início
             </a>
