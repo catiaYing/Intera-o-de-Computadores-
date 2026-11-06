@@ -3,37 +3,67 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Perfil - BANDy</title>
 
-    <link rel="stylesheet" href="../../styles/rodrigo/comum.css">
-    <link rel="stylesheet" href="../../styles/rodrigo/perfil.css">
-    <link rel="stylesheet" href="../../styles/navbar.css">
+    <!-- CSS do perfil -->
+    <link rel="stylesheet"
+          href="../../styles/rodrigo/comum.css">
+
+    <link rel="stylesheet"
+          href="../../styles/rodrigo/perfil.css">
+
+    <!-- CSS da navegação inferior -->
+    <link rel="stylesheet"
+          href="../../styles/navbar.css">
 </head>
 
 <body>
 
 <main class="pagina">
 
+    <!-- ===== 1. CABEÇALHO ===== -->
     <header class="cabecalho">
-        <a href="../index.html" class="voltar" aria-label="Voltar">&larr;</a>
+
+        <a href="../home.html"
+           class="voltar"
+           aria-label="Voltar ao início">
+            &larr;
+        </a>
+
         <h1>Perfil</h1>
+
     </header>
 
+
+    <!-- ===== 2. INFORMAÇÕES DO PERFIL ===== -->
     <section class="perfil-topo">
 
-        <div class="avatar" id="avatar">AS</div>
+        <div class="avatar" id="avatar">
+            AS
+        </div>
 
-        <h2 id="nome-perfil">Ana Santos</h2>
-        <p class="utilizador" id="utilizador-perfil">@ana-santos</p>
+        <h2 id="nome-perfil">
+            Ana Santos
+        </h2>
 
-        <button type="button" class="botao-secundario" id="editar-perfil">
+        <p class="utilizador"
+           id="utilizador-perfil">
+            @ana-santos
+        </p>
+
+        <button type="button"
+                class="botao-secundario"
+                id="editar-perfil">
             Editar perfil
         </button>
 
     </section>
 
+
+    <!-- ===== 3. ESTATÍSTICAS ===== -->
     <section class="estatisticas">
 
         <div class="estatistica">
@@ -53,60 +83,98 @@
 
     </section>
 
+
+    <!-- ===== 4. MENU DO PERFIL ===== -->
     <nav class="menu">
 
-        <a href="#" class="menu-item" data-em-breve>
+        <!-- Notificações -->
+        <a href="../opcoes_perfil.html?secao=notificacoes"
+           class="menu-item">
+
             <span>Notificações</span>
             <span>›</span>
+
         </a>
 
-        <a href="../luisa/pagamento.html" class="menu-item">
+
+        <!-- Métodos de pagamento -->
+        <a href="../opcoes_perfil.html?secao=metodos"
+           class="menu-item">
+
             <span>Métodos de pagamento</span>
             <span>›</span>
+
         </a>
 
-        <a href="#" class="menu-item" data-em-breve>
+
+        <!-- Definições -->
+        <a href="../opcoes_perfil.html?secao=definicoes"
+           class="menu-item">
+
             <span>Definições</span>
             <span>›</span>
+
         </a>
 
-        <a href="#" class="menu-item" data-em-breve>
+
+        <!-- Dados pessoais -->
+        <a href="../opcoes_perfil.html?secao=dados"
+           class="menu-item">
+
             <span>Dados pessoais</span>
             <span>›</span>
+
         </a>
 
-        <a href="dados_saude.html" class="menu-item">
+
+        <!-- Saúde -->
+        <a href="dados_saude.html"
+           class="menu-item">
+
             <span>Saúde</span>
             <span>›</span>
+
         </a>
 
     </nav>
 
-    <p class="mensagem" id="mensagem" role="status"></p>
 
+    <!-- ===== 5. MENSAGENS ===== -->
+    <p class="mensagem"
+       id="mensagem"
+       role="status">
+    </p>
+
+
+    <!-- ===== 6. NAVEGAÇÃO INFERIOR ===== -->
     <nav class="bottom-nav">
 
-        <a href="../home.html" class="nav-item">
+        <a href="../home.html"
+           class="nav-item">
             <img src="../../media/inicio-home.png" alt="">
             <span>Início</span>
         </a>
 
-        <a href="pesquisar.html" class="nav-item">
+        <a href="pesquisar.html"
+           class="nav-item">
             <img src="../../media/pesquisar-search.png" alt="">
             <span>Pesquisar</span>
         </a>
 
-        <a href="../catia/bilhetes.html" class="nav-item">
+        <a href="../catia/bilhetes.html"
+           class="nav-item">
             <img src="../../media/bilhetes-ticket.png" alt="">
             <span>Bilhetes</span>
         </a>
 
-        <a href="../catia/contactos.html" class="nav-item">
+        <a href="../catia/contactos.html"
+           class="nav-item">
             <img src="../../media/contactos-people.png" alt="">
             <span>Contactos</span>
         </a>
 
-        <a href="perfil.html" class="nav-item active">
+        <a href="perfil.html"
+           class="nav-item active">
             <img src="../../media/perfil-user.png" alt="">
             <span>Perfil</span>
         </a>
@@ -116,25 +184,51 @@
 </main>
 
 
+<!-- ===== 7. MODAL EDITAR PERFIL ===== -->
 <div class="modal" id="modal-edicao">
 
-    <form class="modal-content" id="form-edicao" novalidate>
+    <form class="modal-content"
+          id="form-edicao"
+          novalidate>
 
         <h2>Editar perfil</h2>
 
         <div class="campo">
-            <label for="campo-nome">Nome</label>
-            <input type="text" id="campo-nome" maxlength="40">
+
+            <label for="campo-nome">
+                Nome
+            </label>
+
+            <input type="text"
+                   id="campo-nome"
+                   maxlength="40">
+
         </div>
 
         <div class="campo">
-            <label for="campo-utilizador">Nome de utilizador</label>
-            <input type="text" id="campo-utilizador" maxlength="25">
+
+            <label for="campo-utilizador">
+                Nome de utilizador
+            </label>
+
+            <input type="text"
+                   id="campo-utilizador"
+                   maxlength="25">
+
         </div>
 
         <div class="modal-botoes">
-            <button type="button" id="cancelar-edicao">Cancelar</button>
-            <button type="submit" id="guardar-edicao">Guardar</button>
+
+            <button type="button"
+                    id="cancelar-edicao">
+                Cancelar
+            </button>
+
+            <button type="submit"
+                    id="guardar-edicao">
+                Guardar
+            </button>
+
         </div>
 
     </form>
@@ -142,6 +236,7 @@
 </div>
 
 
+<!-- ===== 8. JAVASCRIPT ===== -->
 <script src="../../scripts/rodrigo/perfil.js"></script>
 
 </body>

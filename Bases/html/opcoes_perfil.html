@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Opções do Perfil - BANDy</title>
+
+    <!-- CSS na pasta styles -->
+    <link rel="stylesheet"
+          href="../styles/opcoes_perfil.css">
+
+    <!-- JavaScript na pasta scripts -->
+    <script src="../scripts/opcoes_perfil.js"
+            defer></script>
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <!-- ===== 1. CABEÇALHO ===== -->
+    <header class="cabecalho">
+
+        <a href="rodrigo/perfil.html"
+           class="voltar"
+           aria-label="Voltar ao perfil">
+            &larr;
+        </a>
+
+        <h1 id="titulo-pagina">
+            Perfil
+        </h1>
+
+    </header>
+
+
+    <!-- ===== 2. NOTIFICAÇÕES ===== -->
+    <section id="pagina-notificacoes"
+             class="conteudo"
+             hidden>
+
+        <h2>Notificações</h2>
+
+        <p class="descricao">
+            Consulta as novidades e atualizações
+            da tua conta BANDy.
+        </p>
+
+        <div id="lista-notificacoes">
+
+            <article class="cartao notificacao">
+
+                <span class="icone">🎟️</span>
+
+                <div>
+                    <h3>Bilhete disponível!</h3>
+
+                    <p>
+                        O teu bilhete está pronto
+                        para ser consultado.
+                    </p>
+
+                    <small>Recentemente</small>
+                </div>
+
+            </article>
+
+
+            <article class="cartao notificacao">
+
+                <span class="icone">🎵</span>
+
+                <div>
+                    <h3>Novidades nos festivais</h3>
+
+                    <p>
+                        Descobre os festivais
+                        disponíveis na BANDy.
+                    </p>
+
+                    <small>Recentemente</small>
+                </div>
+
+            </article>
+
+
+            <article class="cartao notificacao">
+
+                <span class="icone">👥</span>
+
+                <div>
+                    <h3>Novos amigos</h3>
+
+                    <p>
+                        Explora pessoas que partilham
+                        os teus gostos musicais.
+                    </p>
+
+                    <small>Recentemente</small>
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <button type="button"
+                id="marcar-lidas"
+                class="botao-principal">
+            Marcar todas como lidas
+        </button>
+
+        <p id="estado-notificacoes"
+           class="mensagem"
+           role="status"></p>
+
+        <p class="aviso">
+            Notificações de demonstração.
+        </p>
+
+    </section>
+
+
+    <!-- ===== 3. MÉTODOS DE PAGAMENTO ===== -->
+    <section id="pagina-metodos"
+             class="conteudo"
+             hidden>
+
+        <h2>Métodos de pagamento</h2>
+
+        <p class="descricao">
+            Consulta os métodos disponíveis
+            para comprar bilhetes na BANDy.
+        </p>
+
+
+        <div class="cartao cartao-informacao">
+
+            <h3>Os teus métodos guardados</h3>
+
+            <p>
+                Ainda não tens métodos
+                de pagamento guardados.
+            </p>
+
+        </div>
+
+
+        <h3 class="subtitulo">
+            Métodos disponíveis
+        </h3>
+
+
+        <!-- MB WAY -->
+        <div class="cartao metodo">
+
+            <span class="icone-pagamento">
+                MB
+            </span>
+
+            <div>
+                <strong>MB WAY</strong>
+
+                <p>
+                    Pagamento com telemóvel.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- CARTÃO -->
+        <div class="cartao metodo">
+
+            <span class="icone-pagamento">
+                ▤
+            </span>
+
+            <div>
+                <strong>Cartão bancário</strong>
+
+                <p>
+                    Cartão de crédito ou débito.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- PAYPAL -->
+        <div class="cartao metodo">
+
+            <span class="icone-pagamento">
+                P
+            </span>
+
+            <div>
+                <strong>PayPal</strong>
+
+                <p>
+                    Pagamento online.
+                </p>
+            </div>
+
+        </div>
+
+
+        <p class="aviso">
+            Escolhe um método de pagamento
+            durante a compra de um bilhete.
+        </p>
+
+
+        <a href="rodrigo/pesquisar.html"
+           class="botao-principal">
+            Explorar festivais
+        </a>
+
+    </section>
+
+
+    <!-- ===== 4. DEFINIÇÕES ===== -->
+    <section id="pagina-definicoes"
+             class="conteudo"
+             hidden>
+
+        <h2>Definições</h2>
+
+        <p class="descricao">
+            Personaliza a tua experiência
+            na aplicação BANDy.
+        </p>
+
+
+        <h3 class="subtitulo">
+            Preferências
+        </h3>
+
+
+        <!-- Notificações -->
+        <label class="cartao opcao">
+
+            <div>
+                <strong>Notificações</strong>
+
+                <p>
+                    Receber atualizações sobre
+                    festivais e novidades.
+                </p>
+            </div>
+
+            <input type="checkbox"
+                   id="ativar-notificacoes"
+                   checked>
+
+        </label>
+
+
+        <h3 class="subtitulo">
+            Privacidade
+        </h3>
+
+
+        <!-- Perfil privado -->
+        <label class="cartao opcao">
+
+            <div>
+                <strong>Perfil privado</strong>
+
+                <p>
+                    Ocultar informações pessoais
+                    de outros utilizadores.
+                </p>
+            </div>
+
+            <input type="checkbox"
+                   id="perfil-privado">
+
+        </label>
+
+
+        <p id="estado-definicoes"
+           class="mensagem"
+           role="status"></p>
+
+        <p class="aviso">
+            As preferências são guardadas
+            apenas neste navegador.
+        </p>
+
+    </section>
+
+
+    <!-- ===== 5. DADOS PESSOAIS ===== -->
+    <section id="pagina-dados"
+             class="conteudo"
+             hidden>
+
+        <h2>Dados pessoais</h2>
+
+        <p class="descricao">
+            Consulta as informações
+            associadas ao teu perfil.
+        </p>
+
+
+        <div class="cartao dados">
+
+            <div class="campo">
+
+                <small>Nome</small>
+
+                <strong>
+                    Ana Santos
+                </strong>
+
+            </div>
+
+
+            <div class="campo">
+
+                <small>Nome de utilizador</small>
+
+                <strong>
+                    @ana-santos
+                </strong>
+
+            </div>
+
+
+            <div class="campo">
+
+                <small>E-mail</small>
+
+                <strong>
+                    Não indicado
+                </strong>
+
+            </div>
+
+
+            <div class="campo">
+
+                <small>Telemóvel</small>
+
+                <strong>
+                    Não indicado
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <h3 class="subtitulo">
+            Privacidade
+        </h3>
+
+
+        <!-- Ocultar dados pessoais -->
+        <label class="cartao opcao">
+
+            <div>
+                <strong>Ocultar dados pessoais</strong>
+
+                <p>
+                    Ativar a opção de
+                    perfil privado.
+                </p>
+            </div>
+
+            <input type="checkbox"
+                   id="ocultar-dados">
+
+        </label>
+
+
+        <p id="estado-dados"
+           class="mensagem"
+           role="status"></p>
+
+
+        <p class="aviso">
+            Informações demonstrativas.
+            Para alterar o nome, utiliza
+            a opção Editar perfil.
+        </p>
+
+
+        <a href="rodrigo/perfil.html"
+           class="botao-secundario">
+            Voltar para editar perfil
+        </a>
+
+    </section>
+
+
+    <!-- ===== 6. RODAPÉ ===== -->
+    <footer class="rodape">
+
+        <a href="rodrigo/perfil.html"
+           class="link-voltar">
+            Voltar ao Perfil
+        </a>
+
+    </footer>
+
+</main>
+
+</body>
+</html>
