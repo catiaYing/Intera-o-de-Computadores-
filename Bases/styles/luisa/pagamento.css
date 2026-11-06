@@ -115,3 +115,40 @@
     font-size: 12px;
     color: #7d8926;
 }
+
+
+/* ===== MÉTODO DE PAGAMENTO SELECIONADO ===== */
+
+/* 避免默认按钮样式干扰 */
+.metodo {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 支付方式被选中时 */
+.metodo.ativo,
+.metodo[aria-pressed="true"] {
+    border: 2px solid #828c39;
+    background-color: #f5f7e8;
+}
+
+/* 被选中的图标 */
+.metodo.ativo .icone,
+.metodo[aria-pressed="true"] .icone {
+    background-color: #828c39;
+    color: white;
+}
+
+/* 右边圆圈变绿 */
+.metodo.ativo .circulo,
+.metodo[aria-pressed="true"] .circulo {
+    border: 2px solid #828c39;
+    background-color: #828c39;
+    box-shadow: inset 0 0 0 4px white;
+}
+
+/* 未选中时 */
+.metodo:not(.ativo):not([aria-pressed="true"]) .circulo {
+    border: 2px solid #cccccc;
+    background-color: white;
+}

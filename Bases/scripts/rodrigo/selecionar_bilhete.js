@@ -1,113 +1,138 @@
-document.addEventListener("DOMContentLoaded", function () {
 
-    const MAXIMO = 8;
-    const MINIMO = 1;
+const params = new URLSearchParams(window.location.search);
+const nome = params.get("festival") || "MEO Alive";
+
+const dados = {
+    "MEO Alive": {
+        local: "Algés, Lisboa",
+        data: "10 – 12 Junho 2027",
+        precos: [45, 120, 190]
+    },
+    "Primavera Sound": {
+        local: "Porto",
+        data: "12 – 14 Junho 2027",
+        precos: [75, 180, 250]
+    },
+    "Sumol Summer Fest": {
+        local: "Ericeira",
+        data: "3 – 4 Julho 2027",
+        precos: [45, 80, 120]
+    },
+    "Meo Kalorama": {
+        local: "Lisboa",
+        data: "29 Agosto 2027",
+        precos: [65, 110, 170]
+    }
+};
+
+const festival = dados[nome];
+
+if (!festival) {
+    window.location.replace("pesquisar.html");
+} else {
+    iniciarSelecao();
+}
+
+function iniciarSelecao() {
+    document.getElementById("nome-festival").textContent = nome;
+
+    document.getElementById("info-festival").textContent =
+        festival.local + " · " + festival.data;
+
+    document.getElementById("voltar-detalhes").href =
+        "../luisa/detalhes.html?festival=" +
+        encodeURIComponent(nome);
 
     const opcoes = document.querySelectorAll(".opcao");
-    const diminuir = document.getElementById("diminuir");
-    const aumentar = document.getElementById("aumentar");
-    const quantidadeEl = document.getElementById("quantidade");
-    const totalEl = document.getElementById("total");
+    const quantidadeTexto = document.getElementById("quantidade");
+    const totalTexto = document.getElementById("total");
     const continuar = document.getElementById("continuar");
     const mensagem = document.getElementById("mensagem");
-    const nomeFestival = document.getElementById("nome-festival");
 
-    let tipoSelecionado = null;
-    let precoUnitario = 0;
     let quantidade = 1;
+    let tipo = null;
+    let preco = 0;
 
-    const parametros = new URLSearchParams(window.location.search);
-    const festival = parametros.get("festival");
-
-    if (festival) {
-        nomeFestival.textContent = festival;
-        document.title = "Selecionar bilhete - " + festival;
-    }
-
-    function formatarPreco(valor) {
+    function formatar(valor) {
         return valor.toFixed(2).replace(".", ",") + " €";
     }
 
-    function atualizar() {
-
-        quantidadeEl.textContent = quantidade;
-
-        diminuir.disabled = quantidade <= MINIMO;
-        aumentar.disabled = quantidade >= MAXIMO;
-
-        totalEl.textContent = formatarPreco(precoUnitario * quantidade);
-
-        continuar.disabled = tipoSelecionado === null;
+    function atualizarTotal() {
+        quantidadeTexto.textContent = quantidade;
+        totalTexto.textContent = formatar(preco * quantidade);
     }
 
-    opcoes.forEach(function (opcao) {
+    opcoes.forEach(function(opcao, index) {
+        const valor = festival.precos[index];
 
-        opcao.addEventListener("click", function () {
+        opcao.dataset.preco = valor;
 
-            const jaSelecionada = opcao.classList.contains("selecionada");
+        opcao.querySelector(".opcao-preco").textContent =
+            formatar(valor);
 
-            opcoes.forEach(function (item) {
-                item.classList.remove("selecionada");
+        opcao.addEventListener("click", function() {
+            opcoes.forEach(function(item) {
+                item.classList.remove("ativo");
+                item.setAttribute("aria-pressed", "false");
             });
 
-            if (jaSelecionada) {
+            opcao.classList.add("ativo");
+            opcao.setAttribute("aria-pressed", "true");
 
-                tipoSelecionado = null;
-                precoUnitario = 0;
+            tipo = opcao.dataset.tipo;
+            preco = Number(opcao.dataset.preco);
 
-            } else {
-
-                opcao.classList.add("selecionada");
-
-                tipoSelecionado = opcao.dataset.tipo;
-                precoUnitario = Number(opcao.dataset.preco);
-            }
-
+            continuar.disabled = false;
             mensagem.textContent = "";
 
-            atualizar();
+            atualizarTotal();
         });
     });
 
-    diminuir.addEventListener("click", function () {
-
-        if (quantidade > MINIMO) {
-            quantidade--;
-        }
-
-        mensagem.textContent = "";
-
-        atualizar();
-    });
-
-    aumentar.addEventListener("click", function () {
-
-        if (quantidade < MAXIMO) {
+    document.getElementById("aumentar").onclick = function() {
+        if (quantidade < 10) {
             quantidade++;
-            mensagem.textContent = "";
-        } else {
-            mensagem.textContent =
-                "Só podes comprar até " + MAXIMO + " bilhetes por compra.";
+            atualizarTotal();
+        }
+    };
+
+    document.getElementById("diminuir").onclick = function() {
+        if (quantidade > 1) {
+            quantidade--;
+            atualizarTotal();
+        }
+    };
+
+    continuar.onclick = function() {
+        if (!tipo || preco <= 0) {
+            mensagem.textContent = "Seleciona um tipo de bilhete.";
+            return;
         }
 
-        atualizar();
-    });
+        const compra = {
+            festival: nome,
+            tipo: tipo,
+            preco: preco,
+            quantidade: quantidade,
+            total: preco * quantidade
+        };
 
-    continuar.addEventListener("click", function () {
+        sessionStorage.setItem(
+            "bandyCompra",
+            JSON.stringify(compra)
+        );
 
-        if (tipoSelecionado === null) return;
+        const destino = new URL(
+            "../luisa/pagamento.html",
+            window.location.href
+        );
 
-        try {
-            sessionStorage.setItem("bandyFestival", nomeFestival.textContent);
-            sessionStorage.setItem("bandyTipo", tipoSelecionado);
-            sessionStorage.setItem("bandyQuantidade", String(quantidade));
-            sessionStorage.setItem("bandyTotal", String(precoUnitario * quantidade));
-        } catch (erro) {
-        }
+        Object.entries(compra).forEach(function([chave, valor]) {
+            destino.searchParams.set(chave, valor);
+        });
 
-        window.location.href = "../luisa/pagamento.html";
-    });
+        window.location.href = destino.href;
+    };
 
-    atualizar();
-
-});
+    atualizarTotal();
+}

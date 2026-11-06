@@ -1,0 +1,267 @@
+/* ===== 1. ESTILOS GERAIS ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f4fa;
+    color: #29243b;
+}
+
+.pagina {
+    max-width: 430px;
+    min-height: 100vh;
+    margin: auto;
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ===== 2. CABEÇALHO ===== */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.voltar {
+    text-decoration: none;
+    font-size: 27px;
+    color: #29243b;
+}
+
+.cabecalho h1 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+
+/* ===== 3. CAPA ===== */
+
+.capa {
+    min-height: 205px;
+    padding: 25px;
+
+    background: linear-gradient(
+        135deg,
+        #34205e,
+        #8548dc,
+        #dd71b3
+    );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    color: white;
+}
+
+.simbolo {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.capa h2 {
+    font-size: 27px;
+    margin: 0;
+}
+
+.capa p {
+    font-size: 14px;
+    margin: 12px 0 0;
+}
+
+
+/* ===== 4. CONTEÚDO ===== */
+
+.conteudo {
+    flex: 1;
+    padding: 22px;
+}
+
+.etiqueta {
+    font-size: 12px;
+    font-weight: bold;
+    color: #7545d8;
+    letter-spacing: 1px;
+}
+
+.apresentacao h2 {
+    margin: 10px 0 22px;
+    font-size: 25px;
+}
+
+
+/* ===== 5. INFORMAÇÕES ===== */
+
+.informacoes {
+    padding: 18px;
+    background: #f7f5fc;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.info .icone {
+    font-size: 21px;
+}
+
+.info strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.info p {
+    margin: 0;
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+
+/* ===== 6. SECÇÕES ===== */
+
+.secao {
+    margin-top: 28px;
+}
+
+.secao h3 {
+    font-size: 18px;
+    margin: 0 0 14px;
+}
+
+.secao p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.8;
+}
+
+
+/* ===== 7. ARTISTAS ===== */
+
+.artistas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.artista {
+    background: #f0eafb;
+    color: #6b3dcb;
+
+    padding: 10px 14px;
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ===== 8. BILHETES ===== */
+
+.bilhete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+
+    padding: 18px;
+    background: #f7f5fc;
+    border-radius: 15px;
+}
+
+.bilhete-info strong {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 7px;
+}
+
+.bilhete-info small {
+    color: #777777;
+    font-size: 12px;
+}
+
+.preco {
+    font-size: 20px;
+    font-weight: bold;
+    color: #7545d8;
+    white-space: nowrap;
+}
+
+
+/* ===== 9. BOTÃO INFERIOR ===== */
+
+.rodape {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+
+    padding: 15px 20px;
+    background: white;
+    border-top: 1px solid #eeeeee;
+}
+
+.botao-comprar {
+    display: block;
+    width: 100%;
+
+    padding: 17px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #7545d8;
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.botao-comprar:hover {
+    background: #5c30ba;
+}
+
+.botao-comprar:focus-visible,
+.voltar:focus-visible {
+    outline: 3px solid #b9a2ec;
+    outline-offset: 3px;
+}
+
+
+/* ===== 10. ECRÃS PEQUENOS ===== */
+
+@media (max-width: 400px) {
+
+    .conteudo {
+        padding: 18px;
+    }
+
+    .capa h2 {
+        font-size: 23px;
+    }
+
+    .preco {
+        font-size: 18px;
+    }
+}
