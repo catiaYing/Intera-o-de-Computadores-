@@ -188,3 +188,15 @@
 #guardar-edicao:hover {
     background: #BFE600;
 }
+
+
+/* Terminar Sessão */
+.menu-item[href*="login.html"] {
+    color: #DC2616;
+    font-weight: 600;
+}
+
+.menu-item[href*="login.html"]:hover {
+    border-color: #FCA5A5;
+    background: #FEF2F2;
+}

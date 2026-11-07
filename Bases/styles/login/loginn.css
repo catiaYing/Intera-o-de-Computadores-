@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -applesystem, BlinkMacSystemFont,"Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", sans-serif;
 }
 
 /* fundo da pagina */
@@ -229,3 +229,8 @@ p {
 .botao-menu:active {
   transform: scale(0.98);
 }
+
+.marca h1 .letra-y{
+    color: #D7FF00;
+  }
+

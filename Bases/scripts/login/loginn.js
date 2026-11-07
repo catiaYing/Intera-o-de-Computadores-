@@ -19,7 +19,7 @@ function handleLogin(event) {
   document.getElementById('login-formulario').reset();
   
   // Mudar para ecra principal
-  window.location.href = 'home.html';
+  window.location.href = '../home.html';
 }
 
 // Criar conta
