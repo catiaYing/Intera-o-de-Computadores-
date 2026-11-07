@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: -applesystem, BlinkMacSystemFont'Segoe UI', sans-serif;
+  font-family: -applesystem, BlinkMacSystemFont,"Segoe UI", sans-serif;
 }
 
 /* fundo da pagina */
@@ -32,7 +32,7 @@ body {
 }
 
 /*ocultar a barra de scroll*/
-.app-container:: -webkit-scrollbar{
+.app-container::-webkit-scrollbar{
   display: none;
 }
 .app-container{
@@ -180,7 +180,7 @@ p {
 
 .ligacoes a:hover {
   text-decoration: underline;
-  color: #BFE600
+  color: #BFE600;
 }
 
 
@@ -218,7 +218,7 @@ p {
   justify-content: center;
   align-items: center;
   gap: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.02)
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
 }
 
 .botao-menu:hover {

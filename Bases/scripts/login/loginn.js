@@ -16,11 +16,10 @@ function showScreen(screenId) {
 function handleLogin(event) {
   event.preventDefault(); 
   const email = document.getElementById('login-email').value;
-  document.getElementById('mensagem-boas-vindas').innerText = `Bem-vindo(a), ${email}!`;
   document.getElementById('login-formulario').reset();
   
   // Mudar para ecra principal
-  showScreen('ecra-principal');
+  window.location.href = 'home.html';
 }
 
 // Criar conta
