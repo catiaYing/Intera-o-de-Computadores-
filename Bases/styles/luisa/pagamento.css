@@ -152,3 +152,226 @@
     border: 2px solid #cccccc;
     background-color: white;
 }
+
+/* ==========================================
+   BANDy - Pagamento
+   Identidade Visual Unificada
+   ========================================== */
+
+
+/* ===== 1. SECÇÃO DE PAGAMENTO ===== */
+
+.pagamentos {
+    margin-bottom: 16px;
+}
+
+.pagamentos h2 {
+    margin: 0 0 16px;
+
+    font-size: 19px;
+    font-weight: 700;
+    color: #171923;
+}
+
+
+/* ===== 2. CARTÕES DOS MÉTODOS ===== */
+
+.metodo {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 12px 14px;
+    margin-bottom: 12px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+
+    text-align: left;
+    color: #171923;
+
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.metodo:last-child {
+    margin-bottom: 0;
+}
+
+.metodo:hover:not(.ativo):not(.selecionado) {
+    border-color: #BFE600;
+}
+
+
+/* ===== 3. ÍCONES DOS MÉTODOS ===== */
+
+.metodo .icone {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #F3F4F6;
+    color: #171923;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+    font-weight: 700;
+}
+
+
+/* ===== 4. NOME E DESCRIÇÃO ===== */
+
+.informacao {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+.informacao strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: #171923;
+}
+
+.informacao small {
+    font-size: 12px;
+    color: #6B7280;
+    line-height: 1.4;
+}
+
+
+/* ===== 5. CÍRCULO DE SELEÇÃO ===== */
+
+.metodo .circulo {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    border: 2px solid #9CA3AF;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+/* ===== 6. MÉTODO SELECIONADO ===== */
+
+/* Compatível com os estados usados no JavaScript */
+
+.metodo.ativo,
+.metodo.selecionado,
+.metodo[aria-pressed="true"] {
+    background-color: #F8FFE0;
+    border: 2px solid #BFE600;
+}
+
+/* Ícone selecionado */
+.metodo.ativo .icone,
+.metodo.selecionado .icone,
+.metodo[aria-pressed="true"] .icone {
+    background-color: #D7FF00;
+    color: #171923;
+}
+
+/* Círculo selecionado */
+.metodo.ativo .circulo,
+.metodo.selecionado .circulo,
+.metodo[aria-pressed="true"] .circulo {
+    border: 6px solid #BFE600;
+    background-color: #FFFFFF;
+}
+
+
+/* ===== 7. BOTÃO CONTINUAR ===== */
+
+#continuar {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+
+    margin-top: auto;
+    padding: 15px 18px;
+
+    background-color: #D7FF00;
+    color: #171923;
+
+    border: none;
+    border-radius: 12px;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#continuar:hover:not(:disabled) {
+    background-color: #BFE600;
+}
+
+#continuar:disabled {
+    background-color: #E5E7EB;
+    color: #9CA3AF;
+    cursor: not-allowed;
+}
+
+
+/* ===== 8. MENSAGENS ===== */
+
+#mensagem {
+    min-height: 18px;
+    margin: 10px 0 0;
+
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: #6B7280;
+}
+
+
+/* ===== 9. ACESSIBILIDADE ===== */
+
+.metodo:focus-visible,
+#continuar:focus-visible {
+    outline: 3px solid #BFE600;
+    outline-offset: 3px;
+}
+
+
+/* ===== 10. ECRÃS PEQUENOS ===== */
+
+@media (max-width: 400px) {
+
+    .metodo {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .informacao strong {
+        font-size: 13px;
+    }
+
+    .informacao small {
+        font-size: 11px;
+    }
+}

@@ -1,3 +1,9 @@
+/* ==========================================
+   BANDy - Detalhes do Festival
+   Identidade Visual Unificada
+   ========================================== */
+
+
 /* ===== 1. ESTILOS GERAIS ===== */
 
 * {
@@ -7,15 +13,17 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f5f4fa;
-    color: #29243b;
+    background-color: #FFFFFF;
+    color: #171923;
 }
 
 .pagina {
+    width: 100%;
     max-width: 430px;
     min-height: 100vh;
-    margin: auto;
-    background: #ffffff;
+    margin: 0 auto;
+
+    background-color: #FFFFFF;
 
     display: flex;
     flex-direction: column;
@@ -28,34 +36,35 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
+
     padding: 20px;
+    background-color: #FFFFFF;
 }
 
 .voltar {
     text-decoration: none;
     font-size: 27px;
-    color: #29243b;
+    color: #171923;
 }
 
 .cabecalho h1 {
     margin: 0;
     font-size: 19px;
     font-weight: bold;
+    color: #171923;
 }
 
 
-/* ===== 3. CAPA ===== */
+/* ===== 3. CAPA DO FESTIVAL ===== */
 
 .capa {
     min-height: 205px;
     padding: 25px;
+    margin: 0 20px;
 
-    background: linear-gradient(
-        135deg,
-        #34205e,
-        #8548dc,
-        #dd71b3
-    );
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
 
     display: flex;
     flex-direction: column;
@@ -63,22 +72,36 @@ body {
     justify-content: center;
 
     text-align: center;
-    color: white;
+    color: #171923;
 }
 
 .simbolo {
-    font-size: 48px;
-    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 78px;
+    height: 78px;
+
+    margin-bottom: 16px;
+    border-radius: 16px;
+
+    background-color: #D7FF00;
+    color: #171923;
+
+    font-size: 45px;
 }
 
 .capa h2 {
     font-size: 27px;
     margin: 0;
+    color: #171923;
 }
 
 .capa p {
     font-size: 14px;
     margin: 12px 0 0;
+    color: #6B7280;
 }
 
 
@@ -92,13 +115,14 @@ body {
 .etiqueta {
     font-size: 12px;
     font-weight: bold;
-    color: #7545d8;
+    color: #526600;
     letter-spacing: 1px;
 }
 
 .apresentacao h2 {
     margin: 10px 0 22px;
     font-size: 25px;
+    color: #171923;
 }
 
 
@@ -106,8 +130,10 @@ body {
 
 .informacoes {
     padding: 18px;
-    background: #f7f5fc;
-    border-radius: 15px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
 
     display: flex;
     flex-direction: column;
@@ -128,12 +154,13 @@ body {
     display: block;
     font-size: 14px;
     margin-bottom: 6px;
+    color: #171923;
 }
 
 .info p {
     margin: 0;
     font-size: 14px;
-    color: #666666;
+    color: #6B7280;
     line-height: 1.5;
 }
 
@@ -147,11 +174,14 @@ body {
 .secao h3 {
     font-size: 18px;
     margin: 0 0 14px;
+
+    color: #171923;
+    font-weight: bold;
 }
 
 .secao p {
     font-size: 14px;
-    color: #666666;
+    color: #6B7280;
     line-height: 1.8;
 }
 
@@ -165,14 +195,17 @@ body {
 }
 
 .artista {
-    background: #f0eafb;
-    color: #6b3dcb;
+    display: inline-flex;
+    align-items: center;
+
+    background-color: #D7FF00;
+    color: #171923;
 
     padding: 10px 14px;
-    border-radius: 20px;
+    border-radius: 12px;
 
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 
@@ -185,25 +218,28 @@ body {
     gap: 12px;
 
     padding: 18px;
-    background: #f7f5fc;
-    border-radius: 15px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
 }
 
 .bilhete-info strong {
     display: block;
     font-size: 14px;
     margin-bottom: 7px;
+    color: #171923;
 }
 
 .bilhete-info small {
-    color: #777777;
+    color: #6B7280;
     font-size: 12px;
 }
 
 .preco {
     font-size: 20px;
     font-weight: bold;
-    color: #7545d8;
+    color: #171923;
     white-space: nowrap;
 }
 
@@ -216,45 +252,61 @@ body {
     z-index: 10;
 
     padding: 15px 20px;
-    background: white;
-    border-top: 1px solid #eeeeee;
+
+    background-color: #FFFFFF;
+    border-top: 1px solid #E5E7EB;
 }
 
 .botao-comprar {
     display: block;
     width: 100%;
 
-    padding: 17px;
+    min-height: 48px;
+    padding: 15px 18px;
 
     border: none;
-    border-radius: 13px;
+    border-radius: 12px;
 
-    background: #7545d8;
-    color: white;
+    background-color: #D7FF00;
+    color: #171923;
 
+    font-family: Arial, sans-serif;
     font-size: 16px;
     font-weight: bold;
 
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .botao-comprar:hover {
-    background: #5c30ba;
+    background-color: #BFE600;
 }
+
+.botao-comprar:active {
+    background-color: #BFE600;
+}
+
+
+/* ===== 10. ACESSIBILIDADE ===== */
 
 .botao-comprar:focus-visible,
 .voltar:focus-visible {
-    outline: 3px solid #b9a2ec;
+    outline: 3px solid #BFE600;
     outline-offset: 3px;
 }
 
 
-/* ===== 10. ECRÃS PEQUENOS ===== */
+/* ===== 11. ECRÃS PEQUENOS ===== */
 
 @media (max-width: 400px) {
 
     .conteudo {
         padding: 18px;
+    }
+
+    .capa {
+        margin: 0 18px;
+        padding: 20px;
     }
 
     .capa h2 {
