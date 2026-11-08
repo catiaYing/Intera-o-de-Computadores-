@@ -3,28 +3,28 @@
 }
 
 .cabecalho-pesquisa h1 {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .caixa-pesquisa {
     display: flex;
     align-items: center;
-    gap: 9px;
-    height: 45px;
-    padding: 0 13px;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
-    border-radius: 13px;
+    gap: 10px;
+    min-height: 48px;
+    padding: 0 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
     transition: border-color .2s;
 }
 
 .caixa-pesquisa:focus-within {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .caixa-pesquisa span {
-    color: #78864B;
-    font-size: 21px;
+    color: #6B7280;
+    font-size: 20px;
 }
 
 .caixa-pesquisa input {
@@ -32,18 +32,18 @@
     background: transparent;
     border: none;
     outline: none;
-    color: #303329;
-    font-size: 13px;
+    color: #171923;
+    font-size: 14px;
 }
 
 .caixa-pesquisa input::placeholder {
-    color: #898A80;
+    color: #6B7280;
 }
 
 .filtros {
     display: flex;
-    gap: 9px;
-    padding: 19px 20px;
+    gap: 8px;
+    padding: 16px 20px;
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -53,36 +53,40 @@
 }
 
 .filtro {
-    padding: 9px 16px;
-    border: 1px solid #DEDDD4;
-    border-radius: 22px;
-    background: #E7E6DE;
-    color: #68695F;
+    min-height: 36px;
+    padding: 8px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #6B7280;
     font-size: 12px;
-    font-weight: 550;
+    font-weight: 600;
     white-space: nowrap;
     cursor: pointer;
     transition: all .2s;
 }
 
 .filtro:hover {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .filtro.ativo {
-    background: #B9C77A;
-    border-color: #B9C77A;
-    color: #303329;
-    font-weight: 750;
+    background: #D7FF00;
+    border-color: #D7FF00;
+    color: #171923;
+    font-weight: 700;
 }
 
 .contador {
-    padding: 0 20px 6px;
-    color: #898A80;
+    padding: 0 20px 8px;
+    color: #6B7280;
     font-size: 12px;
 }
 
 .lista-festivais {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     padding: 0 20px;
 }
 
@@ -90,44 +94,31 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    min-height: 100px;
-    padding: 15px 5px;
-    border-bottom: 1px solid #DAD9D0;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
     color: inherit;
     text-decoration: none;
-    transition: background .2s;
+    transition: border-color .2s, background .2s;
 }
 
 .festival:hover {
-    background: rgba(255, 255, 255, .25);
+    border-color: #BFE600;
+    background: #F9FFD6;
 }
 
 .festival-imagem {
-    width: 72px;
-    height: 72px;
+    width: 64px;
+    height: 64px;
     flex-shrink: 0;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 28px;
-    color: #FFFFFF;
-}
-
-.imagem-um {
-    background: linear-gradient(135deg, #622B91, #D34B8D, #171B38);
-}
-
-.imagem-dois {
-    background: linear-gradient(135deg, #E6A45C, #8A4774, #24213C);
-}
-
-.imagem-tres {
-    background: linear-gradient(135deg, #176B9E, #5142A3, #171B38);
-}
-
-.imagem-quatro {
-    background: linear-gradient(135deg, #258C83, #263C70, #171B38);
+    background: #171923;
+    color: #D7FF00;
+    font-size: 26px;
 }
 
 .festival-detalhes {
@@ -136,71 +127,47 @@
 }
 
 .festival-local {
-    color: #78864B;
-    font-size: 10px;
-    font-weight: 800;
+    color: #6B7280;
+    font-size: 11px;
+    font-weight: 700;
     letter-spacing: .7px;
 }
 
 .festival-detalhes h3 {
-    margin: 5px 0;
+    margin: 4px 0;
     font-size: 15px;
-    font-weight: 750;
+    font-weight: 700;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .festival-detalhes p {
-    color: #898A80;
-    font-size: 11px;
+    color: #6B7280;
+    font-size: 12px;
 }
 
 .festival-preco {
     display: block;
     margin-top: 6px;
     font-size: 12px;
-    font-weight: 750;
+    font-weight: 700;
 }
 
 .festival-seta {
-    padding: 0 5px;
-    color: #898A80;
-    font-size: 36px;
-    font-weight: bold;
-    transition: color .2s, transform .2s;
+    padding: 0 4px;
+    color: #6B7280;
+    font-size: 28px;
+    transition: transform .2s;
 }
 
 .festival:hover .festival-seta {
-    color: #78864B;
     transform: translateX(3px);
 }
 
 .sem-resultados {
-    padding: 35px 15px;
+    padding: 32px 20px;
     text-align: center;
-    color: #898A80;
-    font-size: 13px;
-}
-
-@media (max-width: 360px) {
-
-    .filtros,
-    .contador {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .lista-festivais {
-        padding: 0 15px;
-    }
-
-    .festival-imagem {
-        width: 64px;
-        height: 64px;
-    }
-
-    .festival-detalhes h3 {
-        font-size: 14px;
-    }
+    color: #6B7280;
+    font-size: 14px;
 }

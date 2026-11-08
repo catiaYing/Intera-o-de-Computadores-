@@ -1,18 +1,20 @@
-/* =====================================
-   BANDy - Estilos comuns
-   支付页面共用的样式
-===================================== */
+/* Estilos comuns */
 
 /* 1. 基础设置 */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #eeeeee;
-    color: #181818;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #E5E7EB;
+    color: #171923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 button, input {
@@ -21,13 +23,17 @@ button, input {
 
 /* 2. 手机页面 */
 .pagina {
-    width: 100%;
-    max-width: 390px;
-    min-height: 100dvh;
+    width: 390px;
+    height: 844px;
     margin: 0 auto;
-    padding: 16px 20px;
-    background-color: white;
-
+    padding: 24px 20px;
+    background-color: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
 }
@@ -38,21 +44,22 @@ button, input {
     display: flex;
     justify-content: center;
     align-items: center;
-
     min-height: 46px;
     margin-bottom: 18px;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .cabecalho h1 {
     margin: 0;
     font-size: 20px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .voltar {
     position: absolute;
     left: 0;
-    color: #181818;
+    color: #171923;
     font-size: 28px;
     text-decoration: none;
 }
@@ -64,20 +71,22 @@ button, input {
 
 .etiqueta {
     margin: 0 0 8px;
-    color: #7d8926;
+    color: #171923;
     font-size: 11px;
-    font-weight: bold;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
 .introducao h2 {
     margin: 0 0 8px;
     font-size: 28px;
+    color: #171923;
+    font-weight: 750;
 }
 
 .descricao {
     margin: 0;
-    color: #777777;
+    color: #6B7280;
     font-size: 14px;
     line-height: 1.4;
 }
@@ -86,15 +95,16 @@ button, input {
 .resumo {
     padding: 16px;
     margin-bottom: 18px;
-    background-color: #f7f7f7;
-    border: 1px solid #eaeaea;
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 16px;
 }
 
 .resumo-titulo {
     margin: 0 0 12px;
-    color: #777777;
+    color: #6B7280;
     font-size: 11px;
+    font-weight: 700;
 }
 
 .festival {
@@ -107,31 +117,33 @@ button, input {
     width: 44px;
     height: 44px;
     flex-shrink: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-color: #ecf2a5;
+    background-color: #D7FF00;
+    border: 1px solid #BFE600;
     border-radius: 12px;
     font-size: 20px;
     font-weight: bold;
+    color: #171923;
 }
 
 .festival h3 {
     margin: 0 0 5px;
     font-size: 15px;
+    font-weight: 700;
+    color: #171923;
 }
 
 .festival p {
     margin: 0;
-    color: #777777;
+    color: #6B7280;
     font-size: 12px;
 }
 
 .resumo hr {
     border: none;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #E5E7EB;
     margin: 12px 0;
 }
 
@@ -143,12 +155,13 @@ button, input {
 }
 
 .total span {
-    color: #555555;
+    color: #4B5563;
     font-size: 13px;
 }
 
 .total strong {
     font-size: 19px;
+    color: #171923;
 }
 
 /* 6. 绿色主要按钮 */
@@ -157,18 +170,19 @@ button, input {
     min-height: 48px;
     padding: 12px;
 
-    background-color: #7d8926;
-    color: white;
+    background-color: #D7FF00;
+    color: #171923;
     border: none;
     border-radius: 12px;
 
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .botao-principal:hover {
-    background-color: #68751f;
+    background-color: #BFE600;
 }
 
 /* 7. 白色次要按钮 */
@@ -178,19 +192,26 @@ button, input {
     padding: 12px;
     margin-top: 10px;
 
-    background-color: white;
-    color: #555555;
-    border: 1px solid #dddddd;
+    background-color: #FFFFFF;
+    color: #171923;
+    border: 1px solid #E5E7EB;
     border-radius: 12px;
 
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.botao-secundario:hover {
+    background-color: #F9FAFB;
+    border-color: #BFE600;
 }
 
 /* 原型说明文字 */
 .nota-simulacao {
     margin: 12px 0;
-    color: #777777;
+    color: #6B7280;
     font-size: 12px;
     text-align: center;
     line-height: 1.5;
@@ -201,27 +222,28 @@ button, input {
     width: 85%;
     max-width: 320px;
     padding: 24px;
-
     border: none;
     border-radius: 18px;
-    background-color: white;
-    color: #181818;
+    background-color: #FFFFFF;
+    color: #171923;
     text-align: center;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 /* 弹窗打开时背景变暗 */
 .dialogo::backdrop {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(23, 25, 35, 0.55);
 }
 
 .dialogo h2 {
     margin: 0 0 12px;
     font-size: 20px;
+    color: #171923;
 }
 
 .dialogo p {
     margin: 0 0 20px;
-    color: #777777;
+    color: #6B7280;
     font-size: 14px;
     line-height: 1.5;
 }
@@ -235,20 +257,21 @@ button, input {
     justify-content: center;
     align-items: center;
 
-    background-color: #f2f2f2;
+    background-color: #F3F4F6;
     border-radius: 50%;
     font-size: 26px;
+    color: #171923;
 }
 
 .icone-dialogo.sucesso {
-    background-color: #ecf2a5;
-    color: #52621e;
+    background-color: #D7FF00;
+    color: #171923;
 }
 
 /* 键盘操作时显示焦点 */
 button:focus-visible,
 a:focus-visible {
-    outline: 2px solid #7d8926;
+    outline: 2px solid #BFE600;
     outline-offset: 3px;
 }
 

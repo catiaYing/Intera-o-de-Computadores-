@@ -1,21 +1,19 @@
 
-/* =========================================
-   BANDy - NAVBAR
-   Warm Beige & Olive Green Theme
-========================================= */
-
 .bottom-nav {
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 100%;
-    max-width: 430px;
+    left: 0;
+    right:0;
     height: 75px;
+    width: 100%;
 
-    background-color: #171714;
-    border-top: 1px solid #45483C;
+
+    background-color: rgba(255, 255, 255, 0.75);
+    border-top: 1px solid rgba(229, 231, 235, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 
     display: flex;
     justify-content: space-around;
@@ -24,7 +22,6 @@
     z-index: 100;
 }
 
-/* Cada opção da navegação */
 .nav-item {
     flex: 1;
     display: flex;
@@ -33,13 +30,13 @@
     justify-content: center;
     gap: 6px;
 
-    color: #B7B8AC;
+    color: #4B5563;
     text-decoration: none;
     font-size: 12px;
-    font-weight: 500;
+    font-weight: 600;
+    transition: color 0.2s;
 }
 
-/* Ícones - HTML utiliza img diretamente */
 .nav-item img {
     width: 25px;
     height: 25px;
@@ -47,22 +44,36 @@
     max-height: 25px;
     object-fit: contain;
     display: block;
-    opacity: .75;
+    opacity: 0.9;
+    filter: brightness(0.4) drop-shadow(0 0 1px #6B7280);
+    transition: all 0.2s;
 }
+
+.nav-item:hover {
+    color: #171923;
+}
+
+.nav-item:hover img {
+    opacity: 1;
+}
+
+.nav-item:active {
+    opacity: 0.7;
+}
+
 
 /* Opção ativa */
 .nav-item.active {
-    color: #B9C77A;
-    font-weight: 700;
+    color: #171923;
+    font-weight: 750;
 }
 
 .nav-item.active img {
     opacity: 1;
-}
-
-/* Efeito ao clicar */
-.nav-item:active {
-    opacity: .7;
+    background-color: rgba(215, 255, 0, 0.45);
+    padding: 4px;
+    border-radius: 10px;
+    filter: brightness(0.7) drop-shadow(0 0 2px #BFE600);
 }
 
 /* Ecrãs pequenos */

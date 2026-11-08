@@ -1,7 +1,4 @@
 
-/* BANDy - NOVOS AMIGOS
-   Warm Beige & Olive Green Theme*/
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,19 +6,28 @@
 }
 
 body {
-    background: #E8E6DC;
-    color: #303329;
+background: #E5E7EB;
+    color: #171923;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .friends-page {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
-    margin: auto;
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
     padding: 20px;
-    padding-bottom: 100px;
-    background: #F1F0E9;
+    padding-bottom: 110px;
+    background: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* cabeçalho */
@@ -32,27 +38,22 @@ body {
     height: 65px;
     padding: 0 15px;
     margin: -20px -20px 0;
-    background: #696963;
+    background: #171923;
     border-radius: 0 0 14px 14px;
 }
 
 .page-header h1 {
     font-size: 20px;
     font-weight: 750;
-    color: #c4c7bb;
+    color: #FFFFFF;
 }
 
 .back-button {
-    color: #23241f;
+    color: #FFFFFF;
     text-decoration: none;
     font-size: 28px;
 }
 
-.back-button {
-    color: #303329;
-    text-decoration: none;
-    font-size: 28px;
-}
 
 /* botão de pesquisa */
 
@@ -63,18 +64,18 @@ body {
     height: 48px;
     margin-top: 20px;
     padding: 0 15px;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 25px;
     transition: border-color .2s;
 }
 
 .search-box:focus-within {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .search-box span {
-    color: #78864B;
+    color: #6B7280;
     font-size: 23px;
 }
 
@@ -84,12 +85,12 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    color: #303329;
+    color: #171923;
     font-size: 14px;
 }
 
 .search-box input::placeholder {
-    color: #898A80;
+    color: #9CA3AF;
 }
 
 /* section de amigos aceites e pendentes */
@@ -103,7 +104,7 @@ body {
 .pending-section h2 {
     font-size: 18px;
     font-weight: 750;
-    color: #303329;
+    color: #171923;
     margin-bottom: 15px;
 }
 
@@ -120,7 +121,7 @@ body {
     gap: 12px;
     min-height: 82px;
     padding: 12px 5px;
-    border-bottom: 1px solid #DAD9D0;
+    border-bottom: 1px solid #E5E7EB;
     background: transparent;
 }
 
@@ -131,21 +132,21 @@ body {
     height: 45px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #E2E1D8;
-    border: 1px solid #C6C5B9;
+    background: #D7FF00;
+    border: 1px solid #BFE600;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #78864B;
+    color: #171923;
     font-size: 20px;
     font-weight: 650;
     text-decoration: none;
 }
 
 .maria-avatar {
-    background: #E5E7D8;
-    border-color: #AEBB7C;
-    color: #65743B;
+    background: #D7FF00;
+    border-color: #BFE600;
+    color: #171923;
 }
 
 /* informações do contacto */
@@ -154,24 +155,24 @@ body {
     flex: 1;
     min-width: 0;
     text-decoration: none;
-    color: #303329;
+    color: #171923;
 }
 
 .user-info h3 {
     font-size: 15px;
     font-weight: 650;
-    color: #303329;
+    color: #171923;
 }
 
 .user-info p {
     margin-top: 5px;
-    color: #898A80;
+    color: #6B7280;
     font-size: 13px;
 }
 
 /* etiqueta de adicionado */
 .added-label {
-    color: #718044;
+    color: #16A34A;
     font-size: 13px;
     font-weight: 700;
     white-space: nowrap;
@@ -182,22 +183,22 @@ body {
 .action-button {
     min-width: 95px;
     padding: 10px 12px;
-    border: 1px solid #AEBB7C;
+    border: 1px solid #E5E7EB;
     border-radius: 22px;
-    background: transparent;
-    color: #65743B;
+    background: #D7FF00;
+    color: #171923;
     font-size: 13px;
-    font-weight: 650;
+    font-weight: 700;
     cursor: pointer;
     transition: background .2s;
 }
 
 .action-button:hover {
-    background: #E5E8D9;
+    background: #BFE600;
 }
 
 .action-button:active {
-    background: #DDE2CB;
+    background: #A3C700;
 }
 
 /* label de pedido enviado */
@@ -205,7 +206,7 @@ body {
 .empty-message {
     display: none;
     text-align: center;
-    color: #898A80;
+    color: #6B7280;
     font-size: 13px;
     padding: 20px 0;
 }
@@ -234,9 +235,9 @@ body {
 }
 
 .sent-button {
-    background: #D8D8C9;
-    border: 1px solid #B9C77A;
-    color: #65743B;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    color: #6B7280;
     cursor: default;
     opacity: 1;
 }

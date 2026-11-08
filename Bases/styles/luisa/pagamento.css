@@ -1,6 +1,4 @@
-/* =====================================
-   BANDy - Escolher pagamento
-===================================== */
+/* Escolher pagamento */
 
 .pagamentos {
     margin-bottom: 16px;
@@ -9,6 +7,8 @@
 .pagamentos h2 {
     margin: 0 0 12px;
     font-size: 19px;
+    font-weight: 750;
+    color: #171923;
 }
 
 /* 支付方式卡片 */
@@ -18,19 +18,26 @@
     align-items: center;
     gap: 12px;
 
-    padding: 10px 12px;
+    padding: 12px 14px;
     margin-bottom: 9px;
 
-    background-color: white;
-    border: 1px solid #dedede;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
     border-radius: 14px;
     text-align: left;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .metodo:last-child {
     margin-bottom: 0;
 }
+
+.metodo:hover {
+    border-color: #BFE600;
+    background-color: #F9FAFB;
+}
+
 
 /* 左侧支付图标 */
 .icone {
@@ -42,10 +49,12 @@
     align-items: center;
     justify-content: center;
 
-    background-color: #f2f2f2;
+    background-color: #F3F4F6;
     border-radius: 12px;
     font-size: 17px;
     font-weight: bold;
+    color: #171923;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 /* 支付方式名称和说明 */
@@ -58,10 +67,12 @@
 
 .informacao strong {
     font-size: 14px;
+    font-weight: 700;
+    color: #171923;
 }
 
 .informacao small {
-    color: #777777;
+    color: #6B7280;
     font-size: 12px;
 }
 
@@ -70,19 +81,21 @@
     width: 18px;
     height: 18px;
     flex-shrink: 0;
-    border: 2px solid #cccccc;
+    border: 2px solid #D1D5DB;
     border-radius: 50%;
+    background-color: #FFFFFF;
+    transition: all 0.2s ease;
 }
 
 /* JS 添加 selecionado 后显示选中样式 */
 .metodo.selecionado {
-    border: 2px solid #7d8926;
-    background-color: #fbfce9;
+    border: 2px solid #D7FF00;
+    background-color: rgba(215, 255, 0, 0.08);
 }
 
 .metodo.selecionado .circulo {
-    border-color: #7d8926;
-    background-color: #7d8926;
+    border-color: #D7FF00;
+    background-color: #D7FF00;
     box-shadow: inset 0 0 0 4px white;
 }
 
@@ -92,19 +105,25 @@
     min-height: 48px;
     margin-top: auto;
 
-    background-color: #7d8926;
-    color: white;
+    background-color: #D7FF00;
+    color: #171923;
     border: none;
     border-radius: 12px;
 
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 750;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+#continuar:hover:not(:disabled) {
+    background-color: #BFE600;
 }
 
 /* 未选择支付方式时按钮灰色 */
 #continuar:disabled {
-    background-color: #cccccc;
+    background-color: #E5E7EB;
+    color: #9CA3AF;
     cursor: not-allowed;
 }
 
@@ -113,7 +132,8 @@
     margin: 8px 0 0;
     text-align: center;
     font-size: 12px;
-    color: #7d8926;
+    color: #DC2626;
+    font-weight: 600;
 }
 
 
@@ -128,28 +148,28 @@
 /* 支付方式被选中时 */
 .metodo.ativo,
 .metodo[aria-pressed="true"] {
-    border: 2px solid #828c39;
-    background-color: #f5f7e8;
+    border: 2px solid #D7FF00;
+    background-color: rgba(215, 255, 0, 0.08);
 }
 
 /* 被选中的图标 */
 .metodo.ativo .icone,
 .metodo[aria-pressed="true"] .icone {
-    background-color: #828c39;
-    color: white;
+    background-color: #D7FF00;
+    color: #171923;
 }
 
 /* 右边圆圈变绿 */
 .metodo.ativo .circulo,
 .metodo[aria-pressed="true"] .circulo {
-    border: 2px solid #828c39;
-    background-color: #828c39;
+    border: 2px solid #D7FF00;
+    background-color: #D7FF00;
     box-shadow: inset 0 0 0 4px white;
 }
 
 /* 未选中时 */
 .metodo:not(.ativo):not([aria-pressed="true"]) .circulo {
-    border: 2px solid #cccccc;
+    border: 2px solid #D1D5DB;
     background-color: white;
 }
 

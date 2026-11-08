@@ -9,36 +9,36 @@
     width: 56px;
     height: 56px;
     flex-shrink: 0;
-    border-radius: 14px;
+    border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #622B91, #D34B8D, #171B38);
-    color: #FFFFFF;
+    background: #171923;
+    color: #D7FF00;
     font-size: 24px;
 }
 
 .festival-resumo h2 {
     font-size: 18px;
-    font-weight: 750;
+    font-weight: 700;
 }
 
 .festival-resumo p {
     margin-top: 4px;
-    color: #898A80;
+    color: #6B7280;
     font-size: 12px;
 }
 
 .secao {
     padding: 0 20px;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 }
 
 .secao-titulo {
     margin-bottom: 12px;
-    color: #78864B;
+    color: #6B7280;
     font-size: 11px;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
@@ -47,11 +47,12 @@
     align-items: center;
     gap: 12px;
     width: 100%;
+    min-height: 48px;
     padding: 14px;
     margin-bottom: 10px;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
-    border-radius: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
     text-align: left;
     color: inherit;
     cursor: pointer;
@@ -59,7 +60,7 @@
 }
 
 .opcao:hover {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .opcao-texto {
@@ -74,42 +75,44 @@
 .opcao-texto small {
     display: block;
     margin-top: 4px;
-    color: #898A80;
-    font-size: 11px;
+    color: #6B7280;
+    font-size: 12px;
 }
 
 .opcao-preco {
     font-size: 14px;
-    font-weight: 750;
+    font-weight: 700;
 }
 
 .opcao-circulo {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    border: 2px solid #A8AA9D;
+    border: 2px solid #E5E7EB;
     border-radius: 50%;
 }
 
-.opcao.selecionada {
-    background: #E8EBD9;
-    border: 2px solid #B9C77A;
+.opcao.ativo {
+    background: #F9FFD6;
+    border-color: #BFE600;
+    box-shadow: inset 0 0 0 1px #BFE600;
 }
 
-.opcao.selecionada .opcao-circulo {
-    border-color: #78864B;
-    background: #78864B;
-    box-shadow: inset 0 0 0 3px #E8EBD9;
+.opcao.ativo .opcao-circulo {
+    border-color: #171923;
+    background: #D7FF00;
+    box-shadow: inset 0 0 0 3px #FFFFFF;
 }
 
 .quantidade {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-height: 48px;
     padding: 12px 14px;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
-    border-radius: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
 }
 
 .quantidade > span {
@@ -126,52 +129,52 @@
 .contador-quantidade button {
     width: 36px;
     height: 36px;
-    border: 1px solid #AEBB7C;
-    border-radius: 50%;
-    background: #F1F0E9;
-    color: #65743B;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #171923;
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
-    transition: background .2s;
+    transition: background .2s, border-color .2s;
 }
 
 .contador-quantidade button:hover:not(:disabled) {
-    background: #E5E8D9;
+    border-color: #BFE600;
+    background: #F9FFD6;
 }
 
 .contador-quantidade button:disabled {
-    opacity: .4;
+    color: #6B7280;
     cursor: not-allowed;
 }
 
 .contador-quantidade output {
     min-width: 20px;
     text-align: center;
-    font-size: 17px;
-    font-weight: 750;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 .total-linha {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 20px;
-    border-top: 1px solid #DAD9D0;
-    border-bottom: 1px solid #DAD9D0;
-    background: #E9E8E0;
+    margin: 0 20px;
+    padding: 16px 0;
+    border-top: 1px solid #E5E7EB;
 }
 
 .total-linha span {
-    color: #68695F;
-    font-size: 13px;
+    color: #6B7280;
+    font-size: 14px;
 }
 
 .total-linha strong {
-    font-size: 21px;
-    font-weight: 750;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .rodape {
-    padding: 20px;
+    padding: 8px 20px 20px;
 }

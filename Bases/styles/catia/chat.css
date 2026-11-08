@@ -7,49 +7,60 @@
     padding: 0;
 }
 
-html,
 body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-body {
-    background: #F1F0E9;
-    color: #303329;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #E5E7EB;
+    color: #171923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Página principal */
 .chat-page {
-    width: 100%;
-    max-width: 430px;
-    height: 100vh;
-    height: 100dvh;
+    width: 390px;
+    height: 844px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background: #F1F0E9;
+    background: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     overflow: hidden;
+    position: relative;
 }
 
 /* Cabeçalho */
 .chat-header {
+    height:70px;
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 14px 18px 10px;
-    border-bottom: 1px solid #DAD9D0;
+    border-bottom: 1px solid #E5E7EB;
     flex-shrink: 0;
     position: relative;
     z-index: 10;
-    background: #F1F0E9;
+    background: #FFFFFF;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 .back-button {
-    color: #303329;
+    font-size: 22px;
+    font-weight: bold;
+    color: #171923;
     text-decoration: none;
-    font-size: 28px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.back-button:hover {
+    background: #F3F4F6;
 }
 
 .user-info {
@@ -58,7 +69,7 @@ body {
     gap: 12px;
     flex: 1;
     text-decoration: none;
-    color: #303329;
+    color: #171923;
 }
 
 /* Avatar */
@@ -67,25 +78,27 @@ body {
     height: 40px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
-    color: #78864B;
+    background: #D7FF00;
+    border: 1px solid #BFE600;
+    color: #171923;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 19px;
+    font-weight: 700;
 }
 
 .user-info h2 {
     font-size: 17px;
     font-weight: 700;
+    color: #171923;
 }
 
 .user-info span {
     display: block;
     margin-top: 3px;
     font-size: 13px;
-    color: #78864B;
+    color: #6B7280;
 }
 
 /* Área das mensagens */
@@ -102,13 +115,14 @@ body {
     -webkit-overflow-scrolling: touch;
     position: relative;
     z-index: 1;
+    background: #FFFFFF;
 }
 
 /* Data */
 .chat-date {
     align-self: center;
-    color: #898A80;
-    background: #EAE6DE;
+    color: #4B5563;
+    background: #F3F4F6;
     border-radius: 20px;
     font-size: 13px;
     padding: 7px 20px;
@@ -137,7 +151,7 @@ body {
 .message span {
     align-self: flex-end;
     font-size: 11px;
-    color: #898A80;
+    color: #6B7280;
     white-space: nowrap;
 }
 
@@ -145,8 +159,8 @@ body {
 .received {
     align-self: flex-start;
     margin-right: auto;
-    background: #E7E6DE;
-    color: #303329;
+    background: #F3F4F6;
+    color: #171923;
     border-bottom-left-radius: 5px;
 }
 
@@ -154,19 +168,19 @@ body {
 .sent {
     align-self: flex-end;
     margin-left: auto;
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
     border-bottom-right-radius: 5px;
 }
 
 .sent span {
-    color: #606A40;
+    color: #4B5563;
 }
 
 /* Duplo visto */
 .sent span::after {
     content: " ✓✓";
-    color: #303329;
+    color: #171923;
     font-size: 12px;
     font-weight: 600;
 }
@@ -177,8 +191,8 @@ body {
     align-items: center;
     gap: 10px;
     padding: 12px 15px 18px;
-    border-top: 1px solid #DAD9D0;
-    background: #F1F0E9;
+    border-top: 1px solid #E5E7EB;
+    background: #FFFFFF;
     flex-shrink: 0;
     position: relative;
     z-index: 10;
@@ -189,20 +203,20 @@ body {
     min-width: 0;
     height: 46px;
     padding: 0 17px;
-    background: #EAE6DE;
-    border: 1px solid #DEDAD1;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 25px;
-    color: #303329;
+    color: #171923;
     font-size: 14px;
     outline: none;
 }
 
 .message-form input:focus {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .message-form input::placeholder {
-    color: #898A80;
+    color: #9CA3AF;
 }
 
 /* Botões */
@@ -218,22 +232,27 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 21px;
-}
-
-.attach-button {
-    background: #EAE6DE;
-    color: #62665A;
-}
-
-.send-button {
-    background: #899B4D;
-    color: white;
     transition: background .2s;
 }
 
-.send-button:hover {
-    background: #788943;
+.attach-button {
+    background: #F3F4F6;
+    color: #4B5563;
 }
+
+.attach-button:hover {
+    background: #E5E7EB;
+}
+
+.send-button {
+background: #D7FF00;
+    color: #171923;
+}
+
+.send-button:hover {
+    background: #BFE600;
+}
+
 
 /* Telemóveis pequenos */
 @media (max-width: 360px) {

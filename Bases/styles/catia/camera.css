@@ -9,22 +9,36 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #101114;
-    color: white;
+    background: #E5E7EB;
+    color: #171923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Ecrã principal da câmara */
 
 .camera-page {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
+    width: 390px;
+    height: 844px;
     margin: 0 auto;
     background: #101114;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     overflow: hidden;
     position: relative;
+}
+
+.camera-page::-webkit-scrollbar {
+    display: none;
+}
+.camera-page {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 /*  Área câmara */
@@ -83,6 +97,7 @@ body {
     font-weight: 600;
     min-width: 28px;
     text-align: center;
+    color: white;
 }
 
 /*  Barra de controlos da câmara*/
@@ -119,6 +134,7 @@ body {
 
 .camera-icon:hover {
     background: #414650;
+    border-color: #D7FF00;
 }
 
 /*  álbum */
@@ -139,6 +155,10 @@ body {
     outline-offset: 4px;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.capture-button:hover{
+    border-color: #D7FF00;
 }
 
 .capture-button:active {

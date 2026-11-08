@@ -3,34 +3,45 @@
    Identidade Visual Unificada
    ========================================== */
 
-
-/* ===== 1. ESTILOS GERAIS ===== */
+/* 1. ESTILOS GERAIS */
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #FFFFFF;
+    background-color: #E5E7EB;
     color: #171923;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .pagina {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
+    width: 390px;
+    max-width: 100%;
+    height: 844px;
     margin: 0 auto;
 
     background-color: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 
     display: flex;
     flex-direction: column;
 }
 
-
-/* ===== 2. CABEÇALHO ===== */
+/* 2. CABEÇALHO */
 
 .cabecalho {
     display: flex;
@@ -39,6 +50,7 @@ body {
 
     padding: 20px;
     background-color: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .voltar {
@@ -50,12 +62,11 @@ body {
 .cabecalho h1 {
     margin: 0;
     font-size: 19px;
-    font-weight: bold;
+    font-weight: 700;
     color: #171923;
 }
 
-
-/* ===== 3. CAPA DO FESTIVAL ===== */
+/* 3. CAPA DO FESTIVAL */
 
 .capa {
     min-height: 205px;
@@ -82,10 +93,9 @@ body {
 
     width: 78px;
     height: 78px;
-
     margin-bottom: 16px;
-    border-radius: 16px;
 
+    border-radius: 16px;
     background-color: #D7FF00;
     color: #171923;
 
@@ -94,6 +104,7 @@ body {
 
 .capa h2 {
     font-size: 27px;
+    font-weight: 700;
     margin: 0;
     color: #171923;
 }
@@ -104,8 +115,7 @@ body {
     color: #6B7280;
 }
 
-
-/* ===== 4. CONTEÚDO ===== */
+/* 4. CONTEÚDO */
 
 .conteudo {
     flex: 1;
@@ -114,7 +124,7 @@ body {
 
 .etiqueta {
     font-size: 12px;
-    font-weight: bold;
+    font-weight: 700;
     color: #526600;
     letter-spacing: 1px;
 }
@@ -122,11 +132,11 @@ body {
 .apresentacao h2 {
     margin: 10px 0 22px;
     font-size: 25px;
+    font-weight: 700;
     color: #171923;
 }
 
-
-/* ===== 5. INFORMAÇÕES ===== */
+/* 5. INFORMAÇÕES */
 
 .informacoes {
     padding: 18px;
@@ -154,6 +164,7 @@ body {
     display: block;
     font-size: 14px;
     margin-bottom: 6px;
+    font-weight: 700;
     color: #171923;
 }
 
@@ -164,8 +175,7 @@ body {
     line-height: 1.5;
 }
 
-
-/* ===== 6. SECÇÕES ===== */
+/* 6. SECÇÕES */
 
 .secao {
     margin-top: 28px;
@@ -174,9 +184,8 @@ body {
 .secao h3 {
     font-size: 18px;
     margin: 0 0 14px;
-
+    font-weight: 700;
     color: #171923;
-    font-weight: bold;
 }
 
 .secao p {
@@ -185,8 +194,7 @@ body {
     line-height: 1.8;
 }
 
-
-/* ===== 7. ARTISTAS ===== */
+/* 7. ARTISTAS */
 
 .artistas {
     display: flex;
@@ -200,16 +208,16 @@ body {
 
     background-color: #D7FF00;
     color: #171923;
+    border: 1px solid #BFE600;
 
     padding: 10px 14px;
     border-radius: 12px;
 
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
 }
 
-
-/* ===== 8. BILHETES ===== */
+/* 8. BILHETES */
 
 .bilhete {
     display: flex;
@@ -228,6 +236,7 @@ body {
     display: block;
     font-size: 14px;
     margin-bottom: 7px;
+    font-weight: 700;
     color: #171923;
 }
 
@@ -238,13 +247,12 @@ body {
 
 .preco {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
     color: #171923;
     white-space: nowrap;
 }
 
-
-/* ===== 9. BOTÃO INFERIOR ===== */
+/* 9. BOTÃO INFERIOR */
 
 .rodape {
     position: sticky;
@@ -252,7 +260,6 @@ body {
     z-index: 10;
 
     padding: 15px 20px;
-
     background-color: #FFFFFF;
     border-top: 1px solid #E5E7EB;
 }
@@ -260,7 +267,6 @@ body {
 .botao-comprar {
     display: block;
     width: 100%;
-
     min-height: 48px;
     padding: 15px 18px;
 
@@ -272,7 +278,7 @@ body {
 
     font-family: Arial, sans-serif;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 700;
 
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -286,8 +292,7 @@ body {
     background-color: #BFE600;
 }
 
-
-/* ===== 10. ACESSIBILIDADE ===== */
+/* 10. ACESSIBILIDADE */
 
 .botao-comprar:focus-visible,
 .voltar:focus-visible {
@@ -295,8 +300,7 @@ body {
     outline-offset: 3px;
 }
 
-
-/* ===== 11. ECRÃS PEQUENOS ===== */
+/* 11. ECRÃS PEQUENOS */
 
 @media (max-width: 400px) {
 
