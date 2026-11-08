@@ -3,25 +3,37 @@
 
 * {
     box-sizing: border-box;
+    margin:0;
+    padding:0;
 }
 
 body {
     margin: 0;
-    background: #E9EDF2;
+    background: #E5E7EB;
+    color: #171923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #f0f4fb;
 }
 
-/*  Album App Screen  */
+/*  ecra ajustado telemovel */
 
 .album-page {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
+    width: 390px;
+    height: 844px;
     margin: 0 auto;
-    padding: 24px 18px 100px;
+    padding: 32px 24px 100px;
     background: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
     position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display:flex;
+    flex-direction:column;
 }
 
 /*  Header  */
@@ -36,21 +48,24 @@ body {
 .album-page header::after {
     content: "Selecionar fotografias";
     font-size: 19px;
-    font-weight: 650;
-    color: #20252D;
+    font-weight: 700;
+    color: #171923;
     position: absolute;
-    left: 65px;
+    left: 75px;
 }
 
 .album-page header button {
-    background: #F1F3F5;
+    background: #F3F4F6;
     border: none;
     border-radius: 50%;
     width: 36px;
     height: 36px;
-    font-size: 22px;
-    color: #20252D;
+    font-size: 20px;
+    color: #171923;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*  Photo Grid  */
@@ -68,7 +83,7 @@ body {
     aspect-ratio: 1 / 1;
     border: none;
     border-radius: 10px;
-    background: #E9EDF2;
+    background: #E5E7EB;
     position: relative;
     cursor: pointer;
     transition: 0.2s;
@@ -81,39 +96,62 @@ body {
     position: absolute;
     top: 8px;
     right: 8px;
-    width: 19px;
-    height: 19px;
-    border: 1.5px solid #AAB2BE;
+    width: 22px;
+    height: 22px;
+    border: 1.5px solid #9CA3AF;
     border-radius: 50%;
     background: #FFFFFF;
+}
+
+/*photo box selecionada*/
+.photo-box.selected{
+    border:3px solid #D7FF00;
+}
+
+.photo-box.selected::after{
+    background-color: #D7FF00;
+    border-color: #F7FF00;
+    content: "✓";
+    color: #171923;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /*  Confirm Button  */
 
 .album-page footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    left: 50%;
+    left: 0;
     transform: translateX(-50%);
     width: 100%;
     max-width: 430px;
-    padding: 16px 18px 25px;
+    padding: 16px 24px 25px;
     background: rgba(255, 255, 255, 0.96);
-    border-top: 1px solid #EDF0F3;
+    border-top: 1px solid #E5E7EB;
     z-index: 100;
 }
 
 .album-page footer button {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
     border: none;
     border-radius: 12px;
-    background: #20252D;
-    color: #FFFFFF;
+    background: #D7FF00;
+    color: #171923;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
+
+.album-page footer butten:hover{
+    background: #BFE600;
+}
+
 
 /*  Responsive  */
 
@@ -126,28 +164,4 @@ body {
     .photo-grid {
         gap: 6px;
     }
-}
-
-.photo-box.selected {
-    border: 3px solid #D7FF45;
-    box-sizing: border-box;
-}
-
-/* Círculo de seleção */
-.photo-box {
-    position: relative;
-    cursor: pointer;
-}
-
-/* Círculo selecionado */
-.photo-box.selected::after {
-    background-color: #D7FF45;
-    border-color: #D7FF45;
-    content: "✓";
-    color: #111216;
-    font-size: 13px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

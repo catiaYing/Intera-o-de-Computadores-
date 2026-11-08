@@ -1,7 +1,4 @@
 
-/*BANDy - USER PROFILE
-   Warm Beige & Olive Green Theme */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,19 +6,28 @@
 }
 
 body {
-    background: #E8E6DC;
-    color: #303329;
+    background: #E5E7EB;
+    color: #171923;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .profile-page {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
-    margin: auto;
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
     padding: 20px;
-    padding-bottom: 100px;
-    background: #E8E6DC;
+    padding-bottom: 110px;
+    background: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* cabeçalho */
@@ -36,11 +42,11 @@ body {
 .profile-header h1 {
     font-size: 20px;
     font-weight: 750;
-    color: #303329;
+    color: #171923;
 }
 
 .back-button {
-    color: #45483C;
+    color: #171923;
     text-decoration: none;
     font-size: 30px;
     width: 30px;
@@ -56,7 +62,7 @@ body {
     cursor: pointer;
     font-size: 28px;
     padding: 5px;
-    color: #45483C;
+    color: #171923;
 }
 
 .menu summary::-webkit-details-marker {
@@ -68,11 +74,11 @@ body {
     top: 40px;
     right: 0;
     width: 180px;
-    background: #F3F1E9;
-    border: 1px solid #D2D0C5;
-    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 5px 18px rgba(48, 51, 41, .12);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .menu-options button {
@@ -81,55 +87,57 @@ body {
     padding: 14px;
     border: none;
     background: transparent;
-    color: #303329;
+    color: #171923;
     text-align: left;
     font-size: 14px;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .menu-options button + button {
-    border-top: 1px solid #DEDDD4;
+    border-top: 1px solid #E5E7EB;
 }
 
 .menu-options button:hover {
-    background: #E7E6DE;
+    background: #F9FAFB;
 }
 
 .menu-options .report-option {
-    color: #A45E49;
+    color: #DC2626;
 }
 
 /* perfil info */
 
 .profile-info {
     text-align: center;
-    padding: 45px 0 25px;
+    padding: 35px 0 25px;
 }
 
 .profile-avatar {
     width: 155px;
     height: 155px;
     border-radius: 50%;
-    background: #DCDACF;
-    border: 2px solid #AEBB7C;
+    background: #D7FF00;
+    border: 2px solid #BFE600;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
     font-size: 65px;
-    color: #78864B;
+    color: #171923;
+    font-weight: 700;
 }
 
 .profile-info h2 {
     margin-top: 15px;
     font-size: 25px;
-    color: #303329;
+    color: #171923;
     font-weight: 750;
 }
 
 .user-id {
     margin-top: 7px;
-    color: #77786D;
+    color: #6B7280;
     font-size: 14px;
 }
 
@@ -140,8 +148,8 @@ body {
     justify-content: space-around;
     margin-top: 30px;
     padding: 18px 0;
-    border-top: 1px solid #CBC9BD;
-    border-bottom: 1px solid #CBC9BD;
+    border-top: 1px solid #E5E7EB;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .profile-stats div {
@@ -154,11 +162,11 @@ body {
 
 .profile-stats strong {
     font-size: 20px;
-    color: #303329;
+    color: #171923;
 }
 
 .profile-stats span {
-    color: #77786D;
+    color: #6B7280;
     font-size: 13px;
 }
 
@@ -171,7 +179,7 @@ body {
 .photos-section h3 {
     font-size: 17px;
     margin-bottom: 15px;
-    color: #303329;
+    color: #171923;
 }
 
 .photo-grid {
@@ -182,13 +190,13 @@ body {
 
 .photo-placeholder {
     aspect-ratio: 1;
-    background: #DCDACF;
-    border: 1px solid #D0CEC2;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #77786D;
+    color: #9CA3AF;
     font-size: 12px;
 }
 
@@ -200,18 +208,19 @@ body {
     transform: translateX(-50%);
     width: 150px;
     padding: 13px;
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
     text-align: center;
     text-decoration: none;
     font-weight: 750;
     border-radius: 25px;
     z-index: 5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: background .2s;
 }
 
 .chat-button:hover {
-    background: #A9B66B;
+    background: #BFE600;
 }
 
 /* janelas modais */
@@ -220,7 +229,7 @@ body {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(35, 37, 29, .55);
+    background: rgba(23, 25, 35, .55);
     justify-content: center;
     align-items: center;
     z-index: 200;
@@ -232,21 +241,21 @@ body {
     width: 100%;
     max-width: 340px;
     padding: 28px 24px;
-    background: #F3F1E9;
-    border: 1px solid #D2D0C5;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, .15);
 }
 
 .modal-content h2 {
     font-size: 21px;
     margin-bottom: 12px;
-    color: #303329;
+    color: #171923;
 }
 
 .modal-content p {
-    color: #77786D;
+    color: #6B7280;
     font-size: 14px;
     margin: 12px 0 18px;
 }
@@ -257,7 +266,7 @@ body {
     right: 15px;
     background: none;
     border: none;
-    color: #45483C;
+    color: #171923;
     font-size: 25px;
     cursor: pointer;
 }
@@ -271,6 +280,7 @@ body {
     background: #FFFFFF;
     padding: 8px;
     border-radius: 8px;
+    border: 1px solid #E5E7EB;
     overflow: hidden;
 }
 
@@ -285,7 +295,7 @@ body {
     width: 100%;
     height: 100%;
     background:
-        repeating-conic-gradient(#303329 0% 25%, white 0% 50%)
+        repeating-conic-gradient(#171923 0% 25%, white 0% 50%)
         0 0 / 16px 16px;
 }
 
@@ -315,7 +325,7 @@ body {
     gap: 10px;
     width: 100%;
     padding: 10px 0;
-    color: #45483C;
+    color: #171923;
     font-size: 14px;
     cursor: pointer;
     line-height: 1.4;
@@ -323,7 +333,7 @@ body {
 
 .report-content input[type="radio"] {
     flex-shrink: 0;
-    accent-color: #87965A;
+    accent-color: #171923;
     width: 17px;
     height: 17px;
     cursor: pointer;
@@ -337,9 +347,9 @@ body {
     margin-top: 15px;
     padding: 12px;
     border-radius: 9px;
-    border: 1px solid #D2D0C5;
-    background: #E7E6DE;
-    color: #303329;
+    border: 1px solid #E5E7EB;
+    background: #F9FAFB;
+    color: #171923;
     font-family: inherit;
     font-size: 14px;
     text-align: left;
@@ -348,12 +358,12 @@ body {
 }
 
 .report-content textarea::placeholder {
-    color: #898A80;
+    color: #9CA3AF;
 }
 
 .report-content textarea:focus {
-    outline: 1px solid #AEBB7C;
-    border-color: #AEBB7C;
+    outline: 1px solid #BFE600;
+    border-color: #BFE600;
 }
 
 /* botão de enviar denúncia */
@@ -369,18 +379,27 @@ body {
     flex: 1;
     padding: 12px 8px;
     border-radius: 25px;
-    border: 1px solid #AEB0A2;
+    border: 1px solid #E5E7EB;
     background: transparent;
-    color: #45483C;
+    color: #171923;
     font-size: 13px;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+.modal-buttons button:hover {
+    background: #F3F4F6;
 }
 
 .modal-buttons .confirm-button {
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
     border: none;
     font-weight: 750;
+}
+
+.modal-buttons .confirm-button:hover {
+    background: #BFE600;
 }
 
 .modal-buttons button:active {
@@ -402,8 +421,8 @@ body {
     height: 55px;
     margin: 0 auto 15px;
     border-radius: 50%;
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -416,13 +435,13 @@ body {
     font-size: 21px;
     line-height: 1.3;
     margin-bottom: 10px;
-    color: #303329;
+    color: #171923;
 }
 
 /* Texto */
 .success-content p {
     font-size: 14px;
-    color: #77786D;
+    color: #6B7280;
     line-height: 1.5;
     margin: 10px 0 20px;
 }
@@ -435,11 +454,16 @@ body {
     padding: 12px 20px;
     border: none;
     border-radius: 25px;
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
     font-size: 14px;
     font-weight: 750;
     cursor: pointer;
+    transition: background 0.2s;
+}
+
+.success-content .confirm-button:hover {
+    background: #BFE600;
 }
 
 .success-content .confirm-button:active {

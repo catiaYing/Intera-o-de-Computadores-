@@ -1,50 +1,62 @@
-/* =====================================
-   BANDy - MB WAY
-===================================== */
+/*  MB WAY*/
 
 /* 电话号码标签 */
 .label-numero {
     display: block;
     margin-bottom: 10px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
+    color: #171923;
 }
 
 /* 电话输入框 */
 #numero {
     width: 100%;
     padding: 15px;
-    border: 1px solid #dddddd;
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 12px;
     font-size: 16px;
+    color: #171923;
+    outline: none;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+#numero::placeholder {
+    color: #9CA3AF;
 }
 
 /* 输入时边框绿色 */
 #numero:focus {
     outline: none;
-    border: 2px solid #7d8926;
+    border: 2px solid #BFE600;
+    background-color: #FFFFFF;
 }
 
 /* 数据错误时边框红色 */
 #numero[aria-invalid="true"] {
-    border: 2px solid #c94d4d;
+    border: 2px solid #DC2626;
+    background-color: #FEF2F2;
 }
 
 /* 输入提示 */
 .ajuda {
     margin: 8px 0 24px;
-    color: #777777;
+    color: #6B7280;
     font-size: 12px;
+    line-height: 1.4;
 }
 
 /* 授权状态提示 */
 .resultado {
     padding: 12px;
-    background-color: #f2f6d8;
-    color: #52621e;
-    border-radius: 10px;
+    background-color: rgba(215, 255, 0, 0.15);
+    color: #171923;
+    border-radius: 12px;
+    border: 1px solid #BFE600;
     font-size: 13px;
     text-align: center;
+    font-weight: 600;
 }
 
 /* 无文字时隐藏 */

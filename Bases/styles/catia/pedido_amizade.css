@@ -9,19 +9,27 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #101114;
-    color: white;
+    background: #E5E7EB;
+    color: #171923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Ecrã principal */
 
 .request-page {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
+    width: 390px;
+    height: 844px;
     margin: 0 auto;
-    background: #101114;
+    background: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* cabeçalho */
@@ -32,16 +40,18 @@ body {
     align-items: center;
     gap: 15px;
     padding: 0 20px;
-    border-bottom: 1px solid #303239;
+    border-bottom: 1px solid #E5E7EB;
+    background: #FFFFFF;
 }
 
 .page-header h1 {
     font-size: 19px;
-    font-weight: 600;
+    font-weight: 700;
+    color: #171923;
 }
 
 .back-button {
-    color: white;
+    color: #171923;
     font-size: 32px;
     text-decoration: none;
 }
@@ -55,8 +65,8 @@ body {
 /* Caixa da mensagem */
 
 .message-box {
-    background: #202228;
-    border: 1px solid #363942;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 16px;
     overflow: hidden;
 }
@@ -69,19 +79,19 @@ body {
     border: none;
     outline: none;
     resize: none;
-    color: white;
+    color: #171923;
     font-family: inherit;
     font-size: 15px;
 }
 
 .message-box textarea::placeholder {
-    color: #858995;
+    color: #9CA3AF;
 }
 
 /* adicionar fotografia */
 
 .photo-option {
-    border-top: 1px solid #363942;
+    border-top: 1px solid #E5E7EB;
 }
 
 /* Botão Adicionar foto */
@@ -91,14 +101,14 @@ body {
     align-items: center;
     gap: 12px;
     padding: 16px 20px;
-    color: #B7BAC4;
+    color: #4B5563;
     font-size: 15px;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .add-photo:hover {
-    color: white;
+    color: #171923;
 }
 
 .photo-icon {
@@ -129,8 +139,8 @@ body {
 
 #removeAlbumPhoto {
     background: transparent;
-    border: 1px solid #D7FF45;
-    color: #D7FF45;
+    border: 1px solid #DC2626;
+    color: #DC2626;
     border-radius: 20px;
     padding: 10px 16px;
     font-size: 14px;
@@ -140,8 +150,7 @@ body {
 }
 
 #removeAlbumPhoto:hover {
-    background: #D7FF45;
-    color: #101114;
+    background: #FEF2F2;
 }
 
 /* botão enviar */
@@ -151,16 +160,16 @@ body {
     margin-top: 22px;
     border: none;
     border-radius: 30px;
-    background: #D7FF45;
-    color: #101114;
-    font-size: 18px;
+    background: #D7FF00;
+    color: #171923;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .send-button:hover {
-    background: #c6ed35;
+    background: #BFE600;
 }
 
 .send-button:active {
@@ -178,7 +187,7 @@ body {
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(23,25,35,0.55);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -197,10 +206,11 @@ body {
 
 .photo-modal {
     width: 100%;
-    max-width: 430px;
+    max-width: 390px;
     padding: 15px 22px 30px;
-    background: #202228;
+    background: #FFFFFF;
     border-radius: 24px 24px 0 0;
+    border-top: 1px solid #E5E7EB;
     transform: translateY(100%);
     transition: 0.25s;
 }
@@ -216,7 +226,7 @@ body {
     height: 4px;
     margin: 0 auto 22px;
     border-radius: 10px;
-    background: #666A75;
+    background: #D1D5DB;
 }
 
 /* Título e descrição */
@@ -224,10 +234,11 @@ body {
 .photo-modal h2 {
     font-size: 18px;
     margin-bottom: 7px;
+    color: #171923;
 }
 
 .photo-modal p {
-    color: #999DA8;
+    color: #6B7280;
     font-size: 13px;
     margin-bottom: 18px;
 }
@@ -240,16 +251,21 @@ body {
     gap: 15px;
     padding: 16px 12px;
     margin-bottom: 10px;
-    background: #30333C;
+background: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 12px;
-    color: white;
+    color: #171923;
     text-decoration: none;
     font-size: 15px;
 }
 
+.modal-option:hover {
+    background: #F3F4F6;
+}
+
 .option-icon {
     font-size: 23px;
-    color: #D7FF45;
+    color: #171923;
 }
 
 /* Cancelar */
@@ -260,10 +276,15 @@ body {
     padding: 15px;
     margin-top: 8px;
     border-radius: 12px;
-    background: #30333C;
-    color: #D7FF45;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    color: #171923;
     font-weight: 600;
     cursor: pointer;
+}
+
+.cancel-button:hover {
+    background: #E5E7EB;
 }
 
 /* sucesso */
@@ -271,7 +292,7 @@ body {
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(23, 25, 35, 0.65);
     display: none;
     align-items: center;
     justify-content: center;
@@ -281,12 +302,12 @@ body {
 .success-content {
     width: 100%;
     max-width: 340px;
-    background: #22252B;
-    border: 1px solid #41454D;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
     border-radius: 24px;
     padding: 30px 24px;
     text-align: center;
-    color: white;
+    color: #171923;
     animation: successAppear 0.25s ease;
 }
 
@@ -294,8 +315,8 @@ body {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background: #D7FF45;
-    color: #111216;
+    background: #D7FF00;
+    color: #171923;
     font-size: 36px;
     font-weight: bold;
     display: flex;
@@ -307,10 +328,11 @@ body {
 .success-content h2 {
     font-size: 22px;
     margin-bottom: 12px;
+    color: #171923;
 }
 
 .success-content p {
-    color: #B9BBC3;
+    color: #6B7280;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 24px;
@@ -320,16 +342,17 @@ body {
     width: 100%;
     padding: 15px;
     border: none;
-    border-radius: 30px;
-    background: #D7FF45;
-    color: #111216;
+    border-radius: 26px;
+    background: #D7FF00;
+    color: #171923;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
+    transition: background 0.2s;
 }
 
 .success-content button:hover {
-    background: #c6ed35;
+    background: #BFE600;
 }
 
 /* Animação */
@@ -348,6 +371,6 @@ body {
 
 /* Ícone de aviso */
 .error-icon {
-    background: #D7FF45;
-    color: #101114;
+    background: #FEF2F2;
+    color: #DC2626;
 }

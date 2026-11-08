@@ -1,7 +1,4 @@
 
-/*  BANDy - CONTACTOS
-   Warm Beige & Olive Green Theme*/
-
 * {
     margin: 0;
     padding: 0;
@@ -10,19 +7,46 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #F1F0E9;
-    color: #303329;
+    background: #E5E7EB;
+    color: #171923;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Ecrã principal */
 .contacts-page {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
+width: 390px;
+    height: 844px;
     margin: 0 auto;
-    background: #F1F0E9;
+    background: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     position: relative;
-    padding-bottom: 85px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 110px;
+}
+
+.contacts-page::-webkit-scrollbar {
+    display: none;
+}
+.contacts-page {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.contacts-page .bottom-nav {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 75px !important;
+    border-bottom-left-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;
 }
 
 /* cabeçalho */
@@ -33,14 +57,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #DAD9D0;
-    background: #F1F0E9;
+    border-bottom: 1px solid #E5E7EB;
+    background: #FFFFFF;
 }
 
 .contacts-header h1 {
     font-size: 21px;
     font-weight: 700;
-    color: #303329;
+    color: #171923;
 }
 
 /* menu de adicionar amigos */
@@ -54,8 +78,8 @@ body {
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,7 +89,7 @@ body {
 }
 
 .add-button:hover {
-    background: #A9B66B;
+    background: #BFE600;
 }
 
 .add-button::-webkit-details-marker {
@@ -79,11 +103,11 @@ body {
     right: 0;
     width: 205px;
     padding: 8px;
-    background: #F8F7F1;
-    border: 1px solid #DEDDD4;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
     border-radius: 14px;
     z-index: 5;
-    box-shadow: 0 6px 20px rgba(48, 51, 41, .12);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
 .add-menu:not([open]) .add-popup {
@@ -95,7 +119,7 @@ body {
     align-items: center;
     gap: 12px;
     padding: 13px 10px;
-    color: #303329;
+    color: #171923;
     text-decoration: none;
     font-size: 14px;
     border-radius: 8px;
@@ -103,11 +127,11 @@ body {
 }
 
 .popup-option:hover {
-    background: #EAE9E1;
+    background: #F9FAFB;
 }
 
 .popup-option span {
-    color: #78864B;
+    color: #4B5563;
     font-size: 21px;
 }
 
@@ -123,19 +147,19 @@ body {
     gap: 10px;
     height: 52px;
     padding: 0 16px;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 16px;
     transition: border-color .2s;
 }
 
 .search-form:focus-within {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .search-form span {
     font-size: 21px;
-    color: #78864B;
+    color: #6B7280;
 }
 
 .search-form input {
@@ -144,18 +168,18 @@ body {
     border: none;
     outline: none;
     background: transparent;
-    color: #303329;
+    color: #171923;
     font-size: 14px;
 }
 
 .search-form input::placeholder {
-    color: #898A80;
+    color: #9CA3AF;
 }
 
 .search-form button {
     border: none;
     background: transparent;
-    color: #718044;
+    color: #171923;
     font-size: 14px;
     font-weight: 700;
     cursor: pointer;
@@ -171,18 +195,18 @@ body {
     align-items: center;
     gap: 14px;
     padding: 17px 3px;
-    border-bottom: 1px solid #DAD9D0;
+    border-bottom: 1px solid #E5E7EB;
     text-decoration: none;
-    color: #303329;
+    color: #171923;
     transition: background .2s;
 }
 
 .conversation:hover {
-    background: rgba(255, 255, 255, .25);
+    background: #F9FAFB;
 }
 
 .conversation:active {
-    background: #E7E6DE;
+    background: rgba(215, 255, 0, 0.12);
 }
 
 /* avatar do contacto */
@@ -191,14 +215,14 @@ body {
     height: 51px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #E2E1D8;
-    border: 1px solid #D8D7CD;
+    background: #D7FF00;
+    border: 1px solid #BFE600;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #78864B;
+    color: #171923;
     font-size: 19px;
-    font-weight: 650;
+    font-weight: 700;
 }
 
 /* informações da conversa */
@@ -218,18 +242,18 @@ body {
 .conversation-top h2 {
     font-size: 15px;
     font-weight: 700;
-    color: #303329;
+    color: #171923;
 }
 
 .time {
-    color: #898A80;
+    color: #9CA3AF;
     font-size: 11px;
     white-space: nowrap;
     transform: translateX(-8px);
 }
 
 .conversation-info p {
-    color: #77786D;
+    color: #6B7280;
     font-size: 13px;
     white-space: nowrap;
     overflow: hidden;

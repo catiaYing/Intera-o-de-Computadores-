@@ -1,7 +1,4 @@
 
-/* BANDy - BILHETES
-   Warm Beige & Olive Green Theme */
-
 * {
     margin: 0;
     padding: 0;
@@ -10,31 +7,51 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #F1F0E9;
-    color: #303329;
+    background: #E5E7EB;
+    color: #171923;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
 }
 
 /* Página principal */
 .tickets-page {
-    width: 100%;
-    max-width: 430px;
-    min-height: 100vh;
+    width: 390px;
+    height: 844px;
     margin: 0 auto;
-    padding-bottom: 100px;
-    background: #F1F0E9;
+    background: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 110px;
+}
+
+.tickets-page .bottom-nav {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 75px !important;
+    border-bottom-left-radius: 30px !important;
+    border-bottom-right-radius: 30px !important;
 }
 
 /* Cabeçalho */
 
 .page-header {
     padding: 25px 20px 18px;
-    border-bottom: 1px solid #DAD9D0;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .page-header h1 {
     font-size: 23px;
     font-weight: 750;
-    color: #303329;
+    color: #171923;
     margin-bottom: 20px;
 }
 
@@ -48,8 +65,8 @@ body {
 .search-box {
     flex: 1;
     height: 45px;
-    background: #E7E6DE;
-    border: 1px solid #DEDDD4;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 13px;
     display: flex;
     align-items: center;
@@ -59,11 +76,11 @@ body {
 }
 
 .search-box:focus-within {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .search-box span {
-    color: #78864B;
+    color: #6B7280;
     font-size: 21px;
 }
 
@@ -72,22 +89,22 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    color: #303329;
+    color: #171923;
     font-size: 13px;
 }
 
 .search-box input::placeholder {
-    color: #898A80;
+    color: #9CA3AF;
 }
 
 /* Botão selecionar */
 #selectButton {
     height: 45px;
     padding: 0 15px;
-    border: 1px solid #AEBB7C;
+    border: 1px solid #E5E7EB;
     border-radius: 13px;
-    background: #F1F0E9;
-    color: #65743B;
+    background: #FFFFFF;
+    color: #171923;
     font-weight: 700;
     font-size: 13px;
     cursor: pointer;
@@ -96,7 +113,8 @@ body {
 }
 
 #selectButton:hover {
-    background: #E5E8D9;
+    background: #F9FAFB;
+    BORDER-COLOR: #BFE600
 }
 
 /* categorias */
@@ -115,10 +133,10 @@ body {
 
 .category {
     padding: 9px 16px;
-    border: 1px solid #DEDDD4;
+    border: 1px solid #E5E7EB;
     border-radius: 22px;
-    background: #E7E6DE;
-    color: #68695F;
+    background: #F9FAFB;
+    color: #4B5563;
     font-size: 12px;
     font-weight: 550;
     white-space: nowrap;
@@ -127,15 +145,16 @@ body {
 }
 
 .category:hover {
-    border-color: #AEBB7C;
+    border-color: #BFE600;
 }
 
 .category.active {
-    background: #B9C77A;
-    border-color: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    border-color: #D7FF00;
+    color: #171923;
     font-weight: 750;
 }
+
 
 /* botão de voltar */
 
@@ -144,9 +163,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 13px 20px;
-    border-top: 1px solid #DAD9D0;
-    border-bottom: 1px solid #DAD9D0;
-    background: #E9E8E0;
+    border-top: 1px solid #E5E7EB;
+    border-bottom: 1px solid #E5E7EB;
+    background: #F9FAFB;
 }
 
 .selection-bar.show {
@@ -155,21 +174,21 @@ body {
 
 .selection-bar span {
     font-size: 12px;
-    color: #68695F;
+    color: #4B5563;
 }
 
 .selection-bar button {
     border: none;
     background: transparent;
-    color: #718044;
+    color: #171923;
     font-size: 13px;
     font-weight: 700;
     cursor: pointer;
 }
 
 .selection-bar #deleteSelected {
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
     padding: 8px 15px;
     border-radius: 20px;
 }
@@ -191,7 +210,7 @@ body {
     gap: 12px;
     min-height: 112px;
     padding: 15px 5px;
-    border-bottom: 1px solid #DAD9D0;
+    border-bottom: 1px solid #E5E7EB;
     cursor: pointer;
     position: relative;
     background: transparent;
@@ -199,8 +218,9 @@ body {
 }
 
 .ticket-item:hover {
-    background: rgba(255, 255, 255, .25);
+    background: #F9FAFB;
 }
+
 
 /* Imagens dos festivais */
 .ticket-image {
@@ -238,7 +258,7 @@ body {
 }
 
 .ticket-type {
-    color: #78864B;
+    color: #171923;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: .7px;
@@ -247,7 +267,7 @@ body {
 .ticket-details h3 {
     font-size: 15px;
     font-weight: 750;
-    color: #303329;
+    color: #171923;
     margin-top: 5px;
     margin-bottom: 5px;
     overflow: hidden;
@@ -257,21 +277,21 @@ body {
 
 .ticket-details p {
     font-size: 11px;
-    color: #898A80;
+    color: #6B7280;
 }
 
 .ticket-price {
     display: block;
     font-size: 12px;
     font-weight: 750;
-    color: #303329;
+    color: #171923;
     margin-top: 7px;
 }
 
 /* Seta para abrir o bilhete */
 .ticket-arrow {
     text-decoration: none;
-    color: #898A80;
+    color: #9CA3AF;
     font-size: 36px;
     font-weight: bold;
     cursor: pointer;
@@ -280,7 +300,7 @@ body {
 }
 
 .ticket-arrow:hover {
-    color: #78864B;
+    color: #171923;
     transform: translateX(3px);
 }
 
@@ -290,7 +310,7 @@ body {
     display: none;
     width: 22px;
     height: 22px;
-    border: 1.5px solid #A8AA9D;
+    border: 1.5px solid #9CA3AF;
     border-radius: 50%;
     flex-shrink: 0;
     align-items: center;
@@ -306,17 +326,17 @@ body {
 }
 
 .ticket-item.selected {
-    background: #E8EBD9;
+    background: rgba(215,255,0,0.12);
 }
 
 .ticket-item.selected .select-circle {
-    background: #B9C77A;
-    border-color: #B9C77A;
+    background: #D7FF00;
+    border-color: #D7FF00;
 }
 
 .ticket-item.selected .select-circle::after {
     content: "✓";
-    color: #303329;
+    color: #171923;
     font-size: 14px;
     font-weight: 800;
 }
@@ -325,7 +345,7 @@ body {
 
 .empty-message {
     text-align: center;
-    color: #898A80;
+    color: #6B7280;
     font-size: 13px;
     padding: 35px 15px;
 }
@@ -339,7 +359,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: rgba(35, 37, 29, .48);
+    background: rgba(23, 25, 35, .55);
 }
 
 .modal.show {
@@ -350,11 +370,11 @@ body {
     width: 100%;
     max-width: 330px;
     padding: 25px 20px;
-    border: 1px solid #DEDDD4;
+    border: 1px solid #E5E7EB;
     border-radius: 20px;
     background: #F8F7F1;
     text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .15);
 }
 
 /* Ícones dos modais */
@@ -372,25 +392,25 @@ body {
 }
 
 .delete-icon {
-    color: #C65E54;
-    background: #F4E5E1;
+    color: #DC2626;
+    background: #FEF2F2;
 }
 
 .success-icon {
-    color: #303329;
-    background: #B9C77A;
+    color: #171923;
+    background: #D7FF00;
 }
 
 /* Texto dos modais */
 .modal-content h2 {
     font-size: 19px;
     font-weight: 750;
-    color: #303329;
+    color: #171923;
     margin-bottom: 10px;
 }
 
 .modal-content p {
-    color: #77786D;
+    color: #6B7280;
     font-size: 13px;
     line-height: 1.5;
 }
@@ -413,14 +433,24 @@ body {
 }
 
 #cancelDelete {
-    background: #E7E6DE;
+    background: #F3F4F6;
     color: #55564D;
+    border: 1px solid #E5E7EB;
+}
+
+#cancelDelete:hover {
+    background: #E5E7EB;
 }
 
 #confirmDelete,
 .success-button {
-    background: #B9C77A;
-    color: #303329;
+    background: #D7FF00;
+    color: #171923;
+}
+
+#confirmDelete:hover,
+.success-button:hover {
+    background: #BFE600;
 }
 
 .success-button {

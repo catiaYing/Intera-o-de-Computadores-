@@ -1,30 +1,31 @@
-/* =====================================
-   BANDy - Escolher bilhete
-===================================== */
+/* Escolher bilhete*/
 
 /* 1. 音乐节信息 */
 .festival-info {
     padding: 18px;
     margin-bottom: 24px;
-
-    background-color: #ecf2a5;
+    background-color: #F9FAFB;
+    border: 1px solid #E5E7EB;
     border-radius: 16px;
 }
 
 .festival-info p {
     margin: 0 0 8px;
-    color: #52621e;
+    color: #171923;
     font-size: 11px;
-    font-weight: bold;
+    font-weight: 800;
+    letter-spacing: 0.5px;
 }
 
 .festival-info h2 {
     margin: 0 0 8px;
     font-size: 23px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .festival-info span {
-    color: #52621e;
+    color: #6B7280;
     font-size: 13px;
 }
 
@@ -34,6 +35,8 @@
 .quantidade h2 {
     margin: 0 0 14px;
     font-size: 18px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .tipo-bilhete {
@@ -46,12 +49,18 @@
     align-items: center;
     gap: 10px;
 
-    background-color: white;
-    border: 1px solid #dddddd;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
     border-radius: 14px;
 
     text-align: left;
     cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tipo-bilhete:hover {
+    border-color: #BFE600;
+    background-color: #F9FAFB;
 }
 
 .tipo-bilhete > span {
@@ -62,16 +71,18 @@
 
 .tipo-bilhete strong {
     font-size: 14px;
+    font-weight: 700;
+    color: #171923;
 }
 
 .tipo-bilhete small {
-    color: #777777;
+    color: #6B7280;
     font-size: 12px;
 }
 
 .tipo-bilhete.selecionado {
-    border: 2px solid #7d8926;
-    background-color: #fbfce9;
+    border: 2px solid #D7FF00;
+    background-color: rgba(215, 255, 0, 0.08);
 }
 
 
@@ -97,19 +108,26 @@
     width: 36px;
     height: 36px;
 
-    background-color: white;
-    border: 1px solid #dddddd;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
     border-radius: 10px;
 
     font-size: 22px;
     cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.contador button:hover {
+    background-color: #F9FAFB;
+    border-color: #BFE600;
 }
 
 #numeroBilhetes {
     min-width: 16px;
     text-align: center;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 750;
+    color: #171923;
 }
 
 
@@ -122,15 +140,18 @@
     padding: 18px 0;
     margin-top: auto;
 
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid #E5E7EB;
 }
 
 .preco-total span {
     font-size: 16px;
+    color: #6B7280;
 }
 
 .preco-total strong {
     font-size: 23px;
+    font-weight: 750;
+    color: #171923;
 }
 
 
