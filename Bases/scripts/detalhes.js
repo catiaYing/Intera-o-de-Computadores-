@@ -1,11 +1,9 @@
-// ========================================
-// BANDy - Detalhes do Festival
-// ========================================
+/* ==========================================
+   BANDy - Detalhes do Festival
+   ========================================== */
 
 
-// ===== 1. DADOS DOS FESTIVAIS =====
-
-// Dados de demonstração utilizados no projeto.
+/* ===== 1. DADOS DOS FESTIVAIS ===== */
 
 const festivais = {
 
@@ -20,13 +18,9 @@ const festivais = {
             "Descobre novos artistas e partilha " +
             "momentos especiais com os teus amigos.",
 
-        artistas: [
-            "Cartaz a anunciar"
-        ],
-
+        artistas: ["Cartaz a anunciar"],
         preco: 45
     },
-
 
     "Primavera Sound": {
         data: "12 – 14 Junho 2027",
@@ -38,13 +32,9 @@ const festivais = {
             "de música alternativa e desfruta de uma " +
             "experiência cultural única na cidade do Porto.",
 
-        artistas: [
-            "Cartaz a anunciar"
-        ],
-
+        artistas: ["Cartaz a anunciar"],
         preco: 75
     },
-
 
     "Sumol Summer Fest": {
         data: "3 – 4 Julho 2027",
@@ -57,13 +47,9 @@ const festivais = {
             "Desfruta de concertos e bons momentos " +
             "com os teus amigos.",
 
-        artistas: [
-            "Cartaz a anunciar"
-        ],
-
+        artistas: ["Cartaz a anunciar"],
         preco: 45
     },
-
 
     "Meo Kalorama": {
         data: "29 Agosto 2027",
@@ -75,20 +61,13 @@ const festivais = {
             "música, arte e cultura, com diferentes " +
             "estilos musicais num ambiente vibrante.",
 
-        artistas: [
-            "Cartaz a anunciar"
-        ],
-
+        artistas: ["Cartaz a anunciar"],
         preco: 65
     }
-
 };
 
 
-// ===== 2. IDENTIFICAR O FESTIVAL =====
-
-// Exemplo:
-// detalhes.html?festival=MEO%20Alive
+/* ===== 2. IDENTIFICAR O FESTIVAL ===== */
 
 const parametros = new URLSearchParams(
     window.location.search
@@ -99,15 +78,12 @@ const nomeFestival = parametros.get("festival");
 const festival = festivais[nomeFestival];
 
 
-// ===== 3. VALIDAR FESTIVAL =====
+/* ===== 3. VALIDAR FESTIVAL ===== */
 
 if (!festival) {
 
-    // Se o festival não existir,
-    // voltar à página de pesquisa.
-
     window.location.replace(
-        "../rodrigo/pesquisar.html"
+        "rodrigo/pesquisar.html"
     );
 
 } else {
@@ -117,66 +93,39 @@ if (!festival) {
 }
 
 
-// ===== 4. MOSTRAR INFORMAÇÕES =====
+/* ===== 4. MOSTRAR DETALHES ===== */
 
 function mostrarDetalhes() {
 
-    // Nome na capa
-    document.getElementById(
-        "nome-capa"
-    ).textContent = nomeFestival;
+    document.getElementById("nome-capa").textContent =
+        nomeFestival;
 
+    document.getElementById("nome-festival").textContent =
+        nomeFestival;
 
-    // Nome principal
-    document.getElementById(
-        "nome-festival"
-    ).textContent = nomeFestival;
+    document.getElementById("data-festival").textContent =
+        festival.data;
 
+    document.getElementById("local-festival").textContent =
+        festival.local;
 
-    // Data
-    document.getElementById(
-        "data-festival"
-    ).textContent = festival.data;
+    document.getElementById("genero-festival").textContent =
+        festival.genero;
 
+    document.getElementById("descricao-festival").textContent =
+        festival.descricao;
 
-    // Localização
-    document.getElementById(
-        "local-festival"
-    ).textContent = festival.local;
-
-
-    // Género musical
-    document.getElementById(
-        "genero-festival"
-    ).textContent = festival.genero;
-
-
-    // Descrição
-    document.getElementById(
-        "descricao-festival"
-    ).textContent = festival.descricao;
-
-
-    // Preço mínimo
-    document.getElementById(
-        "preco-festival"
-    ).textContent =
+    document.getElementById("preco-festival").textContent =
         "Desde " +
         festival.preco.toFixed(2).replace(".", ",") +
         " €";
 
-
-    // Mostrar artistas
     mostrarArtistas();
-
-
-    // Configurar botão de compra
     configurarCompra();
-
 }
 
 
-// ===== 5. MOSTRAR ARTISTAS =====
+/* ===== 5. MOSTRAR ARTISTAS ===== */
 
 function mostrarArtistas() {
 
@@ -188,37 +137,30 @@ function mostrarArtistas() {
 
     festival.artistas.forEach(function(nomeArtista) {
 
-        const elemento = document.createElement(
-            "span"
-        );
+        const elemento = document.createElement("span");
 
         elemento.className = "artista";
-
         elemento.textContent = nomeArtista;
 
         lista.appendChild(elemento);
 
     });
-
 }
 
 
-// ===== 6. CONTINUAR PARA BILHETES =====
+/* ===== 6. ESCOLHER BILHETE ===== */
 
 function configurarCompra() {
 
-    const botao = document.getElementById(
-        "comprar"
-    );
+    const botao = document.getElementById("comprar");
 
     botao.addEventListener("click", function() {
 
         const destino = new URL(
-            "../rodrigo/selecionar_bilhete.html",
+            "rodrigo/selecionar_bilhete.html",
             window.location.href
         );
 
-        // Enviar o festival escolhido
         destino.searchParams.set(
             "festival",
             nomeFestival
@@ -227,5 +169,4 @@ function configurarCompra() {
         window.location.href = destino.href;
 
     });
-
 }
