@@ -1,9 +1,9 @@
-/* =========================================
+/* ==========================================
    BANDy - Mapas e Navegação
-   ========================================= */
+   Estilos comuns
+   ========================================== */
 
-
-/* ===== 1. ESTILOS GERAIS ===== */
+/* 1. Estilos gerais */
 
 * {
     box-sizing: border-box;
@@ -11,457 +11,469 @@
 
 body {
     margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #E5E7EB;
     font-family: Arial, sans-serif;
-    background-color: #E5E7EB;
     color: #171923;
 }
 
+[hidden] {
+    display: none !important;
+}
 
-/* ===== 2. ECRÃ DO TELEMÓVEL ===== */
+/* 2. Estrutura do telemóvel */
 
 .pagina {
     width: 390px;
-    max-width: 100%;
     height: 844px;
     margin: 20px auto;
-    padding: 24px;
-
-    background-color: #FFFFFF;
+    padding: 24px 18px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background: #FFFFFF;
     border: 8px solid #171923;
     border-radius: 38px;
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-
-    display: flex;
-    flex-direction: column;
-
-    overflow-y: auto;
 }
 
+.pagina::-webkit-scrollbar {
+    display: none;
+}
 
-/* ===== 3. CABEÇALHO ===== */
+/* 3. Cabeçalhos */
 
 .cabecalho {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    justify-content: center;
+    min-height: 48px;
+    margin-bottom: 16px;
 }
 
 .cabecalho h1 {
-    font-size: 22px;
     margin: 0;
+    font-size: 20px;
+    text-align: center;
 }
 
 .voltar {
+    position: absolute;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     color: #171923;
     font-size: 26px;
     text-decoration: none;
 }
 
-.descricao {
-    font-size: 14px;
-    color: #666666;
-    line-height: 1.5;
-    margin: 0 0 20px;
+.cabecalho-menu {
+    margin-bottom: 26px;
 }
 
-
-/* ===== 4. CABEÇALHO DO MENU ===== */
-
-.cabecalho-menu {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 20px;
+.etiqueta {
+    margin: 0 0 8px;
+    color: #738B00;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .cabecalho-menu h1 {
-    font-size: 22px;
-    margin: 0;
+    margin: 0 0 10px;
+    font-size: 25px;
 }
 
-.cabecalho-menu p {
+.cabecalho-menu p:last-child {
+    color: #6B7280;
     font-size: 14px;
-    color: #666666;
     line-height: 1.5;
-    margin: 0;
 }
 
+/* 4. Seleção do festival */
 
-/* ===== 5. MENU DE MAPAS ===== */
+.selecao {
+    padding: 18px;
+    margin-bottom: 24px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+}
+
+.selecao label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.selecao select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px;
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    border-radius: 12px;
+    color: #171923;
+    font-size: 14px;
+}
+
+.selecao select:focus {
+    outline: 2px solid #BFE600;
+    outline-offset: 1px;
+}
+
+.ajuda {
+    margin: 8px 0 22px;
+    color: #6B7280;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.selecao .ajuda:last-child {
+    margin-bottom: 0;
+}
+
+/* 5. Cartões da página inicial */
 
 .opcoes {
-    flex: 1;
-
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    gap: 20px;
+    gap: 14px;
 }
 
 .cartao {
-    position: relative;
-
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    min-height: 220px;
-    padding: 24px;
-
-    background-color: #FFFFFF;
+    align-items: center;
+    gap: 12px;
+    min-height: 92px;
+    padding: 14px;
+    background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
-
     color: #171923;
     text-decoration: none;
 }
 
-.cartao:hover {
-    background-color: #D7FF00;
+.cartao:active {
+    background: #F7FFD9;
 }
 
 .icone-cartao {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 48px;
-    height: 48px;
-
-    background-color: #D7FF00;
+    width: 45px;
+    height: 45px;
+    background: #D7FF00;
     border-radius: 12px;
-
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.cartao h2 {
-    font-size: 18px;
-    margin: 16px 0 8px;
-}
-
-.cartao p {
-    font-size: 14px;
-    color: #666666;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.seta-cartao {
-    display: block;
-    text-align: right;
-    font-size: 22px;
-    margin-top: 12px;
-}
-
-
-/* ===== 6. MAPA 2D ===== */
-
-.mapa {
-    position: relative;
-
-    width: 100%;
-    height: 370px;
-    flex-shrink: 0;
-
-    background-color: #F3F4F6;
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-
-    overflow: hidden;
-}
-
-
-/* Ruas */
-
-.rua {
-    position: absolute;
-    background-color: #FFFFFF;
-}
-
-.rua-horizontal {
-    top: 30%;
-    width: 100%;
-    height: 35px;
-}
-
-.rua-vertical {
-    left: 28%;
-    width: 35px;
-    height: 100%;
-}
-
-
-/* Percurso */
-
-.rota {
-    position: absolute;
-}
-
-.rota-horizontal {
-    top: 30%;
-    left: 28%;
-    width: 42%;
-
-    border-top: 5px dashed #BFE600;
-}
-
-.rota-vertical {
-    top: 30%;
-    left: 28%;
-    height: 42%;
-
-    border-left: 5px dashed #BFE600;
-}
-
-
-/* Pontos de localização */
-
-.ponto {
-    position: absolute;
-    text-align: center;
-    transform: translate(-50%, -50%);
-}
-
-.ponto span {
-    display: inline-block;
-
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-
-    border-radius: 50%;
-    font-weight: bold;
-}
-
-.ponto p {
-    font-size: 12px;
-    margin: 5px 0;
-}
-
-.origem {
-    top: 72%;
-    left: 28%;
-}
-
-.origem span {
-    background-color: #171923;
-    color: #FFFFFF;
-}
-
-.destino {
-    top: 30%;
-    left: 70%;
-}
-
-.destino span {
-    background-color: #D7FF00;
-    color: #171923;
-}
-
-.nome-rua {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-
-    font-size: 12px;
-    color: #666666;
-}
-
-
-/* ===== 7. INFORMAÇÕES ===== */
-
-.informacao {
-    margin-top: 20px;
-    margin-bottom: 25px;
-}
-
-.informacao h2 {
-    font-size: 18px;
-    margin: 0 0 10px;
-}
-
-.informacao p {
-    font-size: 14px;
-    color: #666666;
-    line-height: 1.5;
-}
-
-
-/* ===== 8. BOTÕES ===== */
-
-.botao {
-    display: block;
-
-    min-height: 48px;
-    padding: 14px;
-
-    background-color: #D7FF00;
-    border-radius: 12px;
-
-    color: #171923;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.botao:hover {
-    background-color: #BFE600;
-}
-
-
-/* ===== 9. MAPA AR ===== */
-
-.vista-ar {
-    position: relative;
-
-    width: 100%;
-    height: 430px;
-    flex-shrink: 0;
-
-    background: linear-gradient(
-        #CDE8F8 0%,
-        #E6F1EC 45%,
-        #D5DDD3 45%,
-        #D5DDD3 100%
-    );
-
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-
-    overflow: hidden;
-}
-
-
-/* Edifícios */
-
-.edificio-ar {
-    position: absolute;
-    bottom: 0;
-
-    width: 28%;
-    height: 65%;
-
-    background-color: #B5BEC4;
-}
-
-.edificio-esquerda {
-    left: 0;
-}
-
-.edificio-direita {
-    right: 0;
-}
-
-
-/* Estrada */
-
-.estrada-ar {
-    position: absolute;
-    bottom: 0;
-    left: 35%;
-
-    width: 30%;
-    height: 65%;
-
-    background-color: #9299A1;
-}
-
-
-/* Destino */
-
-.destino-ar {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 85%;
-    padding: 12px;
-
-    background-color: #FFFFFF;
-    border-radius: 12px;
-
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-
-/* Indicações de direção */
-
-.indicacao-ar {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 180px;
-    padding: 15px;
-
-    background-color: #D7FF00;
-    border-radius: 12px;
-
-    text-align: center;
-}
-
-.seta-ar {
-    font-size: 55px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.indicacao-ar p {
-    margin: 10px 0;
     font-size: 16px;
     font-weight: bold;
 }
 
-.indicacao-ar span {
+.cartao strong,
+.cartao small {
+    display: block;
+}
+
+.cartao strong {
+    margin-bottom: 5px;
     font-size: 14px;
 }
 
-
-/* Legenda da navegação */
-
-.legenda-ar {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    width: 85%;
-    padding: 10px;
-
-    background-color: #FFFFFF;
-    border-radius: 12px;
-
-    text-align: center;
+.cartao small {
+    color: #6B7280;
     font-size: 12px;
-    color: #666666;
+    line-height: 1.5;
 }
 
+.seta-cartao {
+    margin-left: auto;
+    font-size: 20px;
+}
 
-/* ===== 10. ADAPTAÇÃO A ECRÃS PEQUENOS ===== */
+/* 6. Textos e informações */
 
-@media (max-width: 390px) {
+.festival-atual {
+    margin: 0 0 8px;
+    color: #171923;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.descricao {
+    margin: 0 0 18px;
+    color: #6B7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.informacao {
+    margin: 18px 0;
+    padding: 14px;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+}
+
+.informacao h2 {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.informacao p {
+    margin: 5px 0;
+    color: #6B7280;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* 7. Botões */
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: #D7FF00;
+    border: 1px solid #D7FF00;
+    border-radius: 12px;
+    color: #171923;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.botao:hover {
+    background: #BFE600;
+}
+
+.botao-secundario {
+    background: #FFFFFF;
+    border-color: #D1D5DB;
+}
+
+.botao-secundario:hover {
+    background: #F3F4F6;
+}
+
+.botao:disabled {
+    background: #F3F4F6;
+    border-color: #E5E7EB;
+    color: #9CA3AF;
+    cursor: default;
+}
+
+.mensagem {
+    margin: 12px 0;
+    color: #587000;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nota {
+    margin: 20px 0 0;
+    color: #9CA3AF;
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* 8. Mapa 2D */
+
+.mapa {
+    position: relative;
+    width: 100%;
+    height: 310px;
+    overflow: hidden;
+    background: #EAF2E6;
+    border: 1px solid #D1D5DB;
+    border-radius: 12px;
+    cursor: crosshair;
+}
+
+/* Aparência dos festivais */
+
+.mapa.alive {
+    background: #EAF2E6;
+}
+
+.mapa.kalorama {
+    background: #EEE9F5;
+}
+
+.mapa.primavera {
+    background: #E4F0F5;
+}
+
+/* Zonas ilustrativas */
+
+.zona {
+    position: absolute;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.zona-a {
+    top: 10%;
+    left: 8%;
+    width: 35%;
+    height: 25%;
+    background: rgba(114, 166, 95, 0.17);
+}
+
+.zona-b {
+    right: 8%;
+    bottom: 10%;
+    width: 35%;
+    height: 28%;
+    background: rgba(114, 166, 95, 0.17);
+}
+
+/* Caminhos ilustrativos */
+
+.caminho {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+}
+
+.caminho-horizontal {
+    top: 48%;
+    width: 100%;
+    height: 30px;
+}
+
+.caminho-vertical {
+    left: 45%;
+    width: 30px;
+    height: 100%;
+}
+
+/* Linha da rota */
+
+.camada-rota {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Locais do festival */
+
+.local {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    text-align: center;
+    cursor: default;
+}
+
+.local span {
+    padding: 2px 4px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    color: #374151;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+/* Pontos do mapa */
+
+.ponto {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ponto strong {
+    line-height: 1;
+}
+
+.ponto span {
+    position: absolute;
+    top: 35px;
+    padding: 3px 5px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    color: #171923;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.origem {
+    background: #2563EB;
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.destino {
+    background: #FFFFFF;
+    border-color: #171923;
+    color: #171923;
+}
+
+.destino.selecionado,
+.destino:hover {
+    z-index: 5;
+    background: #D7FF00;
+    border-color: #171923;
+}
+
+.personalizado {
+    z-index: 5;
+    background: #D7FF00;
+    border-color: #171923;
+    color: #171923;
+    cursor: default;
+}
+
+/* 9. Ecrãs pequenos */
+
+@media (max-width: 440px) {
+    body {
+        background: #FFFFFF;
+    }
 
     .pagina {
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
+        min-height: 0;
         margin: 0;
-
         border: none;
         border-radius: 0;
         box-shadow: none;
-    }
-
-    .cartao {
-        min-height: 190px;
     }
 }

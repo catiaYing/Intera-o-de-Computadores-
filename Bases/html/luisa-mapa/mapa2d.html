@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BANDy - Mapa 2D</title>
+
+    <title>BANDy - Mapa Interativo</title>
 
     <link rel="stylesheet" href="../../styles/luisa-mapa/mapa.css">
+
+    <script src="../../scripts/luisa-mapa/mapa.js" defer></script>
+    <script src="../../scripts/luisa-mapa/mapa2d.js" defer></script>
 </head>
 
 <body>
@@ -15,52 +19,180 @@
 
         <!-- Cabeçalho -->
         <header class="cabecalho">
-            <a href="mapa.html" class="voltar" aria-label="Voltar">←</a>
+
+            <a href="mapa.html"
+               class="voltar"
+               aria-label="Voltar">
+                &larr;
+            </a>
+
             <h1>Mapa Interativo</h1>
+
         </header>
 
+
+        <!-- Festival selecionado -->
+        <p id="nome-festival" class="festival-atual"></p>
+
         <p class="descricao">
-            Segue o percurso até ao ponto de encontro.
+            Escolhe um ponto ou toca numa zona livre do mapa.
         </p>
 
-        <!-- Mapa ilustrativo -->
-        <section class="mapa">
 
-            <!-- Ruas -->
-            <div class="rua rua-horizontal"></div>
-            <div class="rua rua-vertical"></div>
+        <!-- Mapa do recinto -->
+        <section class="mapa"
+                 id="mapa-recinto"
+                 aria-label="Mapa ilustrativo do recinto">
 
-            <!-- Percurso -->
-            <div class="rota rota-horizontal"></div>
-            <div class="rota rota-vertical"></div>
+            <!-- Zonas do festival -->
+            <div class="zona zona-a"></div>
+            <div class="zona zona-b"></div>
 
-            <!-- Localização atual -->
-            <div class="ponto origem">
-                <span>●</span>
-                <p>Tu</p>
+
+            <!-- Caminhos -->
+            <div class="caminho caminho-horizontal"></div>
+            <div class="caminho caminho-vertical"></div>
+
+
+            <!-- Percurso de navegação -->
+            <svg class="camada-rota"
+                 viewBox="0 0 100 100"
+                 preserveAspectRatio="none"
+                 aria-hidden="true">
+
+                <polyline
+                    id="linha-rota"
+                    points=""
+                    fill="none"
+                    stroke="#91B000"
+                    stroke-width="1.7"
+                    stroke-dasharray="3 2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                </polyline>
+
+            </svg>
+
+
+            <!-- Locais do festival -->
+            <div class="local" id="local-palco">
+                🎵
+                <span>Palco</span>
             </div>
 
-            <!-- Destino -->
-            <div class="ponto destino">
-                <span>1</span>
-                <p>Ponto 1</p>
+            <div class="local" id="local-bar">
+                🥤
+                <span>Bar</span>
             </div>
 
-            <p class="nome-rua">Rua do Festival</p>
+            <div class="local" id="local-wc">
+                🚻
+                <span>WC</span>
+            </div>
+
+            <div class="local" id="local-entrada">
+                🚪
+                <span>Entrada</span>
+            </div>
+
+
+            <!-- Posição inicial do utilizador -->
+            <div class="ponto origem" id="origem">
+
+                <strong>●</strong>
+                <span>Tu</span>
+
+            </div>
+
+
+            <!-- Pontos de encontro predefinidos -->
+            <button type="button"
+                    class="ponto destino"
+                    data-ponto="1">
+
+                <strong>1</strong>
+                <span>Ponto 1</span>
+
+            </button>
+
+            <button type="button"
+                    class="ponto destino"
+                    data-ponto="2">
+
+                <strong>2</strong>
+                <span>Ponto 2</span>
+
+            </button>
+
+            <button type="button"
+                    class="ponto destino"
+                    data-ponto="3">
+
+                <strong>3</strong>
+                <span>Ponto 3</span>
+
+            </button>
+
+
+            <!-- Ponto personalizado -->
+            <div class="ponto personalizado"
+                 id="ponto-personalizado"
+                 hidden>
+
+                <strong>★</strong>
+                <span>O teu ponto</span>
+
+            </div>
 
         </section>
 
-        <!-- Informação do percurso -->
+
+        <!-- Informação sobre o destino -->
         <section class="informacao">
-            <h2>Ponto de Encontro 1</h2>
-            <p>Tempo estimado: 2 min</p>
-            <p>Segue a rota indicada no mapa.</p>
+
+            <h2 id="titulo-ponto"></h2>
+
+            <p id="descricao-ponto"></p>
+
+            <p>
+                Segue a linha verde até ao destino
+                (percurso simulado).
+            </p>
+
         </section>
+
+
+        <!-- Confirmar ponto de encontro -->
+        <button type="button"
+                class="botao"
+                id="confirmar-ponto">
+
+            Confirmar Ponto de Encontro
+
+        </button>
+
+
+        <!-- Mensagem de confirmação -->
+        <p id="mensagem-confirmacao"
+           class="mensagem"
+           role="status">
+        </p>
+
 
         <!-- Navegação AR -->
-        <a href="mapaAR.html" class="botao">
-            Ver Mapa AR
+        <a href="mapaAR.html"
+           id="ir-ar"
+           class="botao botao-secundario">
+
+            Iniciar Navegação AR →
+
         </a>
+
+
+        <p class="nota">
+            Mapa ilustrativo.
+            Não representa o recinto real.
+        </p>
 
     </main>
 

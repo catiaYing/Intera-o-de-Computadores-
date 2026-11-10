@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -16,155 +15,238 @@
 <body>
 
 <div class="telemovel">
+
 <main class="pagina">
 
+    <!-- Cabeçalho -->
     <header class="cabecalho cabecalho-pesquisa">
+
         <h1>Pesquisar festivais</h1>
 
         <div class="caixa-pesquisa">
             <span>⌕</span>
+
             <input type="search"
                    id="pesquisa"
                    placeholder="Pesquisar festivais...">
         </div>
+
     </header>
 
+
+    <!-- Filtros por mês -->
     <section class="filtros">
 
-        <button type="button" class="filtro ativo" data-mes="todos">
+        <button type="button"
+                class="filtro ativo"
+                data-mes="todos">
             Todos
         </button>
 
-        <button type="button" class="filtro" data-mes="6">
+        <button type="button"
+                class="filtro"
+                data-mes="6">
             Junho
         </button>
 
-        <button type="button" class="filtro" data-mes="7">
+        <button type="button"
+                class="filtro"
+                data-mes="7">
             Julho
         </button>
 
-        <button type="button" class="filtro" data-mes="8">
+        <button type="button"
+                class="filtro"
+                data-mes="8">
             Agosto
         </button>
 
     </section>
 
+
+    <!-- Número de resultados -->
     <p class="contador" id="contador"></p>
 
+
+    <!-- Lista de festivais -->
     <section class="lista-festivais" id="lista-festivais">
 
-        <!-- MEO Alive -->
-        <a href="../luisa/detalhes.html?festival=MEO%20Alive"
-           class="festival" data-mes="6">
+
+        <!-- 1. MEO Alive -->
+        <a href="../detalhes.html?festival=MEO%20Alive"
+           class="festival"
+           data-mes="6">
 
             <div class="festival-imagem imagem-um">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">ALGÉS, LISBOA</span>
+                <span class="festival-local">
+                    ALGÉS, LISBOA
+                </span>
+
                 <h3>MEO Alive</h3>
+
                 <p>10 – 12 Junho 2027</p>
-                <span class="festival-preco">Desde € 45,00</span>
+
+                <span class="festival-preco">
+                    Desde € 45,00
+                </span>
             </div>
 
             <span class="festival-seta">›</span>
+
         </a>
 
-        <!-- Primavera Sound -->
-        <a href="../luisa/detalhes.html?festival=Primavera%20Sound"
-           class="festival" data-mes="6">
+
+        <!-- 2. Primavera Sound -->
+        <a href="../detalhes.html?festival=Primavera%20Sound"
+           class="festival"
+           data-mes="6">
 
             <div class="festival-imagem imagem-quatro">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">PORTO</span>
+                <span class="festival-local">
+                    PORTO
+                </span>
+
                 <h3>Primavera Sound</h3>
+
                 <p>12 – 14 Junho 2027</p>
-                <span class="festival-preco">Desde € 75,00</span>
+
+                <span class="festival-preco">
+                    Desde € 75,00
+                </span>
             </div>
 
             <span class="festival-seta">›</span>
+
         </a>
 
-        <!-- Sumol Summer Fest -->
-        <a href="../luisa/detalhes.html?festival=Sumol%20Summer%20Fest"
-           class="festival" data-mes="7">
+
+        <!-- 3. Sumol Summer Fest -->
+        <a href="../detalhes.html?festival=Sumol%20Summer%20Fest"
+           class="festival"
+           data-mes="7">
 
             <div class="festival-imagem imagem-tres">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">ERICEIRA</span>
+                <span class="festival-local">
+                    ERICEIRA
+                </span>
+
                 <h3>Sumol Summer Fest</h3>
+
                 <p>3 – 4 Julho 2027</p>
-                <span class="festival-preco">Desde € 45,00</span>
+
+                <span class="festival-preco">
+                    Desde € 45,00
+                </span>
             </div>
 
             <span class="festival-seta">›</span>
+
         </a>
 
-        <!-- MEO Kalorama -->
-        <a href="../luisa/detalhes.html?festival=Meo%20Kalorama"
-           class="festival" data-mes="8">
+
+        <!-- 4. MEO Kalorama -->
+        <a href="../detalhes.html?festival=Meo%20Kalorama"
+           class="festival"
+           data-mes="8">
 
             <div class="festival-imagem imagem-dois">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">LISBOA</span>
+                <span class="festival-local">
+                    LISBOA
+                </span>
+
                 <h3>Meo Kalorama</h3>
+
                 <p>29 Agosto 2027</p>
-                <span class="festival-preco">Desde € 65,00</span>
+
+                <span class="festival-preco">
+                    Desde € 65,00
+                </span>
             </div>
 
             <span class="festival-seta">›</span>
+
         </a>
 
     </section>
 
-    <p class="sem-resultados" id="sem-resultados" hidden>
+
+    <!-- Mensagem sem resultados -->
+    <p class="sem-resultados"
+       id="sem-resultados"
+       hidden>
+
         Não foram encontrados festivais.
+
     </p>
 
 </main>
 
-    <!-- Navbar comum do projeto -->
-    <nav class="bottom-nav">
 
-        <a href="../home.html" class="nav-item">
-            <img src="../../media/inicio-home.png" alt="">
-            <span>Início</span>
-        </a>
+<!-- Navbar comum do projeto -->
+<nav class="bottom-nav">
 
-        <a href="pesquisar.html" class="nav-item active">
-            <img src="../../media/pesquisar-search.png" alt="">
-            <span>Pesquisar</span>
-        </a>
+    <a href="../home.html"
+       class="nav-item">
 
-        <a href="../catia/bilhetes.html" class="nav-item">
-            <img src="../../media/bilhetes-ticket.png" alt="">
-            <span>Bilhetes</span>
-        </a>
+        <img src="../../media/inicio-home.png" alt="">
+        <span>Início</span>
 
-        <a href="../catia/contactos.html" class="nav-item">
-            <img src="../../media/contactos-people.png" alt="">
-            <span>Contactos</span>
-        </a>
+    </a>
 
-        <a href="perfil.html" class="nav-item">
-            <img src="../../media/perfil-user.png" alt="">
-            <span>Perfil</span>
-        </a>
+    <a href="pesquisar.html"
+       class="nav-item active">
 
-    </nav>
+        <img src="../../media/pesquisar-search.png" alt="">
+        <span>Pesquisar</span>
+
+    </a>
+
+    <a href="../catia/bilhetes.html"
+       class="nav-item">
+
+        <img src="../../media/bilhetes-ticket.png" alt="">
+        <span>Bilhetes</span>
+
+    </a>
+
+    <a href="../catia/contactos.html"
+       class="nav-item">
+
+        <img src="../../media/contactos-people.png" alt="">
+        <span>Contactos</span>
+
+    </a>
+
+    <a href="perfil.html"
+       class="nav-item">
+
+        <img src="../../media/perfil-user.png" alt="">
+        <span>Perfil</span>
+
+    </a>
+
+</nav>
 
 </div>
 
+
+<!-- JavaScript da pesquisa -->
 <script>
 
 "use strict";
@@ -177,15 +259,20 @@ const semResultados = document.getElementById("sem-resultados");
 
 let mesAtual = "todos";
 
+
+// Atualizar pesquisa e filtros
 function atualizarPesquisa() {
 
-    const texto = pesquisa.value.trim().toLocaleLowerCase("pt-PT");
+    const texto = pesquisa.value
+        .trim()
+        .toLocaleLowerCase("pt-PT");
 
     let encontrados = 0;
 
     festivais.forEach(function(festival) {
 
-        const nome = festival.textContent.toLocaleLowerCase("pt-PT");
+        const nome = festival.textContent
+            .toLocaleLowerCase("pt-PT");
 
         const correspondeTexto = nome.includes(texto);
 
@@ -196,7 +283,6 @@ function atualizarPesquisa() {
         const mostrar = correspondeTexto && correspondeMes;
 
         festival.hidden = !mostrar;
-
         festival.style.display = mostrar ? "" : "none";
 
         if (mostrar) {
@@ -211,11 +297,14 @@ function atualizarPesquisa() {
             : " festivais encontrados");
 
     semResultados.hidden = encontrados !== 0;
-
 }
 
+
+// Pesquisa pelo nome
 pesquisa.addEventListener("input", atualizarPesquisa);
 
+
+// Filtrar festivais por mês
 filtros.forEach(function(filtro) {
 
     filtro.addEventListener("click", function() {
@@ -234,6 +323,8 @@ filtros.forEach(function(filtro) {
 
 });
 
+
+// Mostrar festivais ao abrir a página
 atualizarPesquisa();
 
 </script>

@@ -4,9 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>BANDy - Mapa AR</title>
 
+    <!-- Estilos -->
     <link rel="stylesheet" href="../../styles/luisa-mapa/mapa.css">
+    <link rel="stylesheet" href="../../styles/luisa-mapa/mapaAR.css">
+
+    <!-- JavaScript -->
+    <script src="../../scripts/luisa-mapa/mapa.js" defer></script>
+    <script src="../../scripts/luisa-mapa/mapaAR.js" defer></script>
 </head>
 
 <body>
@@ -15,51 +22,211 @@
 
         <!-- Cabeçalho -->
         <header class="cabecalho">
-            <a href="mapa.html" class="voltar" aria-label="Voltar">←</a>
+
+            <a href="mapa2d.html"
+               id="voltar-2d"
+               class="voltar"
+               aria-label="Voltar ao mapa 2D">
+                &larr;
+            </a>
+
             <h1>Mapa AR</h1>
+
         </header>
+
+        <!-- Informação do festival -->
+        <p id="nome-festival" class="festival-atual"></p>
 
         <p class="descricao">
             Segue as indicações até ao ponto de encontro.
         </p>
 
-        <!-- Simulação da navegação AR -->
-        <section class="vista-ar">
-
-            <!-- Cenário -->
-            <div class="edificio-ar edificio-esquerda"></div>
-            <div class="edificio-ar edificio-direita"></div>
-            <div class="estrada-ar"></div>
-
-            <!-- Destino -->
-            <div class="destino-ar">
-                📍 Ponto de Encontro 1
-            </div>
-
-            <!-- Direção -->
-            <div class="indicacao-ar">
-                <div class="seta-ar">↑</div>
-                <p>Segue em frente</p>
-                <span>120 m</span>
-            </div>
-
-            <!-- Legenda -->
-            <div class="legenda-ar">
-                Simulação de navegação AR
-            </div>
-
-        </section>
-
-        <!-- Informação -->
         <section class="informacao">
-            <h2>Ponto de Encontro 1</h2>
-            <p>Tempo estimado: 2 min</p>
+            <h2 id="titulo-ponto"></h2>
+            <p id="descricao-ponto"></p>
         </section>
 
-        <!-- Voltar ao mapa 2D -->
-        <a href="mapa2d.html" class="botao">
-            Ver Mapa 2D
+
+        <!-- 1. ECRÃ INICIAL -->
+        <section id="inicio-ar" class="estado-ar">
+
+            <div class="icone-estado">AR</div>
+
+            <h2>Pronto para começar?</h2>
+
+            <p>
+                Explora o recinto do festival através
+                de uma navegação AR simulada.
+            </p>
+
+            <button type="button"
+                    id="iniciar-ar"
+                    class="botao">
+                Iniciar Câmara AR
+            </button>
+
+        </section>
+
+
+        <!-- 2. NAVEGAÇÃO AR -->
+        <section id="navegacao-ar" hidden>
+
+            <div class="vista-ar" id="vista-ar">
+
+                <!-- Cenários ilustrativos -->
+                <div class="cenario-ar" aria-hidden="true">
+
+                    <!-- NOS ALIVE -->
+                    <div class="cenario-tema cenario-alive">
+
+                        <div class="alive-avenida"></div>
+
+                        <div class="alive-palco">
+                            PALCO PRINCIPAL
+                        </div>
+
+                        <div class="alive-estrutura alive-esquerda">
+                            BAR
+                        </div>
+
+                        <div class="alive-estrutura alive-direita">
+                            WC
+                        </div>
+
+                    </div>
+
+
+                    <!-- MEO KALORAMA -->
+                    <div class="cenario-tema cenario-kalorama">
+
+                        <div class="kalorama-trilho"></div>
+
+                        <div class="kalorama-palco">
+                            PALCO
+                        </div>
+
+                        <div class="kalorama-arvore arvore-1">🌳</div>
+                        <div class="kalorama-arvore arvore-2">🌳</div>
+                        <div class="kalorama-arvore arvore-3">🌳</div>
+
+                    </div>
+
+
+                    <!-- PRIMAVERA SOUND -->
+                    <div class="cenario-tema cenario-primavera">
+
+                        <div class="primavera-passagem"></div>
+
+                        <div class="primavera-palco">
+                            PALCO 2
+                        </div>
+
+                        <div class="primavera-zona">
+                            ZONA SOCIAL
+                        </div>
+
+                        <div class="primavera-entrada">
+                            ENTRADA
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Destino selecionado -->
+                <div class="destino-ar" id="destino-ar"></div>
+
+
+                <!-- Indicação de navegação -->
+                <div class="indicacao-ar">
+
+                    <div class="seta-ar" id="seta-ar">↑</div>
+
+                    <strong id="direcao-ar">
+                        Segue em frente
+                    </strong>
+
+                    <span id="detalhe-ar"></span>
+
+                </div>
+
+
+                <!-- Referência do festival -->
+                <div class="referencia-ar" id="referencia-ar"></div>
+
+                <div class="legenda-ar">
+                    Câmara virtual · Simulação AR
+                </div>
+
+            </div>
+
+
+            <!-- Progresso -->
+            <div class="progresso-ar">
+
+                <div class="progresso-texto">
+                    <span id="passo-ar">Passo 1 de 3</span>
+                    <span id="percentagem-ar">33%</span>
+                </div>
+
+                <div class="barra-progresso">
+                    <div id="barra-ar" class="barra-ar"></div>
+                </div>
+
+            </div>
+
+
+            <!-- Botões -->
+            <button type="button"
+                    id="proximo-ar"
+                    class="botao">
+                Próximo Passo →
+            </button>
+
+            <button type="button"
+                    id="terminar-ar"
+                    class="botao botao-secundario">
+                Terminar Navegação
+            </button>
+
+        </section>
+
+
+        <!-- 3. CHEGADA AO DESTINO -->
+        <section id="chegada-ar"
+                 class="estado-ar"
+                 hidden>
+
+            <div class="icone-estado">✓</div>
+
+            <h2>Chegaste ao destino!</h2>
+
+            <p>
+                Concluíste a navegação simulada
+                até ao ponto de encontro.
+            </p>
+
+            <button type="button"
+                    id="reiniciar-ar"
+                    class="botao">
+                Reiniciar Simulação
+            </button>
+
+        </section>
+
+
+        <!-- Voltar ao mapa -->
+        <a href="mapa2d.html"
+           id="ir-2d"
+           class="botao botao-secundario">
+            Ver Mapa 2D →
         </a>
+
+        <p class="nota">
+            Protótipo ilustrativo.
+            Não utiliza câmara nem GPS reais.
+        </p>
 
     </main>
 

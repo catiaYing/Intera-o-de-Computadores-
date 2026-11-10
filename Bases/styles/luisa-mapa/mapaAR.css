@@ -1,0 +1,395 @@
+/* ==========================================
+   BANDy - Mapa AR
+   Três cenários diferentes
+   ========================================== */
+
+/* ESTADO INICIAL E CHEGADA */
+
+.estado-ar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    margin: 18px 0;
+    padding: 24px 18px;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.icone-estado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 16px;
+    background: #D7FF00;
+    border-radius: 50%;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.estado-ar h2 {
+    margin: 0 0 10px;
+    font-size: 19px;
+}
+
+.estado-ar p {
+    margin: 0 0 18px;
+    color: #6B7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* CÂMARA VIRTUAL */
+
+.vista-ar {
+    position: relative;
+    width: 100%;
+    height: 310px;
+    margin: 14px 0;
+    overflow: hidden;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+}
+
+/* Fundos dos festivais */
+
+.vista-ar.alive {
+    background: linear-gradient(#C9E8F6, #A2D0C0);
+}
+
+.vista-ar.kalorama {
+    background: linear-gradient(#C5E8D3, #83B98B);
+}
+
+.vista-ar.primavera {
+    background: linear-gradient(#FFD7C0, #B6CFDA);
+}
+
+/* ORGANIZAÇÃO DOS CENÁRIOS */
+
+.cenario-ar {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cenario-tema {
+    position: absolute;
+    inset: 0;
+    display: none;
+}
+
+/* Mostrar apenas o festival selecionado */
+
+.vista-ar.alive .cenario-alive {
+    display: block;
+}
+
+.vista-ar.kalorama .cenario-kalorama {
+    display: block;
+}
+
+.vista-ar.primavera .cenario-primavera {
+    display: block;
+}
+
+/* ==========================================
+   NOS ALIVE
+   Palco, bar, WC e avenida
+   ========================================== */
+
+.alive-avenida {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 63%;
+    background: #BFCBD0;
+    clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
+}
+
+.alive-palco {
+    position: absolute;
+    top: 29%;
+    left: 50%;
+    width: 138px;
+    padding: 16px 6px;
+    transform: translateX(-50%);
+    background: #303D50;
+    border-top: 6px solid #8CF0E4;
+    border-radius: 8px 8px 0 0;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alive-estrutura {
+    position: absolute;
+    bottom: 16%;
+    width: 62px;
+    padding: 13px 5px;
+    background: #FFFFFF;
+    border: 2px solid #94A3B8;
+    border-radius: 8px;
+    color: #171923;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.alive-esquerda {
+    left: 4%;
+}
+
+.alive-direita {
+    right: 4%;
+}
+
+/* ==========================================
+   MEO KALORAMA
+   Parque com árvores
+   ========================================== */
+
+.kalorama-trilho {
+    position: absolute;
+    bottom: -10%;
+    left: 28%;
+    width: 45%;
+    height: 80%;
+    transform: rotate(12deg);
+    background: #E2D0A8;
+    border-radius: 45% 45% 0 0;
+}
+
+.kalorama-palco {
+    position: absolute;
+    top: 32%;
+    right: 8%;
+    padding: 13px 18px;
+    background: #425B49;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.kalorama-arvore {
+    position: absolute;
+    font-size: 38px;
+}
+
+.arvore-1 {
+    top: 23%;
+    left: 7%;
+}
+
+.arvore-2 {
+    top: 47%;
+    right: 6%;
+}
+
+.arvore-3 {
+    bottom: 9%;
+    left: 9%;
+}
+
+/* ==========================================
+   PRIMAVERA SOUND
+   Palco secundário e zona social
+   ========================================== */
+
+.primavera-passagem {
+    position: absolute;
+    bottom: -8%;
+    left: 16%;
+    width: 68%;
+    height: 70%;
+    transform: rotate(-12deg);
+    background: #C5D0D4;
+    clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
+}
+
+.primavera-palco {
+    position: absolute;
+    top: 28%;
+    left: 8%;
+    width: 105px;
+    padding: 17px 6px;
+    background: #514B69;
+    border-top: 6px solid #FFCF81;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.primavera-zona {
+    position: absolute;
+    top: 43%;
+    right: 5%;
+    width: 92px;
+    padding: 14px 6px;
+    background: #FFF8E7;
+    border: 2px solid #E6BE86;
+    border-radius: 8px;
+    color: #171923;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.primavera-entrada {
+    position: absolute;
+    bottom: 14%;
+    left: 5%;
+    padding: 8px;
+    background: #FFFFFF;
+    border-radius: 6px;
+    color: #171923;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   ELEMENTOS SOBRE A CÂMARA
+   ========================================== */
+
+/* Ponto de encontro */
+
+.destino-ar {
+    position: absolute;
+    z-index: 4;
+    top: 12px;
+    left: 50%;
+    width: max-content;
+    max-width: 90%;
+    padding: 9px 12px;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    border-radius: 10px;
+    color: #171923;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Cartão de navegação */
+
+.indicacao-ar {
+    position: absolute;
+    z-index: 4;
+    top: 51%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    width: 205px;
+    padding: 14px;
+    transform: translate(-50%, -50%);
+    background: #D7FF00;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
+}
+
+.seta-ar {
+    color: #171923;
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.indicacao-ar strong {
+    color: #171923;
+    font-size: 15px;
+}
+
+.indicacao-ar span {
+    color: #374151;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* Referência do festival */
+
+.referencia-ar {
+    position: absolute;
+    z-index: 4;
+    bottom: 48px;
+    left: 50%;
+    width: max-content;
+    max-width: 92%;
+    padding: 6px 10px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.93);
+    border-radius: 8px;
+    color: #171923;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Aviso de simulação */
+
+.legenda-ar {
+    position: absolute;
+    z-index: 4;
+    right: 12px;
+    bottom: 10px;
+    left: 12px;
+    padding: 8px;
+    background: rgba(23, 25, 35, 0.85);
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* ==========================================
+   PROGRESSO DA NAVEGAÇÃO
+   ========================================== */
+
+.progresso-ar {
+    margin: 18px 0;
+}
+
+.progresso-texto {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #6B7280;
+    font-size: 12px;
+}
+
+.barra-progresso {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+    background: #E5E7EB;
+    border-radius: 20px;
+}
+
+.barra-ar {
+    width: 0;
+    height: 100%;
+    background: #BFE600;
+    border-radius: 20px;
+    transition: width 0.25s ease;
+}
+
+/* BOTÕES */
+
+#navegacao-ar .botao,
+#chegada-ar .botao {
+    margin-top: 10px;
+}

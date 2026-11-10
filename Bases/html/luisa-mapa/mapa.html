@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BANDy - Mapas</title>
+
+    <title>BANDy - Mapas e Navegação</title>
 
     <link rel="stylesheet" href="../../styles/luisa-mapa/mapa.css">
+    <script src="../../scripts/luisa-mapa/mapa.js" defer></script>
 </head>
 
 <body>
@@ -14,29 +16,97 @@
     <main class="pagina">
 
         <!-- Cabeçalho -->
-        <header class="cabecalho cabecalho-menu">
+        <header class="cabecalho-menu">
+
+            <p class="etiqueta">BANDy</p>
+
             <h1>Mapas e Navegação</h1>
-            <p>Escolhe como queres encontrar os teus amigos.</p>
+
+            <p>Encontra os teus amigos durante o festival.</p>
+
         </header>
+
+
+        <!-- Seleção do festival e do ponto de encontro -->
+        <section class="selecao">
+
+            <label for="festival">Festival</label>
+
+            <select id="festival">
+                <option value="alive">NOS Alive</option>
+                <option value="kalorama">MEO Kalorama</option>
+                <option value="primavera">Primavera Sound</option>
+            </select>
+
+            <p class="ajuda">Festivais de demonstração.</p>
+
+
+            <label for="ponto">Ponto de encontro</label>
+
+            <select id="ponto">
+                <option value="1">Ponto de Encontro 1</option>
+                <option value="2">Ponto de Encontro 2</option>
+                <option value="3">Ponto de Encontro 3</option>
+            </select>
+
+            <p class="ajuda">
+                Também podes escolher um local diretamente no mapa.
+            </p>
+
+        </section>
+
 
         <!-- Opções de navegação -->
         <section class="opcoes">
 
-            <a href="mapa2d.html" class="cartao">
-                <div class="icone-cartao">▧</div>
-                <h2>Mapa Interativo</h2>
-                <p>Consulta o percurso até ao ponto de encontro.</p>
+            <!-- Mapa 2D -->
+            <a href="mapa2d.html"
+               id="abrir-2d"
+               class="cartao">
+
+                <span class="icone-cartao">▦</span>
+
+                <span>
+                    <strong>Mapa Interativo</strong>
+
+                    <small>
+                        Consulta o recinto e escolhe
+                        um ponto de encontro.
+                    </small>
+                </span>
+
                 <span class="seta-cartao">→</span>
+
             </a>
 
-            <a href="mapaAR.html" class="cartao">
-                <div class="icone-cartao">AR</div>
-                <h2>Mapa AR</h2>
-                <p>Segue as indicações de direção.</p>
+
+            <!-- Mapa AR -->
+            <a href="mapaAR.html"
+               id="abrir-ar"
+               class="cartao">
+
+                <span class="icone-cartao">AR</span>
+
+                <span>
+                    <strong>Mapa AR</strong>
+
+                    <small>
+                        Segue uma navegação virtual
+                        até ao destino.
+                    </small>
+                </span>
+
                 <span class="seta-cartao">→</span>
+
             </a>
 
         </section>
+
+
+        <!-- Informação adicional -->
+        <p class="nota">
+            Protótipo ilustrativo, sem localização real.
+        </p>
 
     </main>
 
