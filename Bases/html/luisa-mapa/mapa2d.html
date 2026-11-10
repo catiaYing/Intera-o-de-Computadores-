@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANDy - Mapa 2D</title>
+
+    <link rel="stylesheet" href="../../styles/luisa-mapa/mapa.css">
+</head>
+
+<body>
+
+    <main class="pagina">
+
+        <!-- Cabeçalho -->
+        <header class="cabecalho">
+            <a href="mapa.html" class="voltar" aria-label="Voltar">←</a>
+            <h1>Mapa Interativo</h1>
+        </header>
+
+        <p class="descricao">
+            Segue o percurso até ao ponto de encontro.
+        </p>
+
+        <!-- Mapa ilustrativo -->
+        <section class="mapa">
+
+            <!-- Ruas -->
+            <div class="rua rua-horizontal"></div>
+            <div class="rua rua-vertical"></div>
+
+            <!-- Percurso -->
+            <div class="rota rota-horizontal"></div>
+            <div class="rota rota-vertical"></div>
+
+            <!-- Localização atual -->
+            <div class="ponto origem">
+                <span>●</span>
+                <p>Tu</p>
+            </div>
+
+            <!-- Destino -->
+            <div class="ponto destino">
+                <span>1</span>
+                <p>Ponto 1</p>
+            </div>
+
+            <p class="nome-rua">Rua do Festival</p>
+
+        </section>
+
+        <!-- Informação do percurso -->
+        <section class="informacao">
+            <h2>Ponto de Encontro 1</h2>
+            <p>Tempo estimado: 2 min</p>
+            <p>Segue a rota indicada no mapa.</p>
+        </section>
+
+        <!-- Navegação AR -->
+        <a href="mapaAR.html" class="botao">
+            Ver Mapa AR
+        </a>
+
+    </main>
+
+</body>
+</html>

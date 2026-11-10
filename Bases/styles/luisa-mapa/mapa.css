@@ -1,0 +1,467 @@
+/* =========================================
+   BANDy - Mapas e Navegação
+   ========================================= */
+
+
+/* ===== 1. ESTILOS GERAIS ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #E5E7EB;
+    color: #171923;
+}
+
+
+/* ===== 2. ECRÃ DO TELEMÓVEL ===== */
+
+.pagina {
+    width: 390px;
+    max-width: 100%;
+    height: 844px;
+    margin: 20px auto;
+    padding: 24px;
+
+    background-color: #FFFFFF;
+    border: 8px solid #171923;
+    border-radius: 38px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+}
+
+
+/* ===== 3. CABEÇALHO ===== */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.cabecalho h1 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.voltar {
+    color: #171923;
+    font-size: 26px;
+    text-decoration: none;
+}
+
+.descricao {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+
+
+/* ===== 4. CABEÇALHO DO MENU ===== */
+
+.cabecalho-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cabecalho-menu h1 {
+    font-size: 22px;
+    margin: 0;
+}
+
+.cabecalho-menu p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* ===== 5. MENU DE MAPAS ===== */
+
+.opcoes {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.cartao {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-height: 220px;
+    padding: 24px;
+
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+
+    color: #171923;
+    text-decoration: none;
+}
+
+.cartao:hover {
+    background-color: #D7FF00;
+}
+
+.icone-cartao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    background-color: #D7FF00;
+    border-radius: 12px;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cartao h2 {
+    font-size: 18px;
+    margin: 16px 0 8px;
+}
+
+.cartao p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.seta-cartao {
+    display: block;
+    text-align: right;
+    font-size: 22px;
+    margin-top: 12px;
+}
+
+
+/* ===== 6. MAPA 2D ===== */
+
+.mapa {
+    position: relative;
+
+    width: 100%;
+    height: 370px;
+    flex-shrink: 0;
+
+    background-color: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+
+/* Ruas */
+
+.rua {
+    position: absolute;
+    background-color: #FFFFFF;
+}
+
+.rua-horizontal {
+    top: 30%;
+    width: 100%;
+    height: 35px;
+}
+
+.rua-vertical {
+    left: 28%;
+    width: 35px;
+    height: 100%;
+}
+
+
+/* Percurso */
+
+.rota {
+    position: absolute;
+}
+
+.rota-horizontal {
+    top: 30%;
+    left: 28%;
+    width: 42%;
+
+    border-top: 5px dashed #BFE600;
+}
+
+.rota-vertical {
+    top: 30%;
+    left: 28%;
+    height: 42%;
+
+    border-left: 5px dashed #BFE600;
+}
+
+
+/* Pontos de localização */
+
+.ponto {
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.ponto span {
+    display: inline-block;
+
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.ponto p {
+    font-size: 12px;
+    margin: 5px 0;
+}
+
+.origem {
+    top: 72%;
+    left: 28%;
+}
+
+.origem span {
+    background-color: #171923;
+    color: #FFFFFF;
+}
+
+.destino {
+    top: 30%;
+    left: 70%;
+}
+
+.destino span {
+    background-color: #D7FF00;
+    color: #171923;
+}
+
+.nome-rua {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    font-size: 12px;
+    color: #666666;
+}
+
+
+/* ===== 7. INFORMAÇÕES ===== */
+
+.informacao {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.informacao h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.informacao p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+}
+
+
+/* ===== 8. BOTÕES ===== */
+
+.botao {
+    display: block;
+
+    min-height: 48px;
+    padding: 14px;
+
+    background-color: #D7FF00;
+    border-radius: 12px;
+
+    color: #171923;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background-color: #BFE600;
+}
+
+
+/* ===== 9. MAPA AR ===== */
+
+.vista-ar {
+    position: relative;
+
+    width: 100%;
+    height: 430px;
+    flex-shrink: 0;
+
+    background: linear-gradient(
+        #CDE8F8 0%,
+        #E6F1EC 45%,
+        #D5DDD3 45%,
+        #D5DDD3 100%
+    );
+
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+
+/* Edifícios */
+
+.edificio-ar {
+    position: absolute;
+    bottom: 0;
+
+    width: 28%;
+    height: 65%;
+
+    background-color: #B5BEC4;
+}
+
+.edificio-esquerda {
+    left: 0;
+}
+
+.edificio-direita {
+    right: 0;
+}
+
+
+/* Estrada */
+
+.estrada-ar {
+    position: absolute;
+    bottom: 0;
+    left: 35%;
+
+    width: 30%;
+    height: 65%;
+
+    background-color: #9299A1;
+}
+
+
+/* Destino */
+
+.destino-ar {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 85%;
+    padding: 12px;
+
+    background-color: #FFFFFF;
+    border-radius: 12px;
+
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* Indicações de direção */
+
+.indicacao-ar {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 180px;
+    padding: 15px;
+
+    background-color: #D7FF00;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.seta-ar {
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.indicacao-ar p {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.indicacao-ar span {
+    font-size: 14px;
+}
+
+
+/* Legenda da navegação */
+
+.legenda-ar {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 85%;
+    padding: 10px;
+
+    background-color: #FFFFFF;
+    border-radius: 12px;
+
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+}
+
+
+/* ===== 10. ADAPTAÇÃO A ECRÃS PEQUENOS ===== */
+
+@media (max-width: 390px) {
+
+    .pagina {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .cartao {
+        min-height: 190px;
+    }
+}

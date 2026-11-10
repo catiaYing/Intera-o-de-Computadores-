@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BANDy - Mapa AR</title>
+
+    <link rel="stylesheet" href="../../styles/luisa-mapa/mapa.css">
+</head>
+
+<body>
+
+    <main class="pagina">
+
+        <!-- Cabeçalho -->
+        <header class="cabecalho">
+            <a href="mapa.html" class="voltar" aria-label="Voltar">←</a>
+            <h1>Mapa AR</h1>
+        </header>
+
+        <p class="descricao">
+            Segue as indicações até ao ponto de encontro.
+        </p>
+
+        <!-- Simulação da navegação AR -->
+        <section class="vista-ar">
+
+            <!-- Cenário -->
+            <div class="edificio-ar edificio-esquerda"></div>
+            <div class="edificio-ar edificio-direita"></div>
+            <div class="estrada-ar"></div>
+
+            <!-- Destino -->
+            <div class="destino-ar">
+                📍 Ponto de Encontro 1
+            </div>
+
+            <!-- Direção -->
+            <div class="indicacao-ar">
+                <div class="seta-ar">↑</div>
+                <p>Segue em frente</p>
+                <span>120 m</span>
+            </div>
+
+            <!-- Legenda -->
+            <div class="legenda-ar">
+                Simulação de navegação AR
+            </div>
+
+        </section>
+
+        <!-- Informação -->
+        <section class="informacao">
+            <h2>Ponto de Encontro 1</h2>
+            <p>Tempo estimado: 2 min</p>
+        </section>
+
+        <!-- Voltar ao mapa 2D -->
+        <a href="mapa2d.html" class="botao">
+            Ver Mapa 2D
+        </a>
+
+    </main>
+
+</body>
+</html>

@@ -1,6 +1,10 @@
-/*  MB WAY*/
+/* ==========================================
+   BANDy - Pagamento MB WAY
+   ========================================== */
 
-/* 电话号码标签 */
+
+/* ===== 1. CAMPO DO NÚMERO ===== */
+
 .label-numero {
     display: block;
     margin-bottom: 10px;
@@ -9,16 +13,18 @@
     color: #171923;
 }
 
-/* 电话输入框 */
 #numero {
     width: 100%;
     padding: 15px;
+
     background-color: #F9FAFB;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
+
     font-size: 16px;
     color: #171923;
     outline: none;
+
     transition: border-color 0.2s, background-color 0.2s;
 }
 
@@ -26,20 +32,24 @@
     color: #9CA3AF;
 }
 
-/* 输入时边框绿色 */
+
+/* ===== 2. VALIDAÇÃO DO NÚMERO ===== */
+
+/* Campo selecionado */
 #numero:focus {
-    outline: none;
     border: 2px solid #BFE600;
     background-color: #FFFFFF;
 }
 
-/* 数据错误时边框红色 */
+/* Número inválido */
 #numero[aria-invalid="true"] {
     border: 2px solid #DC2626;
     background-color: #FEF2F2;
 }
 
-/* 输入提示 */
+
+/* ===== 3. MENSAGENS DE AJUDA ===== */
+
 .ajuda {
     margin: 8px 0 24px;
     color: #6B7280;
@@ -47,27 +57,29 @@
     line-height: 1.4;
 }
 
-/* 授权状态提示 */
+
+/* ===== 4. RESULTADO DA AUTORIZAÇÃO ===== */
+
 .resultado {
     padding: 12px;
+
     background-color: rgba(215, 255, 0, 0.15);
-    color: #171923;
-    border-radius: 12px;
     border: 1px solid #BFE600;
+    border-radius: 12px;
+
+    color: #171923;
     font-size: 13px;
-    text-align: center;
     font-weight: 600;
+    text-align: center;
 }
 
-/* 无文字时隐藏 */
+/* Oculta a mensagem quando está vazia */
 .resultado:empty {
     display: none;
 }
 
 
-/* ==========================================
-   CORREÇÃO - POSIÇÃO DOS DIÁLOGOS MB WAY
-   ========================================== */
+/* ===== 5. JANELA DE AUTORIZAÇÃO ===== */
 
 body > .dialogo {
     position: fixed;
@@ -95,7 +107,9 @@ body > .dialogo {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
-/* Escurecer o fundo durante a autorização */
+
+/* ===== 6. FUNDO DO DIÁLOGO ===== */
+
 body > .dialogo::backdrop {
     background-color: rgba(23, 25, 35, 0.55);
 }

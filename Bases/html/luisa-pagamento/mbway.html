@@ -2,29 +2,26 @@
 <html lang="pt">
 
 <head>
-    <!-- 字符编码 -->
     <meta charset="UTF-8">
-
-    <!-- 手机适配 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>BANDy - MB WAY</title>
 
-    <!-- 公共 CSS -->
-    <link rel="stylesheet" href="../../styles/luisa/comum.css">
+    <!-- CSS comum -->
+    <link rel="stylesheet" href="../../styles/luisa-pagamento/comum.css">
 
-    <!-- MB WAY 专属 CSS -->
-    <link rel="stylesheet" href="../../styles/luisa/mbway.css">
+    <!-- CSS do MB WAY -->
+    <link rel="stylesheet" href="../../styles/luisa-pagamento/mbway.css">
 </head>
 
 <body>
 
     <main class="pagina pagina-mbway">
 
-        <!-- ===== 1. 顶部导航 ===== -->
+        <!-- ===== 1. CABEÇALHO ===== -->
+
         <header class="cabecalho">
 
-            <!-- 返回支付方式选择 -->
             <a href="pagamento.html"
                class="voltar"
                aria-label="Voltar">
@@ -36,7 +33,8 @@
         </header>
 
 
-        <!-- ===== 2. 页面介绍 ===== -->
+        <!-- ===== 2. INTRODUÇÃO ===== -->
+
         <section class="introducao">
 
             <p class="etiqueta">MÉTODO DE PAGAMENTO</p>
@@ -50,7 +48,8 @@
         </section>
 
 
-        <!-- ===== 3. 支付摘要 ===== -->
+        <!-- ===== 3. RESUMO DO PAGAMENTO ===== -->
+
         <section class="resumo">
 
             <div class="festival">
@@ -74,20 +73,14 @@
         </section>
 
 
-        <!-- ===== 4. 手机号码表单 ===== -->
-        <!-- novalidate：让 JS 自己验证输入 -->
+        <!-- ===== 4. FORMULÁRIO MB WAY ===== -->
+
         <form id="form-mbway" novalidate>
 
             <label for="numero" class="label-numero">
                 Número de telemóvel
             </label>
 
-            <!--
-                type="tel"：电话输入框
-                inputmode="numeric"：手机优先显示数字键盘
-                maxlength="9"：最多输入9位
-                required：必须填写
-            -->
             <input
                 type="tel"
                 id="numero"
@@ -104,25 +97,30 @@
                 Introduz 9 dígitos, começando por 9.
             </p>
 
-            <!-- 提交表单，让 JS 验证电话号码 -->
             <button type="submit" class="botao-principal">
                 Confirmar pagamento
             </button>
 
         </form>
 
+
+        <!-- ===== 5. NOTA DO PROTÓTIPO ===== -->
+
         <p class="nota-simulacao">
             Protótipo demonstrativo.
             Nenhum pagamento real será efetuado.
         </p>
 
-        <!-- 预留给 JS 显示操作结果 -->
-        <p id="resultado" class="resultado" role="status"></p>
+        <p id="resultado"
+           class="resultado"
+           role="status">
+        </p>
 
     </main>
 
 
-    <!-- ===== 5. 数据错误弹窗 ===== -->
+    <!-- ===== 6. DIÁLOGO DE ERRO ===== -->
+
     <dialog id="erro-dialog" class="dialogo">
 
         <h2>Dados inválidos</h2>
@@ -132,7 +130,6 @@
             com 9 dígitos, começando por 9.
         </p>
 
-        <!-- 关闭错误弹窗，重新修改 -->
         <button type="button"
                 id="fechar-erro"
                 class="botao-principal">
@@ -142,7 +139,8 @@
     </dialog>
 
 
-    <!-- ===== 6. 等待授权弹窗 ===== -->
+    <!-- ===== 7. DIÁLOGO DE AUTORIZAÇÃO ===== -->
+
     <dialog id="aguardar-dialog" class="dialogo">
 
         <div class="icone-dialogo">⌛</div>
@@ -154,17 +152,12 @@
             na aplicação MB WAY.
         </p>
 
-        <!--
-            在 PF1 中点击 Continuar，
-            模拟用户完成 MB WAY 授权
-        -->
         <button type="button"
                 id="autorizar"
                 class="botao-principal">
             Continuar
         </button>
 
-        <!-- 取消等待 -->
         <button type="button"
                 id="cancelar-aguardar"
                 class="botao-secundario">
@@ -174,7 +167,8 @@
     </dialog>
 
 
-    <!-- ===== 7. 授权成功弹窗 ===== -->
+    <!-- ===== 8. DIÁLOGO DE SUCESSO ===== -->
+
     <dialog id="sucesso-dialog" class="dialogo">
 
         <div class="icone-dialogo sucesso">✓</div>
@@ -185,10 +179,6 @@
             Autorização demonstrativa concluída com sucesso!
         </p>
 
-        <!--
-            点击 OK 后，
-            JS 会进入 confirmacao.html
-        -->
         <button type="button"
                 id="terminar"
                 class="botao-principal">
@@ -198,7 +188,8 @@
     </dialog>
 
 
-    <!-- MB WAY 专属 JS -->
+    <!-- ===== 9. JAVASCRIPT ===== -->
+
     <script src="../../scripts/luisa/mbway.js"></script>
     <script src="../../scripts/luisa/compra.js"></script>
 
