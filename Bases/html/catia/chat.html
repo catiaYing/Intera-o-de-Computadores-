@@ -13,6 +13,7 @@
 
     <main class="chat-page">
 
+        <!-- Cabeçalho -->
         <header class="chat-header">
             <a href="contactos.html" class="back-button">←</a>
 
@@ -25,9 +26,12 @@
             </a>
         </header>
 
+        <!-- Data -->
         <div class="chat-date">Hoje</div>
 
-        <section class="messages" id="messages"></section>
+        <!-- Mensagens -->
+        <section class="messages" id="messages">
+        </section>
 
         <!-- Menu de anexos -->
         <div class="attachment-menu" id="attachmentMenu">
@@ -40,52 +44,7 @@
             </button>
         </div>
 
-        <!-- Escolher Festival -->
-        <div class="festival-overlay" id="festivalOverlay">
-            <section class="festival-modal">
-
-                <div class="festival-modal-header">
-                    <div>
-                        <h2>Escolher Festival</h2>
-                        <p>Seleciona um festival onde tens bilhete.</p>
-                    </div>
-
-                    <button type="button" id="closeFestival">×</button>
-                </div>
-
-                <div class="festival-list">
-
-                    <label class="festival-option">
-                        <input type="radio" name="festival" value="MEO Alive">
-                        <span>MEO Alive</span>
-                    </label>
-
-                    <label class="festival-option">
-                        <input type="radio" name="festival" value="Meo Kalorama">
-                        <span>Meo Kalorama</span>
-                    </label>
-
-                    <label class="festival-option">
-                        <input type="radio" name="festival" value="Sumol Summer Fest">
-                        <span>Sumol Summer Fest</span>
-                    </label>
-
-                    <label class="festival-option">
-                        <input type="radio" name="festival" value="Primavera Sound">
-                        <span>Primavera Sound</span>
-                    </label>
-
-                </div>
-
-                <div class="festival-buttons">
-                    <button type="button" id="cancelFestival">Cancelar</button>
-                    <button type="button" id="confirmFestival">Continuar</button>
-                </div>
-
-            </section>
-        </div>
-
-        <!-- Escolher Palco -->
+        <!-- Painel de ponto de encontro -->
         <div class="point-overlay" id="pointOverlay">
 
             <section class="point-modal">
@@ -99,6 +58,7 @@
                     <button type="button" id="closePoint">×</button>
                 </div>
 
+                <!-- Locais -->
                 <div class="point-list">
 
                     <label class="point-option">
@@ -139,6 +99,7 @@
 
                 </div>
 
+                <!-- Botões -->
                 <div class="point-buttons">
                     <button type="button" id="cancelPoint">Cancelar</button>
                     <button type="button" id="confirmPoint">Convidar</button>
