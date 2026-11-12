@@ -1,0 +1,152 @@
+.interesses {
+    padding: 20px 20px 0;
+}
+
+.interesses h2 {
+    margin-bottom: 10px;
+    color: #6B7280;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .7px;
+    text-transform: uppercase;
+}
+
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.etiqueta {
+    padding: 4px 10px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #6B7280;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.etiqueta.comum {
+    background: #D7FF00;
+    border-color: #D7FF00;
+    color: #171923;
+    font-weight: 700;
+}
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    padding: 16px 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.filtros::-webkit-scrollbar {
+    display: none;
+}
+
+.filtro {
+    min-height: 36px;
+    padding: 8px 16px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #6B7280;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.filtro:hover {
+    border-color: #BFE600;
+}
+
+.filtro.ativo {
+    background: #D7FF00;
+    border-color: #D7FF00;
+    color: #171923;
+    font-weight: 700;
+}
+
+.contador {
+    padding: 0 20px 8px;
+    color: #6B7280;
+    font-size: 12px;
+}
+
+.lista-pessoas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+}
+
+.pessoa {
+    padding: 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    transition: border-color .2s;
+}
+
+.pessoa:hover {
+    border-color: #BFE600;
+}
+
+.pessoa-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar-pessoa {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D7FF00;
+    border: 2px solid #BFE600;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.pessoa-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.pessoa-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pessoa-info p {
+    margin-top: 3px;
+    color: #6B7280;
+    font-size: 12px;
+}
+
+.pessoa .etiquetas {
+    margin-top: 12px;
+}
+
+.pessoa-acoes {
+    margin-top: 12px;
+}
+
+.pessoa-acoes .botao-principal {
+    font-size: 14px;
+}
+
+.sem-resultados {
+    padding: 32px 20px;
+    text-align: center;
+    color: #6B7280;
+    font-size: 14px;
+}
