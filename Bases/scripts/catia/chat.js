@@ -38,7 +38,7 @@ document.getElementById("profileLink").href = "perfil_users.html?user=" + user;
 document.title = "Chat - " + userName;
 
 
-// Mensagens iniciais de cada contacto
+// Mensagens iniciais
 let mariaMessages = [
     { type: "received", text: "Olá! Tudo bem?", time: "19:30" },
     { type: "sent", text: "Olá Maria! Sim, e contigo?", time: "19:32" },
@@ -90,15 +90,17 @@ if (user == "maria") {
 }
 
 
-
 // Elementos da página
 const messages = document.getElementById("messages");
 const messageForm = document.getElementById("messageForm");
 const messageInput = document.getElementById("messageInput");
 
 const attachmentMenu = document.getElementById("attachmentMenu");
+const festivalOverlay = document.getElementById("festivalOverlay");
 const pointOverlay = document.getElementById("pointOverlay");
 const inviteOverlay = document.getElementById("inviteOverlay");
+
+let selectedFestival = "";
 
 
 // Obter a hora atual
@@ -108,8 +110,6 @@ function getCurrentTime() {
         minute: "2-digit"
     });
 }
-
-
 
 
 // Mostrar mensagens
@@ -143,6 +143,9 @@ function showMessages() {
             let title = document.createElement("strong");
             title.textContent = "Ponto de encontro";
 
+            let festival = document.createElement("p");
+            festival.textContent = item.festival;
+
             let place = document.createElement("h3");
             place.textContent = item.place;
 
@@ -158,6 +161,7 @@ function showMessages() {
             }
 
             content.appendChild(title);
+            content.appendChild(festival);
             content.appendChild(place);
             content.appendChild(description);
             content.appendChild(status);
@@ -208,7 +212,6 @@ messageForm.addEventListener("submit", function(event) {
 
     chatMessages.push(newMessage);
 
-   
     showMessages();
 
     messageInput.value = "";
@@ -244,7 +247,6 @@ if (selectedPhoto != null && (returnUser == null || returnUser == user)) {
 
     chatMessages.push(photoMessage);
 
-
     showMessages();
 
     sessionStorage.removeItem("bandySelectedPhoto");
@@ -252,15 +254,44 @@ if (selectedPhoto != null && (returnUser == null || returnUser == user)) {
 }
 
 
-// Abrir painel de ponto de encontro
+// Abrir painel para escolher Festival
 document.getElementById("markPointOption").addEventListener("click", function() {
 
     attachmentMenu.classList.remove("show");
-    pointOverlay.classList.add("show");
+    festivalOverlay.classList.add("show");
+
 });
 
 
-// Fechar painel
+// Fechar painel de Festival
+function closeFestival() {
+    festivalOverlay.classList.remove("show");
+}
+
+document.getElementById("closeFestival").addEventListener("click", closeFestival);
+document.getElementById("cancelFestival").addEventListener("click", closeFestival);
+
+
+// Escolher Festival e continuar
+document.getElementById("confirmFestival").addEventListener("click", function() {
+
+    let selected = document.querySelector('input[name="festival"]:checked');
+
+    if (selected == null) {
+        alert("Escolhe primeiro um festival.");
+        return;
+    }
+
+    selectedFestival = selected.value;
+
+    closeFestival();
+
+    pointOverlay.classList.add("show");
+
+});
+
+
+// Fechar painel de ponto
 function closePoint() {
     pointOverlay.classList.remove("show");
 }
@@ -281,6 +312,7 @@ document.getElementById("confirmPoint").addEventListener("click", function() {
 
     let invitation = {
         type: "invitation",
+        festival: selectedFestival,
         place: selected.value,
         status: "A aguardar confirmação...",
         accepted: false
@@ -288,7 +320,6 @@ document.getElementById("confirmPoint").addEventListener("click", function() {
 
     chatMessages.push(invitation);
 
-   
     showMessages();
 
     closePoint();
@@ -300,7 +331,6 @@ document.getElementById("confirmPoint").addEventListener("click", function() {
         invitation.status = "✓ Convite aceite!";
         invitation.accepted = true;
 
-      
         showMessages();
 
         inviteOverlay.classList.add("show");
@@ -323,7 +353,6 @@ document.getElementById("confirmPoint").addEventListener("click", function() {
 
                 invitation.status = "✓ Encontro confirmado!";
 
-               
                 showMessages();
             }
 

@@ -602,6 +602,7 @@ body {
 }
 
 /* Cartao de ponto de encontro */
+
 .message.point-message {
     background: transparent;
     padding: 0;
@@ -651,4 +652,123 @@ body {
 .invitation-status.accepted {
     background: #E8F5B5;
     color: #4D7C0F;
+}
+
+/* Escolher Festival */
+
+.festival-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(23, 25, 35, 0.45);
+    z-index: 40;
+}
+
+.festival-overlay.show {
+    display: flex;
+}
+
+.festival-modal {
+    width: 100%;
+    max-width: 330px;
+    padding: 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+}
+
+.festival-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.festival-modal-header h2 {
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.festival-modal-header p {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--gray);
+}
+
+#closeFestival {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--light);
+    color: var(--black);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.festival-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.festival-option {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.festival-option:has(input:checked) {
+    border: 2px solid var(--green-dark);
+    background: #F5F6F2;
+}
+
+.festival-option input {
+    accent-color: var(--green-dark);
+}
+
+.festival-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.festival-buttons button {
+    flex: 1;
+    min-height: 36px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+#cancelFestival {
+    background: var(--light);
+    color: var(--black);
+}
+
+#confirmFestival {
+    background: var(--green);
+    color: var(--black);
+}
+
+#confirmFestival:hover {
+    background: var(--green-dark);
 }
