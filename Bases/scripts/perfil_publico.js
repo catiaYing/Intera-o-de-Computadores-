@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dadosUtilizadores = {
         // amigos
         maria: { 
-            avatar: "MC", 
+            foto: "MC", 
             nome: "Maria Costa", 
             tag: "@maria_costa", 
             dist: "A 45m de ti 📍", 
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: true 
         },
         filipe: { 
-            avatar: "FM", 
+            foto: "FM", 
             nome: "Filipe Machado", 
             tag: "@filipe_machado", 
             dist: "A 120m de ti 📍", 
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: true 
         },
         ana: { 
-            avatar: "AS", 
+            foto: "AS", 
             nome: "Ana Silva", 
             tag: "@ana_silva", 
             dist: "A 310m de ti 📍", 
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: true 
         },
         santiago: {
-            avatar: "SR",
+            foto: "SR",
             nome: "Santiago Ramos",
             tag: "@santigo_ramos",
             dist: "A 10m de ti 📍",
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: true
         },
         martim: {
-            avatar: "MD",
+            foto: "MD",
             nome: "Martim Dias",
             tag: "@martim_dias",
             dist: "A 456m de ti",
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         // pessoas perto
         joao: { 
-            avatar: "JS", 
+            foto: "JS", 
             nome: "João Santos", 
             tag: "@joao_santos", 
             dist: "A 20m de ti 📍", 
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: false 
         },
         rita: { 
-            avatar: "RP", 
+            foto: "RP", 
             nome: "Rita Pereira", 
             tag: "@rita_pereira", 
             dist: "A 45m de ti 📍", 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: false 
         },
         tiago: { 
-            avatar: "TL", 
+            foto: "TL", 
             nome: "Tiago Lopes", 
             tag: "@tiago_lopes", 
             dist: "A 120m de ti 📍", 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: false 
         },
         beatriz: { 
-            avatar: "BM", 
+            foto: "BM", 
             nome: "Beatriz Martins", 
             tag: "@bea_martins", 
             dist: "A 180m de ti 📍", 
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
             eAmigo: false 
         },
         goncalo: { 
-            avatar: "GN", 
+            foto: "GN", 
             nome: "Gonçalo Neves", 
             tag: "@goncalo_neves", 
             dist: "A 210m de ti 📍", 
@@ -110,37 +110,37 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    const btnPrincipal = document.getElementById("btn-principal-perfil");
-    const linkChat = document.getElementById("link-chat-direto");
+    const botaoExtra = document.getElementById("botao-extra");
+    const botaoChat = document.getElementById("chat");
 
     if (user && dadosUtilizadores[user]) {
         const u = dadosUtilizadores[user];
 
-        if (document.getElementById("avatar")) document.getElementById("avatar").textContent = u.avatar;
+        if (document.getElementById("foto-perfil")) document.getElementById("foto-perfil").textContent = u.foto;
         if (document.getElementById("nome-perfil")) document.getElementById("nome-perfil").textContent = u.nome;
         if (document.getElementById("utilizador-perfil")) document.getElementById("utilizador-perfil").textContent = u.tag;
-        if (document.querySelector(".distancia-perfil")) document.querySelector(".distancia-perfil").textContent = u.dist;
+        if (document.querySelector("distancia")) document.querySelector("distancia").textContent = u.dist;
         if (document.getElementById("bio-perfil")) document.getElementById("bio-perfil").textContent = u.bio;
         if (document.getElementById("artistas-perfil")) document.getElementById("artistas-perfil").textContent = u.artistas;
         if (document.getElementById("festival-perfil")) document.getElementById("festival-perfil").textContent = u.festival;
 
-        if (linkChat) {
-            linkChat.setAttribute("href", "catia/chat.html?amigo=" + user);
+        if (botaoChat) {
+            botaoChat.setAttribute("href", "catia/chat.html?amigo=" + user);
         }
 
-        if (btnPrincipal) {
+        if (botaoExtra) {
             if (u.eAmigo) {
                 // Se é amigo mostra mapa
-                btnPrincipal.textContent = "🗺️ Mapa";
-                btnPrincipal.setAttribute("href", "mapa.html?user=" + user);
-                btnPrincipal.className = "botao-principal-publico";
-                btnPrincipal.onclick = null;
+                botaoExtra.textContent = "🗺️ Mapa";
+                botaoExtra.setAttribute("href", "mapa.html?user=" + user);
+                botaoExtra.className = "botao-mapa";
+                botaoExtra.onclick = null;
             } else {
                 // se for pessoa perto mostra adicionar 
-                btnPrincipal.textContent = "+ Adicionar";
-                btnPrincipal.setAttribute("href", "#");
-                btnPrincipal.className = "botao-adicionar-publico";
-                btnPrincipal.onclick = function (e) {
+                botaoExtra.textContent = "+ Adicionar";
+                botaoExtra.setAttribute("href", "#");
+                botaoExtra.className = "botao-adicionar";
+                botaoExtra.onclick = function (e) {
                     e.preventDefault();
                     if (!this.classList.contains("enviado")) {
                         this.textContent = "✓ Pedido Enviado";

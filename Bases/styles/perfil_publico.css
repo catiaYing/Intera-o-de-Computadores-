@@ -1,12 +1,12 @@
 /* distancia no recinto a mim */
-.distancia-perfil {
+.distancia {
     font-size: 13px;
     color: #6B7280;
     margin-top: 4px;
 }
 
-/* Contentor dos Botões Sociais */
-.botoes-acao-perfil {
+/* botoes */
+.botoes-perfil {
     display: flex;
     gap: 10px;
     margin-top: 15px;
@@ -14,8 +14,8 @@
     justify-content: center;
 }
 
-/* Botão Amarelo para "🗺️ Mapa" */
-.botao-principal-publico {
+/* botao do mapa */
+.botao-mapa {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -29,13 +29,13 @@
     transition: background 0.2s, transform 0.1s;
 }
 
-.botao-principal-publico:hover {
+.botao-mapa:hover {
     background: #BFE600;
     transform: scale(1.03);
 }
 
-/* Botão Amarelo para "＋ Adicionar" */
-.botao-adicionar-publico {
+/* botao de adicionar como amigo */
+.botao-adicionar {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -51,21 +51,21 @@
     transition: background 0.2s, transform 0.1s;
 }
 
-.botao-adicionar-publico:hover {
+.botao-adicionar:hover {
     background: #BFE600;
     transform: scale(1.03);
 }
 
-/* Estado de pedido enviado */
-.botao-adicionar-publico.enviado {
+/* pedido enviado */
+.botao-adicionar.enviado {
     background: #E5E7EB !important;
     color: #4B5563 !important;
     cursor: default;
     transform: none !important;
 }
 
-/* Botão Cinzento para "💬 Chat" */
-.botao-chat-publico {
+/* botao do chat */
+.botao-chat {
     text-decoration: none;
     display: inline-flex;
     align-items: center;
@@ -79,13 +79,13 @@
     transition: background 0.2s, transform 0.1s;
 }
 
-.botao-chat-publico:hover {
+.botao-chat:hover {
     background: #E5E7EB;
     transform: scale(1.03);
 }
 
-/* Blocos do menu para informação pública */
-.menu-item-publico {
+/*  informaçoes dos users */
+.info-pessoas {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -96,13 +96,28 @@
     border-bottom: 1px solid #E5E7EB;
 }
 
-.menu-item-publico strong {
+.info-pessoas strong {
     font-size: 14px;
     color: #171923;
 }
 
-.menu-item-publico span {
+.info-pessoas span {
     font-size: 13px;
     color: #4B5563;
     line-height: 1.4;
+}
+
+/* Bola Amarela do Avatar */
+.foto-perfil {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #D7FF00;
+    color: #171923;
+    font-size: 32px;
+    font-weight: 750;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
 }
