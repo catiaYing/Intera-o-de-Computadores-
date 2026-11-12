@@ -559,3 +559,37 @@ document.getElementById("confirmPoint")
 
 
 console.log("BANDy Chat + Mapa 2D - versao 6");
+
+
+
+// para nos amigos pertos dar para abrir nos chats respetivos
+document.addEventListener("DOMContentLoaded", function () {
+    // lê qual o amigo a partir do link da página
+    const link = new URLSearchParams(window.location.search);
+    const amigo = link.get('amigo');
+
+    // base de dados com ambas infos das duas paginas
+    const listacontactos = {
+        maria:    { nome: "Maria Costa",    foto: "MC" },
+        filipe:   { nome: "Filipe Machado", foto: "FM" },
+        ana:      { nome: "Ana Silva",      foto: "AS" },
+        santiago: { nome: "Santiago Ramos", foto: "SR" },
+        martim:   { nome: "Martim Dias",    foto: "MD" }
+    };
+
+    // atualizar html
+    if (amigo && listacontactos[amigo]) {
+        const dados = listacontactos[amigo];
+        
+        // Atualiza o nome e foto
+        if (document.getElementById("userName")) document.getElementById("userName").textContent = dados.nome;
+        if (document.getElementById("userAvatar")) document.getElementById("userAvatar").textContent = dados.foto;
+        
+        // voltar ao perfil
+        const linkperfil = document.getElementById("profileLink");
+        if (linkperfil) {
+            // Verifica se a página de perfil está em (../perfil_publico.html)
+            linkperfil.setAttribute("href", "../perfil_publico.html?user=" + amigo);
+        }
+    }
+});

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const user = userParam ? userParam.toLowerCase() : null;
 
     // se eAmigo: true  -----> é amigo 
-    // se eAmigo: false -> Não é amigo 
+    // se eAmigo: false -----> Não é amigo 
     const dadosUtilizadores = {
         // amigos
         maria: { 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             foto: "MD",
             nome: "Martim Dias",
             tag: "@martim_dias",
-            dist: "A 456m de ti",
+            dist: "A 456m de ti 📍",
             bio: "Adoro conhecer pessoas novas",
             artistas: "Kanye West",
             festival: "Rock In Rio Lisboa",
@@ -119,34 +119,58 @@ document.addEventListener("DOMContentLoaded", function () {
         if (document.getElementById("foto-perfil")) document.getElementById("foto-perfil").textContent = u.foto;
         if (document.getElementById("nome-perfil")) document.getElementById("nome-perfil").textContent = u.nome;
         if (document.getElementById("utilizador-perfil")) document.getElementById("utilizador-perfil").textContent = u.tag;
-        if (document.querySelector("distancia")) document.querySelector("distancia").textContent = u.dist;
+        if (document.getElementById("distancia")) document.getElementById("distancia").textContent = u.dist;
         if (document.getElementById("bio-perfil")) document.getElementById("bio-perfil").textContent = u.bio;
         if (document.getElementById("artistas-perfil")) document.getElementById("artistas-perfil").textContent = u.artistas;
         if (document.getElementById("festival-perfil")) document.getElementById("festival-perfil").textContent = u.festival;
 
-        if (botaoChat) {
-            botaoChat.setAttribute("href", "catia/chat.html?amigo=" + user);
-        }
-
-        if (botaoExtra) {
+        if (botaoExtra && botaoChat) {
             if (u.eAmigo) {
-                // Se é amigo mostra mapa
+                // SE É AMIGO:
                 botaoExtra.textContent = "🗺️ Mapa";
                 botaoExtra.setAttribute("href", "mapa.html?user=" + user);
                 botaoExtra.className = "botao-mapa";
                 botaoExtra.onclick = null;
+
+                botaoChat.style.display = "inline-flex";
+                botaoChat.setAttribute("href", "catia/chat.html?amigo=" + user);
             } else {
-                // se for pessoa perto mostra adicionar 
-                botaoExtra.textContent = "+ Adicionar";
-                botaoExtra.setAttribute("href", "#");
-                botaoExtra.className = "botao-adicionar";
-                botaoExtra.onclick = function (e) {
-                    e.preventDefault();
-                    if (!this.classList.contains("enviado")) {
-                        this.textContent = "✓ Pedido Enviado";
-                        this.classList.add("enviado");
-                    }
-                };
+                // SE NÃO É AMIGO (Pessoa Perto):
+                botaoChat.style.display = "none";
+
+                // Verificar se já foi enviado pedido a esta pessoa
+                let pedidosEnviados = [];
+                try {
+                    pedidosEnviados = JSON.parse(localStorage.getItem("pedidosEnviados")) || [];
+                } catch (e) {
+                    pedidosEnviados = [];
+                }
+
+                const jaEnviado = pedidosEnviados.some(p => String(p.id) === String(user));
+
+                if (jaEnviado) {
+                    botaoExtra.textContent = "✓ Pedido Enviado";
+                    botaoExtra.setAttribute("href", "#");
+                    botaoExtra.className = "botao-adicionar enviado";
+                    botaoExtra.onclick = function (e) {
+                        e.preventDefault();
+                    };
+                } else {
+                    botaoExtra.textContent = "＋ Adicionar";
+                    botaoExtra.setAttribute("href", "catia/pedido_amizade.html");
+                    botaoExtra.className = "botao-adicionar";
+                    botaoExtra.onclick = function (e) {
+                        e.preventDefault();
+                        sessionStorage.setItem(
+                            "destinatarioPedido",
+                            JSON.stringify({
+                                id: user,
+                                nome: u.nome
+                            })
+                        );
+                        window.location.href = "catia/pedido_amizade.html";
+                    };
+                }
             }
         }
     }
