@@ -490,3 +490,55 @@ body {
         padding: 25px 18px;
     }
 }
+
+
+/* artistas e músicas favoritas */
+
+.favorite-section {
+    margin-top: 25px;
+}
+
+.favorite-section h3 {
+    font-size: 17px;
+    margin-bottom: 13px;
+    color: #171923;
+}
+
+.favorite-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.favorite-item {
+    padding: 10px 14px;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 13px;
+    color: #171923;
+}
+
+/* perfil privado */
+
+.private-profile {
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.private-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.private-profile h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #171923;
+}
+
+.private-profile p {
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.5;
+}

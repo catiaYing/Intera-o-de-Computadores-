@@ -114,8 +114,8 @@ body {
 /* Botões de controlo gerais */
 
 .camera-icon {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -124,12 +124,15 @@ body {
     background: #25282E;
     color: white;
     text-decoration: none;
-    font-size: 23px;
+    font-size: 18px;
     font-family: inherit;
     padding: 0;
     appearance: none;
     cursor: pointer;
     transition: 0.2s;
+    position: relative;
+    left: 8px;
+    top: 5px;
 }
 
 .camera-icon:hover {

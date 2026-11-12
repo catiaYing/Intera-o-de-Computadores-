@@ -52,68 +52,103 @@
             </form>
         </section>
 
-        <!-- Lista de conversas -->
+        <!-- Lista de contactos -->
         <section class="conversation-list">
 
-            <a href="chat.html" class="conversation">
-                <div class="avatar">M</div>
+            <!-- Maria -->
+            <div class="conversation-row">
+                <a href="perfil_users.html?user=maria" class="conversation">
+                    <div class="avatar">M</div>
 
-                <div class="conversation-info">
-                    <div class="conversation-top">
-                        <h2>Maria</h2>
-                        <span class="time">20:55</span>
+                    <div class="conversation-info">
+                        <div class="conversation-top">
+                            <h2>Maria</h2>
+                            <span class="time">20:55</span>
+                        </div>
+                        <p>Perfeito! Até lá! 💚</p>
                     </div>
-                    <p>Perfeito! Até lá! 💚</p>
-                </div>
-            </a>
+                </a>
 
-            <a href="chat.html" class="conversation">
-                <div class="avatar">F</div>
+                <a href="chat.html?user=maria" class="chat-button" aria-label="Abrir chat com Maria">
+                    💬
+                </a>
+            </div>
 
-                <div class="conversation-info">
-                    <div class="conversation-top">
-                        <h2>Filipe</h2>
-                        <span class="time">Ontem</span>
+            <!-- Filipe -->
+            <div class="conversation-row">
+                <a href="perfil_users.html?user=filipe" class="conversation">
+                    <div class="avatar">F</div>
+
+                    <div class="conversation-info">
+                        <div class="conversation-top">
+                            <h2>Filipe</h2>
+                            <span class="time">Ontem</span>
+                        </div>
+                        <p>Estás bem?</p>
                     </div>
-                    <p>Estás bem?</p>
-                </div>
-            </a>
+                </a>
 
-            <a href="chat.html" class="conversation">
-                <div class="avatar">A</div>
+                <a href="chat.html?user=filipe" class="chat-button" aria-label="Abrir chat com Filipe">
+                    💬
+                </a>
+            </div>
 
-                <div class="conversation-info">
-                    <div class="conversation-top">
-                        <h2>Ana</h2>
-                        <span class="time">Ter.</span>
+            <!-- Ana -->
+            <div class="conversation-row">
+                <a href="perfil_users.html?user=ana" class="conversation">
+                    <div class="avatar">A</div>
+
+                    <div class="conversation-info">
+                        <div class="conversation-top">
+                            <h2>Ana</h2>
+                            <span class="time">Ter.</span>
+                        </div>
+                        <p>Olá!</p>
                     </div>
-                    <p>Olá!</p>
-                </div>
-            </a>
+                </a>
 
-            <a href="chat.html" class="conversation">
-                <div class="avatar">S</div>
+                <a href="chat.html?user=ana" class="chat-button" aria-label="Abrir chat com Ana">
+                    💬
+                </a>
+            </div>
 
-                <div class="conversation-info">
-                    <div class="conversation-top">
-                        <h2>Santiago</h2>
-                        <span class="time">Seg.</span>
+            <!-- Santiago -->
+            <div class="conversation-row">
+                <a href="perfil_users.html?user=santiago" class="conversation">
+                    <div class="avatar">S</div>
+
+                    <div class="conversation-info">
+                        <div class="conversation-top">
+                            <h2>Santiago</h2>
+                            <span class="time">Seg.</span>
+                        </div>
+                        <p>Como estás?</p>
                     </div>
-                    <p>Como estás?</p>
-                </div>
-            </a>
+                </a>
 
-            <a href="chat.html" class="conversation">
-                <div class="avatar">M</div>
+                <a href="chat.html?user=santiago" class="chat-button" aria-label="Abrir chat com Santiago">
+                    💬
+                </a>
+            </div>
 
-                <div class="conversation-info">
-                    <div class="conversation-top">
-                        <h2>Martim</h2>
-                        <span class="time">Seg.</span>
+            <!-- Martim -->
+            <div class="conversation-row">
+                <a href="perfil_users.html?user=martim" class="conversation">
+                    <div class="avatar">M</div>
+
+                    <div class="conversation-info">
+                        <div class="conversation-top">
+                            <h2>Martim</h2>
+                            <span class="time">Seg.</span>
+                        </div>
+                        <p>Ok!</p>
                     </div>
-                    <p>Ok!</p>
-                </div>
-            </a>
+                </a>
+
+                <a href="chat.html?user=martim" class="chat-button" aria-label="Abrir chat com Martim">
+                    💬
+                </a>
+            </div>
 
         </section>
 
@@ -158,7 +193,7 @@
         </nav>
 
     </main>
-    
+
     <script src="../../scripts/catia/contactos.js"></script>
 
 </body>

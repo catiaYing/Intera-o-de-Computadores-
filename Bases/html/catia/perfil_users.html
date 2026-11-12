@@ -49,13 +49,13 @@
         <!-- Informações do perfil -->
         <section class="profile-info">
 
-            <div class="profile-avatar">M</div>
+            <div class="profile-avatar" id="profileAvatar">M</div>
 
-            <h2>Maria</h2>
+            <h2 id="profileName">Maria</h2>
 
-            <p class="user-id">@maria_123</p>
+            <p class="user-id" id="profileId">@maria_123</p>
 
-            <div class="profile-stats">
+            <div class="profile-stats" id="profileStats">
 
                 <div>
                     <strong>3</strong>
@@ -77,12 +77,26 @@
         </section>
 
 
+        <!-- Perfil privado -->
+        <section class="private-profile" id="privateProfile" style="display: none;">
+
+            <div class="private-icon">🔒</div>
+
+            <h2>Conta privada</h2>
+
+            <p>
+                Este utilizador mantém o seu perfil privado.
+            </p>
+
+        </section>
+
+
         <!-- Fotografias -->
-        <section class="photos-section">
+        <section class="photos-section" id="photosSection">
 
             <h3>Fotografias</h3>
 
-            <div class="photo-grid">
+            <div class="photo-grid" id="photoGrid">
                 <div class="photo-placeholder">Foto 1</div>
                 <div class="photo-placeholder">Foto 2</div>
                 <div class="photo-placeholder">Foto 3</div>
@@ -91,8 +105,28 @@
         </section>
 
 
+        <!-- Artistas favoritos -->
+        <section class="favorite-section" id="artistsSection">
+
+            <h3>Artistas favoritos</h3>
+
+            <div class="favorite-list" id="artistsList"></div>
+
+        </section>
+
+
+        <!-- Músicas favoritas -->
+        <section class="favorite-section" id="songsSection">
+
+            <h3>Músicas favoritas</h3>
+
+            <div class="favorite-list" id="songsList"></div>
+
+        </section>
+
+
         <!-- Botão Chat -->
-        <a href="chat.html" class="chat-button">
+        <a href="chat.html?user=maria" id="profileChat" class="chat-button">
             Chat
         </a>
 
@@ -112,7 +146,7 @@
                 <img src="../../../Bases/media/catia/qrcode.png" alt="QR Code BANDy">
             </div>
 
-            <p>@maria_123</p>
+            <p id="qrUserId">@maria_123</p>
 
         </div>
 
@@ -126,7 +160,7 @@
 
             <button class="close-button" onclick="fecharDenuncia()">×</button>
 
-            <h2>Denunciar Maria</h2>
+            <h2 id="reportTitle">Denunciar Maria</h2>
 
             <p>Indica o motivo da denúncia:</p>
 
@@ -208,6 +242,158 @@
 
 
     <script>
+
+        // Identificar o utilizador
+        const params = new URLSearchParams(window.location.search);
+        let user = params.get("user");
+
+        if (user == null) {
+            user = "maria";
+        }
+
+        // Informações do perfil
+        let profileName = "Maria";
+        let profileId = "@maria_123";
+        let profileAvatar = "M";
+        let isPrivate = false;
+
+        let artists = ["Billie Eilish", "The Weeknd"];
+        let songs = ["Birds of a Feather", "Blinding Lights"];
+
+        let photoNumber = 3;
+        let friendNumber = 4;
+        let favoriteNumber = 5;
+
+        if (user == "filipe") {
+
+            profileName = "Filipe";
+            profileId = "@filipe_123";
+            profileAvatar = "F";
+
+            artists = ["Linkin Park", "Travis Scott"];
+            songs = ["Numb", "FE!N"];
+
+            photoNumber = 5;
+            friendNumber = 8;
+            favoriteNumber = 4;
+
+        } else if (user == "ana") {
+
+            profileName = "Ana";
+            profileId = "@ana_123";
+            profileAvatar = "A";
+
+            artists = [];
+            songs = [];
+
+            photoNumber = 2;
+            friendNumber = 6;
+            favoriteNumber = 0;
+
+        } else if (user == "santiago") {
+
+            profileName = "Santiago";
+            profileId = "@santiago_123";
+            profileAvatar = "S";
+
+            isPrivate = true;
+
+        } else if (user == "martim") {
+
+            profileName = "Martim";
+            profileId = "@martim_123";
+            profileAvatar = "M";
+
+            artists = ["Coldplay", "Imagine Dragons"];
+            songs = ["Viva La Vida", "Believer"];
+
+            photoNumber = 4;
+            friendNumber = 7;
+            favoriteNumber = 3;
+
+        } else {
+
+            user = "maria";
+
+        }
+
+
+        // Atualizar informações do perfil
+        document.getElementById("profileName").textContent = profileName;
+        document.getElementById("profileId").textContent = profileId;
+        document.getElementById("profileAvatar").textContent = profileAvatar;
+
+        document.getElementById("qrUserId").textContent = profileId;
+
+        document.getElementById("reportTitle").textContent =
+            "Denunciar " + profileName;
+
+        document.getElementById("profileChat").href =
+            "chat.html?user=" + user;
+
+        document.title = "Perfil - " + profileName;
+
+
+        // Atualizar estatísticas
+        document.getElementById("profileStats").innerHTML =
+            '<div><strong>' + photoNumber + '</strong><span>Fotos</span></div>' +
+            '<div><strong>' + friendNumber + '</strong><span>Amigos</span></div>' +
+            '<div><strong>' + favoriteNumber + '</strong><span>Favoritos</span></div>';
+
+
+        // Mostrar perfil privado
+        if (isPrivate == true) {
+
+            document.getElementById("profileStats").style.display = "none";
+            document.getElementById("photosSection").style.display = "none";
+            document.getElementById("artistsSection").style.display = "none";
+            document.getElementById("songsSection").style.display = "none";
+
+            document.getElementById("privateProfile").style.display = "block";
+
+        } else {
+
+            // Mostrar artistas favoritos
+            if (artists.length > 0) {
+
+                for (let i = 0; i < artists.length; i++) {
+
+                    let item = document.createElement("div");
+                    item.className = "favorite-item";
+                    item.textContent = "🎤 " + artists[i];
+
+                    document.getElementById("artistsList").appendChild(item);
+
+                }
+
+            } else {
+
+                document.getElementById("artistsSection").style.display = "none";
+
+            }
+
+
+            // Mostrar músicas favoritas
+            if (songs.length > 0) {
+
+                for (let i = 0; i < songs.length; i++) {
+
+                    let item = document.createElement("div");
+                    item.className = "favorite-item";
+                    item.textContent = "♫ " + songs[i];
+
+                    document.getElementById("songsList").appendChild(item);
+
+                }
+
+            } else {
+
+                document.getElementById("songsSection").style.display = "none";
+
+            }
+
+        }
+
 
         // Copiar ligação do perfil
         function copiarLink() {
@@ -297,6 +483,7 @@
             document.getElementById("successModal").style.display = "flex";
 
         }
+
 
         // Fechar confirmação
         function fecharSucesso() {

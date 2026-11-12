@@ -35,11 +35,15 @@ background: #E5E7EB;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 65px;
-    padding: 0 15px;
-    margin: -20px -20px 0;
+
+    height: 80px;
+    padding: 0 24px;
+
+    margin: -28px -28px 0;
+
     background: #171923;
-    border-radius: 0 0 14px 14px;
+
+    border-radius: 0;
 }
 
 .page-header h1 {

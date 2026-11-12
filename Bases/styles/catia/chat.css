@@ -1,6 +1,16 @@
 
 /* BANDy - Chat */
 
+:root {
+    --green: #D7FF00;
+    --green-dark: #BFE600;
+    --black: #171923;
+    --gray: #6B7280;
+    --light: #F3F4F6;
+    --border: #E5E7EB;
+    --white: #FFFFFF;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,8 +19,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #E5E7EB;
-    color: #171923;
+    background: var(--border);
+    color: var(--black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,14 +28,15 @@ body {
 }
 
 /* Página principal */
+
 .chat-page {
     width: 390px;
     height: 844px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    background: #FFFFFF;
-    border: 8px solid #171923;
+    background: var(--white);
+    border: 8px solid var(--black);
     border-radius: 38px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
     overflow: hidden;
@@ -33,34 +44,31 @@ body {
 }
 
 /* Cabeçalho */
+
 .chat-header {
-    height:70px;
+    height: 70px;
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 14px 18px 10px;
-    border-bottom: 1px solid #E5E7EB;
+    border-bottom: 1px solid var(--border);
     flex-shrink: 0;
     position: relative;
     z-index: 10;
-    background: #FFFFFF;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    background: var(--white);
 }
 
 .back-button {
     font-size: 22px;
     font-weight: bold;
-    color: #171923;
+    color: var(--black);
     text-decoration: none;
-    cursor: pointer;
     padding: 5px 10px;
     border-radius: 50%;
-    transition: background 0.2s;
 }
 
 .back-button:hover {
-    background: #F3F4F6;
+    background: var(--light);
 }
 
 .user-info {
@@ -69,18 +77,16 @@ body {
     gap: 12px;
     flex: 1;
     text-decoration: none;
-    color: #171923;
+    color: var(--black);
 }
 
-/* Avatar */
 .avatar {
     width: 40px;
     height: 40px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #D7FF00;
-    border: 1px solid #BFE600;
-    color: #171923;
+    background: var(--green);
+    border: 1px solid var(--green-dark);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,46 +97,43 @@ body {
 .user-info h2 {
     font-size: 17px;
     font-weight: 700;
-    color: #171923;
 }
 
 .user-info span {
     display: block;
     margin-top: 3px;
     font-size: 13px;
-    color: #6B7280;
+    color: var(--gray);
 }
 
-/* Área das mensagens */
+/* Data */
+
+.chat-date {
+    align-self: center;
+    color: #4B5563;
+    background: var(--light);
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 7px 20px;
+    margin: 10px 0;
+    flex-shrink: 0;
+}
+
+/* Mensagens */
+
 .messages {
     flex: 1;
     min-height: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     gap: 14px;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 12px 16px 20px;
     -webkit-overflow-scrolling: touch;
-    position: relative;
-    z-index: 1;
-    background: #FFFFFF;
+    background: var(--white);
 }
 
-/* Data */
-.chat-date {
-    align-self: center;
-    color: #4B5563;
-    background: #F3F4F6;
-    border-radius: 20px;
-    font-size: 13px;
-    padding: 7px 20px;
-    margin: auto 0 14px;
-    flex-shrink: 0;
-}
-
-/* Balões */
 .message {
     width: fit-content;
     max-width: 78%;
@@ -151,25 +154,21 @@ body {
 .message span {
     align-self: flex-end;
     font-size: 11px;
-    color: #6B7280;
+    color: var(--gray);
     white-space: nowrap;
 }
 
-/* Mensagens recebidas */
 .received {
     align-self: flex-start;
     margin-right: auto;
-    background: #F3F4F6;
-    color: #171923;
+    background: var(--light);
     border-bottom-left-radius: 5px;
 }
 
-/* Mensagens enviadas */
 .sent {
     align-self: flex-end;
     margin-left: auto;
-    background: #D7FF00;
-    color: #171923;
+    background: var(--green);
     border-bottom-right-radius: 5px;
 }
 
@@ -177,22 +176,22 @@ body {
     color: #4B5563;
 }
 
-/* Duplo visto */
 .sent span::after {
     content: " ✓✓";
-    color: #171923;
+    color: var(--black);
     font-size: 12px;
     font-weight: 600;
 }
 
-/* Caixa de envio */
+/* Caixa de envio e botões */
+
 .message-form {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 12px 15px 18px;
-    border-top: 1px solid #E5E7EB;
-    background: #FFFFFF;
+    border-top: 1px solid var(--border);
+    background: var(--white);
     flex-shrink: 0;
     position: relative;
     z-index: 10;
@@ -204,22 +203,21 @@ body {
     height: 46px;
     padding: 0 17px;
     background: #F9FAFB;
-    border: 1px solid #E5E7EB;
+    border: 1px solid var(--border);
     border-radius: 25px;
-    color: #171923;
+    color: var(--black);
     font-size: 14px;
     outline: none;
 }
 
 .message-form input:focus {
-    border-color: #BFE600;
+    border-color: var(--green-dark);
 }
 
 .message-form input::placeholder {
     color: #9CA3AF;
 }
 
-/* Botões */
 .attach-button,
 .send-button {
     width: 42px;
@@ -232,31 +230,332 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 21px;
-    transition: background .2s;
 }
 
 .attach-button {
-    background: #F3F4F6;
+    background: var(--light);
     color: #4B5563;
 }
 
-.attach-button:hover {
-    background: #E5E7EB;
+.send-button {
+    background: var(--green);
+    color: var(--black);
 }
 
-.send-button {
-background: #D7FF00;
-    color: #171923;
+.attach-button:hover {
+    background: var(--border);
 }
 
 .send-button:hover {
-    background: #BFE600;
+    background: var(--green-dark);
 }
 
+/* Menu de anexos */
 
-/* Telemóveis pequenos */
+.attachment-menu {
+    display: none;
+    position: absolute;
+    left: 15px;
+    bottom: 82px;
+    width: 210px;
+    padding: 8px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    z-index: 30;
+}
+
+.attachment-menu.show {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.attachment-menu button {
+    min-height: 45px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.attachment-menu button:hover {
+    background: var(--light);
+}
+
+/* Fotografias */
+
+.photo-message {
+    max-width: 78%;
+    padding: 7px;
+}
+
+.photo-message img {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Painel de ponto de encontro */
+
+.point-overlay {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 35%;
+    padding: 0 12px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.point-overlay.show {
+    display: flex;
+}
+
+.point-modal {
+    width: 100%;
+    height: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+    pointer-events: auto;
+}
+
+/* Título do painel */
+
+.point-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.point-modal-header h2 {
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.point-modal-header p {
+    margin-top: 3px;
+    font-size: 11px;
+    color: var(--gray);
+}
+
+#closePoint {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--light);
+    color: var(--black);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+/* Locais: duas colunas com scroll */
+
+.point-list {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: minmax(76px, auto);
+    gap: 8px;
+    overflow-y: auto;
+    padding: 1px 2px 5px;
+}
+
+.point-option {
+    min-width: 0;
+    min-height: 76px;
+    padding: 7px;
+    display: grid;
+    grid-template-columns: 15px 38px minmax(0, 1fr);
+    align-items: center;
+    gap: 5px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: var(--white);
+    cursor: pointer;
+}
+
+.point-option:has(input:checked) {
+    border: 2px solid var(--green-dark);
+    background: #F5F6F2;
+}
+
+.point-option input {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--green-dark);
+}
+
+.point-option img {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.point-information {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.point-information strong {
+    font-size: 11px;
+}
+
+.point-information span {
+    font-size: 9px;
+    color: var(--gray);
+}
+
+/* Botões do painel */
+
+.point-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 9px;
+    flex-shrink: 0;
+}
+
+.point-buttons button {
+    flex: 1;
+    min-height: 36px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+#cancelPoint {
+    background: var(--light);
+    color: var(--black);
+}
+
+#confirmPoint {
+    background: var(--green);
+    color: var(--black);
+}
+
+#confirmPoint:hover {
+    background: var(--green-dark);
+}
+
+/* Convite enviado */
+
+.point-message {
+    max-width: 85%;
+    padding: 12px;
+}
+
+.point-invitation {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.point-invitation h3,
+.point-invitation strong {
+    color: var(--black);
+}
+
+.point-invitation h3 {
+    font-size: 17px;
+}
+
+.point-invitation p,
+.invitation-status {
+    font-size: 12px;
+}
+
+.point-invitation p {
+    color: #4B5563;
+}
+
+.invitation-status {
+    color: var(--gray);
+}
+
+.invitation-status.accepted {
+    color: #15803D;
+    font-weight: 700;
+}
+
+.point-invitation .invitation-status::after {
+    content: none;
+}
+
+/* Contagem decrescente */
+
+.invite-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(23, 25, 35, 0.55);
+    z-index: 50;
+}
+
+.invite-overlay.show {
+    display: flex;
+}
+
+.invite-modal {
+    width: 100%;
+    max-width: 290px;
+    padding: 25px 20px;
+    background: var(--white);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.invite-modal h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.invite-modal p {
+    font-size: 13px;
+    color: var(--gray);
+}
+
+#countdown {
+    margin-top: 15px;
+    font-size: 48px;
+    font-weight: 800;
+}
+
+/* Ecrãs pequenos */
+
 @media (max-width: 360px) {
-
     .chat-header {
         padding: 12px;
     }
@@ -274,4 +573,82 @@ background: #D7FF00;
         padding: 10px 12px 14px;
         gap: 7px;
     }
+
+    .point-overlay {
+        padding: 0 8px;
+    }
+
+    .point-modal {
+        padding: 10px;
+    }
+
+    .point-option {
+        padding: 5px;
+        grid-template-columns: 13px 30px minmax(0, 1fr);
+    }
+
+    .point-option img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .point-information strong {
+        font-size: 10px;
+    }
+
+    .point-information span {
+        font-size: 8px;
+    }
+}
+
+/* Cartao de ponto de encontro */
+.message.point-message {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.point-invitation {
+    width: 100%;
+    box-sizing: border-box;
+    background: #F7FBEA;
+    border: 1px solid #D7FF00;
+    border-radius: 20px;
+    padding: 16px;
+    color: #171923;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.point-invitation strong {
+    display: block;
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 8px;
+}
+
+.point-invitation h3 {
+    font-size: 23px;
+    margin: 0 0 6px;
+    color: #171923;
+}
+
+.point-invitation p {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0 0 14px;
+}
+
+.invitation-status {
+    display: inline-block;
+    background: #E8F5B5;
+    color: #506600;
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.invitation-status.accepted {
+    background: #E8F5B5;
+    color: #4D7C0F;
 }
