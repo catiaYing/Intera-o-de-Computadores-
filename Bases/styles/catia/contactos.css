@@ -280,3 +280,39 @@ width: 390px;
         padding-right: 13px;
     }
 }
+
+
+/* Contactos com botão de chat */
+
+.conversation-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.conversation-row .conversation {
+    flex: 1;
+    min-width: 0;
+    text-decoration: none;
+}
+
+.chat-button {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #F3F4F6;
+    color: #171923;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background 0.2s;
+}
+
+.chat-button:hover {
+    background: #D7FF00;
+}
