@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
@@ -12,100 +13,245 @@
           href="../../styles/luisa-mapa/mapa.css">
 
     <link rel="stylesheet"
-          href="../../styles/luisa-mapa/mapaAR.css">
+          href="../../styles/luisa-mapa/mapaAR.css?v=7">
 </head>
 
 <body>
 
-<main class="pagina">
+<main class="pagina pagina-ar">
 
+    <!-- CABEÇALHO -->
     <header class="topo">
 
-        <a id="voltar-2d"
+        <a href="mapa2d.html"
            data-link="mapa2d.html"
-           href="mapa2d.html"
-           aria-label="Voltar">
+           aria-label="Voltar ao mapa 2D">
             ←
         </a>
 
-        <h1>Navegação AR</h1>
-    </header>
+        <div>
+            <span class="subtitulo">
+                BANDy · Navegação
+            </span>
 
-    <p>
-        <strong data-festival-nome></strong>
-        ·
-        <span data-ponto-nome></span>
-    </p>
-
-    <div class="vista-ar"
-         id="vista-ar"
-         hidden>
-
-        <div class="ar-titulo">
-            Destino:
-            <strong id="destino-ar"></strong>
+            <h1>Navegação AR</h1>
         </div>
 
-        <div class="seta-ar" id="seta-ar">
+    </header>
+
+
+    <!-- INFORMAÇÕES DO PERCURSO -->
+    <section class="dados-percurso">
+
+        <div>
+            <span>FESTIVAL</span>
+            <strong data-festival-nome>
+                NOS Alive
+            </strong>
+        </div>
+
+        <div>
+            <span>DESTINO</span>
+            <strong data-ponto-nome>
+                Palco X
+            </strong>
+        </div>
+
+    </section>
+
+
+    <!-- CENÁRIO AR SIMULADO -->
+    <section class="vista-ar alive"
+             id="vista-ar"
+             aria-label="Navegação AR simulada">
+
+        <!-- Elementos ilustrativos do cenário -->
+        <div class="sol-ar" aria-hidden="true"></div>
+        <div class="nuvem-ar" aria-hidden="true"></div>
+        <div class="colinas-ar" aria-hidden="true"></div>
+
+        <!-- Caminho em perspetiva -->
+        <div class="estrada-ar" aria-hidden="true"></div>
+
+        <div class="linha-estrada-ar"
+             aria-hidden="true"></div>
+
+
+        <!-- Árvores -->
+        <div class="arvore-ar arvore-esquerda"
+             aria-hidden="true"></div>
+
+        <div class="arvore-ar arvore-direita"
+             aria-hidden="true"></div>
+
+
+        <!-- Palco -->
+        <div class="palco-cenario"
+             aria-hidden="true">
+
+            <div class="teto-palco"></div>
+
+            <div class="estrutura-palco">
+                <span>PALCO</span>
+            </div>
+
+        </div>
+
+
+        <!-- Bar -->
+        <div class="bar-cenario"
+             aria-hidden="true">
+
+            <div class="teto-bar"></div>
+
+            <div class="corpo-bar">
+                Bar
+            </div>
+
+        </div>
+
+
+        <!-- WC -->
+        <div class="wc-cenario"
+             aria-hidden="true">
+            WC
+        </div>
+
+
+        <!-- Informação superior -->
+        <div class="topo-ar">
+
+            <span class="selo-ar">
+                AR SIMULADO
+            </span>
+
+            <span class="estado-ar"
+                  id="estado-ar">
+                Preparado
+            </span>
+
+        </div>
+
+
+        <!-- Seta de navegação -->
+        <div class="seta-ar"
+             id="seta-ar"
+             aria-hidden="true">
             ↑
         </div>
 
-        <div class="direcao-ar" id="direcao-ar">
-            Segue em frente
+
+        <!-- Instrução atual -->
+        <div class="painel-instrucao"
+             aria-live="polite">
+
+            <span id="passo-ar">
+                Pronto para começar
+            </span>
+
+            <h2 id="direcao-ar">
+                Percurso preparado
+            </h2>
+
+            <p id="detalhe-ar">
+                Inicia a navegação para seguir
+                até ao ponto de encontro.
+            </p>
+
         </div>
 
-        <div class="ar-passo" id="progresso-ar">
-            Passo 1
+    </section>
+
+
+    <!-- PROGRESSO -->
+    <section class="progresso-ar">
+
+        <div class="progresso-texto">
+
+            <span>Progresso do percurso</span>
+
+            <strong id="progresso-ar">
+                Não iniciado
+            </strong>
+
         </div>
 
-    </div>
+        <div class="barra-progresso">
 
-    <div class="acoes">
+            <div id="preenchimento-ar"></div>
 
-        <button class="botao"
-                id="iniciar-ar"
-                type="button">
-            Iniciar simulação AR
+        </div>
+
+    </section>
+
+
+    <!-- BOTÕES DE NAVEGAÇÃO -->
+    <section class="acoes-ar">
+
+        <button type="button"
+                class="botao"
+                id="iniciar-ar">
+            Iniciar navegação AR
         </button>
 
-        <button class="botao"
-                id="proximo-passo"
-                type="button"
-                hidden>
-            Próximo passo →
-        </button>
 
-        <button class="botao secundario"
+        <div class="botoes-passos"
+             id="botoes-passos"
+             hidden>
+
+            <button type="button"
+                    class="botao secundario"
+                    id="passo-anterior">
+                ← Anterior
+            </button>
+
+            <button type="button"
+                    class="botao"
+                    id="proximo-passo">
+                Próximo →
+            </button>
+
+        </div>
+
+
+        <button type="button"
+                class="botao"
                 id="cheguei"
-                type="button"
                 hidden>
-            Cheguei!
+            ✓ Cheguei!
         </button>
 
-        <button class="botao secundario"
+
+        <button type="button"
+                class="botao secundario"
                 id="reiniciar-ar"
-                type="button">
+                hidden>
             Reiniciar percurso
         </button>
 
-        <a class="botao secundario"
-           id="ir-2d"
+
+        <a href="mapa2d.html"
            data-link="mapa2d.html"
-           href="mapa2d.html">
+           class="botao secundario">
             Voltar ao mapa 2D
         </a>
 
-    </div>
+    </section>
 
-    <p class="legenda">
-        Navegação AR simulada.
-        Não utiliza a câmara nem a localização real.
+
+    <p class="nota-ar">
+        Percurso ilustrativo baseado no Mapa 2D.
+        Não utiliza câmara nem GPS real.
     </p>
 
 </main>
 
+
+<!-- Dados partilhados -->
 <script src="../../scripts/luisa-mapa/mapa.js"></script>
-<script src="../../scripts/luisa-mapa/mapaAR.js"></script>
+
+<!-- Navegação AR -->
+<script src="../../scripts/luisa-mapa/mapaAR.js?v=7"></script>
 
 </body>
 </html>

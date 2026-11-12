@@ -4,142 +4,182 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Chat - BANDy</title>
-    <link rel="stylesheet" href="../../styles/catia/chat.css">
+
+    <link rel="stylesheet"
+          href="../../styles/catia/chat.css?v=6">
 </head>
 
 <body>
 
-    <main class="chat-page">
+<main class="chat-page">
 
-        <!-- Cabeçalho -->
-        <header class="chat-header">
-            <a href="contactos.html" class="back-button">←</a>
+    <!-- Cabeçalho -->
+    <header class="chat-header">
 
-            <a href="perfil_users.html" class="user-info" id="profileLink">
-                <div class="avatar" id="userAvatar">M</div>
+        <a href="contactos.html"
+           class="back-button">←</a>
+
+        <a href="perfil_users.html"
+           class="user-info"
+           id="profileLink">
+
+            <div class="avatar" id="userAvatar">M</div>
+
+            <div>
+                <h2 id="userName">Maria</h2>
+                <span>Online</span>
+            </div>
+
+        </a>
+
+    </header>
+
+    <!-- Data -->
+    <div class="chat-date">Hoje</div>
+
+    <!-- Mensagens -->
+    <section class="messages" id="messages"></section>
+
+    <!-- Menu de anexos -->
+    <div class="attachment-menu" id="attachmentMenu">
+
+        <button type="button" id="sendPhotoOption">
+            Enviar fotografia
+        </button>
+
+        <button type="button" id="markPointOption">
+            Marcar ponto
+        </button>
+
+    </div>
+
+    <!-- Painel de ponto de encontro -->
+    <div class="point-overlay" id="pointOverlay">
+
+        <section class="point-modal">
+
+            <div class="point-modal-header">
+
                 <div>
-                    <h2 id="userName">Maria</h2>
-                    <span>Online</span>
+                    <h2>Marcar ponto</h2>
+                    <p>Escolhe um local para se encontrarem.</p>
                 </div>
-            </a>
-        </header>
 
-        <!-- Data -->
-        <div class="chat-date">Hoje</div>
+                <button type="button" id="closePoint">×</button>
 
-        <!-- Mensagens -->
-        <section class="messages" id="messages">
+            </div>
+
+            <div class="point-list">
+
+                <label class="point-option">
+                    <input type="radio"
+                           name="meetingPoint"
+                           value="Palco X">
+
+                    <img src="../../media/catia/palco1.png"
+                         alt="Palco X">
+
+                    <div class="point-information">
+                        <strong>Palco X</strong>
+                        <span>300 m · 4 min a pé</span>
+                    </div>
+                </label>
+
+                <label class="point-option">
+                    <input type="radio"
+                           name="meetingPoint"
+                           value="Side Stage">
+
+                    <img src="../../media/catia/palco2.png"
+                         alt="Side Stage">
+
+                    <div class="point-information">
+                        <strong>Side Stage</strong>
+                        <span>500 m · 6 min a pé</span>
+                    </div>
+                </label>
+
+                <label class="point-option">
+                    <input type="radio"
+                           name="meetingPoint"
+                           value="Palco Y">
+
+                    <img src="../../media/catia/palco3.png"
+                         alt="Palco Y">
+
+                    <div class="point-information">
+                        <strong>Palco Y</strong>
+                        <span>200 m · 3 min a pé</span>
+                    </div>
+                </label>
+
+                <label class="point-option">
+                    <input type="radio"
+                           name="meetingPoint"
+                           value="Palco Z">
+
+                    <img src="../../media/catia/palco4.png"
+                         alt="Palco Z">
+
+                    <div class="point-information">
+                        <strong>Palco Z</strong>
+                        <span>450 m · 5 min a pé</span>
+                    </div>
+                </label>
+
+            </div>
+
+            <div class="point-buttons">
+
+                <button type="button" id="cancelPoint">
+                    Cancelar
+                </button>
+
+                <button type="button" id="confirmPoint">
+                    Convidar
+                </button>
+
+            </div>
+
         </section>
 
-        <!-- Menu de anexos -->
-        <div class="attachment-menu" id="attachmentMenu">
-            <button type="button" id="sendPhotoOption">
-                Enviar fotografia
-            </button>
+    </div>
 
-            <button type="button" id="markPointOption">
-                Marcar ponto
-            </button>
+    <!-- Confirmação -->
+    <div class="invite-overlay" id="inviteOverlay">
+
+        <div class="invite-modal">
+            <h2>Convite aceite!</h2>
+            <p>Encontro confirmado em:</p>
+            <div id="countdown">3</div>
         </div>
 
-        <!-- Painel de ponto de encontro -->
-        <div class="point-overlay" id="pointOverlay">
+    </div>
 
-            <section class="point-modal">
+    <!-- Caixa de mensagem -->
+    <form class="message-form" id="messageForm">
 
-                <div class="point-modal-header">
-                    <div>
-                        <h2>Marcar ponto</h2>
-                        <p>Escolhe um local para se encontrarem.</p>
-                    </div>
+        <button type="button"
+                class="attach-button"
+                id="attachButton">＋</button>
 
-                    <button type="button" id="closePoint">×</button>
-                </div>
+        <input type="text"
+               id="messageInput"
+               placeholder="Escreve uma mensagem..."
+               autocomplete="off">
 
-                <!-- Locais -->
-                <div class="point-list">
+        <button type="submit"
+                class="send-button">➤</button>
 
-                    <label class="point-option">
-                        <input type="radio" name="meetingPoint" value="Palco X">
-                        <img src="../../media/catia/palco1.png" alt="Palco X">
-                        <div class="point-information">
-                            <strong>Palco X</strong>
-                            <span>300 m · 4 min a pé</span>
-                        </div>
-                    </label>
+    </form>
 
-                    <label class="point-option">
-                        <input type="radio" name="meetingPoint" value="Side Stage">
-                        <img src="../../media/catia/palco2.png" alt="Side Stage">
-                        <div class="point-information">
-                            <strong>Side Stage</strong>
-                            <span>500 m · 6 min a pé</span>
-                        </div>
-                    </label>
+</main>
 
-                    <label class="point-option">
-                        <input type="radio" name="meetingPoint" value="Palco Y">
-                        <img src="../../media/catia/palco3.png" alt="Palco Y">
-                        <div class="point-information">
-                            <strong>Palco Y</strong>
-                            <span>200 m · 3 min a pé</span>
-                        </div>
-                    </label>
-
-                    <label class="point-option">
-                        <input type="radio" name="meetingPoint" value="Palco Z">
-                        <img src="../../media/catia/palco4.png" alt="Palco Z">
-                        <div class="point-information">
-                            <strong>Palco Z</strong>
-                            <span>450 m · 5 min a pé</span>
-                        </div>
-                    </label>
-
-                </div>
-
-                <!-- Botões -->
-                <div class="point-buttons">
-                    <button type="button" id="cancelPoint">Cancelar</button>
-                    <button type="button" id="confirmPoint">Convidar</button>
-                </div>
-
-            </section>
-        </div>
-
-        <!-- Confirmação -->
-        <div class="invite-overlay" id="inviteOverlay">
-            <div class="invite-modal">
-                <h2>Convite aceite!</h2>
-                <p>Encontro confirmado em:</p>
-                <div id="countdown">3</div>
-            </div>
-        </div>
-
-        <!-- Caixa de mensagem -->
-        <form class="message-form" id="messageForm">
-
-            <button type="button" class="attach-button" id="attachButton">
-                ＋
-            </button>
-
-            <input
-                type="text"
-                id="messageInput"
-                placeholder="Escreve uma mensagem..."
-                autocomplete="off"
-            >
-
-            <button type="submit" class="send-button">
-                ➤
-            </button>
-
-        </form>
-
-    </main>
-
-    <script src="../../scripts/catia/chat.js"></script>
+<script src="../../scripts/catia/chat.js?v=6"></script>
 
 </body>
 </html>

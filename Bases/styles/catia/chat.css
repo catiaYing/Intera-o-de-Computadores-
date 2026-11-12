@@ -652,3 +652,39 @@ body {
     background: #E8F5B5;
     color: #4D7C0F;
 }
+
+
+/* ==========================================
+   BANDy - Botão Ver Percurso
+   ========================================== */
+
+.point-invitation .botao-ver-percurso {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 48px;
+    margin-top: 14px;
+    padding: 12px;
+
+    background-color: #D7FF00;
+    color: #171923;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.point-invitation .botao-ver-percurso:hover {
+    background-color: #BFE600;
+}

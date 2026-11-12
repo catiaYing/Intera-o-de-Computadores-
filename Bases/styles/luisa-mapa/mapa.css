@@ -1,4 +1,11 @@
-/* BANDy - Mapas e Navegação */
+
+/* ==========================================
+   BANDy - Mapas e Navegação
+   Identidade visual unificada
+   ========================================== */
+
+
+/* 1. ESTILOS GERAIS */
 
 * {
     box-sizing: border-box;
@@ -6,7 +13,7 @@
 
 body {
     margin: 0;
-    background: #E9ECEF;
+    background: #E5E7EB;
     color: #171923;
     font-family: Arial, sans-serif;
 }
@@ -16,26 +23,13 @@ body {
     max-width: 390px;
     min-height: 844px;
     margin: 0 auto;
-    padding: 20px 18px 30px;
+    padding: 18px 18px 28px;
     background: #FFFFFF;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
 }
 
-.topo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 22px;
-}
-
-.topo a {
-    color: #171923;
-    text-decoration: none;
-    font-size: 26px;
-}
-
-.topo h1 {
-    margin: 0;
-    font-size: 22px;
+[hidden] {
+    display: none !important;
 }
 
 p {
@@ -43,41 +37,121 @@ p {
     line-height: 1.45;
 }
 
+button,
+select,
+a {
+    font-family: inherit;
+}
+
+
+/* 2. CABEÇALHO */
+
+.topo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.topo > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    color: #171923;
+    text-decoration: none;
+    font-size: 25px;
+
+    background: #F3F4F6;
+    border-radius: 11px;
+}
+
+.topo h1 {
+    margin: 2px 0 0;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.subtitulo {
+    color: #6B7280;
+    font-size: 11px;
+}
+
+
+/* 3. FORMULÁRIOS */
+
 label {
     display: block;
-    margin: 18px 0 8px;
-    font-size: 14px;
-    font-weight: bold;
+    margin: 0 0 7px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 select {
     width: 100%;
-    height: 48px;
-    padding: 0 12px;
+    min-height: 46px;
+    padding: 0 10px;
+
     background: #FFFFFF;
-    border: 1px solid #D1D5DB;
-    border-radius: 12px;
-    font-size: 15px;
-}
-
-.botao {
-    display: block;
-    width: 100%;
-    min-height: 48px;
-    margin: 12px 0;
-    padding: 15px 12px;
-
-    background: #D7FF00;
     color: #171923;
 
-    border: 0;
+    border: 1px solid #D1D5DB;
+    border-radius: 10px;
+
+    font-size: 13px;
+}
+
+select:focus {
+    outline: 2px solid #BFE600;
+    outline-offset: 1px;
+}
+
+select:disabled {
+    background: #F3F4F6;
+    color: #6B7280;
+}
+
+.seletores-mapa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+
+/* 4. BOTÕES */
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 48px;
+    margin: 10px 0;
+    padding: 12px;
+
+    color: #171923;
+    background: #D7FF00;
+
+    border: none;
     border-radius: 12px;
 
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 14px;
+    font-weight: 700;
     text-align: center;
     text-decoration: none;
+
     cursor: pointer;
+}
+
+.botao:hover {
+    background: #BFE600;
 }
 
 .botao.secundario {
@@ -85,128 +159,389 @@ select {
     border: 1px solid #E5E7EB;
 }
 
-.botao:disabled {
-    opacity: 0.45;
+.botao.secundario:hover {
+    background: #E5E7EB;
 }
 
-/* Mapa 2D */
+.botao:focus-visible,
+.palco:focus-visible {
+    outline: 3px solid #171923;
+    outline-offset: 2px;
+}
+
+.botao:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* 5. INFORMAÇÃO DO FESTIVAL */
+
+.cabecalho-mapa {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-bottom: 14px;
+}
+
+.cabecalho-mapa strong {
+    font-size: 16px;
+}
+
+.etiqueta {
+    flex-shrink: 0;
+
+    padding: 6px 8px;
+    background: #F3F5ED;
+    color: #506047;
+
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+
+/* 6. CARTÃO DO MAPA */
+
+.cartao-mapa {
+    padding: 8px;
+
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 17px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
 
 .mapa-recinto {
     position: relative;
+
     width: 100%;
     aspect-ratio: 1 / 1;
 
-    background: #F0F5ED;
-    border: 2px solid #E5E7EB;
-    border-radius: 16px;
+    background: #EAF2E7;
+
+    border: 1px solid #D5E0D1;
+    border-radius: 12px;
 
     overflow: hidden;
     cursor: crosshair;
 }
 
+/* Cenários dos festivais */
+
+.mapa-recinto.alive {
+    background: #E9F2E8;
+}
+
 .mapa-recinto.kalorama {
-    background: #EFF3E9;
+    background: #DDEBDD;
 }
 
 .mapa-recinto.primavera {
-    background: #F0F4F9;
+    background: #E4F1EF;
 }
+
+
+/* 7. SVG DO MAPA */
 
 .caminhos {
     position: absolute;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     pointer-events: none;
 }
 
-.ruas {
-    fill: none;
-    stroke: #CBD5CB;
-    stroke-width: 8;
-    stroke-linecap: round;
+/* Esconder os recintos que não estão ativos */
+
+.cenario,
+.trilhos {
+    display: none;
 }
+
+.mapa-recinto.alive .cenario-alive,
+.mapa-recinto.alive .trilhos-alive {
+    display: inline;
+}
+
+.mapa-recinto.kalorama .cenario-kalorama,
+.mapa-recinto.kalorama .trilhos-kalorama {
+    display: inline;
+}
+
+.mapa-recinto.primavera .cenario-primavera,
+.mapa-recinto.primavera .trilhos-primavera {
+    display: inline;
+}
+
+/* Caminhos reais do recinto ilustrativo */
+
+.trilhos path {
+    fill: none;
+    stroke: #C9D1C8;
+    stroke-width: 7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Percurso escolhido */
 
 .rota {
     fill: none;
-    stroke: #80AD00;
-    stroke-width: 2.8;
+
+    stroke: #6FA500;
+    stroke-width: 2.7;
+
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 3 2;
+
+    stroke-dasharray: 3 1.4;
+
+    filter: drop-shadow(0 0 0.5px #FFFFFF);
 }
 
-/* Marcadores */
 
-.marcador {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+/* 8. REFERÊNCIAS DO RECINTO */
+
+.arvore {
+    fill: #9CC99A;
+    stroke: #81B680;
+    stroke-width: 0.8;
 }
 
-.palco {
-    max-width: 80px;
-    padding: 5px 6px;
-
-    background: #FFFFFF;
-    border: 1px solid #A7B0A4;
-    border-radius: 8px;
-
-    font-size: 10px;
-    cursor: pointer;
+.zona {
+    fill: #D1E4C8;
+    stroke: #A1C497;
+    stroke-width: 0.6;
 }
 
-.palco.ativo {
-    background: #D7FF00;
-    border: 2px solid #739800;
+.texto-zona {
+    fill: #47633E;
+    font-size: 3.3px;
     font-weight: bold;
 }
 
+.edificio {
+    fill: #FFFFFF;
+    stroke: #A4B1A4;
+    stroke-width: 0.6;
+}
+
+.texto-edificio {
+    fill: #374151;
+    font-size: 3.5px;
+    font-weight: bold;
+}
+
+
+/* 9. MARCADORES DO MAPA */
+
+.marcador {
+    position: absolute;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+}
+
+/* Os palcos são botões */
+
+.palco {
+    min-width: 57px;
+    max-width: 78px;
+    min-height: 27px;
+
+    padding: 5px 6px;
+
+    background: #FFFFFF;
+    color: #171923;
+
+    border: 1px solid #A6B3A5;
+    border-radius: 8px;
+
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+
+    cursor: pointer;
+}
+
+/* Palco selecionado */
+
+.palco.ativo {
+    background: #D7FF00;
+    border: 2px solid #789900;
+    font-weight: 700;
+}
+
+/* Localização simulada */
+
+.origem {
+    z-index: 5;
+
+    width: 17px;
+    height: 17px;
+
+    background: #2563EB;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+
+    box-shadow: 0 0 0 2px #2563EB;
+
+    pointer-events: none;
+}
+
+/* Entrada, por baixo do ponto azul */
+
 .entrada {
-    padding: 4px 6px;
+    z-index: 4;
+
+    padding: 5px 7px;
 
     background: #171923;
     color: #FFFFFF;
 
-    border-radius: 7px;
+    border-radius: 6px;
+
     font-size: 10px;
+    font-weight: 600;
     white-space: nowrap;
+
     pointer-events: none;
 }
 
-.origem {
-    width: 15px;
-    height: 15px;
-
-    background: #2563EB;
-    border: 3px solid #FFFFFF;
-    border-radius: 50%;
-
-    box-shadow: 0 0 0 1px #2563EB;
-    pointer-events: none;
-}
+/* Ponto personalizado */
 
 .personalizado {
-    padding: 5px;
+    z-index: 6;
+
+    padding: 4px;
+
     background: #D7FF00;
+    border: 2px solid #FFFFFF;
     border-radius: 50%;
-    font-size: 13px;
+
+    font-size: 15px;
+
     pointer-events: none;
 }
 
-/* Informação */
+
+/* 10. LEGENDA DO MAPA */
+
+.legenda-mapa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 2px 5px;
+}
+
+.legenda-mapa span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    color: #6B7280;
+    font-size: 11px;
+}
+
+.legenda-cor {
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+}
+
+.cor-tu {
+    background: #2563EB;
+}
+
+.cor-rota {
+    background: #6FA500;
+}
+
+.cor-palco {
+    background: #D7FF00;
+    border: 1px solid #789900;
+}
+
+
+/* 11. DESTINO SELECIONADO */
+
+.destino-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 14px;
+    padding: 12px 14px;
+
+    background: #F8FAF6;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+}
+
+.destino-info strong {
+    display: block;
+    margin-top: 5px;
+
+    color: #171923;
+    font-size: 17px;
+}
+
+.titulo-pequeno {
+    color: #6B7280;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.destino-icone {
+    font-size: 23px;
+}
+
+.ajuda-mapa {
+    margin: 12px 2px;
+    color: #6B7280;
+    font-size: 12px;
+}
+
+#mensagem-confirmacao {
+    margin: 8px 0;
+    color: #426800;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#mensagem-confirmacao:empty {
+    display: none;
+}
+
+
+/* 12. ESTILOS PARTILHADOS COM OUTRAS PÁGINAS */
 
 .legenda {
-    margin: 10px 0 18px;
+    margin: 12px 0;
     color: #6B7280;
     font-size: 12px;
 }
 
 .info {
-    margin-top: 14px;
+    margin: 12px 0;
     padding: 12px;
 
-    background: #F8FAF8;
+    background: #F8FAF6;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
 }
@@ -217,15 +552,36 @@ select {
 }
 
 .info span {
-    color: #515761;
-    font-size: 13px;
+    font-size: 12px;
+    color: #6B7280;
 }
 
-#mensagem-confirmacao {
-    color: #3B6900;
-    font-size: 13px;
+
+/* 13. ECRÃS PEQUENOS */
+
+@media (max-width: 420px) {
+
+    body {
+        background: #FFFFFF;
+    }
+
+    .pagina {
+        min-height: 100vh;
+        box-shadow: none;
+    }
+
 }
 
-[hidden] {
-    display: none !important;
+@media (max-width: 350px) {
+
+    .pagina {
+        padding: 14px 12px 24px;
+    }
+
+    .palco {
+        min-width: 48px;
+        padding: 4px;
+        font-size: 9px;
+    }
+
 }
