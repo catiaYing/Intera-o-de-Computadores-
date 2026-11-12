@@ -1,7 +1,6 @@
 
 /* BANDy - Chat */
 
-/* Cores */
 :root {
     --green: #D7FF00;
     --green-dark: #BFE600;
@@ -12,7 +11,6 @@
     --white: #FFFFFF;
 }
 
-/* Configurações gerais */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -30,6 +28,7 @@ body {
 }
 
 /* Página principal */
+
 .chat-page {
     width: 390px;
     height: 844px;
@@ -45,6 +44,7 @@ body {
 }
 
 /* Cabeçalho */
+
 .chat-header {
     height: 70px;
     display: flex;
@@ -107,6 +107,7 @@ body {
 }
 
 /* Data */
+
 .chat-date {
     align-self: center;
     color: #4B5563;
@@ -119,6 +120,7 @@ body {
 }
 
 /* Mensagens */
+
 .messages {
     flex: 1;
     min-height: 0;
@@ -181,7 +183,8 @@ body {
     font-weight: 600;
 }
 
-/* Caixa de mensagens */
+/* Caixa de envio e botões */
+
 .message-form {
     display: flex;
     align-items: center;
@@ -248,6 +251,7 @@ body {
 }
 
 /* Menu de anexos */
+
 .attachment-menu {
     display: none;
     position: absolute;
@@ -287,6 +291,7 @@ body {
 }
 
 /* Fotografias */
+
 .photo-message {
     max-width: 78%;
     padding: 7px;
@@ -301,133 +306,8 @@ body {
     border-radius: 12px;
 }
 
-/* Escolher Festival */
-.festival-overlay {
-    display: none;
-    position: absolute;
-    inset: 0;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(23, 25, 35, 0.45);
-    z-index: 40;
-}
-
-.festival-overlay.show {
-    display: flex;
-}
-
-.festival-modal {
-    width: 100%;
-    max-width: 330px;
-    padding: 18px;
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
-}
-
-.festival-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 8px;
-}
-
-.festival-modal-header h2 {
-    font-size: 17px;
-    font-weight: 750;
-}
-
-.festival-modal-header p {
-    margin-top: 4px;
-    font-size: 11px;
-    color: var(--gray);
-}
-
-#closeFestival,
-#closePoint {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
-    border: none;
-    border-radius: 50%;
-    background: var(--light);
-    color: var(--black);
-    font-size: 17px;
-    cursor: pointer;
-}
-
-/* Lista de Festivais */
-.festival-list {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    margin-top: 15px;
-}
-
-.festival-option {
-    min-height: 45px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--white);
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 600;
-}
-
-.festival-option:has(input:checked) {
-    border: 2px solid var(--green-dark);
-    background: #F5F6F2;
-}
-
-.festival-option input {
-    accent-color: var(--green-dark);
-}
-
-/* Botões do Festival */
-.festival-buttons,
-.point-buttons {
-    display: flex;
-    gap: 8px;
-    margin-top: 16px;
-}
-
-.festival-buttons button,
-.point-buttons button {
-    flex: 1;
-    min-height: 36px;
-    border: none;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 650;
-    cursor: pointer;
-}
-
-#cancelFestival,
-#cancelPoint {
-    background: var(--light);
-    color: var(--black);
-}
-
-#confirmFestival,
-#confirmPoint {
-    background: var(--green);
-    color: var(--black);
-}
-
-#confirmFestival:hover,
-#confirmPoint:hover {
-    background: var(--green-dark);
-}
-
 /* Painel de ponto de encontro */
+
 .point-overlay {
     display: none;
     position: absolute;
@@ -458,6 +338,7 @@ body {
 }
 
 /* Título do painel */
+
 .point-modal-header {
     display: flex;
     justify-content: space-between;
@@ -478,7 +359,20 @@ body {
     color: var(--gray);
 }
 
-/* Lista de Palcos */
+#closePoint {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--light);
+    color: var(--black);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+/* Locais: duas colunas com scroll */
+
 .point-list {
     flex: 1;
     min-height: 0;
@@ -538,62 +432,86 @@ body {
     color: var(--gray);
 }
 
-/* Cartão do convite */
-.message.point-message {
+/* Botões do painel */
+
+.point-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 9px;
+    flex-shrink: 0;
+}
+
+.point-buttons button {
+    flex: 1;
+    min-height: 36px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+#cancelPoint {
+    background: var(--light);
+    color: var(--black);
+}
+
+#confirmPoint {
+    background: var(--green);
+    color: var(--black);
+}
+
+#confirmPoint:hover {
+    background: var(--green-dark);
+}
+
+/* Convite enviado */
+
+.point-message {
     max-width: 85%;
-    background: transparent;
-    padding: 0;
-    box-shadow: none;
+    padding: 12px;
 }
 
 .point-invitation {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    background: #F7FBEA;
-    border: 1px solid var(--green);
-    border-radius: 20px;
-    padding: 16px;
-    color: var(--black);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
 }
 
+.point-invitation h3,
 .point-invitation strong {
-    display: block;
-    font-size: 14px;
-    color: #64748B;
-    margin-bottom: 8px;
+    color: var(--black);
 }
 
 .point-invitation h3 {
-    font-size: 23px;
-    margin: 0 0 6px;
-    color: var(--black);
+    font-size: 17px;
+}
+
+.point-invitation p,
+.invitation-status {
+    font-size: 12px;
 }
 
 .point-invitation p {
-    font-size: 14px;
-    color: var(--gray);
-    margin: 0 0 14px;
+    color: #4B5563;
 }
 
 .invitation-status {
-    display: inline-block;
-    background: #E8F5B5;
-    color: #506600;
-    padding: 7px 11px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
+    color: var(--gray);
 }
 
 .invitation-status.accepted {
-    background: #E8F5B5;
-    color: #4D7C0F;
+    color: #15803D;
+    font-weight: 700;
+}
+
+.point-invitation .invitation-status::after {
+    content: none;
 }
 
 /* Contagem decrescente */
+
 .invite-overlay {
     display: none;
     position: absolute;
@@ -636,8 +554,8 @@ body {
 }
 
 /* Ecrãs pequenos */
-@media (max-width: 360px) {
 
+@media (max-width: 360px) {
     .chat-header {
         padding: 12px;
     }
@@ -681,4 +599,176 @@ body {
     .point-information span {
         font-size: 8px;
     }
+}
+
+/* Cartao de ponto de encontro */
+
+.message.point-message {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+.point-invitation {
+    width: 100%;
+    box-sizing: border-box;
+    background: #F7FBEA;
+    border: 1px solid #D7FF00;
+    border-radius: 20px;
+    padding: 16px;
+    color: #171923;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.point-invitation strong {
+    display: block;
+    font-size: 14px;
+    color: #64748B;
+    margin-bottom: 8px;
+}
+
+.point-invitation h3 {
+    font-size: 23px;
+    margin: 0 0 6px;
+    color: #171923;
+}
+
+.point-invitation p {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0 0 14px;
+}
+
+.invitation-status {
+    display: inline-block;
+    background: #E8F5B5;
+    color: #506600;
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.invitation-status.accepted {
+    background: #E8F5B5;
+    color: #4D7C0F;
+}
+
+/* Escolher Festival */
+
+.festival-overlay {
+    display: none;
+    position: absolute;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(23, 25, 35, 0.45);
+    z-index: 40;
+}
+
+.festival-overlay.show {
+    display: flex;
+}
+
+.festival-modal {
+    width: 100%;
+    max-width: 330px;
+    padding: 18px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
+}
+
+.festival-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.festival-modal-header h2 {
+    font-size: 17px;
+    font-weight: 750;
+}
+
+.festival-modal-header p {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--gray);
+}
+
+#closeFestival {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--light);
+    color: var(--black);
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.festival-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+.festival-option {
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.festival-option:has(input:checked) {
+    border: 2px solid var(--green-dark);
+    background: #F5F6F2;
+}
+
+.festival-option input {
+    accent-color: var(--green-dark);
+}
+
+.festival-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.festival-buttons button {
+    flex: 1;
+    min-height: 36px;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+#cancelFestival {
+    background: var(--light);
+    color: var(--black);
+}
+
+#confirmFestival {
+    background: var(--green);
+    color: var(--black);
+}
+
+#confirmFestival:hover {
+    background: var(--green-dark);
 }
