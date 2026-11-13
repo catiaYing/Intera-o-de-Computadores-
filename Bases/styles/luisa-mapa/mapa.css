@@ -585,3 +585,76 @@ select:disabled {
     }
 
 }
+
+
+
+/* ==========================================
+   BANDy - Estrutura de telemóvel
+   Aplicada a todos os mapas
+   ========================================== */
+
+/* Fundo exterior */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: #E5E7EB;
+    font-family: Arial, sans-serif;
+    color: #171923;
+}
+
+/* Estrutura principal do telemóvel */
+
+.pagina,
+.pagina-ar {
+    box-sizing: border-box;
+
+    width: 390px !important;
+    max-width: 100% !important;
+
+    height: 844px !important;
+    min-height: 844px !important;
+    max-height: 844px !important;
+
+    margin: 0 auto;
+
+    background: #FFFFFF;
+
+    border: 8px solid #171923;
+    border-radius: 38px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+}
+
+/* Esconder a barra de scroll */
+
+.pagina::-webkit-scrollbar,
+.pagina-ar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ecrãs mais pequenos */
+
+@media (max-width: 420px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .pagina,
+    .pagina-ar {
+        width: 390px !important;
+        max-width: 100% !important;
+    }
+}
