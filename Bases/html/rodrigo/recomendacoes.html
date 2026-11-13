@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Recomendações - BANDy</title>
+
+    <link rel="stylesheet" href="../../styles/rodrigo/comum.css">
+    <link rel="stylesheet" href="../../styles/rodrigo/recomendacoes.css">
+    <link rel="stylesheet" href="../../styles/navbar.css">
+</head>
+
+<body>
+
+<div class="telemovel">
+<main class="pagina">
+
+    <header class="cabecalho">
+        <a href="../catia/contactos.html" class="voltar" aria-label="Voltar aos contactos">&larr;</a>
+        <h1>Recomendações</h1>
+    </header>
+
+    <!-- Interesses -->
+    <section class="interesses">
+        <h2>Os teus gostos</h2>
+        <div class="etiquetas" id="meus-interesses"></div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filtros">
+        <button type="button" class="filtro ativo" data-filtro="todos">Todos</button>
+        <button type="button" class="filtro" data-filtro="artistas">Artistas</button>
+        <button type="button" class="filtro" data-filtro="generos">Géneros</button>
+    </section>
+
+    <p class="contador" id="contador"></p>
+
+    <!-- pessoas sugeridas -->
+    <section class="lista-pessoas" id="lista-pessoas"></section>
+
+    <p class="sem-resultados" id="sem-resultados" hidden>
+        Não encontrámos sugestões para já.
+    </p>
+
+</main>
+
+    <nav class="bottom-nav">
+
+        <a href="../home.html" class="nav-item">
+            <img src="../../media/inicio-home.png" alt="">
+            <span>Início</span>
+        </a>
+
+        <a href="pesquisar.html" class="nav-item">
+            <img src="../../media/pesquisar-search.png" alt="">
+            <span>Pesquisar</span>
+        </a>
+
+        <a href="../catia/bilhetes.html" class="nav-item">
+            <img src="../../media/bilhetes-ticket.png" alt="">
+            <span>Bilhetes</span>
+        </a>
+
+        <a href="../catia/contactos.html" class="nav-item active">
+            <img src="../../media/contactos-people.png" alt="">
+            <span>Contactos</span>
+        </a>
+
+        <a href="perfil.html" class="nav-item">
+            <img src="../../media/perfil-user.png" alt="">
+            <span>Perfil</span>
+        </a>
+
+    </nav>
+
+</div>
+
+<script src="../../scripts/rodrigo/recomendacoes.js"></script>
+
+</body>
+</html>

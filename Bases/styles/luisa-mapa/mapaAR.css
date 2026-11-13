@@ -1,395 +1,646 @@
 /* ==========================================
-   BANDy - Mapa AR
-   Três cenários diferentes
+   BANDy - Navegação AR
+   Cenário ilustrativo
    ========================================== */
 
-/* ESTADO INICIAL E CHEGADA */
 
-.estado-ar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 260px;
-    margin: 18px 0;
-    padding: 24px 18px;
-    background: #F9FAFB;
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    text-align: center;
+/* 1. PÁGINA */
+
+.pagina-ar {
+    padding: 18px 18px 24px;
 }
 
-.icone-estado {
+.pagina-ar .topo {
+    margin-bottom: 16px;
+}
+
+
+/* 2. DADOS DO PERCURSO */
+
+.dados-percurso {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+.dados-percurso > div {
+    min-width: 0;
+    padding: 11px 12px;
+
+    background: #F8FAF6;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+}
+
+.dados-percurso span {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #6B7280;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+}
+
+.dados-percurso strong {
+    display: block;
+
+    color: #171923;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+
+/* 3. CENÁRIO AR */
+
+.vista-ar {
+    --ceu: #BBDDF5;
+    --solo: #A9C49B;
+    --arvores: #64966C;
+
+    position: relative;
+
+    width: 100%;
+    height: 365px;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        to bottom,
+        var(--ceu) 0%,
+        var(--ceu) 48%,
+        var(--solo) 48%,
+        var(--solo) 100%
+    );
+
+    border: 1px solid #D1D5DB;
+    border-radius: 18px;
+}
+
+
+/* NOS Alive */
+
+.vista-ar.alive {
+    --ceu: #BBDDF5;
+    --solo: #A9C49B;
+    --arvores: #65976A;
+}
+
+
+/* MEO Kalorama */
+
+.vista-ar.kalorama {
+    --ceu: #C5C7E7;
+    --solo: #8CB58A;
+    --arvores: #426F52;
+}
+
+
+/* Primavera Sound */
+
+.vista-ar.primavera {
+    --ceu: #A7DEEF;
+    --solo: #C7C9A4;
+    --arvores: #77A18A;
+}
+
+
+/* 4. ELEMENTOS DO CÉU */
+
+.sol-ar {
+    position: absolute;
+
+    top: 42px;
+    right: 40px;
+
+    width: 47px;
+    height: 47px;
+
+    background: #FFF1A8;
+    border-radius: 50%;
+
+    opacity: 0.9;
+}
+
+.vista-ar.kalorama .sol-ar {
+    background: #FFE5B0;
+    opacity: 0.7;
+}
+
+.nuvem-ar {
+    position: absolute;
+
+    top: 80px;
+    left: 27px;
+
+    width: 69px;
+    height: 21px;
+
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 30px;
+}
+
+.nuvem-ar::before,
+.nuvem-ar::after {
+    content: "";
+    position: absolute;
+
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+}
+
+.nuvem-ar::before {
+    width: 31px;
+    height: 31px;
+    left: 12px;
+    top: -15px;
+}
+
+.nuvem-ar::after {
+    width: 25px;
+    height: 25px;
+    right: 9px;
+    top: -10px;
+}
+
+.colinas-ar {
+    position: absolute;
+
+    left: -10%;
+    top: 40%;
+
+    width: 120%;
+    height: 24%;
+
+    background: rgba(70, 130, 85, 0.18);
+    border-radius: 50% 50% 0 0;
+}
+
+
+/* 5. CAMINHO EM PERSPETIVA */
+
+.estrada-ar {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 53%;
+
+    background: #777C7C;
+
+    clip-path: polygon(
+        46% 0,
+        54% 0,
+        94% 100%,
+        6% 100%
+    );
+}
+
+.vista-ar.kalorama .estrada-ar {
+    background: #717A73;
+}
+
+.vista-ar.primavera .estrada-ar {
+    background: #858680;
+}
+
+.linha-estrada-ar {
+    position: absolute;
+
+    left: 49%;
+    bottom: -2%;
+
+    width: 2%;
+    height: 48%;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.65) 0,
+        rgba(255, 255, 255, 0.65) 14px,
+        transparent 14px,
+        transparent 27px
+    );
+
+    clip-path: polygon(
+        43% 0,
+        57% 0,
+        100% 100%,
+        0 100%
+    );
+
+    opacity: 0.65;
+}
+
+
+/* 6. ÁRVORES */
+
+.arvore-ar {
+    position: absolute;
+
+    width: 12px;
+    height: 67px;
+
+    background: #82634B;
+
+    border-radius: 5px;
+
+    z-index: 2;
+}
+
+.arvore-ar::before {
+    content: "";
+
+    position: absolute;
+
+    left: -25px;
+    top: -37px;
+
+    width: 62px;
+    height: 65px;
+
+    background: var(--arvores);
+
+    border-radius: 50%;
+}
+
+.arvore-esquerda {
+    left: 14%;
+    top: 51%;
+}
+
+.arvore-direita {
+    right: 11%;
+    top: 45%;
+
+    transform: scale(0.78);
+}
+
+.vista-ar.alive .arvore-esquerda {
+    opacity: 0.8;
+}
+
+.vista-ar.kalorama .arvore-ar {
+    transform: scale(1.1);
+}
+
+.vista-ar.primavera .arvore-ar {
+    opacity: 0.75;
+}
+
+
+/* 7. PALCO ILUSTRATIVO */
+
+.palco-cenario {
+    position: absolute;
+
+    right: 9%;
+    top: 38%;
+
+    width: 88px;
+    height: 65px;
+
+    z-index: 2;
+
+    transform: scale(0.9);
+    transform-origin: bottom right;
+}
+
+.teto-palco {
+    width: 100%;
+    height: 15px;
+
+    background: #292D36;
+
+    clip-path: polygon(
+        9% 100%,
+        17% 0,
+        83% 0,
+        91% 100%
+    );
+}
+
+.estrutura-palco {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 72px;
-    height: 72px;
-    margin-bottom: 16px;
+
+    width: 78%;
+    height: 47px;
+
+    margin: 0 auto;
+
+    background: #3C4450;
+    border-left: 5px solid #20242C;
+    border-right: 5px solid #20242C;
+    border-bottom: 7px solid #20242C;
+}
+
+.estrutura-palco span {
+    padding: 3px 5px;
+
     background: #D7FF00;
-    border-radius: 50%;
-    font-size: 26px;
+    color: #171923;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* 8. BAR */
+
+.bar-cenario {
+    position: absolute;
+
+    left: 5%;
+    top: 43%;
+
+    width: 78px;
+
+    z-index: 3;
+
+    transform: scale(0.85);
+    transform-origin: bottom left;
+}
+
+.teto-bar {
+    height: 17px;
+
+    background: #E5F29A;
+
+    clip-path: polygon(
+        7% 100%,
+        19% 0,
+        81% 0,
+        93% 100%
+    );
+}
+
+.corpo-bar {
+    height: 34px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #FFFFFF;
+    border: 2px solid #819280;
+
+    color: #171923;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* 9. PLACA WC */
+
+.wc-cenario {
+    position: absolute;
+
+    top: 34%;
+    left: 33%;
+
+    z-index: 2;
+
+    padding: 5px 8px;
+
+    background: #FFFFFF;
+    border: 2px solid #A5B4A3;
+    border-radius: 6px;
+
+    color: #171923;
+    font-size: 11px;
     font-weight: bold;
 }
 
-.estado-ar h2 {
-    margin: 0 0 10px;
-    font-size: 19px;
-}
 
-.estado-ar p {
-    margin: 0 0 18px;
-    color: #6B7280;
-    font-size: 13px;
-    line-height: 1.5;
-}
+/* 10. ETIQUETAS SUPERIORES */
 
-/* CÂMARA VIRTUAL */
-
-.vista-ar {
-    position: relative;
-    width: 100%;
-    height: 310px;
-    margin: 14px 0;
-    overflow: hidden;
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-}
-
-/* Fundos dos festivais */
-
-.vista-ar.alive {
-    background: linear-gradient(#C9E8F6, #A2D0C0);
-}
-
-.vista-ar.kalorama {
-    background: linear-gradient(#C5E8D3, #83B98B);
-}
-
-.vista-ar.primavera {
-    background: linear-gradient(#FFD7C0, #B6CFDA);
-}
-
-/* ORGANIZAÇÃO DOS CENÁRIOS */
-
-.cenario-ar {
+.topo-ar {
     position: absolute;
-    inset: 0;
-    z-index: 1;
-    overflow: hidden;
+
+    top: 12px;
+    left: 12px;
+    right: 12px;
+
+    z-index: 7;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.selo-ar,
+.estado-ar {
+    padding: 7px 10px;
+
+    border-radius: 9px;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.selo-ar {
+    color: #171923;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.estado-ar {
+    color: #FFFFFF;
+    background: rgba(23, 25, 35, 0.8);
+}
+
+
+/* 11. SETA AR */
+
+.seta-ar {
+    position: absolute;
+
+    top: 34%;
+    left: 50%;
+
+    z-index: 5;
+
+    transform: translateX(-50%);
+
+    color: #D7FF00;
+
+    font-size: 97px;
+    font-weight: 900;
+    line-height: 1;
+
+    text-shadow:
+        0 3px 0 #608000,
+        0 6px 13px rgba(0, 0, 0, 0.45);
+
     pointer-events: none;
 }
 
-.cenario-tema {
+
+/* 12. INSTRUÇÕES */
+
+.painel-instrucao {
     position: absolute;
-    inset: 0;
-    display: none;
-}
 
-/* Mostrar apenas o festival selecionado */
-
-.vista-ar.alive .cenario-alive {
-    display: block;
-}
-
-.vista-ar.kalorama .cenario-kalorama {
-    display: block;
-}
-
-.vista-ar.primavera .cenario-primavera {
-    display: block;
-}
-
-/* ==========================================
-   NOS ALIVE
-   Palco, bar, WC e avenida
-   ========================================== */
-
-.alive-avenida {
-    position: absolute;
-    bottom: 0;
-    left: 10%;
-    width: 80%;
-    height: 63%;
-    background: #BFCBD0;
-    clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
-}
-
-.alive-palco {
-    position: absolute;
-    top: 29%;
-    left: 50%;
-    width: 138px;
-    padding: 16px 6px;
-    transform: translateX(-50%);
-    background: #303D50;
-    border-top: 6px solid #8CF0E4;
-    border-radius: 8px 8px 0 0;
-    color: #FFFFFF;
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.alive-estrutura {
-    position: absolute;
-    bottom: 16%;
-    width: 62px;
-    padding: 13px 5px;
-    background: #FFFFFF;
-    border: 2px solid #94A3B8;
-    border-radius: 8px;
-    color: #171923;
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.alive-esquerda {
-    left: 4%;
-}
-
-.alive-direita {
-    right: 4%;
-}
-
-/* ==========================================
-   MEO KALORAMA
-   Parque com árvores
-   ========================================== */
-
-.kalorama-trilho {
-    position: absolute;
-    bottom: -10%;
-    left: 28%;
-    width: 45%;
-    height: 80%;
-    transform: rotate(12deg);
-    background: #E2D0A8;
-    border-radius: 45% 45% 0 0;
-}
-
-.kalorama-palco {
-    position: absolute;
-    top: 32%;
-    right: 8%;
-    padding: 13px 18px;
-    background: #425B49;
-    border-radius: 8px;
-    color: #FFFFFF;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.kalorama-arvore {
-    position: absolute;
-    font-size: 38px;
-}
-
-.arvore-1 {
-    top: 23%;
-    left: 7%;
-}
-
-.arvore-2 {
-    top: 47%;
-    right: 6%;
-}
-
-.arvore-3 {
-    bottom: 9%;
-    left: 9%;
-}
-
-/* ==========================================
-   PRIMAVERA SOUND
-   Palco secundário e zona social
-   ========================================== */
-
-.primavera-passagem {
-    position: absolute;
-    bottom: -8%;
-    left: 16%;
-    width: 68%;
-    height: 70%;
-    transform: rotate(-12deg);
-    background: #C5D0D4;
-    clip-path: polygon(35% 0, 65% 0, 100% 100%, 0 100%);
-}
-
-.primavera-palco {
-    position: absolute;
-    top: 28%;
-    left: 8%;
-    width: 105px;
-    padding: 17px 6px;
-    background: #514B69;
-    border-top: 6px solid #FFCF81;
-    border-radius: 8px;
-    color: #FFFFFF;
-    font-size: 11px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.primavera-zona {
-    position: absolute;
-    top: 43%;
-    right: 5%;
-    width: 92px;
-    padding: 14px 6px;
-    background: #FFF8E7;
-    border: 2px solid #E6BE86;
-    border-radius: 8px;
-    color: #171923;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.primavera-entrada {
-    position: absolute;
-    bottom: 14%;
-    left: 5%;
-    padding: 8px;
-    background: #FFFFFF;
-    border-radius: 6px;
-    color: #171923;
-    font-size: 10px;
-    font-weight: bold;
-}
-
-/* ==========================================
-   ELEMENTOS SOBRE A CÂMARA
-   ========================================== */
-
-/* Ponto de encontro */
-
-.destino-ar {
-    position: absolute;
-    z-index: 4;
-    top: 12px;
-    left: 50%;
-    width: max-content;
-    max-width: 90%;
-    padding: 9px 12px;
-    transform: translateX(-50%);
-    background: #FFFFFF;
-    border-radius: 10px;
-    color: #171923;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Cartão de navegação */
-
-.indicacao-ar {
-    position: absolute;
-    z-index: 4;
-    top: 51%;
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    width: 205px;
-    padding: 14px;
-    transform: translate(-50%, -50%);
-    background: #D7FF00;
-    border-radius: 14px;
-    text-align: center;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.12);
-}
-
-.seta-ar {
-    color: #171923;
-    font-size: 46px;
-    font-weight: bold;
-    line-height: 1;
-}
-
-.indicacao-ar strong {
-    color: #171923;
-    font-size: 15px;
-}
-
-.indicacao-ar span {
-    color: #374151;
-    font-size: 11px;
-    line-height: 1.5;
-}
-
-/* Referência do festival */
-
-.referencia-ar {
-    position: absolute;
-    z-index: 4;
-    bottom: 48px;
-    left: 50%;
-    width: max-content;
-    max-width: 92%;
-    padding: 6px 10px;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.93);
-    border-radius: 8px;
-    color: #171923;
-    font-size: 10px;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Aviso de simulação */
-
-.legenda-ar {
-    position: absolute;
-    z-index: 4;
-    right: 12px;
-    bottom: 10px;
+    bottom: 12px;
     left: 12px;
-    padding: 8px;
-    background: rgba(23, 25, 35, 0.85);
-    border-radius: 8px;
+    right: 12px;
+
+    z-index: 6;
+
+    padding: 13px 14px;
+
+    background: rgba(23, 25, 35, 0.94);
     color: #FFFFFF;
-    font-size: 11px;
+
+    border-radius: 13px;
+
     text-align: center;
 }
 
-/* ==========================================
-   PROGRESSO DA NAVEGAÇÃO
-   ========================================== */
+.painel-instrucao span {
+    display: block;
+
+    color: #D7FF00;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.painel-instrucao h2 {
+    margin: 6px 0;
+
+    color: #FFFFFF;
+
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.painel-instrucao p {
+    margin: 0;
+
+    color: #E5E7EB;
+
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+
+/* 13. PROGRESSO */
 
 .progresso-ar {
-    margin: 18px 0;
+    margin: 16px 0 12px;
 }
 
 .progresso-texto {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    align-items: center;
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+}
+
+.progresso-texto span {
     color: #6B7280;
-    font-size: 12px;
+}
+
+.progresso-texto strong {
+    color: #171923;
 }
 
 .barra-progresso {
     width: 100%;
-    height: 8px;
-    overflow: hidden;
+    height: 7px;
+
     background: #E5E7EB;
-    border-radius: 20px;
+    border-radius: 10px;
+
+    overflow: hidden;
 }
 
-.barra-ar {
-    width: 0;
+#preenchimento-ar {
+    width: 0%;
     height: 100%;
-    background: #BFE600;
-    border-radius: 20px;
-    transition: width 0.25s ease;
+
+    background: #A8D000;
+    border-radius: 10px;
+
+    transition: width 0.2s ease;
 }
 
-/* BOTÕES */
 
-#navegacao-ar .botao,
-#chegada-ar .botao {
-    margin-top: 10px;
+/* 14. BOTÕES */
+
+.acoes-ar {
+    margin-top: 12px;
+}
+
+.acoes-ar .botao {
+    margin: 9px 0;
+}
+
+.botoes-passos {
+    display: flex;
+    gap: 10px;
+}
+
+.botoes-passos .botao {
+    flex: 1;
+    min-width: 0;
+}
+
+#passo-anterior {
+    flex: 0.85;
+}
+
+#proximo-passo {
+    flex: 1.15;
+}
+
+.nota-ar {
+    margin: 12px 0 0;
+
+    color: #6B7280;
+
+    font-size: 11px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+
+/* 15. ESTADO DE CHEGADA */
+
+.vista-ar.chegada .seta-ar {
+    color: #D7FF00;
+    font-size: 105px;
+}
+
+.vista-ar.chegada .painel-instrucao {
+    background: #24492B;
+}
+
+
+/* 16. ECRÃS PEQUENOS */
+
+@media (max-width: 360px) {
+
+    .vista-ar {
+        height: 340px;
+    }
+
+    .seta-ar {
+        font-size: 82px;
+    }
+
+    .painel-instrucao h2 {
+        font-size: 16px;
+    }
+
 }

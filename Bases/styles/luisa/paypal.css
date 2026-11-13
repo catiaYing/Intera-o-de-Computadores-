@@ -1,0 +1,38 @@
+/* =====================================
+   BANDy - PayPal
+   PayPal 页面专属样式
+===================================== */
+
+
+/* 1. PayPal 说明卡片 */
+.paypal-informacao {
+    padding: 18px;
+    margin-bottom: 24px;
+
+    background-color: #fbfce9;
+    border: 1px solid #e5eac0;
+    border-radius: 16px;
+}
+
+
+/* 2. 说明卡片标题 */
+.paypal-informacao h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+
+/* 3. 说明文字 */
+.paypal-informacao p {
+    margin: 0;
+
+    color: #555555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* 4. 继续按钮 */
+#continuar-paypal {
+    margin-top: 10px;
+}

@@ -1,303 +1,290 @@
-/* BANDy - Dados e percursos dos festivais */
+/* BANDy - Dados dos mapas */
 
-const BandyMapa = (() => {
+// Dados ilustrativos dos três festivais
 
-    // 1. Dados ilustrativos
-    const festivais = {
-        alive: {
-            nome: "NOS Alive",
-            origem: [20, 82],
-            locais: {
-                palco: [18, 15],
-                bar: [78, 15],
-                wc: [80, 82],
-                entrada: [12, 60]
-            },
-            pontos: {
-                1: [75, 35],
-                2: [25, 35],
-                3: [65, 75]
-            }
+const festivais = {
+    alive: {
+        nome: "NOS Alive",
+        origem: [12, 85],
+        entrada: [12, 85],
+
+        palcos: {
+            "palco-x": [20, 20],
+            "side-stage": [80, 20],
+            "palco-y": [75, 65],
+            "palco-z": [35, 55]
         },
 
-        kalorama: {
-            nome: "MEO Kalorama",
-            origem: [50, 88],
-            locais: {
-                palco: [75, 18],
-                bar: [20, 70],
-                wc: [15, 20],
-                entrada: [55, 70]
-            },
-            pontos: {
-                1: [72, 42],
-                2: [25, 40],
-                3: [75, 72]
-            }
+        corredor: 45
+    },
+
+    kalorama: {
+        nome: "MEO Kalorama",
+        origem: [50, 90],
+        entrada: [50, 90],
+
+        palcos: {
+            "palco-x": [75, 18],
+            "side-stage": [20, 30],
+            "palco-y": [25, 65],
+            "palco-z": [75, 70]
         },
 
-        primavera: {
-            nome: "Primavera Sound",
-            origem: [80, 85],
-            locais: {
-                palco: [20, 65],
-                bar: [75, 15],
-                wc: [75, 65],
-                entrada: [45, 85]
-            },
-            pontos: {
-                1: [30, 25],
-                2: [60, 45],
-                3: [25, 80]
-            }
-        }
-    };
+        corredor: 52
+    },
 
-    // 2. Ler os parâmetros
-    const parametros = new URLSearchParams(location.search);
+    primavera: {
+        nome: "Primavera Sound",
+        origem: [85, 85],
+        entrada: [85, 85],
 
-    const festivalURL = parametros.get("festival") ||
-        localStorage.getItem("festivalMapa");
+        palcos: {
+            "palco-x": [18, 65],
+            "side-stage": [70, 20],
+            "palco-y": [25, 25],
+            "palco-z": [65, 60]
+        },
 
-    const pontoURL = parametros.get("ponto") ||
-        localStorage.getItem("pontoMapa");
-
-    const estado = {
-        festival: festivais[festivalURL] ? festivalURL : "alive",
-        ponto: ["1", "2", "3", "livre"].includes(pontoURL)
-            ? pontoURL : "1",
-        livre: null
-    };
-
-    function coordenada(valor) {
-        if (valor === null || valor === "") return null;
-
-        const numero = Number(valor);
-        if (!Number.isFinite(numero)) return null;
-
-        return Math.max(5, Math.min(95, numero));
+        corredor: 45
     }
+};
 
-    // 3. Recuperar ponto personalizado
-    function recuperarLivre() {
-        const x = coordenada(parametros.get("x"));
-        const y = coordenada(parametros.get("y"));
 
-        if (x !== null && y !== null) return [x, y];
+// Nomes utilizados no Chat e no mapa
 
-        try {
-            const dados = JSON.parse(
-                localStorage.getItem("pontoLivreMapa")
-            );
+const nomesPontos = {
+    "palco-x": "Palco X",
+    "side-stage": "Side Stage",
+    "palco-y": "Palco Y",
+    "palco-z": "Palco Z",
+    "livre": "Ponto personalizado"
+};
 
-            if (dados && dados.festival === estado.festival) {
-                const px = coordenada(dados.x);
-                const py = coordenada(dados.y);
 
-                if (px !== null && py !== null) return [px, py];
-            }
-        } catch (erro) {
-            return null;
-        }
+// Ler os parâmetros do endereço
 
-        return null;
+const params = new URLSearchParams(
+    window.location.search
+);
+
+const origemChat = params.get("origem") === "chat";
+const contactoChat = params.get("user") || "maria";
+
+
+// Festival escolhido
+
+let festivalAtual =
+    params.get("festival") ||
+    localStorage.getItem("festivalMapa") ||
+    "alive";
+
+if (!festivais[festivalAtual]) {
+    festivalAtual = "alive";
+}
+
+
+// Ponto escolhido
+
+let pontoAtual =
+    params.get("ponto") ||
+    localStorage.getItem("pontoMapa") ||
+    "palco-x";
+
+if (!nomesPontos[pontoAtual]) {
+    pontoAtual = "palco-x";
+}
+
+
+// Ponto personalizado
+
+let pontoLivre = null;
+
+try {
+    const guardado = JSON.parse(
+        localStorage.getItem("pontoLivreMapa")
+    );
+
+    if (
+        guardado &&
+        guardado.festival === festivalAtual &&
+        Number.isFinite(guardado.x) &&
+        Number.isFinite(guardado.y)
+    ) {
+        pontoLivre = [guardado.x, guardado.y];
     }
+} catch (erro) {
+    pontoLivre = null;
+}
 
-    estado.livre = recuperarLivre();
 
-    if (estado.ponto === "livre" && !estado.livre) {
-        estado.ponto = "1";
+// Ler coordenadas personalizadas do URL
+
+if (params.has("x") && params.has("y")) {
+    const x = Number(params.get("x"));
+    const y = Number(params.get("y"));
+
+    if (Number.isFinite(x) && Number.isFinite(y)) {
+        pontoLivre = [
+            Math.max(5, Math.min(95, x)),
+            Math.max(5, Math.min(95, y))
+        ];
     }
+}
 
-    // 4. Guardar as escolhas
-    function guardar() {
-        localStorage.setItem("festivalMapa", estado.festival);
-        localStorage.setItem("pontoMapa", estado.ponto);
+if (pontoAtual === "livre" && !pontoLivre) {
+    pontoAtual = "palco-x";
+}
 
-        if (estado.livre) {
-            localStorage.setItem("pontoLivreMapa", JSON.stringify({
-                festival: estado.festival,
-                x: estado.livre[0],
-                y: estado.livre[1]
-            }));
-        }
-    }
 
-    function destino() {
-        return estado.ponto === "livre" && estado.livre
-            ? estado.livre
-            : festivais[estado.festival].pontos[estado.ponto];
-    }
+// Guardar a escolha do utilizador
 
-    // 5. Percursos diferentes por festival
-    function percurso() {
-        const origem = festivais[estado.festival].origem;
-        const fim = destino();
+function guardar() {
+    localStorage.setItem("festivalMapa", festivalAtual);
+    localStorage.setItem("pontoMapa", pontoAtual);
 
-        let pontos;
-
-        if (estado.festival === "alive") {
-            // Primeiro, passar pela Avenida Central
-            pontos = [
-                origem,
-                [50, origem[1]],
-                [50, fim[1]],
-                fim
-            ];
-
-        } else if (estado.festival === "kalorama") {
-            // Primeiro, seguir pelo caminho do parque
-            pontos = [
-                origem,
-                [origem[0], 50],
-                [fim[0], 50],
-                fim
-            ];
-
-        } else {
-            // Primeiro, passar pela zona do Palco 2
-            pontos = [
-                origem,
-                [40, origem[1]],
-                [40, fim[1]],
-                fim
-            ];
-        }
-
-        // Eliminar pontos consecutivos iguais
-        return pontos.filter((ponto, i) =>
-            i === 0 ||
-            ponto[0] !== pontos[i - 1][0] ||
-            ponto[1] !== pontos[i - 1][1]
+    if (pontoLivre) {
+        localStorage.setItem(
+            "pontoLivreMapa",
+            JSON.stringify({
+                festival: festivalAtual,
+                x: pontoLivre[0],
+                y: pontoLivre[1]
+            })
         );
     }
+}
 
-    // 6. Ligações entre páginas
-    function criarLink(pagina) {
-        const dados = new URLSearchParams({
-            festival: estado.festival,
-            ponto: estado.ponto
-        });
 
-        if (estado.ponto === "livre" && estado.livre) {
-            dados.set("x", estado.livre[0]);
-            dados.set("y", estado.livre[1]);
-        }
+// Obter as coordenadas do destino
 
-        return pagina + "?" + dados.toString();
+function destino() {
+    if (pontoAtual === "livre") {
+        return pontoLivre;
     }
 
-    function atualizarLinks() {
-        const links = {
-            "abrir-2d": "mapa2d.html",
-            "abrir-ar": "mapaAR.html",
-            "ir-ar": "mapaAR.html",
-            "ir-2d": "mapa2d.html",
-            "voltar-2d": "mapa2d.html"
-        };
+    return festivais[festivalAtual].palcos[pontoAtual];
+}
 
-        Object.entries(links).forEach(([id, pagina]) => {
-            const elemento = document.getElementById(id);
-            if (elemento) elemento.href = criarLink(pagina);
-        });
+
+// Criar uma rota ilustrativa
+
+function percurso() {
+    const festival = festivais[festivalAtual];
+
+    const inicio = festival.origem;
+    const fim = destino();
+    const corredor = festival.corredor;
+
+    if (!fim) {
+        return [inicio];
     }
 
-    // 7. Informações apresentadas
-    function atualizarInformacao() {
-        const nome = document.getElementById("nome-festival");
-        const titulo = document.getElementById("titulo-ponto");
-        const descricao = document.getElementById("descricao-ponto");
+    // No Kalorama, o corredor principal
+    // é horizontal.
 
-        if (nome) {
-            nome.textContent = festivais[estado.festival].nome;
-        }
-
-        if (titulo) {
-            titulo.textContent = estado.ponto === "livre"
-                ? "📍 Ponto de Encontro Personalizado"
-                : "📍 Ponto de Encontro " + estado.ponto;
-        }
-
-        if (descricao) {
-            descricao.textContent = estado.ponto === "livre"
-                ? "Local escolhido no mapa."
-                : "Ponto de encontro predefinido.";
-        }
+    if (festivalAtual === "kalorama") {
+        return [
+            inicio,
+            [inicio[0], corredor],
+            [fim[0], corredor],
+            fim
+        ];
     }
 
-    // 8. Alterar escolhas
-    function selecionarFestival(valor) {
-        estado.festival = festivais[valor] ? valor : "alive";
-        estado.ponto = "1";
-        estado.livre = null;
+    // Nos outros festivais,
+    // o corredor principal é vertical.
 
-        guardar();
-        atualizarLinks();
-        atualizarInformacao();
+    return [
+        inicio,
+        [corredor, inicio[1]],
+        [corredor, fim[1]],
+        fim
+    ];
+}
+
+
+// Criar links entre Mapa 2D e AR
+
+function urlPagina(pagina) {
+    const dados = new URLSearchParams({
+        festival: festivalAtual,
+        ponto: pontoAtual
+    });
+
+    if (origemChat) {
+        dados.set("origem", "chat");
+        dados.set("user", contactoChat);
     }
 
-    function selecionarPonto(valor) {
-        if (!["1", "2", "3", "livre"].includes(valor)) return;
-        if (valor === "livre" && !estado.livre) return;
-
-        estado.ponto = valor;
-
-        guardar();
-        atualizarLinks();
-        atualizarInformacao();
+    if (pontoAtual === "livre" && pontoLivre) {
+        dados.set("x", pontoLivre[0]);
+        dados.set("y", pontoLivre[1]);
     }
 
-    function selecionarLivre(x, y) {
-        const px = coordenada(x);
-        const py = coordenada(y);
+    return pagina + "?" + dados.toString();
+}
 
-        if (px === null || py === null) return;
 
-        estado.livre = [px, py];
-        estado.ponto = "livre";
+// Atualizar os links das páginas
 
-        guardar();
-        atualizarLinks();
-        atualizarInformacao();
-    }
-
-    // 9. Seletores da página inicial
-    const seletorFestival = document.getElementById("festival");
-    const seletorPonto = document.getElementById("ponto");
-
-    if (seletorFestival && seletorPonto) {
-        seletorFestival.value = estado.festival;
-
-        if (estado.ponto === "livre") {
-            seletorPonto.add(
-                new Option("Ponto personalizado", "livre")
+function links() {
+    document.querySelectorAll("[data-link]").forEach(
+        function(elemento) {
+            elemento.href = urlPagina(
+                elemento.dataset.link
             );
         }
+    );
+}
 
-        seletorPonto.value = estado.ponto;
 
-        seletorFestival.addEventListener("change", () => {
-            selecionarFestival(seletorFestival.value);
-            seletorPonto.querySelector('option[value="livre"]')?.remove();
-            seletorPonto.value = "1";
-        });
+// Atualizar os nomes apresentados
 
-        seletorPonto.addEventListener("change", () => {
-            selecionarPonto(seletorPonto.value);
-        });
+function atualizarTitulo() {
+    document.querySelectorAll(
+        "[data-festival-nome]"
+    ).forEach(function(elemento) {
+        elemento.textContent =
+            festivais[festivalAtual].nome;
+    });
+
+    document.querySelectorAll(
+        "[data-ponto-nome]"
+    ).forEach(function(elemento) {
+        elemento.textContent =
+            nomesPontos[pontoAtual];
+    });
+}
+
+
+// Escolher outro destino
+
+function escolherPonto(ponto) {
+
+    // Não alterar convites confirmados no Chat
+    if (origemChat) {
+        return;
     }
 
+    if (ponto === "livre" && !pontoLivre) {
+        return;
+    }
+
+    if (
+        ponto !== "livre" &&
+        !festivais[festivalAtual].palcos[ponto]
+    ) {
+        return;
+    }
+
+    pontoAtual = ponto;
+
     guardar();
-    atualizarLinks();
-    atualizarInformacao();
+    atualizarTitulo();
+    links();
+}
 
-    return {
-        festivais,
-        estado,
-        destino,
-        percurso,
-        selecionarPonto,
-        selecionarLivre
-    };
 
-})();
+// Guardar o estado inicial
+
+guardar();

@@ -1,130 +1,249 @@
-/* BANDy - Mapa 2D Interativo */
+/* BANDy - Mapa 2D */
 
-const mapaRecinto = document.getElementById("mapa-recinto");
+// Elementos da página
 
-if (mapaRecinto) {
+const seletorFestival = document.getElementById("festival");
+const seletorPonto = document.getElementById("ponto");
 
-    const { festivais, estado } = BandyMapa;
+const painelEscolha = document.getElementById("painel-escolha");
+const mapa = document.getElementById("mapa-recinto");
+const marcadores = document.getElementById("marcadores");
+const rota = document.getElementById("linha-rota");
 
-    const confirmar = document.getElementById("confirmar-ponto");
-    const mensagem = document.getElementById("mensagem-confirmacao");
+const inicio = document.getElementById("origem");
+const entrada = document.getElementById("local-entrada");
+const personalizado = document.getElementById("ponto-personalizado");
 
-    // Posicionar elementos no mapa
-    function colocar(elemento, posicao) {
-        if (!elemento || !posicao) return;
+const confirmar = document.getElementById("confirmar-ponto");
+const mensagem = document.getElementById("mensagem-confirmacao");
+const ajuda = document.getElementById("ajuda-mapa");
 
-        elemento.style.left = posicao[0] + "%";
-        elemento.style.top = posicao[1] + "%";
-    }
 
-    // Desenhar o percurso específico do festival
-    function desenharRota() {
-        const linha = document.getElementById("linha-rota");
-        if (!linha) return;
+// Colocar um elemento no mapa
 
-        const pontos = BandyMapa.percurso();
+function colocar(elemento, posicao) {
+    elemento.style.left = posicao[0] + "%";
+    elemento.style.top = posicao[1] + "%";
+}
 
-        const coordenadas = pontos.map(ponto =>
-            ponto[0] + "," + ponto[1]
-        );
 
-        linha.setAttribute("points", coordenadas.join(" "));
-    }
+// Atualizar os seletores
 
-    // Atualizar o mapa completo
-    function atualizarMapa() {
-        const festival = festivais[estado.festival];
+function sincronizar() {
+    seletorFestival.value = festivalAtual;
+    seletorPonto.value = pontoAtual;
+}
 
-        mapaRecinto.className = "mapa " + estado.festival;
 
-        // Localização inicial do utilizador
-        colocar(
-            document.getElementById("origem"),
-            festival.origem
-        );
+// Desenhar o mapa e a rota
 
-        // Locais do recinto
-        ["palco", "bar", "wc", "entrada"].forEach(local => {
-            colocar(
-                document.getElementById("local-" + local),
-                festival.locais[local]
-            );
-        });
+function desenhar() {
+    const festival = festivais[festivalAtual];
 
-        // Pontos de encontro
-        document.querySelectorAll(".destino").forEach(botao => {
-            const numero = botao.dataset.ponto;
+    // Mostrar o cenário correto
+    mapa.className = "mapa-recinto " + festivalAtual;
 
-            colocar(botao, festival.pontos[numero]);
+    // Localização do utilizador e entrada
+    colocar(inicio, festival.origem);
+    colocar(entrada, festival.entrada);
 
-            botao.classList.toggle(
-                "selecionado",
-                estado.ponto === numero
-            );
-        });
+    // Evitar que a etiqueta tape o ponto azul
+    entrada.style.transform = "translate(-50%, 14px)";
 
-        // Ponto personalizado
-        const personalizado = document.getElementById(
-            "ponto-personalizado"
-        );
+    // Limpar os marcadores anteriores
+    marcadores.innerHTML = "";
 
-        if (personalizado) {
-            personalizado.hidden =
-                estado.ponto !== "livre" || !estado.livre;
+    // Criar os quatro palcos
+    for (const id in festival.palcos) {
 
-            if (!personalizado.hidden) {
-                colocar(personalizado, estado.livre);
-            }
+        const botao = document.createElement("button");
+
+        botao.type = "button";
+        botao.className = "marcador palco";
+        botao.textContent = nomesPontos[id];
+
+        colocar(botao, festival.palcos[id]);
+
+        if (pontoAtual === id) {
+            botao.classList.add("ativo");
         }
 
-        desenharRota();
-    }
-
-    // Permitir confirmar uma nova escolha
-    function novaEscolha() {
-        if (confirmar) confirmar.disabled = false;
-        if (mensagem) mensagem.textContent = "";
-
-        atualizarMapa();
-    }
-
-    // Selecionar ponto predefinido
-    document.querySelectorAll(".destino").forEach(botao => {
-        botao.addEventListener("click", evento => {
+        // Escolher um palco
+        botao.addEventListener("click", function(evento) {
             evento.stopPropagation();
 
-            BandyMapa.selecionarPonto(botao.dataset.ponto);
-            novaEscolha();
-        });
-    });
-
-    // Escolher um ponto livre
-    mapaRecinto.addEventListener("click", evento => {
-        if (evento.target.closest(".local, .ponto")) return;
-
-        const limites = mapaRecinto.getBoundingClientRect();
-
-        const x = (evento.clientX - limites.left) /
-            limites.width * 100;
-
-        const y = (evento.clientY - limites.top) /
-            limites.height * 100;
-
-        BandyMapa.selecionarLivre(x, y);
-        novaEscolha();
-    });
-
-    // Confirmar o ponto de encontro
-    if (confirmar) {
-        confirmar.addEventListener("click", () => {
-            if (mensagem) {
-                mensagem.textContent =
-                    "✓ Ponto de encontro confirmado!";
+            if (origemChat) {
+                return;
             }
 
-            confirmar.disabled = true;
+            escolherPonto(id);
+
+            sincronizar();
+            desenhar();
+
+            mensagem.textContent = "";
         });
+
+        marcadores.appendChild(botao);
     }
 
-    atualizarMapa();
+    // Mostrar o ponto personalizado
+    personalizado.hidden = (
+        pontoAtual !== "livre" || !pontoLivre
+    );
+
+    if (pontoAtual === "livre" && pontoLivre) {
+        colocar(personalizado, pontoLivre);
+    }
+
+    // Desenhar a linha verde com SVG
+    const pontos = percurso();
+
+    const coordenadas = pontos.map(function(p) {
+        return p[0] + "," + p[1];
+    });
+
+    rota.setAttribute(
+        "points",
+        coordenadas.join(" ")
+    );
+
+    atualizarTitulo();
+    links();
 }
+
+
+// Alterar Festival
+
+seletorFestival.addEventListener("change", function() {
+
+    if (origemChat) {
+        sincronizar();
+        return;
+    }
+
+    festivalAtual = seletorFestival.value;
+
+    pontoAtual = "palco-x";
+    pontoLivre = null;
+
+    guardar();
+    sincronizar();
+    desenhar();
+
+    mensagem.textContent = "";
+});
+
+
+// Alterar destino
+
+seletorPonto.addEventListener("change", function() {
+
+    if (origemChat) {
+        sincronizar();
+        return;
+    }
+
+    if (seletorPonto.value === "livre" && !pontoLivre) {
+        alert("Toca no mapa para escolher um ponto.");
+        sincronizar();
+        return;
+    }
+
+    escolherPonto(seletorPonto.value);
+
+    sincronizar();
+    desenhar();
+
+    mensagem.textContent = "";
+});
+
+
+// Escolher um ponto personalizado no mapa
+
+mapa.addEventListener("click", function(evento) {
+
+    if (origemChat) {
+        return;
+    }
+
+    // Não selecionar quando se clica num palco
+    if (evento.target.closest("button")) {
+        return;
+    }
+
+    const limites = mapa.getBoundingClientRect();
+
+    const x = (
+        evento.clientX - limites.left
+    ) / limites.width * 100;
+
+    const y = (
+        evento.clientY - limites.top
+    ) / limites.height * 100;
+
+    pontoLivre = [
+        Math.round(Math.max(5, Math.min(95, x))),
+        Math.round(Math.max(5, Math.min(95, y)))
+    ];
+
+    escolherPonto("livre");
+
+    sincronizar();
+    desenhar();
+
+    mensagem.textContent = "";
+});
+
+
+// Confirmar ponto
+
+confirmar.addEventListener("click", function() {
+
+    guardar();
+
+    mensagem.textContent =
+        "✓ Ponto de encontro confirmado!";
+});
+
+
+// Configurar a navegação vinda do Chat
+
+function configurarChat() {
+
+    if (!origemChat) {
+        return;
+    }
+
+    // O ponto já foi combinado
+    painelEscolha.hidden = true;
+    confirmar.hidden = true;
+
+    seletorFestival.disabled = true;
+    seletorPonto.disabled = true;
+
+    mapa.style.cursor = "default";
+
+    mensagem.textContent =
+        "✓ Ponto de encontro confirmado no Chat.";
+
+    ajuda.textContent =
+        "Segue o percurso até ao ponto de encontro combinado.";
+
+    // Voltar à conversa
+    const voltar = document.getElementById("voltar-mapa");
+
+    const dados = new URLSearchParams({
+        user: contactoChat,
+        festival: festivalAtual
+    });
+
+    voltar.href = "../catia/chat.html?" + dados.toString();
+}
+
+
+// Iniciar
+
+sincronizar();
+configurarChat();
+desenhar();

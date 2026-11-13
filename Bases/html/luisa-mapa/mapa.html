@@ -3,112 +3,177 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>BANDy - Mapas e Navegação</title>
 
-    <link rel="stylesheet" href="../../styles/luisa-mapa/mapa.css">
-    <script src="../../scripts/luisa-mapa/mapa.js" defer></script>
+    <!-- CSS dos mapas -->
+    <link rel="stylesheet"
+          href="../../styles/luisa-mapa/mapa.css">
 </head>
 
 <body>
 
     <main class="pagina">
 
-        <!-- Cabeçalho -->
-        <header class="cabecalho-menu">
+        <!-- ==================================
+             1. CABEÇALHO
+             ================================== -->
 
-            <p class="etiqueta">BANDy</p>
+        <header class="topo">
 
-            <h1>Mapas e Navegação</h1>
+            <!-- Voltar à página inicial -->
+            <a href="../home.html"
+               aria-label="Voltar ao início">
+                ←
+            </a>
 
-            <p>Encontra os teus amigos durante o festival.</p>
+            <div>
+                <span class="subtitulo">
+                    BANDy · Navegação
+                </span>
+
+                <h1>Mapas e Navegação</h1>
+            </div>
 
         </header>
 
 
-        <!-- Seleção do festival e do ponto de encontro -->
-        <section class="selecao">
+        <!-- ==================================
+             2. INTRODUÇÃO
+             ================================== -->
 
-            <label for="festival">Festival</label>
+        <section class="introducao">
 
-            <select id="festival">
-                <option value="alive">NOS Alive</option>
-                <option value="kalorama">MEO Kalorama</option>
-                <option value="primavera">Primavera Sound</option>
-            </select>
-
-            <p class="ajuda">Festivais de demonstração.</p>
-
-
-            <label for="ponto">Ponto de encontro</label>
-
-            <select id="ponto">
-                <option value="1">Ponto de Encontro 1</option>
-                <option value="2">Ponto de Encontro 2</option>
-                <option value="3">Ponto de Encontro 3</option>
-            </select>
-
-            <p class="ajuda">
-                Também podes escolher um local diretamente no mapa.
+            <p>
+                Escolhe o festival e o ponto de encontro
+                para consultar o percurso.
             </p>
 
         </section>
 
 
-        <!-- Opções de navegação -->
-        <section class="opcoes">
+        <!-- ==================================
+             3. ESCOLHER FESTIVAL
+             ================================== -->
 
-            <!-- Mapa 2D -->
-            <a href="mapa2d.html"
-               id="abrir-2d"
-               class="cartao">
+        <section class="escolha-festival">
 
-                <span class="icone-cartao">▦</span>
+            <label for="festival">
+                Festival
+            </label>
 
-                <span>
-                    <strong>Mapa Interativo</strong>
+            <select id="festival">
 
-                    <small>
-                        Consulta o recinto e escolhe
-                        um ponto de encontro.
-                    </small>
-                </span>
+                <option value="alive">
+                    NOS Alive
+                </option>
 
-                <span class="seta-cartao">→</span>
+                <option value="kalorama">
+                    MEO Kalorama
+                </option>
 
-            </a>
+                <option value="primavera">
+                    Primavera Sound
+                </option>
 
-
-            <!-- Mapa AR -->
-            <a href="mapaAR.html"
-               id="abrir-ar"
-               class="cartao">
-
-                <span class="icone-cartao">AR</span>
-
-                <span>
-                    <strong>Mapa AR</strong>
-
-                    <small>
-                        Segue uma navegação virtual
-                        até ao destino.
-                    </small>
-                </span>
-
-                <span class="seta-cartao">→</span>
-
-            </a>
+            </select>
 
         </section>
 
 
-        <!-- Informação adicional -->
-        <p class="nota">
-            Protótipo ilustrativo, sem localização real.
+        <!-- ==================================
+             4. ESCOLHER PONTO DE ENCONTRO
+             ================================== -->
+
+        <section class="escolha-ponto">
+
+            <label for="ponto">
+                Ponto de encontro
+            </label>
+
+            <select id="ponto">
+
+                <option value="palco-x">
+                    Palco X
+                </option>
+
+                <option value="side-stage">
+                    Side Stage
+                </option>
+
+                <option value="palco-y">
+                    Palco Y
+                </option>
+
+                <option value="palco-z">
+                    Palco Z
+                </option>
+
+                <option value="livre">
+                    Ponto personalizado
+                </option>
+
+            </select>
+
+        </section>
+
+
+        <!-- ==================================
+             5. ABRIR MAPA 2D
+             ================================== -->
+
+        <a href="mapa2d.html"
+           class="botao"
+           id="abrir-2d"
+           data-link="mapa2d.html">
+
+            Ver mapa 2D
+
+        </a>
+
+
+        <!-- ==================================
+             6. ABRIR NAVEGAÇÃO AR
+             ================================== -->
+
+        <a href="mapaAR.html"
+           class="botao secundario"
+           id="abrir-ar"
+           data-link="mapaAR.html">
+
+            Ver navegação AR
+
+        </a>
+
+
+        <!-- ==================================
+             7. INFORMAÇÃO
+             ================================== -->
+
+        <p class="legenda">
+
+            Os percursos são ilustrativos.
+            A navegação não utiliza GPS
+            nem câmara real.
+
         </p>
 
     </main>
 
+
+    <!-- ==================================
+         8. JAVASCRIPT
+         ================================== -->
+
+    <!-- Dados dos festivais e pontos -->
+    <script src="../../scripts/luisa-mapa/mapa.js"></script>
+
+    <!-- Seleção de festival e destino -->
+    <script src="../../scripts/luisa-mapa/mapa-menu.js"></script>
+
 </body>
+
 </html>
