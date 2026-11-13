@@ -1,3 +1,4 @@
+
 /* =====================================
    BANDy - Pagamento PayPal
    模拟 PayPal 支付确认
@@ -10,9 +11,9 @@ const dialogo = document.getElementById("confirmar-paypal");
 // 2. 点击 Continuar
 document.getElementById("continuar-paypal").addEventListener("click", function() {
 
-    // 如果没有选择过门票，返回选票页面
+    // 如果没有选择过门票，返回 Rodrigo 的选票页面
     if (!sessionStorage.getItem("bandyCompra")) {
-        window.location.href = "escolher_bilhete.html";
+        window.location.href = "../rodrigo/selecionar_bilhete.html";
         return;
     }
 

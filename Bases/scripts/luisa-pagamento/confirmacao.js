@@ -1,3 +1,4 @@
+
 /* BANDy - Confirmação */
 
 // 查看数字门票

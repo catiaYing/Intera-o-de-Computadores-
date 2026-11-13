@@ -1,3 +1,11 @@
+
+/* ==========================================
+   BANDy - Selecionar Bilhete
+   ========================================== */
+
+
+/* ===== 1. RESUMO DO FESTIVAL ===== */
+
 .festival-resumo {
     display: flex;
     align-items: center;
@@ -9,12 +17,16 @@
     width: 56px;
     height: 56px;
     flex-shrink: 0;
+
     border-radius: 12px;
+
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
     background: #171923;
     color: #D7FF00;
+
     font-size: 24px;
 }
 
@@ -29,6 +41,9 @@
     font-size: 12px;
 }
 
+
+/* ===== 2. TIPO DE BILHETE ===== */
+
 .secao {
     padding: 0 20px;
     margin-bottom: 20px;
@@ -36,6 +51,7 @@
 
 .secao-titulo {
     margin-bottom: 12px;
+
     color: #6B7280;
     font-size: 11px;
     font-weight: 700;
@@ -46,16 +62,21 @@
     display: flex;
     align-items: center;
     gap: 12px;
+
     width: 100%;
     min-height: 48px;
+
     padding: 14px;
     margin-bottom: 10px;
+
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
+
     text-align: left;
     color: inherit;
     cursor: pointer;
+
     transition: border-color .2s, background .2s;
 }
 
@@ -75,6 +96,7 @@
 .opcao-texto small {
     display: block;
     margin-top: 4px;
+
     color: #6B7280;
     font-size: 12px;
 }
@@ -88,9 +110,13 @@
     width: 20px;
     height: 20px;
     flex-shrink: 0;
+
     border: 2px solid #E5E7EB;
     border-radius: 50%;
 }
+
+
+/* ===== 3. BILHETE SELECIONADO ===== */
 
 .opcao.ativo {
     background: #F9FFD6;
@@ -104,12 +130,17 @@
     box-shadow: inset 0 0 0 3px #FFFFFF;
 }
 
+
+/* ===== 4. QUANTIDADE ===== */
+
 .quantidade {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     min-height: 48px;
     padding: 12px 14px;
+
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
@@ -129,13 +160,17 @@
 .contador-quantidade button {
     width: 36px;
     height: 36px;
+
     border: 1px solid #E5E7EB;
     border-radius: 12px;
+
     background: #FFFFFF;
     color: #171923;
+
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
+
     transition: background .2s, border-color .2s;
 }
 
@@ -151,17 +186,23 @@
 
 .contador-quantidade output {
     min-width: 20px;
+
     text-align: center;
     font-size: 18px;
     font-weight: 700;
 }
 
+
+/* ===== 5. PREÇO TOTAL ===== */
+
 .total-linha {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     margin: 0 20px;
     padding: 16px 0;
+
     border-top: 1px solid #E5E7EB;
 }
 
@@ -174,6 +215,9 @@
     font-size: 20px;
     font-weight: 700;
 }
+
+
+/* ===== 6. RODAPÉ ===== */
 
 .rodape {
     padding: 8px 20px 20px;
