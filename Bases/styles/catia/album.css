@@ -76,6 +76,9 @@ body {
     gap: 9px;
     width: 100%;
     margin-top: 25px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
 }
 
 .photo-box {
@@ -126,13 +129,13 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    transform: translateX(-50%);
     width: 100%;
     max-width: 430px;
     padding: 16px 24px 25px;
     background: rgba(255, 255, 255, 0.96);
     border-top: 1px solid #E5E7EB;
     z-index: 100;
+    
 }
 
 .album-page footer button {
