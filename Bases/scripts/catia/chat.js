@@ -185,34 +185,9 @@ const mensagensIniciais = {
 };
 
 
-// 5. Guardar mensagens
-
-const chaveChat = "bandyChat_" + user;
+// 5. Mensagens
 
 let chatMessages = mensagensIniciais[user].slice();
-
-try {
-    const guardadas = JSON.parse(
-        sessionStorage.getItem(chaveChat)
-    );
-
-    if (Array.isArray(guardadas)) {
-        chatMessages = guardadas;
-    }
-} catch (erro) {
-    // Continuar com as mensagens iniciais
-}
-
-function guardarMensagens() {
-    try {
-        sessionStorage.setItem(
-            chaveChat,
-            JSON.stringify(chatMessages)
-        );
-    } catch (erro) {
-        // Continuar sem guardar
-    }
-}
 
 
 // 6. Elementos HTML
@@ -401,7 +376,6 @@ messageForm.addEventListener("submit", function(event) {
         time: getCurrentTime()
     });
 
-    guardarMensagens();
     showMessages();
 
     messageInput.value = "";
@@ -425,8 +399,6 @@ document.getElementById("sendPhotoOption")
 
         sessionStorage.setItem("bandyReturnUser", user);
 
-        guardarMensagens();
-
         window.location.href =
             "album.html?return=chat.html";
 
@@ -449,7 +421,6 @@ if (
         time: getCurrentTime()
     });
 
-    guardarMensagens();
     showMessages();
 
     sessionStorage.removeItem("bandySelectedPhoto");
@@ -578,7 +549,6 @@ document.getElementById("confirmPoint")
 
         chatMessages.push(invitation);
 
-        guardarMensagens();
         showMessages();
 
         closePoint();
@@ -593,7 +563,6 @@ document.getElementById("confirmPoint")
             invitation.accepted = true;
             invitation.status = "✓ Convite aceite!";
 
-            guardarMensagens();
             showMessages();
 
             inviteOverlay.classList.add("show");
@@ -621,7 +590,6 @@ document.getElementById("confirmPoint")
                     invitation.status =
                         "✓ Encontro confirmado!";
 
-                    guardarMensagens();
                     showMessages();
                 }
 
