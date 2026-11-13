@@ -10,7 +10,7 @@
     <title>Chat - BANDy</title>
 
     <link rel="stylesheet"
-          href="../../styles/catia/chat.css?v=6">
+          href="../../styles/catia/chat.css?v=7">
 </head>
 
 <body>
@@ -18,9 +18,10 @@
 <main class="chat-page">
 
     <!-- Cabeçalho -->
+
     <header class="chat-header">
 
-        <a href="javascript:history.back()"
+        <a href="contactos.html"
            class="back-button">←</a>
 
         <a href="perfil_users.html"
@@ -38,13 +39,16 @@
 
     </header>
 
-    <!-- Data -->
+
     <div class="chat-date">Hoje</div>
 
     <!-- Mensagens -->
+
     <section class="messages" id="messages"></section>
 
+
     <!-- Menu de anexos -->
+
     <div class="attachment-menu" id="attachmentMenu">
 
         <button type="button" id="sendPhotoOption">
@@ -57,7 +61,76 @@
 
     </div>
 
-    <!-- Painel de ponto de encontro -->
+
+    <!-- =====================================
+         ESCOLHER FESTIVAL - NOVO
+         ===================================== -->
+
+    <div class="festival-overlay" id="festivalOverlay">
+
+        <section class="festival-modal">
+
+            <div class="festival-modal-header">
+
+                <div>
+                    <h2>Escolher Festival</h2>
+                    <p>Em que festival se vão encontrar?</p>
+                </div>
+
+                <button type="button"
+                        id="closeFestival"
+                        aria-label="Fechar">
+                    ×
+                </button>
+
+            </div>
+
+            <div class="festival-list">
+
+                <label class="festival-option">
+                    <input type="radio"
+                           name="festivalChoice"
+                           value="alive">
+                    NOS Alive
+                </label>
+
+                <label class="festival-option">
+                    <input type="radio"
+                           name="festivalChoice"
+                           value="kalorama">
+                    MEO Kalorama
+                </label>
+
+                <label class="festival-option">
+                    <input type="radio"
+                           name="festivalChoice"
+                           value="primavera">
+                    Primavera Sound
+                </label>
+
+            </div>
+
+            <div class="festival-buttons">
+
+                <button type="button" id="cancelFestival">
+                    Cancelar
+                </button>
+
+                <button type="button" id="confirmFestival">
+                    Continuar
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- =====================================
+         MARCAR PONTO
+         ===================================== -->
+
     <div class="point-overlay" id="pointOverlay">
 
         <section class="point-modal">
@@ -69,7 +142,11 @@
                     <p>Escolhe um local para se encontrarem.</p>
                 </div>
 
-                <button type="button" id="closePoint">×</button>
+                <button type="button"
+                        id="closePoint"
+                        aria-label="Fechar">
+                    ×
+                </button>
 
             </div>
 
@@ -149,23 +226,33 @@
 
     </div>
 
-    <!-- Confirmação -->
+
+    <!-- Convite aceite -->
+
     <div class="invite-overlay" id="inviteOverlay">
 
         <div class="invite-modal">
+
             <h2>Convite aceite!</h2>
+
             <p>Encontro confirmado em:</p>
+
             <div id="countdown">3</div>
+
         </div>
 
     </div>
 
-    <!-- Caixa de mensagem -->
+
+    <!-- Escrever mensagem -->
+
     <form class="message-form" id="messageForm">
 
         <button type="button"
                 class="attach-button"
-                id="attachButton">＋</button>
+                id="attachButton">
+            ＋
+        </button>
 
         <input type="text"
                id="messageInput"
@@ -173,13 +260,15 @@
                autocomplete="off">
 
         <button type="submit"
-                class="send-button">➤</button>
+                class="send-button">
+            ➤
+        </button>
 
     </form>
 
 </main>
 
-<script src="../../scripts/catia/chat.js?v=6"></script>
+<script src="../../scripts/catia/chat.js?v=7"></script>
 
 </body>
 </html>
