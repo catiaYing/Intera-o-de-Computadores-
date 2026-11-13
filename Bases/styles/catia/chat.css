@@ -602,7 +602,6 @@ body {
 }
 
 /* Cartao de ponto de encontro */
-
 .message.point-message {
     background: transparent;
     padding: 0;
@@ -654,7 +653,49 @@ body {
     color: #4D7C0F;
 }
 
-/* Escolher Festival */
+
+/* ==========================================
+   BANDy - Botão Ver Percurso
+   ========================================== */
+
+.point-invitation .botao-ver-percurso {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 48px;
+    margin-top: 14px;
+    padding: 12px;
+
+    background-color: #D7FF00;
+    color: #171923;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+
+    cursor: pointer;
+}
+
+.point-invitation .botao-ver-percurso:hover {
+    background-color: #BFE600;
+}
+
+
+
+/* ==========================================
+   ESCOLHER FESTIVAL - BANDy
+   ========================================== */
+
+/* Fundo do modal */
 
 .festival-overlay {
     display: none;
@@ -667,9 +708,13 @@ body {
     z-index: 40;
 }
 
+/* Mostrar o modal */
+
 .festival-overlay.show {
     display: flex;
 }
+
+/* Caixa do modal */
 
 .festival-modal {
     width: 100%;
@@ -680,6 +725,8 @@ body {
     border-radius: 18px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.16);
 }
+
+/* Cabeçalho */
 
 .festival-modal-header {
     display: flex;
@@ -700,6 +747,8 @@ body {
     color: var(--gray);
 }
 
+/* Botão fechar */
+
 #closeFestival {
     width: 28px;
     height: 28px;
@@ -712,12 +761,16 @@ body {
     cursor: pointer;
 }
 
+/* Lista de festivais */
+
 .festival-list {
     display: flex;
     flex-direction: column;
     gap: 9px;
     margin-top: 15px;
 }
+
+/* Cada opção */
 
 .festival-option {
     min-height: 45px;
@@ -733,14 +786,20 @@ body {
     font-weight: 600;
 }
 
+/* Festival selecionado */
+
 .festival-option:has(input:checked) {
     border: 2px solid var(--green-dark);
     background: #F5F6F2;
 }
 
+/* Radio buttons */
+
 .festival-option input {
     accent-color: var(--green-dark);
 }
+
+/* Botões do Festival */
 
 .festival-buttons {
     display: flex;
@@ -750,19 +809,23 @@ body {
 
 .festival-buttons button {
     flex: 1;
-    min-height: 36px;
+    min-height: 40px;
     border: none;
     border-radius: 10px;
     font-family: inherit;
-    font-size: 12px;
-    font-weight: 650;
+    font-size: 13px;
+    font-weight: 600;
     cursor: pointer;
 }
+
+/* Cancelar */
 
 #cancelFestival {
     background: var(--light);
     color: var(--black);
 }
+
+/* Continuar */
 
 #confirmFestival {
     background: var(--green);

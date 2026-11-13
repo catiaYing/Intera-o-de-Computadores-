@@ -1,48 +1,25 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // Guardar a pagina de origem
+    // guardar a pagina origem
 
     const paginaAnterior = document.referrer;
 
-    if (paginaAnterior) {
-
-        try {
-
-            const urlAnterior = new URL(paginaAnterior);
-
-            // Guardar apenas paginas do mesmo site
-            if (
-                urlAnterior.origin === window.location.origin &&
-                !urlAnterior.pathname.includes("album.html") &&
-                !urlAnterior.pathname.includes("camera.html") &&
-                !urlAnterior.pathname.includes("pedido_amizade.html")
-            ) {
-
-                const paginaOrigem =
-                    urlAnterior.pathname +
-                    urlAnterior.search +
-                    urlAnterior.hash;
-
-                sessionStorage.setItem(
-                    "paginaOrigemPedido",
-                    paginaOrigem
-                );
-            }
-
-        } catch (error) {
-            console.log("Não foi possível guardar a página de origem.");
-        }
+    if (
+        paginaAnterior &&
+        !paginaAnterior.includes("album.html") &&
+        !paginaAnterior.includes("camera.html") &&
+        !paginaAnterior.includes("pedido_amizade.html")
+    ) {
+        sessionStorage.setItem("paginaOrigemPedido", paginaAnterior);
     }
 
-
-    // Formulario
+    // formulario
 
     const requestForm = document.getElementById("requestForm");
     const messageInput = document.getElementById("requestMessage");
 
-
-    // Elementos da foto
+    // elementos da foto
 
     const photoInput = document.getElementById("photoInput");
     const photoModal = document.getElementById("photo-modal");
@@ -58,8 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const removeAlbumPhoto =
         document.getElementById("removeAlbumPhoto");
 
-
-    // Modais
+    // modais
 
     const successModal = document.getElementById("successModal");
     const successButton = document.getElementById("successButton");
@@ -67,11 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const errorModal = document.getElementById("errorModal");
     const errorButton = document.getElementById("errorButton");
 
-
     let selectedPhoto = null;
 
-
-    // Mostrar foto
+    // mostrar foto
 
     function mostrarFotografia(foto) {
 
@@ -83,8 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
         selectedPhotoContainer.style.display = "flex";
     }
 
-
-    // Receber foto do album
+    // receber foto do album
 
     const fotoGuardada =
         sessionStorage.getItem("fotoPedidoAmizade");
@@ -96,8 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("fotoPedidoAmizade");
     }
 
-
-    // Selecionar foto
+     // selecionar foto
 
     photoInput.addEventListener("change", function () {
 
@@ -125,8 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
         photoModal.checked = false;
     });
 
-
-    // Remover foto
+    // remover foto
 
     removeAlbumPhoto.addEventListener("click", function () {
 
@@ -142,8 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("fotoPedidoAmizade");
     });
 
-
-    // Pedido de amizade
+    // pedido de amizade
 
     requestForm.addEventListener("submit", function (event) {
 
@@ -152,16 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const message = messageInput.value.trim();
 
         // Verificar se existe mensagem
-
         if (message === "") {
 
             errorModal.style.display = "flex";
             return;
         }
 
-
-        // Recuperar o destinatario escolhido
-
+        // Recuperar o destinatário escolhido
         const destinatarioGuardado =
             sessionStorage.getItem("destinatarioPedido");
 
@@ -176,9 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
 
-
         // Criar pedido
-
         const pedido = {
 
             destinatario: destinatario,
@@ -192,34 +157,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Pedido de amizade enviado:", pedido);
 
-
-        // Registar pedido enviado
+        // Registar como eniado
+        // Só depois de validar e enviar
 
         if (destinatario && destinatario.id) {
 
             let pedidosEnviados = [];
 
             try {
-
                 pedidosEnviados = JSON.parse(
                     localStorage.getItem("pedidosEnviados")
                 ) || [];
-
             } catch (error) {
-
                 pedidosEnviados = [];
             }
 
-            let jaExiste = false;
+            const jaExiste = pedidosEnviados.some(
+                p => String(p.id) === String(destinatario.id)
+            );
 
-            for (let i = 0; i < pedidosEnviados.length; i++) {
-
-                if (pedidosEnviados[i].id == destinatario.id) {
-                    jaExiste = true;
-                }
-            }
-
-            if (jaExiste == false) {
+            if (!jaExiste) {
 
                 pedidosEnviados.push({
 
@@ -237,13 +194,9 @@ document.addEventListener("DOMContentLoaded", function () {
             );
         }
 
-
         // Mostrar sucesso
-
         successModal.style.display = "flex";
-
     });
-
 
     // SUCESSO
 
@@ -251,9 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         successModal.style.display = "none";
 
-
-        // Limpar formulario
-
+        // Limpar formulário
         requestForm.reset();
 
         selectedPhoto = null;
@@ -268,24 +219,23 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("fotoPedidoAmizade");
         sessionStorage.removeItem("destinatarioPedido");
 
-
-        // Voltar para a pagina anterior
-
-        let paginaOrigem = sessionStorage.getItem("paginaOrigemPedido");
-
-        // Se não existir uma página anterior, voltar para contactos
-
-        if (!paginaOrigem) {
-            paginaOrigem = "contactos.html";
-        }
+        // Voltar à página de origem
+        const paginaOrigem =
+            sessionStorage.getItem("paginaOrigemPedido");
 
         sessionStorage.removeItem("paginaOrigemPedido");
 
-        window.location.href = paginaOrigem;
+        if (paginaOrigem) {
 
+            window.location.href = paginaOrigem;
+
+        } else {
+
+            window.location.href = "novos_amigos.html";
+        }
     });
 
-
+   
     // ERRO
 
     errorButton.addEventListener("click", function () {
