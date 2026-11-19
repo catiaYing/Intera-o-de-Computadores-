@@ -1,7 +1,6 @@
-
 /* Estilos comuns */
 
-/* 1. 基础设置 */
+/* Configurações base */
 * {
     margin: 0;
     padding: 0;
@@ -22,7 +21,6 @@ button, input {
     font-family: inherit;
 }
 
-/* 2. 手机页面 */
 .pagina {
     width: 390px;
     height: 844px;
@@ -39,7 +37,6 @@ button, input {
     flex-direction: column;
 }
 
-/* 3. 顶部导航 */
 .cabecalho {
     position: relative;
     display: flex;
@@ -52,7 +49,7 @@ button, input {
 
 .cabecalho h1 {
     margin: 0;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 750;
     color: #171923;
 }
@@ -65,7 +62,6 @@ button, input {
     text-decoration: none;
 }
 
-/* 4. 页面标题 */
 .introducao {
     margin-bottom: 18px;
 }
@@ -73,7 +69,7 @@ button, input {
 .etiqueta {
     margin: 0 0 8px;
     color: #171923;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 1px;
 }
@@ -88,11 +84,11 @@ button, input {
 .descricao {
     margin: 0;
     color: #6B7280;
-    font-size: 14px;
-    line-height: 1.4;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
-/* 5. 购买摘要 */
+/* Resumo da compra */
 .resumo {
     padding: 16px;
     margin-bottom: 18px;
@@ -104,7 +100,7 @@ button, input {
 .resumo-titulo {
     margin: 0 0 12px;
     color: #6B7280;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -115,8 +111,8 @@ button, input {
 }
 
 .icone-festival {
-    width: 44px;
-    height: 44px;
+    width: 46px;
+    height: 46px;
     flex-shrink: 0;
     display: flex;
     justify-content: center;
@@ -124,14 +120,14 @@ button, input {
     background-color: #D7FF00;
     border: 1px solid #BFE600;
     border-radius: 12px;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
     color: #171923;
 }
 
 .festival h3 {
     margin: 0 0 5px;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     color: #171923;
 }
@@ -139,13 +135,13 @@ button, input {
 .festival p {
     margin: 0;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .resumo hr {
     border: none;
     border-top: 1px solid #E5E7EB;
-    margin: 12px 0;
+    margin: 14px 0;
 }
 
 .total {
@@ -157,26 +153,25 @@ button, input {
 
 .total span {
     color: #4B5563;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .total strong {
-    font-size: 19px;
+    font-size: 21px;
     color: #171923;
 }
 
-/* 6. 绿色主要按钮 */
 .botao-principal {
     width: 100%;
-    min-height: 48px;
-    padding: 12px;
+    min-height: 52px;
+    padding: 14px;
 
     background-color: #D7FF00;
     color: #171923;
     border: none;
     border-radius: 12px;
 
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.2s;
@@ -186,11 +181,10 @@ button, input {
     background-color: #BFE600;
 }
 
-/* 7. 白色次要按钮 */
 .botao-secundario {
     width: 100%;
-    min-height: 44px;
-    padding: 12px;
+    min-height: 48px;
+    padding: 13px;
     margin-top: 10px;
 
     background-color: #FFFFFF;
@@ -198,7 +192,7 @@ button, input {
     border: 1px solid #E5E7EB;
     border-radius: 12px;
 
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
@@ -209,16 +203,15 @@ button, input {
     border-color: #BFE600;
 }
 
-/* 原型说明文字 */
+
 .nota-simulacao {
-    margin: 12px 0;
+    margin: 14px 0;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
     text-align: center;
     line-height: 1.5;
 }
 
-/* 8. 公共弹窗 */
 .dialogo {
     width: 85%;
     max-width: 320px;
@@ -231,21 +224,20 @@ button, input {
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* 弹窗打开时背景变暗 */
 .dialogo::backdrop {
     background-color: rgba(23, 25, 35, 0.55);
 }
 
 .dialogo h2 {
     margin: 0 0 12px;
-    font-size: 20px;
+    font-size: 22px;
     color: #171923;
 }
 
 .dialogo p {
     margin: 0 0 20px;
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.5;
 }
 
@@ -269,14 +261,14 @@ button, input {
     color: #171923;
 }
 
-/* 键盘操作时显示焦点 */
+/* Acessibilidade */
 button:focus-visible,
 a:focus-visible {
     outline: 2px solid #BFE600;
     outline-offset: 3px;
 }
 
-/* 9. 小屏幕适配 */
+/* ecrãs pequenos */
 @media (max-width: 360px) {
     .pagina {
         padding: 14px 16px;

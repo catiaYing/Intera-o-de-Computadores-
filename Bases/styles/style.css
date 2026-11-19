@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,10 +11,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;           
+    min-height: 100vh;
 }
 
-/* 手机主体 */
 .pag-telemovel {
     width: 390px;
     height: 844px;
@@ -32,78 +30,73 @@ body {
     flex-direction: column;
 }
 
-
-/*  2. 页面顶部  */
-
 .pag-topo {
-    display: flex;               
-    justify-content: space-between; 
-    align-items: center;           
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 20px;
-    border-bottom: 1px solid #E5E7EB; 
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .pag-topo h1 {
-    font-size: 19px;  
+    font-size: 23px;
     margin: 0;
     color: #171923;
-    font-weight:750;
+    font-weight: 750;
 }
 
 .pag-voltar {
     color: #171923;
     font-size: 28px;
-    text-decoration: none; 
-    line-height:1;
+    text-decoration: none;
+    line-height: 1;
 }
 
 .pag-topo span {
     width: 20px;
 }
 
-
-
-
+/*introdução*/
 .pag-intro {
-    margin-top: 32px;     
-    margin-bottom: 28px;  
+    margin-top: 28px;
+    margin-bottom: 24px;
 }
 
 .pag-etiqueta {
-    color: #171923;      
-    font-size: 11px;
-    font-weight: 800;   
-    letter-spacing: 1px;  
+    color: #171923;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
 }
 
 .pag-intro h2 {
-    font-size: 29px;
+    font-size: 28px;
     margin: 10px 0;
     font-weight: 750;
     color: #171923;
 }
 
-/* 选择介绍部分的最后一个p元素 */
 .pag-intro > p:last-child {
     color: #777777;
-    font-size: 14px;
-    line-height: 1.5;   
+    font-size: 15px;
+    line-height: 1.5;
 }
 
-
+/* resumo do bilhete */
 .pag-resumo {
     padding: 18px;
-    background-color: #F9FAFB;  
+    background-color: #F9FAFB;
     border: 1px solid #E5E7EB;
-    border-radius: 20px;         
+    border-radius: 20px;
 }
+
 .pag-resumo-topo {
     display: flex;
     justify-content: space-between;
-    font-size: 11px;
+    font-size: 14px;
     color: #6B7280;
     margin-bottom: 20px;
-    font-weight:700;
+    font-weight: 700;
 }
 
 .pag-resumo-topo span:last-child {
@@ -113,9 +106,8 @@ body {
 .pag-bilhete {
     display: flex;
     align-items: center;
-    gap: 14px;  
+    gap: 14px;
 }
-
 
 .pag-icone {
     display: flex;
@@ -128,11 +120,12 @@ body {
     border: 1px solid #BFE600;
     color: #171923;
     font-size: 25px;
+    flex-shrink: 0;
 }
 
 .pag-bilhete h3 {
     margin: 0 0 6px;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 750;
     color: #171923;
 }
@@ -140,9 +133,8 @@ body {
 .pag-bilhete p {
     margin: 0;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
-
 
 .pag-resumo hr {
     border: none;
@@ -158,41 +150,38 @@ body {
 
 .pag-total span {
     color: #4B5563;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .pag-total strong {
-    font-size: 21px;
+    font-size: 23px;
     font-weight: 750;
     color: #171923;
 }
 
-
-
+/* métodos de pagamento */
 .pag-escolha {
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
 .pag-escolha h3 {
     margin-bottom: 8px;
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 750;
     color: #171923;
 }
 
 .pag-escolha > p {
     color: #6B7280;
-    font-size: 13px;
+    font-size: 15px;
     margin-bottom: 18px;
 }
-
 
 .pag-metodos {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
-
 
 .pag-metodo {
     display: flex;
@@ -204,7 +193,7 @@ body {
     border-radius: 15px;
     background-color: #FFFFFF;
     text-align: left;
-    cursor: pointer;  
+    cursor: pointer;
     font-family: inherit;
     transition: all 0.2s;
 }
@@ -223,7 +212,7 @@ body {
     border-radius: 11px;
     background-color: #F3F4F6;
     color: #171923;
-    font-size: 17px;
+    font-size: 19px;
     font-weight: bold;
     flex-shrink: 0;
 }
@@ -234,7 +223,7 @@ body {
 
 .pag-texto strong {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: #171923;
 }
@@ -243,10 +232,9 @@ body {
     display: block;
     margin-top: 5px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
-/* 右侧未选中的圆圈 */
 .pag-circulo {
     width: 19px;
     height: 19px;
@@ -258,8 +246,8 @@ body {
 }
 
 .pag-metodo.selecionado {
-    border: 2px solid #D7FF00;  
-    background-color: rgba(215, 255, 0, 0.08);   
+    border: 2px solid #D7FF00;
+    background-color: rgba(215, 255, 0, 0.08);
 }
 
 .pag-metodo.selecionado .pag-simbolo {
@@ -271,16 +259,17 @@ body {
     background-color: #D7FF00;
 }
 
-
+/* Botão continuar */
 #pag-continuar {
     width: 100%;
-    margin-top: 28px;
+    margin-top: 26px;
     padding: 17px;
     border: none;
     border-radius: 30px;
-    background-color: #D7FF00;  
+    background-color: #D7FF00;
     color: #171923;
-    font-size: 16px;
+    font-family: inherit;
+    font-size: 17px;
     font-weight: 750;
     cursor: pointer;
     transition: background 0.2s;
@@ -298,7 +287,8 @@ body {
 
 .pag-aviso {
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
     color: #6B7280;
     margin-top: 18px;
+    line-height: 1.5;
 }

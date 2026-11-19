@@ -34,32 +34,28 @@
     </header>
 
 
-    <!-- Filtros por mês -->
-    <section class="filtros">
+    <!-- Botões principais: Todos e Filtrar + Ordenação -->
+    <section class="painel-filtros">
 
-        <button type="button"
-                class="filtro ativo"
-                data-mes="todos">
-            Todos
-        </button>
+        <div class="botoes-topo-pesquisa">
+            <button type="button" class="btn-principal-filtro ativo" id="btn-todos">
+                Todos
+            </button>
 
-        <button type="button"
-                class="filtro"
-                data-mes="6">
-            Junho
-        </button>
+            <button type="button" class="btn-principal-filtro" id="btn-abrir-filtros">
+                Filtrar <span id="badge-filtros" hidden></span>
+            </button>
+        </div>
 
-        <button type="button"
-                class="filtro"
-                data-mes="7">
-            Julho
-        </button>
+        <div class="barra-ordenacao">
+            <label for="ordenar">Ordenar:</label>
 
-        <button type="button"
-                class="filtro"
-                data-mes="8">
-            Agosto
-        </button>
+            <select id="ordenar">
+                <option value="padrao">Data (mais próximos)</option>
+                <option value="preco-asc">Preço: mais baixo</option>
+                <option value="preco-desc">Preço: mais alto</option>
+            </select>
+        </div>
 
     </section>
 
@@ -71,28 +67,23 @@
     <!-- Lista de festivais -->
     <section class="lista-festivais" id="lista-festivais">
 
-
         <!-- 1. MEO Alive -->
         <a href="../detalhes.html?festival=MEO%20Alive"
            class="festival"
-           data-mes="6">
+           data-ordem="1"
+           data-mes="6"
+           data-zona="lisboa"
+           data-preco="45">
 
             <div class="festival-imagem imagem-um">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">
-                    ALGÉS, LISBOA
-                </span>
-
+                <span class="festival-local">ALGÉS, LISBOA</span>
                 <h3>MEO Alive</h3>
-
                 <p>10 – 12 Junho 2027</p>
-
-                <span class="festival-preco">
-                    Desde € 45,00
-                </span>
+                <span class="festival-preco">Desde € 45,00</span>
             </div>
 
             <span class="festival-seta">›</span>
@@ -103,24 +94,20 @@
         <!-- 2. Primavera Sound -->
         <a href="../detalhes.html?festival=Primavera%20Sound"
            class="festival"
-           data-mes="6">
+           data-ordem="2"
+           data-mes="6"
+           data-zona="porto"
+           data-preco="75">
 
             <div class="festival-imagem imagem-quatro">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">
-                    PORTO
-                </span>
-
+                <span class="festival-local">PORTO</span>
                 <h3>Primavera Sound</h3>
-
                 <p>12 – 14 Junho 2027</p>
-
-                <span class="festival-preco">
-                    Desde € 75,00
-                </span>
+                <span class="festival-preco">Desde € 75,00</span>
             </div>
 
             <span class="festival-seta">›</span>
@@ -131,24 +118,20 @@
         <!-- 3. Sumol Summer Fest -->
         <a href="../detalhes.html?festival=Sumol%20Summer%20Fest"
            class="festival"
-           data-mes="7">
+           data-ordem="3"
+           data-mes="7"
+           data-zona="oeste"
+           data-preco="45">
 
             <div class="festival-imagem imagem-tres">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">
-                    ERICEIRA
-                </span>
-
+                <span class="festival-local">ERICEIRA</span>
                 <h3>Sumol Summer Fest</h3>
-
                 <p>3 – 4 Julho 2027</p>
-
-                <span class="festival-preco">
-                    Desde € 45,00
-                </span>
+                <span class="festival-preco">Desde € 45,00</span>
             </div>
 
             <span class="festival-seta">›</span>
@@ -159,24 +142,20 @@
         <!-- 4. MEO Kalorama -->
         <a href="../detalhes.html?festival=Meo%20Kalorama"
            class="festival"
-           data-mes="8">
+           data-ordem="4"
+           data-mes="8"
+           data-zona="lisboa"
+           data-preco="65">
 
             <div class="festival-imagem imagem-dois">
                 <span>♫</span>
             </div>
 
             <div class="festival-detalhes">
-                <span class="festival-local">
-                    LISBOA
-                </span>
-
+                <span class="festival-local">LISBOA</span>
                 <h3>Meo Kalorama</h3>
-
                 <p>29 Agosto 2027</p>
-
-                <span class="festival-preco">
-                    Desde € 65,00
-                </span>
+                <span class="festival-preco">Desde € 65,00</span>
             </div>
 
             <span class="festival-seta">›</span>
@@ -190,9 +169,7 @@
     <p class="sem-resultados"
        id="sem-resultados"
        hidden>
-
-        Não foram encontrados festivais.
-
+        Não foram encontrados festivais para estes filtros.
     </p>
 
 </main>
@@ -201,133 +178,106 @@
 <!-- Navbar comum do projeto -->
 <nav class="bottom-nav">
 
-    <a href="../home.html"
-       class="nav-item">
-
+    <a href="../home.html" class="nav-item">
         <img src="../../media/inicio-home.png" alt="">
         <span>Início</span>
-
     </a>
 
-    <a href="pesquisar.html"
-       class="nav-item active">
-
+    <a href="pesquisar.html" class="nav-item active">
         <img src="../../media/pesquisar-search.png" alt="">
         <span>Pesquisar</span>
-
     </a>
 
-    <a href="../catia/bilhetes.html"
-       class="nav-item">
-
+    <a href="../catia/bilhetes.html" class="nav-item">
         <img src="../../media/bilhetes-ticket.png" alt="">
         <span>Bilhetes</span>
-
     </a>
 
-    <a href="../catia/contactos.html"
-       class="nav-item">
-
+    <a href="../catia/contactos.html" class="nav-item">
         <img src="../../media/contactos-people.png" alt="">
         <span>Contactos</span>
-
     </a>
 
-    <a href="perfil.html"
-       class="nav-item">
-
+    <a href="perfil.html" class="nav-item">
         <img src="../../media/perfil-user.png" alt="">
         <span>Perfil</span>
-
     </a>
 
 </nav>
 
+
+<!-- Modal de Filtros -->
+<div class="modal" id="modal-filtros" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-filtros">
+
+    <div class="modal-content modal-filtros-box">
+
+        <div class="modal-filtros-topo">
+            <h2 id="titulo-modal-filtros">Filtrar festivais</h2>
+            <button type="button" class="btn-fechar-modal" id="fechar-modal-filtros" aria-label="Fechar">✕</button>
+        </div>
+
+        <div class="modal-filtros-corpo">
+
+            <!-- 1. Mês -->
+            <div class="grupo-filtro">
+                <h3>Mês</h3>
+                <div class="opcoes-filtro">
+                    <button type="button" class="opcao-chip ativo" data-grupo="mes" data-valor="todos">Todos os meses</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="1">Janeiro</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="2">Fevereiro</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="3">Março</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="4">Abril</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="5">Maio</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="6">Junho</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="7">Julho</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="8">Agosto</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="9">Setembro</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="10">Outubro</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="11">Novembro</button>
+                    <button type="button" class="opcao-chip" data-grupo="mes" data-valor="12">Dezembro</button>
+                </div>
+            </div>
+
+            <!-- 2. Zona -->
+            <div class="grupo-filtro">
+                <h3>Zona</h3>
+                <div class="opcoes-filtro">
+                    <button type="button" class="opcao-chip ativo" data-grupo="zona" data-valor="todas">Todas as zonas</button>
+                    <button type="button" class="opcao-chip" data-grupo="zona" data-valor="lisboa">Lisboa</button>
+                    <button type="button" class="opcao-chip" data-grupo="zona" data-valor="porto">Porto</button>
+                    <button type="button" class="opcao-chip" data-grupo="zona" data-valor="oeste">Ericeira / Oeste</button>
+                    <button type="button" class="opcao-chip" data-grupo="zona" data-valor="algarve">Algarve</button>
+                    <button type="button" class="opcao-chip" data-grupo="zona" data-valor="centro">Centro</button>
+                    <button type="button" class="opcao-chip" data-grupo="zona" data-valor="norte">Norte</button>
+                    <button type="button" class="opcao-chip" data-grupo="zona" data-valor="ilhas">Ilhas</button>
+                </div>
+            </div>
+
+            <!-- 3. Preço -->
+            <div class="grupo-filtro">
+                <h3>Preço</h3>
+                <div class="opcoes-filtro">
+                    <button type="button" class="opcao-chip ativo" data-grupo="preco" data-valor="todos">Todos os preços</button>
+                    <button type="button" class="opcao-chip" data-grupo="preco" data-valor="ate50">Até 50 €</button>
+                    <button type="button" class="opcao-chip" data-grupo="preco" data-valor="50a70">50 € – 70 €</button>
+                    <button type="button" class="opcao-chip" data-grupo="preco" data-valor="mais70">Mais de 70 €</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-botoes">
+            <button type="button" id="limpar-modal-filtros">Limpar</button>
+            <button type="button" id="aplicar-filtros">Aplicar</button>
+        </div>
+
+    </div>
+
 </div>
 
+</div>
 
-<!-- JavaScript da pesquisa -->
-<script>
-
-"use strict";
-
-const pesquisa = document.getElementById("pesquisa");
-const filtros = document.querySelectorAll(".filtro");
-const festivais = document.querySelectorAll(".festival");
-const contador = document.getElementById("contador");
-const semResultados = document.getElementById("sem-resultados");
-
-let mesAtual = "todos";
-
-
-// Atualizar pesquisa e filtros
-function atualizarPesquisa() {
-
-    const texto = pesquisa.value
-        .trim()
-        .toLocaleLowerCase("pt-PT");
-
-    let encontrados = 0;
-
-    festivais.forEach(function(festival) {
-
-        const nome = festival.textContent
-            .toLocaleLowerCase("pt-PT");
-
-        const correspondeTexto = nome.includes(texto);
-
-        const correspondeMes =
-            mesAtual === "todos" ||
-            festival.dataset.mes === mesAtual;
-
-        const mostrar = correspondeTexto && correspondeMes;
-
-        festival.hidden = !mostrar;
-        festival.style.display = mostrar ? "" : "none";
-
-        if (mostrar) {
-            encontrados++;
-        }
-
-    });
-
-    contador.textContent =
-        encontrados + (encontrados === 1
-            ? " festival encontrado"
-            : " festivais encontrados");
-
-    semResultados.hidden = encontrados !== 0;
-}
-
-
-// Pesquisa pelo nome
-pesquisa.addEventListener("input", atualizarPesquisa);
-
-
-// Filtrar festivais por mês
-filtros.forEach(function(filtro) {
-
-    filtro.addEventListener("click", function() {
-
-        filtros.forEach(function(item) {
-            item.classList.remove("ativo");
-        });
-
-        filtro.classList.add("ativo");
-
-        mesAtual = filtro.dataset.mes;
-
-        atualizarPesquisa();
-
-    });
-
-});
-
-
-// Mostrar festivais ao abrir a página
-atualizarPesquisa();
-
-</script>
+<script src="../../scripts/rodrigo/pesquisar.js"></script>
 
 </body>
 </html>

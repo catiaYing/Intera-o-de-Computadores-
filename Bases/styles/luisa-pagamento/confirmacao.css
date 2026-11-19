@@ -1,7 +1,6 @@
-
 /* Confirmação */
 
-/* 1. 基础设置 */
+/* configurações base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,7 +17,6 @@ body {
     min-height: 100vh;
 }
 
-/* 手机页面：浅黄色背景 */
 .pagina {
     width: 390px;
     height: 844px;
@@ -35,7 +33,6 @@ body {
     flex-direction: column;
 }
 
-/* 2. 顶部导航 */
 .cabecalho {
     display: flex;
     align-items: center;
@@ -45,12 +42,11 @@ body {
 
 .cabecalho h2 {
     margin: 0;
-    font-size: 20px;
-    font-weight:700;
-    color:#171923;
+    font-size: 23px;
+    font-weight: 700;
+    color: #171923;
 }
 
-/* 左上角返回箭头 */
 .voltar {
     color: #171923;
     font-size: 30px;
@@ -58,7 +54,7 @@ body {
     text-decoration: none;
 }
 
-/* 3. 中间的支付成功信息 */
+/* Mensagem de sucesso */
 .resultado {
     flex: 1;
 
@@ -71,7 +67,6 @@ body {
     padding: 20px 0;
 }
 
-/* 绿色圆圈和成功图标 */
 .icone-sucesso {
     width: 80px;
     height: 80px;
@@ -88,29 +83,29 @@ body {
     border-radius: 50%;
 
     font-size: 54px;
-    font-weight:bold;
+    font-weight: bold;
 }
 
-/* Pagamento Concluído! */
+/* Pagamento concluído */
 .resultado h1 {
     margin: 0 0 18px;
-    font-size: 25px;
+    font-size: 28px;
     line-height: 1.25;
     color: #171923;
     font-weight: 750;
 }
 
-/* 成功说明文字 */
+/* Texto  */
 .resultado p {
     max-width: 330px;
     margin: 0;
 
     color: #6B7280;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.65;
 }
 
-/* 4. 底部操作按钮 */
+/* botões inferiores */
 .acoes {
     width: 100%;
 
@@ -120,18 +115,19 @@ body {
     align-items: stretch;
 }
 
-/* 绿色主按钮：Ver o meu bilhete */
+/* Ver o meu bilhete */
 .btn-principal {
     width: 100%;
-    min-height: 50px;
-    padding: 12px;
+    min-height: 52px;
+    padding: 14px;
 
     background-color: #D7FF00;
     border: 2px solid #D7FF00;
     border-radius: 20px;
 
     color: #171923;
-    font-size: 16px;
+    font-family: inherit;
+    font-size: 17px;
     font-weight: 750;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
@@ -142,17 +138,18 @@ body {
     border-color: #BFE600;
 }
 
-/* 白色描边按钮：Ver os meus festivais */
+/* Ver os meus festivais */
 .btn-secundario {
     width: 100%;
     min-height: 50px;
-    padding: 12px;
+    padding: 13px;
 
-    background-color: FFFFFF;
+    background-color: #FFFFFF;
     border: 2px solid #E5E7EB;
     border-radius: 20px;
 
     color: #171923;
+    font-family: inherit;
     font-size: 16px;
     font-weight: 750;
     cursor: pointer;
@@ -164,14 +161,14 @@ body {
     border-color: #BFE600;
 }
 
-/* 最底部返回首页文字 */
+/* Ligação de regresso ao início */
 .link-inicio {
     display: block;
     margin-top: 6px;
     padding: 6px 0;
 
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
     text-align: center;
     text-decoration: underline;
     transition: color 0.2s;
@@ -181,20 +178,20 @@ body {
     color: #171923;
 }
 
-/* 键盘焦点 */
+/* Acessibilidade */
 button:focus-visible,
 a:focus-visible {
     outline: 2px solid #52621e;
     outline-offset: 3px;
 }
 
-/* 6. 小屏幕适配 */
+/* ecrãs pequenos */
 @media (max-width: 360px) {
     .pagina {
         padding: 18px 18px 14px;
     }
 
     .resultado h1 {
-        font-size: 23px;
+        font-size: 25px;
     }
 }

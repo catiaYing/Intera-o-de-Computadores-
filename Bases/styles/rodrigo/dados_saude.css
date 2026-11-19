@@ -13,27 +13,30 @@
 }
 
 .avatar-pequeno {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #D7FF00;
     border: 2px solid #BFE600;
-    font-size: 16px;
-    font-weight: 700;
+    color: #171923;
+    font-size: 18px;
+    font-weight: 750;
 }
 
 .utilizador-info h2 {
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .utilizador-info p {
     margin-top: 3px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .cartoes {
@@ -48,7 +51,7 @@
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 16px;
-    transition: border-color .2s;
+    transition: border-color 0.2s;
 }
 
 .cartao-saude:hover {
@@ -56,41 +59,44 @@
 }
 
 .cartao-icone {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 12px;
     border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: #D7FF00;
-    font-size: 17px;
+    color: #171923;
+    font-size: 19px;
 }
 
 .cartao-titulo {
     color: #6B7280;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: .7px;
+    letter-spacing: 0.7px;
 }
 
 .cartao-valor {
     display: block;
     margin-top: 6px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .cartao-valor small {
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .cartao-estado {
     margin-top: 6px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 .privacidade {
@@ -99,35 +105,38 @@
     justify-content: space-between;
     gap: 14px;
     margin: 16px 20px 0;
-    padding: 14px 16px;
+    padding: 16px;
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
-    border-radius: 12px;
+    border-radius: 14px;
 }
 
 .privacidade strong {
     display: block;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #171923;
 }
 
 .privacidade small {
     display: block;
     margin-top: 4px;
     color: #6B7280;
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.45;
 }
 
 .interruptor {
     position: relative;
-    width: 46px;
-    height: 26px;
+    width: 48px;
+    height: 28px;
     flex-shrink: 0;
     border: none;
-    border-radius: 13px;
+    border-radius: 14px;
     background: #E5E7EB;
+    font-family: inherit;
     cursor: pointer;
-    transition: background .2s;
+    transition: background 0.2s;
 }
 
 .interruptor::after {
@@ -135,12 +144,12 @@
     position: absolute;
     top: 3px;
     left: 3px;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background: #FFFFFF;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .25);
-    transition: transform .2s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s;
 }
 
 .interruptor[aria-pressed="true"] {

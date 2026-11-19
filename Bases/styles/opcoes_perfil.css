@@ -52,7 +52,7 @@ body {
 
 .cabecalho h1 {
     margin: 0;
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 750;
     color: #171923;
 }
@@ -70,7 +70,7 @@ body {
 }
 
 .conteudo h2 {
-    font-size: 25px;
+    font-size: 26px;
     margin: 5px 0 12px;
     color: #171923;
     font-weight: 750;
@@ -78,13 +78,13 @@ body {
 
 .descricao {
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
 .subtitulo {
-    font-size: 17px;
+    font-size: 18px;
     margin: 27px 0 14px;
     font-weight:750;
     color: #171923;
@@ -107,7 +107,7 @@ body {
 }
 
 .cartao h3 {
-    font-size: 16px;
+    font-size: 17px;
     margin: 0 0 8px;
     font-weight:750;
     color: #171923;
@@ -138,7 +138,7 @@ body {
 
 .notificacao small {
     color: #9CA3AF;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .notificacao.lida {
@@ -169,13 +169,13 @@ body {
     border: 1px solid #BFE600;
 
     font-weight: bold;
-    font-size: 19px;
+    font-size: 20px;
     color: #171923;
     flex-shrink: 0;
 }
 
 .metodo strong {
-    font-size: 15px;
+    font-size: 16px;
     font-weight:600;
     color:#171923;
 }
@@ -193,15 +193,15 @@ body {
 }
 
 .opcao strong {
-    font-size: 14px;
+    font-size: 16px;
     font-weight:700;
     color:#171923;
 }
 
 .opcao input[type="checkbox"] {
     accent-color: #171923;
-    width: 23px;
-    height: 23px;
+    width: 24px;
+    height: 24px;
     cursor: pointer;
     flex-shrink: 0;
 }
@@ -228,11 +228,11 @@ body {
 
 .campo small {
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .campo strong {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: #171923;
 }
@@ -249,7 +249,7 @@ body {
     border-radius: 26px;
     text-align: center;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     font-family: inherit;
     font-weight: 750;
     cursor: pointer;
@@ -284,14 +284,14 @@ body {
 .aviso {
     margin: 18px 0;
 
-    font-size: 12px;
+    font-size: 14px;
     color: #6B7280;
     line-height: 1.6;
 }
 
 .mensagem {
     color: #171923;
-    font-size: 13px;
+    font-size: 15px;
 
     text-align: center;
     line-height: 1.5;
@@ -308,7 +308,7 @@ body {
 
 .link-voltar {
     color: #171923;
-    font-size: 14px;
+    font-size: 15px;
     text-decoration: underline;
     font-weight:600;
 }
@@ -337,6 +337,6 @@ input:focus-visible {
     }
 
     .conteudo h2 {
-        font-size: 22px;
+        font-size: 24px;
     }
 }

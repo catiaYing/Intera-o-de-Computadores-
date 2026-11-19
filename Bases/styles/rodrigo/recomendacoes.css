@@ -1,28 +1,87 @@
+/* Secção compacta dos gostos do utilizador */
 .interesses {
-    padding: 20px 20px 0;
+    padding: 14px 20px 0;
+}
+
+.interesses-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .interesses h2 {
-    margin-bottom: 10px;
     color: #6B7280;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: .7px;
+    letter-spacing: 0.7px;
     text-transform: uppercase;
 }
 
+.botao-adicionar-gosto {
+    padding: 6px 13px;
+    border: none;
+    border-radius: 20px;
+    background: #D7FF00;
+    color: #171923;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 750;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.botao-adicionar-gosto:hover {
+    background: #BFE600;
+}
+
+/* Etiquetas */
 .etiquetas {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
 }
 
+.etiquetas-compactas {
+    gap: 5px;
+}
+
+.etiquetas-compactas .etiqueta {
+    padding: 6px 12px;
+    font-size: 12px;
+    max-width: 175px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Etiquetas clicáveis no topo ("Os teus gostos") */
+.etiqueta-clicavel {
+    font-family: inherit;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.etiqueta-clicavel:hover {
+    border-color: #BFE600;
+    background: #F9FFD6;
+    color: #171923;
+}
+
+.etiqueta-clicavel.selecionada {
+    background: #D7FF00;
+    border-color: #BFE600;
+    color: #171923;
+    font-weight: 750;
+}
+
+/* Etiquetas nos cartões das pessoas */
 .etiqueta {
     padding: 4px 10px;
     border: 1px solid #E5E7EB;
-    border-radius: 12px;
+    border-radius: 10px;
     background: #FFFFFF;
-    color: #6B7280;
+    color: #4B5563;
     font-size: 12px;
     font-weight: 600;
 }
@@ -35,10 +94,55 @@
     font-weight: 600;
 }
 
+/* Botão "+X ver mais" / "Ver menos" */
+.botao-ver-mais {
+    padding: 4px 9px;
+    border: 1px dashed #9CA3AF;
+    border-radius: 10px;
+    background: #F9FAFB;
+    color: #171923;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.botao-ver-mais:hover {
+    background: #F3F4F6;
+    border-color: #171923;
+}
+
+.pesquisa-recomendacoes {
+    padding: 14px 20px 0;
+}
+
+.pesquisa-recomendacoes input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #171923;
+    font-family: inherit;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+.pesquisa-recomendacoes input::placeholder {
+    color: #9CA3AF;
+}
+
+.pesquisa-recomendacoes input:focus {
+    outline: none;
+    border-color: #BFE600;
+}
+
 .filtros {
     display: flex;
     gap: 8px;
-    padding: 16px 20px;
+    padding: 12px 20px;
     overflow-x: auto;
     scrollbar-width: none;
 }
@@ -48,17 +152,18 @@
 }
 
 .filtro {
-    min-height: 36px;
-    padding: 8px 16px;
+    min-height: 38px;
+    padding: 7px 15px;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     background: #FFFFFF;
-    color: #6B7280;
-    font-size: 12px;
+    color: #4B5563;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 600;
     white-space: nowrap;
     cursor: pointer;
-    transition: all .2s;
+    transition: all 0.2s;
 }
 
 .filtro:hover {
@@ -70,13 +175,13 @@
     background: #171923;
     border-color: #171923;
     color: #FFFFFF;
-    font-weight: 700;
+    font-weight: 750;
 }
 
 .contador {
-    padding: 0 20px 8px;
+    padding: 0 20px 10px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .lista-pessoas {
@@ -87,11 +192,11 @@
 }
 
 .pessoa {
-    padding: 14px;
+    padding: 15px;
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 16px;
-    transition: border-color .2s;
+    transition: border-color 0.2s;
 }
 
 .pessoa:hover {
@@ -106,8 +211,8 @@
 
 /* Avatar: cinzento em vez de verde */
 .avatar-pessoa {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     flex-shrink: 0;
     border-radius: 50%;
     display: flex;
@@ -116,8 +221,8 @@
     background: #F3F4F6;
     border: 2px solid #E5E7EB;
     color: #171923;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: 750;
 }
 
 .pessoa-info {
@@ -126,31 +231,40 @@
 }
 
 .pessoa-info h3 {
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .pessoa-info p {
-    margin-top: 3px;
+    margin-top: 4px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 .pessoa .etiquetas {
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 .pessoa-acoes {
-    margin-top: 12px;
+    margin-top: 13px;
 }
 
 /* Botão principal: manter verde BANDy */
 .pessoa-acoes .botao-principal {
-    font-size: 14px;
+    min-height: 46px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
     background: #D7FF00;
     color: #171923;
     border: none;
     cursor: pointer;
+}
+
+.pessoa-acoes .botao-principal:hover {
+    background: #BFE600;
 }
 
 /* Pedido enviado: botão cinzento */
@@ -166,5 +280,103 @@
     padding: 32px 20px;
     text-align: center;
     color: #6B7280;
+    font-size: 15px;
+}
+
+/* Modal de adicionar gosto */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(23, 25, 35, 0.55);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 330px;
+    padding: 24px 20px;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content h2 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    font-weight: 750;
+    color: #171923;
+    text-align: center;
+}
+
+.campo {
+    margin-bottom: 14px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    color: #171923;
     font-size: 14px;
+    font-weight: 700;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 14px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    color: #171923;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #BFE600;
+}
+
+.modal-botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-botoes button {
+    flex: 1;
+    min-height: 46px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#cancelar-gosto {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    color: #171923;
+}
+
+#guardar-gosto {
+    background: #D7FF00;
+    color: #171923;
+}
+
+#guardar-gosto:hover {
+    background: #BFE600;
 }

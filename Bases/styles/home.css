@@ -67,9 +67,10 @@ body {
 }
 
 .topo p {
-    font-size: 13px;
+    font-size: 15px;
     color: #6B7280;
     margin-top: 8px;
+    line-height: 1.4;
 }
 
 /* Cartaz */
@@ -126,7 +127,7 @@ body {
 /* estilos dos botoes */
 .atalhos a {
     width: 100%;
-    min-height: 52px;
+    min-height: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,13 +135,13 @@ body {
     border-radius: 25px;
     color: #171923;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 750;
     transition: background 0.2s, border-color 0.2s, transform 0.1s;
 }
 
 .atalhos a:active {
-    transform: scale(0.98)
+    transform: scale(0.98);
 }
 
 .botao-festivais {
@@ -163,7 +164,7 @@ body {
     border-color: #BFE600;
 }
 
-.botao-mapa{
+.botao-mapa {
     background: #b2bd3e;
     border-color: #b2bd3e;
 }

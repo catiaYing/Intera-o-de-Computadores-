@@ -112,3 +112,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+const TerminarSessao = document.getElementById("terminar-sessao");
+const modalSair = document.getElementById("modal-sair");
+const CancelarSaida = document.getElementById("cancelar-saida");
+const ConfirmarSaida = document.getElementById("confirmar-saida");
+
+if (TerminarSessao && modalSair) {
+    TerminarSessao.addEventListener("click", (event) => {
+        event.preventDefault();
+        modalSair.classList.add("show");
+    });
+
+    CancelarSaida.addEventListener("click", () => {
+        modalSair.classList.remove("show");
+    });
+
+    ConfirmarSaida.addEventListener("click", () => {
+        window.location.href = TerminarSessao.getAttribute("href");
+    });
+
+    // Fecha o popup se tocar fora da caixa 
+    modalSair.addEventListener("click", (event) => {
+        if (event.target === modalSair) {
+            modalSair.classList.remove("show");
+        }
+    });
+}

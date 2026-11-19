@@ -15,26 +15,27 @@
     background: #D7FF00;
     border: 2px solid #BFE600;
     color: #171923;
-    font-size: 32px;
-    font-weight: 700;
+    font-size: 34px;
+    font-weight: 750;
 }
 
 .perfil-topo h2 {
     margin-top: 14px;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 21px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .utilizador {
     margin: 4px 0 16px;
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .estatisticas {
     display: flex;
     margin: 0 20px 20px;
-    padding: 14px 0;
+    padding: 16px 0;
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 16px;
@@ -51,13 +52,16 @@
 
 .estatistica strong {
     display: block;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .estatistica span {
+    display: block;
+    margin-top: 2px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .menu {
@@ -71,16 +75,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 48px;
-    padding: 12px 16px;
+    min-height: 52px;
+    padding: 13px 16px;
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     color: #171923;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
-    transition: border-color .2s, background .2s;
+    transition: border-color 0.2s, background 0.2s;
 }
 
 .menu-item:hover {
@@ -101,7 +106,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: rgba(23, 25, 35, .5);
+    background: rgba(23, 25, 35, 0.55);
 }
 
 .modal.show {
@@ -115,13 +120,14 @@
     border: 1px solid #E5E7EB;
     border-radius: 16px;
     background: #FFFFFF;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, .15);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
 .modal-content h2 {
     margin-bottom: 16px;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: 21px;
+    font-weight: 750;
+    color: #171923;
     text-align: center;
 }
 
@@ -132,9 +138,9 @@
 .campo label {
     display: block;
     margin-bottom: 6px;
-    color: #6B7280;
-    font-size: 12px;
-    font-weight: 600;
+    color: #171923;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .campo input {
@@ -145,7 +151,9 @@
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     color: #171923;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.2s;
 }
 
 .campo input:focus {
@@ -155,6 +163,7 @@
 
 .campo input[aria-invalid="true"] {
     border-color: #DC2626;
+    background: #FEF2F2;
 }
 
 .modal-botoes {
@@ -169,15 +178,22 @@
     padding: 12px;
     border: none;
     border-radius: 12px;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 #cancelar-edicao {
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     color: #171923;
+}
+
+#cancelar-edicao:hover {
+    background: #F9FAFB;
+    border-color: #BFE600;
 }
 
 #guardar-edicao {
@@ -189,14 +205,40 @@
     background: #BFE600;
 }
 
-
 /* Terminar Sessão */
 .menu-item[href*="login.html"] {
-    color: #DC2616;
-    font-weight: 600;
+    color: #DC2626;
+    font-weight: 700;
 }
 
 .menu-item[href*="login.html"]:hover {
     border-color: #FCA5A5;
     background: #FEF2F2;
+}
+
+.modal-content p {
+    color: #6B7280;
+    font-size: 15px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+#cancelar-saida {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    color: #171923;
+}
+
+#cancelar-saida:hover {
+    background: #F9FAFB;
+    border-color: #BFE600;
+}
+
+#confirmar-saida {
+    background: #DC2626;
+    color: #FFFFFF;
+}
+
+#confirmar-saida:hover {
+    background: #B91C1C;
 }

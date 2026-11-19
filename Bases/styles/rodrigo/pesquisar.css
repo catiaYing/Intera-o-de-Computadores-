@@ -15,7 +15,7 @@
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
-    transition: border-color .2s;
+    transition: border-color 0.2s;
 }
 
 .caixa-pesquisa:focus-within {
@@ -24,7 +24,7 @@
 
 .caixa-pesquisa span {
     color: #6B7280;
-    font-size: 20px;
+    font-size: 21px;
 }
 
 .caixa-pesquisa input {
@@ -33,54 +33,97 @@
     border: none;
     outline: none;
     color: #171923;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 16px;
 }
 
 .caixa-pesquisa input::placeholder {
-    color: #6B7280;
+    color: #9CA3AF;
 }
 
-.filtros {
+/* Botões principais: Todos e Filtrar */
+.botoes-topo-pesquisa {
     display: flex;
-    gap: 8px;
-    padding: 16px 20px;
-    overflow-x: auto;
-    scrollbar-width: none;
+    gap: 10px;
+    padding: 16px 20px 12px;
 }
 
-.filtros::-webkit-scrollbar {
-    display: none;
-}
-
-.filtro {
-    min-height: 36px;
-    padding: 8px 16px;
+.btn-principal-filtro {
+    flex: 1;
+    min-height: 44px;
+    padding: 10px 16px;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     background: #FFFFFF;
-    color: #6B7280;
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
+    color: #171923;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
     cursor: pointer;
-    transition: all .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s;
 }
 
-.filtro:hover {
+.btn-principal-filtro:hover {
     border-color: #BFE600;
 }
 
-.filtro.ativo {
+.btn-principal-filtro.ativo {
     background: #D7FF00;
     border-color: #D7FF00;
     color: #171923;
-    font-weight: 700;
+    font-weight: 750;
+}
+
+#badge-filtros {
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: #171923;
+    color: #D7FF00;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+/* Ordenação */
+.barra-ordenacao {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 20px 14px;
+}
+
+.barra-ordenacao label {
+    font-size: 14px;
+    color: #6B7280;
+    font-weight: 600;
+}
+
+.barra-ordenacao select {
+    flex: 1;
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    background: #FFFFFF;
+    color: #171923;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.barra-ordenacao select:focus {
+    outline: none;
+    border-color: #BFE600;
 }
 
 .contador {
-    padding: 0 20px 8px;
+    padding: 0 20px 10px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .lista-festivais {
@@ -94,13 +137,13 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 12px;
+    padding: 14px 12px;
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 16px;
     color: inherit;
     text-decoration: none;
-    transition: border-color .2s, background .2s;
+    transition: border-color 0.2s, background 0.2s;
 }
 
 .festival:hover {
@@ -109,8 +152,8 @@
 }
 
 .festival-imagem {
-    width: 64px;
-    height: 64px;
+    width: 68px;
+    height: 68px;
     flex-shrink: 0;
     border-radius: 12px;
     display: flex;
@@ -128,15 +171,16 @@
 
 .festival-local {
     color: #6B7280;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: .7px;
+    letter-spacing: 0.7px;
 }
 
 .festival-detalhes h3 {
     margin: 4px 0;
-    font-size: 15px;
-    font-weight: 700;
+    font-size: 17px;
+    font-weight: 750;
+    color: #171923;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -144,21 +188,22 @@
 
 .festival-detalhes p {
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .festival-preco {
     display: block;
     margin-top: 6px;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 750;
+    color: #171923;
 }
 
 .festival-seta {
     padding: 0 4px;
     color: #6B7280;
     font-size: 28px;
-    transition: transform .2s;
+    transition: transform 0.2s;
 }
 
 .festival:hover .festival-seta {
@@ -169,5 +214,142 @@
     padding: 32px 20px;
     text-align: center;
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
+}
+
+/* Modal de filtros */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background: rgba(23, 25, 35, 0.55);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-filtros-box {
+    width: 100%;
+    max-width: 350px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.modal-filtros-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.modal-filtros-topo h2 {
+    font-size: 19px;
+    font-weight: 750;
+    color: #171923;
+}
+
+.btn-fechar-modal {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: #F3F4F6;
+    color: #171923;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modal-filtros-corpo {
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.grupo-filtro {
+    margin-bottom: 16px;
+}
+
+.grupo-filtro h3 {
+    margin-bottom: 8px;
+    color: #6B7280;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+
+.opcoes-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.opcao-chip {
+    padding: 6px 11px;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #4B5563;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.opcao-chip:hover {
+    border-color: #BFE600;
+}
+
+.opcao-chip.ativo {
+    background: #D7FF00;
+    border-color: #D7FF00;
+    color: #171923;
+    font-weight: 750;
+}
+
+.modal-botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #E5E7EB;
+}
+
+.modal-botoes button {
+    flex: 1;
+    min-height: 44px;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#limpar-modal-filtros {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    color: #171923;
+}
+
+#aplicar-filtros {
+    background: #D7FF00;
+    color: #171923;
+}
+
+#aplicar-filtros:hover {
+    background: #BFE600;
 }

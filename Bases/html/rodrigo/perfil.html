@@ -85,7 +85,7 @@
     </section>
 
 
-    <!-- ===== 4. MENU DO PERFIL ===== -->
+    <!-- menu do perfil -->
     <nav class="menu">
 
         <!-- Notificações -->
@@ -127,7 +127,6 @@
 
         </a>
 
-
         <!-- Saúde -->
         <a href="dados_saude.html"
            class="menu-item">
@@ -138,7 +137,7 @@
         </a>
 
         <!--Terminar Sessão-->
-        <a href= "../login.html/login.html" class="menu-item">
+        <a href= "../login.html/login.html" id="terminar-sessao" class="menu-item">
             <span> Terminar Sessão</span>
             <span>›</span>
         </a>
@@ -147,7 +146,7 @@
 
 
 
-    <!-- ===== 5. MENSAGENS ===== -->
+    <!-- mensagens -->
     <p class="mensagem"
        id="mensagem"
        role="status">
@@ -156,7 +155,7 @@
 
 </main>
 
-    <!-- ===== 6. NAVEGAÇÃO INFERIOR ===== -->
+    <!-- naegacao inferior -->
     <nav class="bottom-nav">
 
         <a href="../home.html"
@@ -191,8 +190,33 @@
 
     </nav>
 
+<!-- confirmar terminar sessão -->
+<div class="modal" id="modal-sair" role="dialog" aria-modal="true" aria-labelledby="titulo-sair">
 
-<!-- ===== 7. MODAL EDITAR PERFIL ===== -->
+    <div class="modal-content">
+
+        <h2 id="titulo-sair">Terminar Sessão</h2>
+
+        <p>Tens a certeza de que queres terminar sessão?</p>
+
+        <div class="modal-botoes">
+
+            <button type="button" id="cancelar-saida">
+                Cancelar
+            </button>
+
+            <button type="button" id="confirmar-saida">
+                Sair
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- editar perfil -->
 <div class="modal" id="modal-edicao">
 
     <form class="modal-content"
@@ -246,7 +270,7 @@
 </div>
 
 
-<!-- ===== 8. JAVASCRIPT ===== -->
+<!-- javascript-->
 <script src="../../scripts/rodrigo/perfil.js"></script>
 
 </body>
