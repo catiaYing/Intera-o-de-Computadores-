@@ -6,7 +6,7 @@ window.addEventListener("load", principal);
 function principal() {
 
     let cartazes = [
-        "../media/cartaz.png",
+        "../media/cartaz1.png",
         "../media/cartaz2.png",
         "../media/cartaz3.png",
         "../media/cartaz4.png"
