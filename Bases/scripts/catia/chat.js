@@ -1,216 +1,107 @@
 
-/* BANDy - Chat + Festivais + Mapa 2D */
+/* BANDy - Chat */
 
-// 1. Utilizador da conversa
-
+// Identificar o contacto
 const params = new URLSearchParams(window.location.search);
+let user = params.get("user");
 
-const contactos = {
-    maria: ["Maria", "M"],
-    filipe: ["Filipe", "F"],
-    ana: ["Ana", "A"],
-    santiago: ["Santiago", "S"],
-    martim: ["Martim", "M"]
-};
-
-let user =
-    params.get("user") ||
-    sessionStorage.getItem("bandyReturnUser") ||
-    "maria";
-
-if (!contactos[user]) {
+if (user == null) {
     user = "maria";
 }
 
-const userName = contactos[user][0];
+// Informações dos contactos
+let userName = "Maria";
+let userAvatar = "M";
 
+if (user == "maria") {
+    userName = "Maria";
+    userAvatar = "M";
+} else if (user == "filipe") {
+    userName = "Filipe";
+    userAvatar = "F";
+} else if (user == "ana") {
+    userName = "Ana";
+    userAvatar = "A";
+} else if (user == "santiago") {
+    userName = "Santiago";
+    userAvatar = "S";
+} else if (user == "martim") {
+    userName = "Martim";
+    userAvatar = "M";
+}
+
+// Atualizar o cabeçalho
 document.getElementById("userName").textContent = userName;
-document.getElementById("userAvatar").textContent = contactos[user][1];
-
-document.getElementById("profileLink").href =
-    "perfil_users.html?user=" + user;
+document.getElementById("userAvatar").textContent = userAvatar;
+document.getElementById("profileLink").href = "perfil_users.html?user=" + user;
 
 document.title = "Chat - " + userName;
 
 
-// 2. Festival atual
-
-const festivaisValidos = [
-    "alive",
-    "kalorama",
-    "primavera"
+// Mensagens iniciais de cada contacto
+let mariaMessages = [
+    { type: "received", text: "Olá! Tudo bem?", time: "19:30" },
+    { type: "sent", text: "Olá Maria! Sim, e contigo?", time: "19:32" },
+    { type: "received", text: "Também estou bem! Já viste o cartaz do festival deste fim de semana?", time: "19:33" },
+    { type: "sent", text: "Sim! Há vários artistas que quero ver!", time: "19:35" },
+    { type: "received", text: "Podíamos ir juntas. O que achas?", time: "19:36" },
+    { type: "sent", text: "Adorava! Já compraste os bilhetes?", time: "19:38" },
+    { type: "received", text: "Ainda não, estava à espera de combinar contigo 😊", time: "19:40" },
+    { type: "sent", text: "Então vamos comprar hoje!", time: "19:42" },
+    { type: "received", text: "Perfeito! Até lá! 💚", time: "19:43" }
 ];
 
-const festivalURL = params.get("festival");
+let filipeMessages = [
+    { type: "received", text: "Olá! Como estás?", time: "18:15" },
+    { type: "sent", text: "Estou bem, e tu?", time: "18:18" },
+    { type: "received", text: "Estás bem?", time: "18:20" }
+];
 
-if (festivaisValidos.includes(festivalURL)) {
-    localStorage.setItem("festivalMapa", festivalURL);
+let anaMessages = [
+    { type: "received", text: "Olá!", time: "17:30" },
+    { type: "sent", text: "Olá Ana!", time: "17:32" }
+];
+
+let santiagoMessages = [
+    { type: "received", text: "Como estás?", time: "16:00" },
+    { type: "sent", text: "Tudo bem!", time: "16:05" }
+];
+
+let martimMessages = [
+    { type: "received", text: "Olá, tudo bem?", time: "15:25" },
+    { type: "sent", text: "Sim!", time: "15:28" },
+    { type: "received", text: "Ok!", time: "15:30" }
+];
+
+
+// Escolher as mensagens do contacto atual
+let chatMessages = mariaMessages;
+
+if (user == "maria") {
+    chatMessages = mariaMessages;
+} else if (user == "filipe") {
+    chatMessages = filipeMessages;
+} else if (user == "ana") {
+    chatMessages = anaMessages;
+} else if (user == "santiago") {
+    chatMessages = santiagoMessages;
+} else if (user == "martim") {
+    chatMessages = martimMessages;
 }
 
-let festivalAtualChat =
-    festivaisValidos.includes(festivalURL)
-        ? festivalURL
-        : (
-            festivaisValidos.includes(
-                localStorage.getItem("festivalMapa")
-            )
-                ? localStorage.getItem("festivalMapa")
-                : "alive"
-        );
 
-
-// 3. Correspondência entre palcos e mapa
-
-const pontosMapa = {
-    "Palco X": "palco-x",
-    "Side Stage": "side-stage",
-    "Palco Y": "palco-y",
-    "Palco Z": "palco-z"
-};
-
-
-// 4. Mensagens iniciais
-
-const mensagensIniciais = {
-
-    maria: [
-        {
-            type: "received",
-            text: "Olá! Tudo bem?",
-            time: "19:30"
-        },
-        {
-            type: "sent",
-            text: "Olá Maria! Sim, e contigo?",
-            time: "19:32"
-        },
-        {
-            type: "received",
-            text: "Também estou bem! Já viste o cartaz do festival deste fim de semana?",
-            time: "19:33"
-        },
-        {
-            type: "sent",
-            text: "Sim! Há vários artistas que quero ver!",
-            time: "19:35"
-        },
-        {
-            type: "received",
-            text: "Podíamos ir juntas. O que achas?",
-            time: "19:36"
-        },
-        {
-            type: "sent",
-            text: "Adorava! Já compraste os bilhetes?",
-            time: "19:38"
-        },
-        {
-            type: "received",
-            text: "Ainda não, estava à espera de combinar contigo 😊",
-            time: "19:40"
-        },
-        {
-            type: "sent",
-            text: "Então vamos comprar hoje!",
-            time: "19:42"
-        },
-        {
-            type: "received",
-            text: "Perfeito! Até lá! 💚",
-            time: "19:43"
-        }
-    ],
-
-    filipe: [
-        {
-            type: "received",
-            text: "Olá! Como estás?",
-            time: "18:15"
-        },
-        {
-            type: "sent",
-            text: "Estou bem, e tu?",
-            time: "18:18"
-        },
-        {
-            type: "received",
-            text: "Estás bem?",
-            time: "18:20"
-        }
-    ],
-
-    ana: [
-        {
-            type: "received",
-            text: "Olá!",
-            time: "17:30"
-        },
-        {
-            type: "sent",
-            text: "Olá Ana!",
-            time: "17:32"
-        }
-    ],
-
-    santiago: [
-        {
-            type: "received",
-            text: "Como estás?",
-            time: "16:00"
-        },
-        {
-            type: "sent",
-            text: "Tudo bem!",
-            time: "16:05"
-        }
-    ],
-
-    martim: [
-        {
-            type: "received",
-            text: "Olá, tudo bem?",
-            time: "15:25"
-        },
-        {
-            type: "sent",
-            text: "Sim!",
-            time: "15:28"
-        },
-        {
-            type: "received",
-            text: "Ok!",
-            time: "15:30"
-        }
-    ]
-};
-
-
-// 5. Mensagens
-
-let chatMessages = mensagensIniciais[user].slice();
-
-
-// 6. Elementos HTML
-
+// Elementos da página
 const messages = document.getElementById("messages");
 const messageForm = document.getElementById("messageForm");
 const messageInput = document.getElementById("messageInput");
 
-const attachmentMenu =
-    document.getElementById("attachmentMenu");
-
-const festivalOverlay =
-    document.getElementById("festivalOverlay");
-
-const pointOverlay =
-    document.getElementById("pointOverlay");
-
-const inviteOverlay =
-    document.getElementById("inviteOverlay");
+const attachmentMenu = document.getElementById("attachmentMenu");
+const festivalOverlay = document.getElementById("festivalOverlay");
+const pointOverlay = document.getElementById("pointOverlay");
+const inviteOverlay = document.getElementById("inviteOverlay");
 
 
-// 7. Funções auxiliares
-
+// Obter a hora atual
 function getCurrentTime() {
     return new Date().toLocaleTimeString("pt-PT", {
         hour: "2-digit",
@@ -218,120 +109,60 @@ function getCurrentTime() {
     });
 }
 
-function conviteAceite(item) {
-    return item.accepted === true ||
-        /aceite|confirmado/i.test(
-            String(item.status || "")
-        );
-}
 
-
-// 8. Link para o Mapa 2D
-
-function criarLinkMapa(item) {
-
-    const ponto = pontosMapa[item.place] || item.ponto;
-
-    if (!ponto) {
-        return null;
-    }
-
-    const festival =
-        festivaisValidos.includes(item.festival)
-            ? item.festival
-            : festivalAtualChat;
-
-    const dados = new URLSearchParams({
-        festival: festival,
-        ponto: ponto,
-        origem: "chat",
-        user: user
-    });
-
-    const link = document.createElement("a");
-
-    link.className = "botao-ver-percurso";
-
-    link.href =
-        "../luisa-mapa/mapa2d.html?" + dados.toString();
-
-    link.textContent = "📍 Ver percurso →";
-
-    link.addEventListener("click", function() {
-
-        localStorage.setItem("festivalMapa", festival);
-        localStorage.setItem("pontoMapa", ponto);
-
-    });
-
-    return link;
-}
-
-
-// 9. Mostrar mensagens
-
+// Mostrar mensagens
 function showMessages() {
 
     messages.innerHTML = "";
 
-    for (const item of chatMessages) {
+    for (let i = 0; i < chatMessages.length; i++) {
 
-        const message = document.createElement("div");
+        let item = chatMessages[i];
 
-        if (item.type === "photo") {
+        let message = document.createElement("div");
 
-            message.className =
-                "message sent photo-message";
+        if (item.type == "photo") {
 
-            const image = document.createElement("img");
+            message.className = "message sent photo-message";
 
+            let image = document.createElement("img");
             image.src = item.photo;
             image.alt = "Fotografia enviada";
 
             message.appendChild(image);
 
-        } else if (item.type === "invitation") {
+        } else if (item.type == "invitation") {
 
-            message.className =
-                "message sent point-message";
+            message.className = "message sent point-message";
 
-            const content = document.createElement("div");
+            let content = document.createElement("div");
             content.className = "point-invitation";
 
-            const title = document.createElement("strong");
+            let title = document.createElement("strong");
             title.textContent = "Ponto de encontro";
 
-            const place = document.createElement("h3");
-            place.textContent =
-                item.place || "Ponto de encontro";
+            let festival = document.createElement("p");
+            festival.textContent = "Festival: " + item.festival;
 
-            const description = document.createElement("p");
-            description.textContent =
-                "Convite enviado a " + userName + ".";
+            let place = document.createElement("h3");
+            place.textContent = item.place;
 
-            const status = document.createElement("span");
+            let description = document.createElement("p");
+            description.textContent = "Convite enviado a " + userName + ".";
+
+            let status = document.createElement("span");
             status.className = "invitation-status";
+            status.textContent = item.status;
 
-            status.textContent =
-                item.status || "A aguardar confirmação...";
-
-            if (conviteAceite(item)) {
+            if (item.accepted == true) {
                 status.classList.add("accepted");
             }
 
             content.appendChild(title);
+            content.appendChild(festival);
             content.appendChild(place);
             content.appendChild(description);
             content.appendChild(status);
-
-            if (conviteAceite(item)) {
-
-                const link = criarLinkMapa(item);
-
-                if (link) {
-                    content.appendChild(link);
-                }
-            }
 
             message.appendChild(content);
 
@@ -339,11 +170,11 @@ function showMessages() {
 
             message.className = "message " + item.type;
 
-            const paragraph = document.createElement("p");
-            paragraph.textContent = item.text || "";
+            let paragraph = document.createElement("p");
+            paragraph.textContent = item.text;
 
-            const time = document.createElement("span");
-            time.textContent = item.time || "";
+            let time = document.createElement("span");
+            time.textContent = item.time;
 
             message.appendChild(paragraph);
             message.appendChild(time);
@@ -356,25 +187,28 @@ function showMessages() {
 }
 
 
-// 10. Enviar mensagem
-
+// Mostrar mensagens iniciais
 showMessages();
 
+
+// Enviar mensagem
 messageForm.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    const texto = messageInput.value.trim();
+    let text = messageInput.value.trim();
 
-    if (!texto) {
+    if (text == "") {
         return;
     }
 
-    chatMessages.push({
+    let newMessage = {
         type: "sent",
-        text: texto,
+        text: text,
         time: getCurrentTime()
-    });
+    };
+
+    chatMessages.push(newMessage);
 
     showMessages();
 
@@ -382,44 +216,34 @@ messageForm.addEventListener("submit", function(event) {
 });
 
 
-// 11. Menu de anexos
-
-document.getElementById("attachButton")
-    .addEventListener("click", function() {
-
-        attachmentMenu.classList.toggle("show");
-
-    });
+// Abrir e fechar menu de anexos
+document.getElementById("attachButton").addEventListener("click", function() {
+    attachmentMenu.classList.toggle("show");
+});
 
 
-// 12. Enviar fotografia
+// Abrir álbum
+document.getElementById("sendPhotoOption").addEventListener("click", function() {
 
-document.getElementById("sendPhotoOption")
-    .addEventListener("click", function() {
+    sessionStorage.setItem("bandyReturnUser", user);
 
-        sessionStorage.setItem("bandyReturnUser", user);
+    window.location.href = "album.html?return=chat.html";
+});
 
-        window.location.href =
-            "album.html?return=chat.html";
 
-    });
+// Receber fotografia do álbum
+let selectedPhoto = sessionStorage.getItem("bandySelectedPhoto");
+let returnUser = sessionStorage.getItem("bandyReturnUser");
 
-const selectedPhoto =
-    sessionStorage.getItem("bandySelectedPhoto");
+if (selectedPhoto != null && (returnUser == null || returnUser == user)) {
 
-const returnUser =
-    sessionStorage.getItem("bandyReturnUser");
-
-if (
-    selectedPhoto !== null &&
-    (returnUser === null || returnUser === user)
-) {
-
-    chatMessages.push({
+    let photoMessage = {
         type: "photo",
         photo: selectedPhoto,
         time: getCurrentTime()
-    });
+    };
+
+    chatMessages.push(photoMessage);
 
     showMessages();
 
@@ -428,176 +252,119 @@ if (
 }
 
 
-// ==========================================
-// 13. ESCOLHER FESTIVAL - NOVO
-// ==========================================
+// Abrir escolha do Festival
+document.getElementById("markPointOption").addEventListener("click", function() {
 
-// Abrir a escolha do festival
-
-document.getElementById("markPointOption")
-    .addEventListener("click", function() {
-
-        attachmentMenu.classList.remove("show");
-
-        // Selecionar o festival atual
-        const opcao = document.querySelector(
-            'input[name="festivalChoice"][value="' +
-            festivalAtualChat + '"]'
-        );
-
-        if (opcao) {
-            opcao.checked = true;
-        }
-
-        festivalOverlay.classList.add("show");
-    });
+    attachmentMenu.classList.remove("show");
+    festivalOverlay.classList.add("show");
+});
 
 
-// Fechar o modal
-
-function fecharFestival() {
+// Fechar Festival
+function closeFestival() {
     festivalOverlay.classList.remove("show");
 }
 
-document.getElementById("closeFestival")
-    .addEventListener("click", fecharFestival);
-
-document.getElementById("cancelFestival")
-    .addEventListener("click", fecharFestival);
+document.getElementById("closeFestival").addEventListener("click", closeFestival);
+document.getElementById("cancelFestival").addEventListener("click", closeFestival);
 
 
-// Confirmar o festival
+// Confirmar Festival e abrir escolha do Palco
+document.getElementById("confirmFestival").addEventListener("click", function() {
 
-document.getElementById("confirmFestival")
-    .addEventListener("click", function() {
+    let selectedFestival =
+        document.querySelector('input[name="festival"]:checked');
 
-        const selecionado = document.querySelector(
-            'input[name="festivalChoice"]:checked'
-        );
+    if (selectedFestival == null) {
+        alert("Escolhe primeiro um festival.");
+        return;
+    }
 
-        if (!selecionado) {
-            alert("Escolhe um festival.");
-            return;
-        }
+    sessionStorage.setItem("festivalSelecionado", selectedFestival.value);
 
-        festivalAtualChat = selecionado.value;
-
-        localStorage.setItem(
-            "festivalMapa",
-            festivalAtualChat
-        );
-
-        // Depois de escolher o festival,
-        // abrir a escolha do palco
-
-        fecharFestival();
-
-        pointOverlay.classList.add("show");
-    });
+    closeFestival();
+    pointOverlay.classList.add("show");
+});
 
 
-// ==========================================
-// 14. ESCOLHER PONTO DE ENCONTRO
-// ==========================================
-
+// Fechar painel de Palco
 function closePoint() {
     pointOverlay.classList.remove("show");
 }
 
-document.getElementById("closePoint")
-    .addEventListener("click", closePoint);
-
-document.getElementById("cancelPoint")
-    .addEventListener("click", closePoint);
+document.getElementById("closePoint").addEventListener("click", closePoint);
+document.getElementById("cancelPoint").addEventListener("click", closePoint);
 
 
-// 15. Enviar convite
+// Enviar convite
+document.getElementById("confirmPoint").addEventListener("click", function() {
 
-document.getElementById("confirmPoint")
-    .addEventListener("click", function() {
+    let selected = document.querySelector('input[name="meetingPoint"]:checked');
 
-        const selected = document.querySelector(
-            'input[name="meetingPoint"]:checked'
-        );
+    if (selected == null) {
+        alert("Escolhe primeiro um local.");
+        return;
+    }
 
-        if (!selected) {
-            alert("Escolhe primeiro um local.");
-            return;
-        }
+    let selectedFestival = sessionStorage.getItem("festivalSelecionado");
 
-        const ponto = pontosMapa[selected.value];
+    if (selectedFestival == null) {
+        alert("Escolhe primeiro um festival.");
+        closePoint();
+        festivalOverlay.classList.add("show");
+        return;
+    }
 
-        if (!ponto) {
-            alert("Ponto de encontro inválido.");
-            return;
-        }
+    let invitation = {
+        type: "invitation",
+        festival: selectedFestival,
+        place: selected.value,
+        status: "A aguardar confirmação...",
+        accepted: false
+    };
 
-        const invitation = {
+    chatMessages.push(invitation);
 
-            type: "invitation",
+    showMessages();
 
-            place: selected.value,
+    closePoint();
 
-            ponto: ponto,
+    sessionStorage.removeItem("festivalSelecionado");
 
-            festival: festivalAtualChat,
 
-            status: "A aguardar confirmação...",
+    // Simular aceitação do convite
+    setTimeout(function() {
 
-            accepted: false
-        };
-
-        chatMessages.push(invitation);
+        invitation.status = "✓ Convite aceite!";
+        invitation.accepted = true;
 
         showMessages();
 
-        closePoint();
+        inviteOverlay.classList.add("show");
 
-        selected.checked = false;
+        let seconds = 3;
+        let countdown = document.getElementById("countdown");
 
+        countdown.textContent = seconds;
 
-        // Simulação da aceitação do convite
+        let timer = setInterval(function() {
 
-        setTimeout(function() {
-
-            invitation.accepted = true;
-            invitation.status = "✓ Convite aceite!";
-
-            showMessages();
-
-            inviteOverlay.classList.add("show");
-
-            let seconds = 3;
-
-            const countdown =
-                document.getElementById("countdown");
-
+            seconds--;
             countdown.textContent = seconds;
 
-            const timer = setInterval(function() {
+            if (seconds <= 0) {
 
-                seconds--;
+                clearInterval(timer);
 
-                countdown.textContent =
-                    Math.max(0, seconds);
+                inviteOverlay.classList.remove("show");
 
-                if (seconds <= 0) {
+                invitation.status = "✓ Encontro confirmado!";
 
-                    clearInterval(timer);
+                showMessages();
+            }
 
-                    inviteOverlay.classList.remove("show");
+        }, 1000);
 
-                    invitation.status =
-                        "✓ Encontro confirmado!";
+    }, 3000);
 
-                    showMessages();
-                }
-
-            }, 1000);
-
-        }, 3000);
-
-    });
-
-
-console.log("BANDy Chat + Festival + Mapa - v7");
+});
