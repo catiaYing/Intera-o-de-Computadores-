@@ -16,7 +16,9 @@ body {
 }
 
 button,
-input {
+input,
+select,
+textarea {
     font-family: inherit;
 }
 
@@ -56,8 +58,8 @@ input {
 }
 
 .cabecalho h1 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 23px;
+    font-weight: 750;
     color: #171923;
 }
 
@@ -70,16 +72,16 @@ input {
 
 .botao-principal {
     width: 100%;
-    min-height: 48px;
-    padding: 12px;
+    min-height: 52px;
+    padding: 14px;
     border: none;
     border-radius: 12px;
     background: #D7FF00;
     color: #171923;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
-    transition: background .2s;
+    transition: background 0.2s;
 }
 
 .botao-principal:hover {
@@ -94,15 +96,15 @@ input {
 
 .botao-secundario {
     min-height: 48px;
-    padding: 12px 20px;
+    padding: 13px 20px;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     background: #FFFFFF;
     color: #171923;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
-    transition: background .2s, border-color .2s;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 .botao-secundario:hover {
@@ -111,11 +113,12 @@ input {
 }
 
 .mensagem {
-    min-height: 18px;
+    min-height: 20px;
     margin-top: 12px;
     padding: 0 20px;
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.5;
     color: #6B7280;
 }
 
@@ -127,7 +130,6 @@ input:focus-visible {
 }
 
 @media (max-width: 430px) {
-
     body {
         display: block;
         padding: 0;

@@ -1,14 +1,9 @@
-/* ==========================================
-   BANDy - Pagamento MB WAY
-   ========================================== */
-
-
-/* ===== 1. CAMPO DO NÚMERO ===== */
+/* Pagamento MB WAY */
 
 .label-numero {
     display: block;
     margin-bottom: 10px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: #171923;
 }
@@ -21,6 +16,7 @@
     border: 1px solid #E5E7EB;
     border-radius: 12px;
 
+    font-family: inherit;
     font-size: 16px;
     color: #171923;
     outline: none;
@@ -32,9 +28,7 @@
     color: #9CA3AF;
 }
 
-
-/* ===== 2. VALIDAÇÃO DO NÚMERO ===== */
-
+/* validar numero */
 /* Campo selecionado */
 #numero:focus {
     border: 2px solid #BFE600;
@@ -47,39 +41,35 @@
     background-color: #FEF2F2;
 }
 
-
-/* ===== 3. MENSAGENS DE AJUDA ===== */
-
 .ajuda {
-    margin: 8px 0 24px;
+    margin: 10px 0 24px;
     color: #6B7280;
-    font-size: 12px;
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-
-/* ===== 4. RESULTADO DA AUTORIZAÇÃO ===== */
-
+/* resultado da autorização */
 .resultado {
-    padding: 12px;
+    padding: 14px;
 
     background-color: rgba(215, 255, 0, 0.15);
     border: 1px solid #BFE600;
     border-radius: 12px;
 
     color: #171923;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
+    line-height: 1.5;
     text-align: center;
 }
 
-/* Oculta a mensagem quando está vazia */
+/* ocultar mensagem quando vazia */
 .resultado:empty {
     display: none;
 }
 
 
-/* ===== 5. JANELA DE AUTORIZAÇÃO ===== */
+/*janela de autorização */
 
 body > .dialogo {
     position: fixed;
@@ -106,9 +96,6 @@ body > .dialogo {
 
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
-
-
-/* ===== 6. FUNDO DO DIÁLOGO ===== */
 
 body > .dialogo::backdrop {
     background-color: rgba(23, 25, 35, 0.55);

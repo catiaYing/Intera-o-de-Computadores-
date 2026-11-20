@@ -84,7 +84,7 @@ p {
   color: #6B7280;
   margin-bottom: 24px;
   text-align: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height:1.5;
 }
 
@@ -96,7 +96,7 @@ p {
 }
 
 .form-group label {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   margin-bottom: 6px;
   color: #6B7280;
   font-weight:500;
@@ -128,8 +128,8 @@ p {
 }
 
 .botao-login, .botao-criarconta {
-  min-height:48px;
-  padding: 12px;
+  min-height:50px;
+  padding: 14px;
   border-radius: 12px;
   border: none;
   font-size: 1rem;
@@ -166,7 +166,7 @@ p {
 .ligacoes {
   margin-top: 24px;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -204,7 +204,7 @@ p {
 }
 
 .botao-menu {
-  min-height:48px;
+  min-height:52px;
   padding: 24px;
   border-radius: 16px;
   border: 1px solid #E5E7EB;
@@ -228,4 +228,8 @@ p {
 
 .botao-menu:active {
   transform: scale(0.98);
+}
+
+.letra-y {
+  color: #D7FF00;
 }

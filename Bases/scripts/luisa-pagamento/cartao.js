@@ -1,3 +1,4 @@
+
 /* =====================================
    BANDy - Pagamento por Cartão
    第三个页面：银行卡表单验证
@@ -147,4 +148,3 @@ validade.addEventListener("input", function() {
 cvv.addEventListener("input", function() {
     cvv.value = cvv.value.replace(/\D/g, "").slice(0, 4);
 });
-

@@ -1,10 +1,4 @@
-/* ==========================================
-   BANDy - Navegação AR
-   Cenário ilustrativo
-   ========================================== */
-
-
-/* 1. PÁGINA */
+/* Navegação AR */
 
 .pagina-ar {
     padding: 18px 18px 24px;
@@ -14,8 +8,6 @@
     margin-bottom: 16px;
 }
 
-
-/* 2. DADOS DO PERCURSO */
 
 .dados-percurso {
     display: grid;
@@ -27,7 +19,7 @@
 
 .dados-percurso > div {
     min-width: 0;
-    padding: 11px 12px;
+    padding: 12px;
 
     background: #F8FAF6;
     border: 1px solid #E5E7EB;
@@ -39,7 +31,7 @@
     margin-bottom: 5px;
 
     color: #6B7280;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.4px;
 }
@@ -48,12 +40,12 @@
     display: block;
 
     color: #171923;
-    font-size: 13px;
+    font-size: 16px;
     overflow-wrap: anywhere;
 }
 
 
-/* 3. CENÁRIO AR */
+/* Cenário AR */
 
 .vista-ar {
     --ceu: #BBDDF5;
@@ -107,7 +99,6 @@
 }
 
 
-/* 4. ELEMENTOS DO CÉU */
 
 .sol-ar {
     position: absolute;
@@ -179,7 +170,7 @@
 }
 
 
-/* 5. CAMINHO EM PERSPETIVA */
+/* caminho */
 
 .estrada-ar {
     position: absolute;
@@ -236,7 +227,7 @@
 }
 
 
-/* 6. ÁRVORES */
+/* Arvores*/
 
 .arvore-ar {
     position: absolute;
@@ -292,7 +283,7 @@
 }
 
 
-/* 7. PALCO ILUSTRATIVO */
+/* Palco */
 
 .palco-cenario {
     position: absolute;
@@ -345,12 +336,12 @@
     background: #D7FF00;
     color: #171923;
 
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 800;
 }
 
 
-/* 8. BAR */
+/* Bar */
 
 .bar-cenario {
     position: absolute;
@@ -391,12 +382,12 @@
 
     color: #171923;
 
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
 }
 
 
-/* 9. PLACA WC */
+/* placa WC */
 
 .wc-cenario {
     position: absolute;
@@ -413,12 +404,11 @@
     border-radius: 6px;
 
     color: #171923;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
 }
 
 
-/* 10. ETIQUETAS SUPERIORES */
 
 .topo-ar {
     position: absolute;
@@ -441,7 +431,7 @@
 
     border-radius: 9px;
 
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
 }
 
@@ -456,7 +446,7 @@
 }
 
 
-/* 11. SETA AR */
+/* seta AR*/
 
 .seta-ar {
     position: absolute;
@@ -482,7 +472,7 @@
 }
 
 
-/* 12. INSTRUÇÕES */
+/* instrucoes */
 
 .painel-instrucao {
     position: absolute;
@@ -493,7 +483,7 @@
 
     z-index: 6;
 
-    padding: 13px 14px;
+    padding: 14px;
 
     background: rgba(23, 25, 35, 0.94);
     color: #FFFFFF;
@@ -508,7 +498,7 @@
 
     color: #D7FF00;
 
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -517,7 +507,7 @@
 
     color: #FFFFFF;
 
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.25;
 }
 
@@ -526,12 +516,12 @@
 
     color: #E5E7EB;
 
-    font-size: 11px;
-    line-height: 1.35;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 
-/* 13. PROGRESSO */
+/* progesso */
 
 .progresso-ar {
     margin: 16px 0 12px;
@@ -544,7 +534,7 @@
 
     margin-bottom: 9px;
 
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .progresso-texto span {
@@ -557,7 +547,7 @@
 
 .barra-progresso {
     width: 100%;
-    height: 7px;
+    height: 8px;
 
     background: #E5E7EB;
     border-radius: 10px;
@@ -576,7 +566,7 @@
 }
 
 
-/* 14. BOTÕES */
+/* botoes */
 
 .acoes-ar {
     margin-top: 12px;
@@ -609,13 +599,13 @@
 
     color: #6B7280;
 
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.45;
     text-align: center;
 }
 
 
-/* 15. ESTADO DE CHEGADA */
+/* estado de chegada */
 
 .vista-ar.chegada .seta-ar {
     color: #D7FF00;
@@ -627,7 +617,7 @@
 }
 
 
-/* 16. ECRÃS PEQUENOS */
+/* ecras pequenos */
 
 @media (max-width: 360px) {
 
@@ -640,7 +630,7 @@
     }
 
     .painel-instrucao h2 {
-        font-size: 16px;
+        font-size: 18px;
     }
 
 }

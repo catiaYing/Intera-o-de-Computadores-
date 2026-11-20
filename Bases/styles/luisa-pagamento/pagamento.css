@@ -1,185 +1,4 @@
-/* Escolher pagamento */
-
-.pagamentos {
-    margin-bottom: 16px;
-}
-
-.pagamentos h2 {
-    margin: 0 0 12px;
-    font-size: 19px;
-    font-weight: 750;
-    color: #171923;
-}
-
-/* 支付方式卡片 */
-.metodo {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 12px 14px;
-    margin-bottom: 9px;
-
-    background-color: #FFFFFF;
-    border: 1px solid #E5E7EB;
-    border-radius: 14px;
-    text-align: left;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.metodo:last-child {
-    margin-bottom: 0;
-}
-
-.metodo:hover {
-    border-color: #BFE600;
-    background-color: #F9FAFB;
-}
-
-
-/* 左侧支付图标 */
-.icone {
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #F3F4F6;
-    border-radius: 12px;
-    font-size: 17px;
-    font-weight: bold;
-    color: #171923;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-/* 支付方式名称和说明 */
-.informacao {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    flex: 1;
-}
-
-.informacao strong {
-    font-size: 14px;
-    font-weight: 700;
-    color: #171923;
-}
-
-.informacao small {
-    color: #6B7280;
-    font-size: 12px;
-}
-
-/* 右侧选择圆圈 */
-.circulo {
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
-    border: 2px solid #D1D5DB;
-    border-radius: 50%;
-    background-color: #FFFFFF;
-    transition: all 0.2s ease;
-}
-
-/* JS 添加 selecionado 后显示选中样式 */
-.metodo.selecionado {
-    border: 2px solid #D7FF00;
-    background-color: rgba(215, 255, 0, 0.08);
-}
-
-.metodo.selecionado .circulo {
-    border-color: #D7FF00;
-    background-color: #D7FF00;
-    box-shadow: inset 0 0 0 4px white;
-}
-
-/* Continuar 按钮 */
-#continuar {
-    width: 100%;
-    min-height: 48px;
-    margin-top: auto;
-
-    background-color: #D7FF00;
-    color: #171923;
-    border: none;
-    border-radius: 12px;
-
-    font-size: 15px;
-    font-weight: 750;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-#continuar:hover:not(:disabled) {
-    background-color: #BFE600;
-}
-
-/* 未选择支付方式时按钮灰色 */
-#continuar:disabled {
-    background-color: #E5E7EB;
-    color: #9CA3AF;
-    cursor: not-allowed;
-}
-
-#mensagem {
-    min-height: 18px;
-    margin: 8px 0 0;
-    text-align: center;
-    font-size: 12px;
-    color: #DC2626;
-    font-weight: 600;
-}
-
-
-/* ===== MÉTODO DE PAGAMENTO SELECIONADO ===== */
-
-/* 避免默认按钮样式干扰 */
-.metodo {
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-/* 支付方式被选中时 */
-.metodo.ativo,
-.metodo[aria-pressed="true"] {
-    border: 2px solid #D7FF00;
-    background-color: rgba(215, 255, 0, 0.08);
-}
-
-/* 被选中的图标 */
-.metodo.ativo .icone,
-.metodo[aria-pressed="true"] .icone {
-    background-color: #D7FF00;
-    color: #171923;
-}
-
-/* 右边圆圈变绿 */
-.metodo.ativo .circulo,
-.metodo[aria-pressed="true"] .circulo {
-    border: 2px solid #D7FF00;
-    background-color: #D7FF00;
-    box-shadow: inset 0 0 0 4px white;
-}
-
-/* 未选中时 */
-.metodo:not(.ativo):not([aria-pressed="true"]) .circulo {
-    border: 2px solid #D1D5DB;
-    background-color: white;
-}
-
-/* ==========================================
-   BANDy - Pagamento
-   Identidade Visual Unificada
-   ========================================== */
-
-
-/* ===== 1. SECÇÃO DE PAGAMENTO ===== */
+/* escolher pagamento*/
 
 .pagamentos {
     margin-bottom: 16px;
@@ -187,34 +6,30 @@
 
 .pagamentos h2 {
     margin: 0 0 16px;
-
-    font-size: 19px;
-    font-weight: 700;
+    font-size: 21px;
+    font-weight: 750;
     color: #171923;
 }
 
-
-/* ===== 2. CARTÕES DOS MÉTODOS ===== */
-
 .metodo {
     width: 100%;
-    min-height: 70px;
+    min-height: 74px;
 
     display: flex;
     align-items: center;
     gap: 12px;
 
-    padding: 12px 14px;
+    padding: 14px 16px;
     margin-bottom: 12px;
 
     background-color: #FFFFFF;
     border: 1px solid #E5E7EB;
-    border-radius: 12px;
+    border-radius: 14px;
 
     text-align: left;
     color: #171923;
 
-    font-family: Arial, sans-serif;
+    font-family: inherit;
     cursor: pointer;
 
     transition:
@@ -228,14 +43,13 @@
 
 .metodo:hover:not(.ativo):not(.selecionado) {
     border-color: #BFE600;
+    background-color: #F9FAFB;
 }
 
-
-/* ===== 3. ÍCONES DOS MÉTODOS ===== */
-
-.metodo .icone {
-    width: 42px;
-    height: 42px;
+.metodo .icone,
+.icone {
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
 
     display: flex;
@@ -247,12 +61,10 @@
 
     border-radius: 12px;
 
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 700;
+    transition: background-color 0.2s, color 0.2s;
 }
-
-
-/* ===== 4. NOME E DESCRIÇÃO ===== */
 
 .informacao {
     display: flex;
@@ -263,21 +75,19 @@
 }
 
 .informacao strong {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: #171923;
 }
 
 .informacao small {
-    font-size: 12px;
+    font-size: 14px;
     color: #6B7280;
     line-height: 1.4;
 }
 
-
-/* ===== 5. CÍRCULO DE SELEÇÃO ===== */
-
-.metodo .circulo {
+.metodo .circulo,
+.circulo {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
@@ -291,11 +101,6 @@
         background-color 0.2s ease;
 }
 
-
-/* ===== 6. MÉTODO SELECIONADO ===== */
-
-/* Compatível com os estados usados no JavaScript */
-
 .metodo.ativo,
 .metodo.selecionado,
 .metodo[aria-pressed="true"] {
@@ -303,7 +108,6 @@
     border: 2px solid #BFE600;
 }
 
-/* Ícone selecionado */
 .metodo.ativo .icone,
 .metodo.selecionado .icone,
 .metodo[aria-pressed="true"] .icone {
@@ -311,7 +115,6 @@
     color: #171923;
 }
 
-/* Círculo selecionado */
 .metodo.ativo .circulo,
 .metodo.selecionado .circulo,
 .metodo[aria-pressed="true"] .circulo {
@@ -319,13 +122,10 @@
     background-color: #FFFFFF;
 }
 
-
-/* ===== 7. BOTÃO CONTINUAR ===== */
-
 #continuar {
     display: block;
     width: 100%;
-    min-height: 48px;
+    min-height: 52px;
 
     margin-top: auto;
     padding: 15px 18px;
@@ -336,9 +136,9 @@
     border: none;
     border-radius: 12px;
 
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 700;
+    font-family: inherit;
+    font-size: 17px;
+    font-weight: 750;
 
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -354,22 +154,20 @@
     cursor: not-allowed;
 }
 
-
-/* ===== 8. MENSAGENS ===== */
-
 #mensagem {
-    min-height: 18px;
+    min-height: 20px;
     margin: 10px 0 0;
 
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 600;
     line-height: 1.5;
 
-    color: #6B7280;
+    color: #DC2626;
 }
 
 
-/* ===== 9. ACESSIBILIDADE ===== */
+/* acessibilidade */
 
 .metodo:focus-visible,
 #continuar:focus-visible {
@@ -377,21 +175,19 @@
     outline-offset: 3px;
 }
 
-
-/* ===== 10. ECRÃS PEQUENOS ===== */
+/* ecras pequenos*/
 
 @media (max-width: 400px) {
-
     .metodo {
         padding: 12px;
         gap: 10px;
     }
 
     .informacao strong {
-        font-size: 13px;
+        font-size: 15px;
     }
 
     .informacao small {
-        font-size: 11px;
+        font-size: 14px;
     }
 }

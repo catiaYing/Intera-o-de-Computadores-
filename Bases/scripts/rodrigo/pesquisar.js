@@ -1,30 +1,105 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const pesquisa = document.getElementById("pesquisa");
     const lista = document.getElementById("lista-festivais");
     const contador = document.getElementById("contador");
     const semResultados = document.getElementById("sem-resultados");
-    const filtros = document.querySelectorAll(".filtro");
+    const ordenar = document.getElementById("ordenar");
 
-    let mesAtual = "todos";
+    // Botões principais e modal
+    const btnTodos = document.getElementById("btn-todos");
+    const btnAbrirFiltros = document.getElementById("btn-abrir-filtros");
+    const badgeFiltros = document.getElementById("badge-filtros");
+    const modalFiltros = document.getElementById("modal-filtros");
+    const btnFecharModal = document.getElementById("fechar-modal-filtros");
+    const btnLimparModal = document.getElementById("limpar-modal-filtros");
+    const btnAplicarFiltros = document.getElementById("aplicar-filtros");
+    const opcoesFiltro = document.querySelectorAll(".opcao-chip");
+
+    const estado = {
+        mes: "todos",
+        zona: "todas",
+        preco: "todos"
+    };
+
+    function verificarPreco(precoFestival, faixa) {
+        if (faixa === "todos") return true;
+        if (faixa === "ate50") return precoFestival <= 50;
+        if (faixa === "50a70") return precoFestival > 50 && precoFestival <= 70;
+        if (faixa === "mais70") return precoFestival > 70;
+        return true;
+    }
+
+    function atualizarBotoesTopo() {
+        let ativos = 0;
+        if (estado.mes !== "todos") ativos++;
+        if (estado.zona !== "todas") ativos++;
+        if (estado.preco !== "todos") ativos++;
+
+        if (ativos === 0) {
+            btnTodos.classList.add("ativo");
+            btnAbrirFiltros.classList.remove("ativo");
+            badgeFiltros.hidden = true;
+        } else {
+            btnTodos.classList.remove("ativo");
+            btnAbrirFiltros.classList.add("ativo");
+            badgeFiltros.textContent = ativos;
+            badgeFiltros.hidden = false;
+        }
+    }
+
+    function sincronizarChipsModal() {
+        opcoesFiltro.forEach(function (chip) {
+            const grupo = chip.dataset.grupo;
+            const valor = chip.dataset.valor;
+            chip.classList.toggle("ativo", estado[grupo] === valor);
+        });
+    }
 
     function atualizarLista() {
 
-        const texto = pesquisa.value.toLowerCase().trim();
+        const texto = pesquisa.value.toLocaleLowerCase("pt-PT").trim();
+        const cartoes = Array.from(lista.querySelectorAll(".festival"));
+
+        // Ordenar cartões
+        cartoes.sort(function (a, b) {
+            if (ordenar.value === "preco-asc") {
+                return Number(a.dataset.preco) - Number(b.dataset.preco);
+            }
+            if (ordenar.value === "preco-desc") {
+                return Number(b.dataset.preco) - Number(a.dataset.preco);
+            }
+            return Number(a.dataset.ordem) - Number(b.dataset.ordem);
+        });
 
         let visiveis = 0;
 
-        lista.querySelectorAll(".festival").forEach(function (festival) {
+        cartoes.forEach(function (festival) {
+            lista.appendChild(festival);
 
             const correspondeMes =
-                mesAtual === "todos" ||
-                festival.dataset.mes === mesAtual;
+                estado.mes === "todos" ||
+                festival.dataset.mes === estado.mes;
+
+            const correspondeZona =
+                estado.zona === "todas" ||
+                festival.dataset.zona === estado.zona;
+
+            const correspondePreco =
+                verificarPreco(Number(festival.dataset.preco), estado.preco);
 
             const correspondeTexto =
-                festival.textContent.toLowerCase().includes(texto);
+                festival.textContent.toLocaleLowerCase("pt-PT").includes(texto);
 
-            const mostrar = correspondeMes && correspondeTexto;
+            const mostrar =
+                correspondeMes &&
+                correspondeZona &&
+                correspondePreco &&
+                correspondeTexto;
 
+            festival.hidden = !mostrar;
             festival.style.display = mostrar ? "flex" : "none";
 
             if (mostrar) {
@@ -38,25 +113,68 @@ document.addEventListener("DOMContentLoaded", function () {
                 : " festivais encontrados");
 
         semResultados.hidden = visiveis !== 0;
+
+        atualizarBotoesTopo();
     }
 
-    filtros.forEach(function (botao) {
+    // Carregar em "Todos" repõe todos os filtros
+    btnTodos.addEventListener("click", function () {
+        estado.mes = "todos";
+        estado.zona = "todas";
+        estado.preco = "todos";
+        sincronizarChipsModal();
+        atualizarLista();
+    });
 
-        botao.addEventListener("click", function () {
+    // Abrir modal ao carregar em "Filtrar"
+    btnAbrirFiltros.addEventListener("click", function () {
+        sincronizarChipsModal();
+        modalFiltros.classList.add("show");
+    });
 
-            filtros.forEach(function (item) {
-                item.classList.remove("ativo");
-            });
+    btnFecharModal.addEventListener("click", function () {
+        modalFiltros.classList.remove("show");
+    });
 
-            botao.classList.add("ativo");
+    modalFiltros.addEventListener("click", function (evento) {
+        if (evento.target === modalFiltros) {
+            modalFiltros.classList.remove("show");
+        }
+    });
 
-            mesAtual = botao.dataset.mes;
+    // Seleção de opções dentro do modal
+    opcoesFiltro.forEach(function (chip) {
+        chip.addEventListener("click", function () {
+            const grupo = chip.dataset.grupo;
+            const valor = chip.dataset.valor;
 
-            atualizarLista();
+            document
+                .querySelectorAll('.opcao-chip[data-grupo="' + grupo + '"]')
+                .forEach(function (item) {
+                    item.classList.remove("ativo");
+                });
+
+            chip.classList.add("ativo");
+            estado[grupo] = valor;
         });
     });
 
+    // Limpar dentro do modal
+    btnLimparModal.addEventListener("click", function () {
+        estado.mes = "todos";
+        estado.zona = "todas";
+        estado.preco = "todos";
+        sincronizarChipsModal();
+    });
+
+    // Aplicar e fechar modal
+    btnAplicarFiltros.addEventListener("click", function () {
+        modalFiltros.classList.remove("show");
+        atualizarLista();
+    });
+
     pesquisa.addEventListener("input", atualizarLista);
+    ordenar.addEventListener("change", atualizarLista);
 
     atualizarLista();
 

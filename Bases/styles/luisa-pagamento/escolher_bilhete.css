@@ -1,6 +1,6 @@
-/* Escolher bilhete*/
+/* Escolher bilhete */
 
-/* 1. 音乐节信息 */
+/* Informação do festival */
 .festival-info {
     padding: 18px;
     margin-bottom: 24px;
@@ -12,29 +12,30 @@
 .festival-info p {
     margin: 0 0 8px;
     color: #171923;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.5px;
 }
 
 .festival-info h2 {
     margin: 0 0 8px;
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 750;
     color: #171923;
 }
 
 .festival-info span {
+    display: block;
     color: #6B7280;
-    font-size: 13px;
+    font-size: 15px;
+    line-height: 1.4;
 }
 
-
-/* 2. 选择门票类型 */
+/* Seleção do tipo de bilhete */
 .escolha h2,
 .quantidade h2 {
     margin: 0 0 14px;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: #171923;
 }
@@ -53,6 +54,8 @@
     border: 1px solid #E5E7EB;
     border-radius: 14px;
 
+    color: #171923;
+    font-family: inherit;
     text-align: left;
     cursor: pointer;
     transition: all 0.2s;
@@ -70,14 +73,15 @@
 }
 
 .tipo-bilhete strong {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     color: #171923;
 }
 
 .tipo-bilhete small {
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 .tipo-bilhete.selecionado {
@@ -85,8 +89,6 @@
     background-color: rgba(215, 255, 0, 0.08);
 }
 
-
-/* 3. 数量选择 */
 .quantidade {
     display: flex;
     align-items: center;
@@ -105,13 +107,19 @@
 }
 
 .contador button {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 10px;
 
+    color: #171923;
+    font-family: inherit;
     font-size: 22px;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
@@ -123,15 +131,13 @@
 }
 
 #numeroBilhetes {
-    min-width: 16px;
+    min-width: 20px;
     text-align: center;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 750;
     color: #171923;
 }
 
-
-/* 4. 总价 */
 .preco-total {
     display: flex;
     align-items: center;
@@ -149,13 +155,12 @@
 }
 
 .preco-total strong {
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 750;
     color: #171923;
 }
 
-
-/* 5. 按钮间距 */
+/* espaceamento do botao */
 #continuarCompra {
     margin-bottom: 12px;
 }

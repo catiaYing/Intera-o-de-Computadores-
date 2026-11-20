@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -34,9 +33,9 @@ body {
 }
 
 .page-header h1 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 750;
-    color: #171923
+    color: #171923;
 }
 
 .back-button {
@@ -52,7 +51,7 @@ body {
     border: 1px solid #E5E7EB;
     border-radius: 20px;
     background: #FFFFFF;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, .07);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
 }
 
 /* Imagem */
@@ -74,7 +73,7 @@ body {
     inset: 0;
     background: linear-gradient(
         transparent,
-        rgba(23, 25, 35, .75)
+        rgba(23, 25, 35, 0.75)
     );
     display: flex;
     flex-direction: column;
@@ -84,7 +83,7 @@ body {
 }
 
 .festival-label {
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 800;
     letter-spacing: 1.5px;
     margin-bottom: 5px;
@@ -104,20 +103,21 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
 }
 
 .ticket-type {
     background: #D7FF00;
     color: #171923;
-    padding: 8px 13px;
+    padding: 7px 13px;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 850;
 }
 
 .ticket-status {
     color: #418A38;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 650;
 }
 
@@ -125,7 +125,7 @@ body {
 .qr-container {
     width: 165px;
     height: 165px;
-    margin: 20px auto 9px;
+    margin: 20px auto 10px;
     padding: 8px;
     background: white;
     border: 1px solid #E5E7EB;
@@ -141,22 +141,23 @@ body {
 
 .qr-description {
     text-align: center;
-    font-size: 11px;
+    font-size: 14px;
     color: #6B7280;
+    line-height: 1.4;
 }
 
 .ticket-code {
     margin-top: 17px;
     text-align: center;
     color: #6B7280;
-    font-size: 9px;
+    font-size: 13px;
     letter-spacing: 1px;
 }
 
 .ticket-code strong {
     display: block;
     color: #171923;
-    font-size: 13px;
+    font-size: 16px;
     letter-spacing: 1.5px;
     margin-top: 5px;
 }
@@ -177,7 +178,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 13px 2px;
+    padding: 14px 2px;
     border-bottom: 1px solid #F3F4F6;
 }
 
@@ -190,35 +191,37 @@ body {
     text-align: center;
     color: #BFE600;
     font-size: 25px;
+    flex-shrink: 0;
 }
 
 .information-row p {
     color: #6B7280;
-    font-size: 11px;
+    font-size: 14px;
     margin-bottom: 4px;
 }
 
 .information-row h3 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
-    color: #171923
+    color: #171923;
 }
 
 .information-row small {
     display: block;
     margin-top: 3px;
     color: #6B7280;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 /* Rodapé do bilhete */
 .ticket-footer {
     display: flex;
     justify-content: space-between;
-    padding: 13px 19px;
+    align-items: center;
+    padding: 14px 19px;
     border-top: 1px dashed #E5E7EB;
     color: #6B7280;
-    font-size: 10px;
+    font-size: 14px;
 }
 
 .ticket-footer span:first-child {
@@ -234,7 +237,8 @@ body {
     min-height: 52px;
     margin-top: 17px;
     border-radius: 28px;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: 750;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -246,7 +250,7 @@ body {
     border: none;
 }
 
-.download-button:hover{
+.download-button:hover {
     background: #BFE600;
 }
 
@@ -261,7 +265,7 @@ body {
     color: #171923;
 }
 
-info.button:hover{
+.info-button:hover {
     background: #F9FAFB;
     border-color: #D1D5DB;
 }
@@ -271,7 +275,7 @@ info.button:hover{
     position: fixed;
     inset: 0;
     z-index: 20;
-    background: rgba(23, 25, 35, .55);
+    background: rgba(23, 25, 35, 0.55);
     display: none;
     justify-content: center;
     align-items: center;
@@ -293,14 +297,14 @@ info.button:hover{
 }
 
 .modal-content h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 12px;
     color: #171923;
 }
 
 .modal-content p {
     color: #6B7280;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.6;
     margin-bottom: 18px;
 }
@@ -312,14 +316,15 @@ info.button:hover{
     border: none;
     background: transparent;
     color: #171923;
+    font-family: inherit;
     font-size: 26px;
     cursor: pointer;
 }
 
 .modal-detail {
-    padding: 11px 0;
+    padding: 12px 0;
     border-top: 1px solid #F3F4F6;
-    font-size: 13px;
+    font-size: 15px;
     color: #4B5563;
 }
 
@@ -329,12 +334,14 @@ info.button:hover{
 
 .modal-ok {
     width: 100%;
-    padding: 13px;
+    padding: 14px;
     margin-top: 18px;
     border: none;
     border-radius: 25px;
     background: #D7FF00;
     color: #171923;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: 750;
     cursor: pointer;
     transition: background-color 0.2s;

@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +5,7 @@
 }
 
 body {
-background: #E5E7EB;
+    background: #E5E7EB;
     color: #171923;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     display: flex;
@@ -30,24 +29,20 @@ background: #E5E7EB;
     overflow-y: auto;
 }
 
-/* cabeçalho */
+/* Cabeçalho */
 .page-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     height: 80px;
     padding: 0 24px;
-
-    margin: -28px -28px 0;
-
+    margin: -20px -20px 0;
     background: #171923;
-
     border-radius: 0;
 }
 
 .page-header h1 {
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 750;
     color: #FFFFFF;
 }
@@ -58,20 +53,18 @@ background: #E5E7EB;
     font-size: 28px;
 }
 
-
-/* botão de pesquisa */
-
+/* Barra de pesquisa */
 .search-box {
     display: flex;
     align-items: center;
     gap: 10px;
-    height: 48px;
+    height: 50px;
     margin-top: 20px;
     padding: 0 15px;
     background: #F9FAFB;
     border: 1px solid #E5E7EB;
     border-radius: 25px;
-    transition: border-color .2s;
+    transition: border-color 0.2s;
 }
 
 .search-box:focus-within {
@@ -80,7 +73,7 @@ background: #E5E7EB;
 
 .search-box span {
     color: #6B7280;
-    font-size: 23px;
+    font-size: 22px;
 }
 
 .search-box input {
@@ -90,30 +83,29 @@ background: #E5E7EB;
     border: none;
     outline: none;
     color: #171923;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 16px;
 }
 
 .search-box input::placeholder {
     color: #9CA3AF;
 }
 
-/* section de amigos aceites e pendentes */
-
+/* Secções de amigos aceites e pendentes */
 .accepted-section,
 .pending-section {
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
 .accepted-section h2,
 .pending-section h2 {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 750;
     color: #171923;
-    margin-bottom: 15px;
+    margin-bottom: 14px;
 }
 
-/* lista de amigos aceites e pendentes */
-
+/* Lista de utilizadores */
 .user-list {
     display: flex;
     flex-direction: column;
@@ -122,18 +114,17 @@ background: #E5E7EB;
 .user-card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    min-height: 82px;
-    padding: 12px 5px;
+    gap: 10px;
+    min-height: 84px;
+    padding: 14px 4px;
     border-bottom: 1px solid #E5E7EB;
     background: transparent;
 }
 
-/*avatar do contacto */
-
+/* Avatar do contacto */
 .user-avatar {
-    width: 45px;
-    height: 45px;
+    width: 46px;
+    height: 46px;
     flex-shrink: 0;
     border-radius: 50%;
     background: #D7FF00;
@@ -142,8 +133,8 @@ background: #E5E7EB;
     align-items: center;
     justify-content: center;
     color: #171923;
-    font-size: 20px;
-    font-weight: 650;
+    font-size: 19px;
+    font-weight: 750;
     text-decoration: none;
 }
 
@@ -153,8 +144,7 @@ background: #E5E7EB;
     color: #171923;
 }
 
-/* informações do contacto */
-
+/* Informações do contacto */
 .user-info {
     flex: 1;
     min-width: 0;
@@ -163,38 +153,47 @@ background: #E5E7EB;
 }
 
 .user-info h3 {
-    font-size: 15px;
-    font-weight: 650;
+    font-size: 16px;
+    font-weight: 750;
     color: #171923;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .user-info p {
-    margin-top: 5px;
+    margin-top: 4px;
     color: #6B7280;
-    font-size: 13px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* etiqueta de adicionado */
+/* Etiqueta de adicionado */
 .added-label {
     color: #16A34A;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
-/* aceitar  */
-
+/* Botão de ação */
 .action-button {
-    min-width: 95px;
-    padding: 10px 12px;
+    min-width: 96px;
+    padding: 10px 14px;
     border: 1px solid #E5E7EB;
     border-radius: 22px;
     background: #D7FF00;
     color: #171923;
-    font-size: 13px;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
     cursor: pointer;
-    transition: background .2s;
+    transition: background 0.2s;
 }
 
 .action-button:hover {
@@ -205,22 +204,33 @@ background: #E5E7EB;
     background: #A3C700;
 }
 
-/* label de pedido enviado */
+.sent-button {
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
+    color: #6B7280;
+    cursor: default;
+    opacity: 1;
+}
 
+/* Lista vazia */
 .empty-message {
     display: none;
     text-align: center;
     color: #6B7280;
-    font-size: 13px;
+    font-size: 15px;
     padding: 20px 0;
 }
 
-/* ecrãs pequenos */
+/* Ecrãs pequenos */
 @media (max-width: 360px) {
-
     .friends-page {
         padding: 15px;
         padding-bottom: 90px;
+    }
+
+    .page-header {
+        margin: -15px -15px 0;
+        padding: 0 18px;
     }
 
     .user-card {
@@ -228,20 +238,12 @@ background: #E5E7EB;
     }
 
     .action-button {
-        min-width: 80px;
-        padding: 8px;
-        font-size: 11px;
+        min-width: 84px;
+        padding: 9px 10px;
+        font-size: 13px;
     }
 
     .added-label {
-        font-size: 11px;
+        font-size: 13px;
     }
-}
-
-.sent-button {
-    background: #F3F4F6;
-    border: 1px solid #E5E7EB;
-    color: #6B7280;
-    cursor: default;
-    opacity: 1;
 }

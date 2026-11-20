@@ -1,12 +1,4 @@
-
-/* ==========================================
-   BANDy - Mapas e Navegação
-   Identidade visual unificada
-   ========================================== */
-
-
-/* 1. ESTILOS GERAIS */
-
+/* Mapas e Navegação*/
 * {
     box-sizing: border-box;
 }
@@ -15,7 +7,7 @@ body {
     margin: 0;
     background: #E5E7EB;
     color: #171923;
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 .pagina {
@@ -34,7 +26,8 @@ body {
 
 p {
     color: #515761;
-    line-height: 1.45;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 button,
@@ -44,7 +37,6 @@ a {
 }
 
 
-/* 2. CABEÇALHO */
 
 .topo {
     display: flex;
@@ -59,12 +51,12 @@ a {
     justify-content: center;
     flex-shrink: 0;
 
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
 
     color: #171923;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 26px;
 
     background: #F3F4F6;
     border-radius: 11px;
@@ -72,28 +64,26 @@ a {
 
 .topo h1 {
     margin: 2px 0 0;
-    font-size: 21px;
-    font-weight: 700;
+    font-size: 23px;
+    font-weight: 750;
 }
 
 .subtitulo {
     color: #6B7280;
-    font-size: 11px;
+    font-size: 14px;
 }
 
-
-/* 3. FORMULÁRIOS */
 
 label {
     display: block;
     margin: 0 0 7px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 select {
     width: 100%;
-    min-height: 46px;
+    min-height: 48px;
     padding: 0 10px;
 
     background: #FFFFFF;
@@ -102,7 +92,7 @@ select {
     border: 1px solid #D1D5DB;
     border-radius: 10px;
 
-    font-size: 13px;
+    font-size: 15px;
 }
 
 select:focus {
@@ -124,7 +114,6 @@ select:disabled {
 }
 
 
-/* 4. BOTÕES */
 
 .botao {
     display: flex;
@@ -132,9 +121,9 @@ select:disabled {
     justify-content: center;
 
     width: 100%;
-    min-height: 48px;
+    min-height: 50px;
     margin: 10px 0;
-    padding: 12px;
+    padding: 13px;
 
     color: #171923;
     background: #D7FF00;
@@ -142,7 +131,7 @@ select:disabled {
     border: none;
     border-radius: 12px;
 
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     text-align: center;
     text-decoration: none;
@@ -175,7 +164,7 @@ select:disabled {
 }
 
 
-/* 5. INFORMAÇÃO DO FESTIVAL */
+/* informação do festival */
 
 .cabecalho-mapa {
     display: flex;
@@ -187,22 +176,21 @@ select:disabled {
 }
 
 .cabecalho-mapa strong {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .etiqueta {
     flex-shrink: 0;
 
-    padding: 6px 8px;
+    padding: 6px 9px;
     background: #F3F5ED;
     color: #506047;
 
     border-radius: 8px;
-    font-size: 10px;
+    font-size: 13px;
+    font-weight: 600;
 }
 
-
-/* 6. CARTÃO DO MAPA */
 
 .cartao-mapa {
     padding: 8px;
@@ -244,7 +232,7 @@ select:disabled {
 }
 
 
-/* 7. SVG DO MAPA */
+/* SVG DO MAPA */
 
 .caminhos {
     position: absolute;
@@ -278,7 +266,7 @@ select:disabled {
     display: inline;
 }
 
-/* Caminhos reais do recinto ilustrativo */
+/* Caminhos do recinto */
 
 .trilhos path {
     fill: none;
@@ -306,7 +294,7 @@ select:disabled {
 }
 
 
-/* 8. REFERÊNCIAS DO RECINTO */
+/* referenicas do recinto */
 
 .arvore {
     fill: #9CC99A;
@@ -339,7 +327,7 @@ select:disabled {
 }
 
 
-/* 9. MARCADORES DO MAPA */
+/* marcadores do mapa */
 
 .marcador {
     position: absolute;
@@ -350,11 +338,11 @@ select:disabled {
 /* Os palcos são botões */
 
 .palco {
-    min-width: 57px;
-    max-width: 78px;
-    min-height: 27px;
+    min-width: 60px;
+    max-width: 84px;
+    min-height: 28px;
 
-    padding: 5px 6px;
+    padding: 5px 7px;
 
     background: #FFFFFF;
     color: #171923;
@@ -364,7 +352,7 @@ select:disabled {
 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
 
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     text-align: center;
     line-height: 1.2;
@@ -403,21 +391,21 @@ select:disabled {
 .entrada {
     z-index: 4;
 
-    padding: 5px 7px;
+    padding: 5px 8px;
 
     background: #171923;
     color: #FFFFFF;
 
     border-radius: 6px;
 
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
     white-space: nowrap;
 
     pointer-events: none;
 }
 
-/* Ponto personalizado */
+
 
 .personalizado {
     z-index: 6;
@@ -428,13 +416,12 @@ select:disabled {
     border: 2px solid #FFFFFF;
     border-radius: 50%;
 
-    font-size: 15px;
+    font-size: 16px;
 
     pointer-events: none;
 }
 
 
-/* 10. LEGENDA DO MAPA */
 
 .legenda-mapa {
     display: flex;
@@ -448,17 +435,17 @@ select:disabled {
 .legenda-mapa span {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
 
     color: #6B7280;
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .legenda-cor {
     display: inline-block;
 
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
 
     border-radius: 50%;
 }
@@ -477,15 +464,14 @@ select:disabled {
 }
 
 
-/* 11. DESTINO SELECIONADO */
-
+/* destino selecionado */
 .destino-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     margin-top: 14px;
-    padding: 12px 14px;
+    padding: 14px 16px;
 
     background: #F8FAF6;
     border: 1px solid #E5E7EB;
@@ -497,30 +483,30 @@ select:disabled {
     margin-top: 5px;
 
     color: #171923;
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .titulo-pequeno {
     color: #6B7280;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
 
 .destino-icone {
-    font-size: 23px;
+    font-size: 24px;
 }
 
 .ajuda-mapa {
     margin: 12px 2px;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 #mensagem-confirmacao {
     margin: 8px 0;
     color: #426800;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -528,18 +514,15 @@ select:disabled {
     display: none;
 }
 
-
-/* 12. ESTILOS PARTILHADOS COM OUTRAS PÁGINAS */
-
 .legenda {
     margin: 12px 0;
     color: #6B7280;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .info {
     margin: 12px 0;
-    padding: 12px;
+    padding: 14px;
 
     background: #F8FAF6;
     border: 1px solid #E5E7EB;
@@ -549,15 +532,16 @@ select:disabled {
 .info strong {
     display: block;
     margin-bottom: 5px;
+    font-size: 16px;
 }
 
 .info span {
-    font-size: 12px;
+    font-size: 14px;
     color: #6B7280;
 }
 
 
-/* 13. ECRÃS PEQUENOS */
+/* ecras pequenos */
 
 @media (max-width: 420px) {
 
@@ -579,22 +563,15 @@ select:disabled {
     }
 
     .palco {
-        min-width: 48px;
+        min-width: 50px;
         padding: 4px;
-        font-size: 9px;
+        font-size: 10px;
     }
 
 }
 
-
-
-/* ==========================================
-   BANDy - Estrutura de telemóvel
-   Aplicada a todos os mapas
-   ========================================== */
-
+/* Estrutura de telemóvel aplicada a todos os mapas */
 /* Fundo exterior */
-
 body {
     margin: 0;
     min-height: 100vh;
@@ -605,11 +582,9 @@ body {
     align-items: flex-start;
 
     background: #E5E7EB;
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: #171923;
 }
-
-/* Estrutura principal do telemóvel */
 
 .pagina,
 .pagina-ar {
@@ -644,7 +619,7 @@ body {
     display: none;
 }
 
-/* Ecrãs mais pequenos */
+/* Ecrãs pequenos */
 
 @media (max-width: 420px) {
 

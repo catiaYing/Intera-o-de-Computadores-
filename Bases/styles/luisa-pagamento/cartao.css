@@ -1,4 +1,4 @@
-/*Cartão bancário */
+/* Cartão bancário */
 
 * {
     margin: 0;
@@ -31,8 +31,7 @@ body {
     overflow-y: auto;
 }
 
-
-/* 每个输入区域 */
+/* Campos do formulário */
 .grupo-campo {
     flex: 1;
     min-width: 0;
@@ -42,21 +41,20 @@ body {
 .grupo-campo label {
     display: block;
     margin-bottom: 8px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 700;
     color: #171923;
 }
 
-
-
-/* 银行卡输入框 */
+/* Caixas de texto do cartão */
 .grupo-campo input {
     width: 100%;
     padding: 14px;
     background-color: #F9FAFB;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
-    font-size: 15px;
+    font-family: inherit;
+    font-size: 16px;
     color: #171923;
     outline: none;
     transition: border-color 0.2s;
@@ -66,45 +64,47 @@ body {
     color: #9CA3AF;
 }
 
-/* 输入状态 */
+/* Estado ativo */
 .grupo-campo input:focus {
     border-color: #BFE600;
     background-color: #FFFFFF;
 }
 
-/* 验证错误 */
+/* Erro de validação */
 .grupo-campo input[aria-invalid="true"] {
     border: 1px solid #DC2626;
     background-color: #FEF2F2;
 }
 
-/* Validade 和 CVV 并排 */
+/* Validade e CVV lado a lado */
 .linha-cartao {
     display: flex;
     gap: 12px;
 }
 
-/* 压缩页面间距 */
+/* Espaçamento e introdução */
 .pagina-cartao .introducao {
     margin-bottom: 16px;
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 .pagina-cartao .resumo {
     margin-bottom: 18px;
 }
 
-/* 确认按钮 */
+/* Botão confirmar */
 .pagina-cartao .botao-principal {
     width: 100%;
-    height: 52px;
+    height: 54px;
     margin-top: 22px;
     border: none;
     border-radius: 26px;
     background: #D7FF00;
     color: #171923;
-    font-size: 16px;
+    font-family: inherit;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
     transition: background 0.2s;

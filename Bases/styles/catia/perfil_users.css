@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -13,6 +12,11 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+button,
+textarea {
+    font-family: inherit;
 }
 
 .profile-page {
@@ -30,17 +34,17 @@ body {
     overflow-y: auto;
 }
 
-/* cabeçalho */
+/* Cabeçalho */
 
 .profile-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 45px;
+    height: 48px;
 }
 
 .profile-header h1 {
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 750;
     color: #171923;
 }
@@ -49,7 +53,7 @@ body {
     color: #171923;
     text-decoration: none;
     font-size: 30px;
-    width: 30px;
+    width: 32px;
 }
 
 .menu {
@@ -71,9 +75,9 @@ body {
 
 .menu-options {
     position: absolute;
-    top: 40px;
+    top: 42px;
     right: 0;
-    width: 180px;
+    width: 190px;
     background: #FFFFFF;
     border: 1px solid #E5E7EB;
     border-radius: 14px;
@@ -84,12 +88,14 @@ body {
 .menu-options button {
     display: block;
     width: 100%;
-    padding: 14px;
+    padding: 14px 16px;
     border: none;
     background: transparent;
     color: #171923;
     text-align: left;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -106,7 +112,7 @@ body {
     color: #DC2626;
 }
 
-/* perfil info */
+/* Informação do perfil */
 
 .profile-info {
     text-align: center;
@@ -130,7 +136,7 @@ body {
 
 .profile-info h2 {
     margin-top: 15px;
-    font-size: 25px;
+    font-size: 26px;
     color: #171923;
     font-weight: 750;
 }
@@ -138,10 +144,10 @@ body {
 .user-id {
     margin-top: 7px;
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
 }
 
-/* estatisticas do perfil */
+/* Estatísticas do perfil */
 
 .profile-stats {
     display: flex;
@@ -161,23 +167,23 @@ body {
 }
 
 .profile-stats strong {
-    font-size: 20px;
+    font-size: 22px;
     color: #171923;
 }
 
 .profile-stats span {
     color: #6B7280;
-    font-size: 13px;
+    font-size: 14px;
 }
 
-/* fotograficas section */
+/* Secção de fotografias */
 
 .photos-section {
     margin-top: 25px;
 }
 
 .photos-section h3 {
-    font-size: 17px;
+    font-size: 19px;
     margin-bottom: 15px;
     color: #171923;
 }
@@ -197,39 +203,41 @@ body {
     align-items: center;
     justify-content: center;
     color: #9CA3AF;
-    font-size: 12px;
+    font-size: 14px;
 }
 
-/* chat button */
+/* Botão de chat */
+
 .chat-button {
     position: fixed;
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 150px;
-    padding: 13px;
+    width: 160px;
+    padding: 14px;
     background: #D7FF00;
     color: #171923;
     text-align: center;
     text-decoration: none;
+    font-size: 16px;
     font-weight: 750;
     border-radius: 25px;
     z-index: 5;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: background .2s;
+    transition: background 0.2s;
 }
 
 .chat-button:hover {
     background: #BFE600;
 }
 
-/* janelas modais */
+/* Janelas modais */
 
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(23, 25, 35, .55);
+    background: rgba(23, 25, 35, 0.55);
     justify-content: center;
     align-items: center;
     z-index: 200;
@@ -245,18 +253,19 @@ body {
     border: 1px solid #E5E7EB;
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, .15);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .modal-content h2 {
-    font-size: 21px;
+    font-size: 22px;
     margin-bottom: 12px;
     color: #171923;
 }
 
 .modal-content p {
     color: #6B7280;
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.5;
     margin: 12px 0 18px;
 }
 
@@ -267,11 +276,12 @@ body {
     background: none;
     border: none;
     color: #171923;
-    font-size: 25px;
+    font-family: inherit;
+    font-size: 26px;
     cursor: pointer;
 }
 
-/* qr code modal */
+/* Modal QR Code */
 
 .qr-placeholder {
     width: 220px;
@@ -299,7 +309,7 @@ body {
         0 0 / 16px 16px;
 }
 
-/* denuncia */
+/* Denúncia */
 
 .report-content {
     text-align: left;
@@ -319,6 +329,7 @@ body {
 }
 
 /* Motivos da denúncia */
+
 .report-content label {
     display: flex;
     align-items: center;
@@ -326,7 +337,7 @@ body {
     width: 100%;
     padding: 10px 0;
     color: #171923;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
     line-height: 1.4;
 }
@@ -334,12 +345,13 @@ body {
 .report-content input[type="radio"] {
     flex-shrink: 0;
     accent-color: #171923;
-    width: 17px;
-    height: 17px;
+    width: 18px;
+    height: 18px;
     cursor: pointer;
 }
 
 /* Caixa de descrição */
+
 .report-content textarea {
     display: block;
     width: 100%;
@@ -351,7 +363,8 @@ body {
     background: #F9FAFB;
     color: #171923;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 15px;
+    line-height: 1.5;
     text-align: left;
     direction: ltr;
     resize: vertical;
@@ -366,7 +379,7 @@ body {
     border-color: #BFE600;
 }
 
-/* botão de enviar denúncia */
+/* Botão de enviar denúncia */
 
 .modal-buttons {
     display: flex;
@@ -377,12 +390,14 @@ body {
 
 .modal-buttons button {
     flex: 1;
-    padding: 12px 8px;
+    padding: 13px 10px;
     border-radius: 25px;
     border: 1px solid #E5E7EB;
     background: transparent;
     color: #171923;
-    font-size: 13px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -403,10 +418,10 @@ body {
 }
 
 .modal-buttons button:active {
-    opacity: .75;
+    opacity: 0.75;
 }
 
-/*success modal */
+/* Modal de sucesso */
 
 .success-content {
     width: 100%;
@@ -416,6 +431,7 @@ body {
 }
 
 /* Ícone de sucesso */
+
 .success-icon {
     width: 55px;
     height: 55px;
@@ -431,32 +447,36 @@ body {
 }
 
 /* Título */
+
 .success-content h2 {
-    font-size: 21px;
+    font-size: 22px;
     line-height: 1.3;
     margin-bottom: 10px;
     color: #171923;
 }
 
 /* Texto */
+
 .success-content p {
-    font-size: 14px;
+    font-size: 15px;
     color: #6B7280;
     line-height: 1.5;
     margin: 10px 0 20px;
 }
 
 /* Botão OK */
+
 .success-content .confirm-button {
     display: block;
-    width: 110px;
+    width: 120px;
     margin: 20px auto 0;
-    padding: 12px 20px;
+    padding: 13px 20px;
     border: none;
     border-radius: 25px;
     background: #D7FF00;
     color: #171923;
-    font-size: 14px;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: 750;
     cursor: pointer;
     transition: background 0.2s;
@@ -467,39 +487,17 @@ body {
 }
 
 .success-content .confirm-button:active {
-    opacity: .7;
+    opacity: 0.7;
 }
 
-/* ecrãs pequenos */
-
-@media (max-width: 360px) {
-
-    .profile-page {
-        padding: 15px;
-    }
-
-    .report-content {
-        padding: 25px 18px;
-    }
-
-    .modal-buttons button {
-        font-size: 12px;
-    }
-
-    .success-content {
-        padding: 25px 18px;
-    }
-}
-
-
-/* artistas e músicas favoritas */
+/* Artistas e músicas favoritas */
 
 .favorite-section {
     margin-top: 25px;
 }
 
 .favorite-section h3 {
-    font-size: 17px;
+    font-size: 19px;
     margin-bottom: 13px;
     color: #171923;
 }
@@ -515,11 +513,11 @@ body {
     background: #F3F4F6;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
-    font-size: 13px;
+    font-size: 14px;
     color: #171923;
 }
 
-/* perfil privado */
+/* Perfil privado */
 
 .private-profile {
     text-align: center;
@@ -532,13 +530,33 @@ body {
 }
 
 .private-profile h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 10px;
     color: #171923;
 }
 
 .private-profile p {
-    font-size: 14px;
+    font-size: 15px;
     color: #6B7280;
     line-height: 1.5;
+}
+
+/* Ecrãs pequenos */
+
+@media (max-width: 360px) {
+    .profile-page {
+        padding: 15px;
+    }
+
+    .report-content {
+        padding: 25px 18px;
+    }
+
+    .modal-buttons button {
+        font-size: 14px;
+    }
+
+    .success-content {
+        padding: 25px 18px;
+    }
 }

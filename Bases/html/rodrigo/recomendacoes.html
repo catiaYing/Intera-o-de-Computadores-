@@ -22,10 +22,22 @@
         <h1>Recomendações</h1>
     </header>
 
-    <!-- Interesses -->
+    <!-- Interesses compactos + botão adicionar -->
     <section class="interesses">
-        <h2>Os teus gostos</h2>
-        <div class="etiquetas" id="meus-interesses"></div>
+        <div class="interesses-topo">
+            <h2>Os teus gostos</h2>
+            <button type="button" class="botao-adicionar-gosto" id="abrir-modal-gosto">
+                + Adicionar
+            </button>
+        </div>
+        <div class="etiquetas etiquetas-compactas" id="meus-interesses"></div>
+    </section>
+
+    <!-- Pesquisa rápida -->
+    <section class="pesquisa-recomendacoes">
+        <input type="search"
+               id="pesquisa-pessoas"
+               placeholder="Pesquisar por nome, artista ou festival...">
     </section>
 
     <!-- Filtros -->
@@ -33,15 +45,17 @@
         <button type="button" class="filtro ativo" data-filtro="todos">Todos</button>
         <button type="button" class="filtro" data-filtro="artistas">Artistas</button>
         <button type="button" class="filtro" data-filtro="generos">Géneros</button>
+        <button type="button" class="filtro" data-filtro="festivais">Festivais</button>
+        <button type="button" class="filtro" data-filtro="sozinho">Vai sozinho(a)</button>
     </section>
 
     <p class="contador" id="contador"></p>
 
-    <!-- pessoas sugeridas -->
+    <!-- Pessoas sugeridas -->
     <section class="lista-pessoas" id="lista-pessoas"></section>
 
     <p class="sem-resultados" id="sem-resultados" hidden>
-        Não encontrámos sugestões para já.
+        Não encontrámos sugestões para este filtro.
     </p>
 
 </main>
@@ -74,6 +88,36 @@
         </a>
 
     </nav>
+
+    <!-- Modal para adicionar novos gostos -->
+    <div class="modal" id="modal-gosto" role="dialog" aria-modal="true" aria-labelledby="titulo-modal-gosto">
+        <form class="modal-content" id="form-gosto">
+            <h2 id="titulo-modal-gosto">Adicionar gosto</h2>
+
+            <div class="campo">
+                <label for="tipo-gosto">Categoria</label>
+                <select id="tipo-gosto">
+                    <option value="artistas">Artista</option>
+                    <option value="generos">Género musical</option>
+                    <option value="festivais">Festival</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="nome-gosto">Nome</label>
+                <input type="text"
+                       id="nome-gosto"
+                       placeholder="Ex.: Billie Eilish, Eletrónica, Primavera Sound..."
+                       maxlength="30"
+                       required>
+            </div>
+
+            <div class="modal-botoes">
+                <button type="button" id="cancelar-gosto">Cancelar</button>
+                <button type="submit" id="guardar-gosto">Adicionar</button>
+            </div>
+        </form>
+    </div>
 
 </div>
 

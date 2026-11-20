@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -9,10 +8,10 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: #E5E7EB;
     color: #171923;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    min-height:100vh;
+    min-height: 100vh;
 }
 
 /* Página principal */
@@ -42,14 +41,13 @@ body {
 }
 
 /* Cabeçalho */
-
 .page-header {
     padding: 25px 20px 18px;
     border-bottom: 1px solid #E5E7EB;
 }
 
 .page-header h1 {
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 750;
     color: #171923;
     margin-bottom: 20px;
@@ -64,7 +62,7 @@ body {
 
 .search-box {
     flex: 1;
-    height: 45px;
+    height: 46px;
     background: #F9FAFB;
     border: 1px solid #E5E7EB;
     border-radius: 13px;
@@ -72,7 +70,7 @@ body {
     align-items: center;
     padding: 0 13px;
     gap: 9px;
-    transition: border-color .2s;
+    transition: border-color 0.2s;
 }
 
 .search-box:focus-within {
@@ -90,7 +88,8 @@ body {
     border: none;
     outline: none;
     color: #171923;
-    font-size: 13px;
+    font-family: inherit;
+    font-size: 15px;
 }
 
 .search-box input::placeholder {
@@ -99,26 +98,26 @@ body {
 
 /* Botão selecionar */
 #selectButton {
-    height: 45px;
+    height: 46px;
     padding: 0 15px;
     border: 1px solid #E5E7EB;
     border-radius: 13px;
     background: #FFFFFF;
     color: #171923;
+    font-family: inherit;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
     cursor: pointer;
     white-space: nowrap;
-    transition: background .2s;
+    transition: background 0.2s, border-color 0.2s;
 }
 
 #selectButton:hover {
     background: #F9FAFB;
-    BORDER-COLOR: #BFE600
+    border-color: #BFE600;
 }
 
-/* categorias */
-
+/* Categorias */
 .categories {
     display: flex;
     gap: 9px;
@@ -137,11 +136,12 @@ body {
     border-radius: 22px;
     background: #F9FAFB;
     color: #4B5563;
-    font-size: 12px;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 550;
     white-space: nowrap;
     cursor: pointer;
-    transition: all .2s;
+    transition: all 0.2s;
 }
 
 .category:hover {
@@ -155,9 +155,7 @@ body {
     font-weight: 750;
 }
 
-
-/* botão de voltar */
-
+/* Barra de seleção */
 .selection-bar {
     display: none;
     justify-content: space-between;
@@ -173,7 +171,7 @@ body {
 }
 
 .selection-bar span {
-    font-size: 12px;
+    font-size: 14px;
     color: #4B5563;
 }
 
@@ -181,7 +179,8 @@ body {
     border: none;
     background: transparent;
     color: #171923;
-    font-size: 13px;
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 700;
     cursor: pointer;
 }
@@ -194,12 +193,11 @@ body {
 }
 
 .selection-bar #deleteSelected:disabled {
-    opacity: .4;
+    opacity: 0.4;
     cursor: not-allowed;
 }
 
-/* lista de bilhetes */
-
+/* Lista de bilhetes */
 .ticket-list {
     padding: 0 20px;
 }
@@ -208,19 +206,18 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    min-height: 112px;
-    padding: 15px 5px;
+    min-height: 118px;
+    padding: 16px 5px;
     border-bottom: 1px solid #E5E7EB;
     cursor: pointer;
     position: relative;
     background: transparent;
-    transition: background .2s;
+    transition: background 0.2s;
 }
 
 .ticket-item:hover {
     background: #F9FAFB;
 }
-
 
 /* Imagens dos festivais */
 .ticket-image {
@@ -259,13 +256,13 @@ body {
 
 .ticket-type {
     color: #171923;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 800;
-    letter-spacing: .7px;
+    letter-spacing: 0.7px;
 }
 
 .ticket-details h3 {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 750;
     color: #171923;
     margin-top: 5px;
@@ -276,13 +273,13 @@ body {
 }
 
 .ticket-details p {
-    font-size: 11px;
+    font-size: 14px;
     color: #6B7280;
 }
 
 .ticket-price {
     display: block;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 750;
     color: #171923;
     margin-top: 7px;
@@ -296,7 +293,7 @@ body {
     font-weight: bold;
     cursor: pointer;
     padding: 0 5px;
-    transition: color .2s, transform .2s;
+    transition: color 0.2s, transform 0.2s;
 }
 
 .ticket-arrow:hover {
@@ -304,12 +301,11 @@ body {
     transform: translateX(3px);
 }
 
-/* seleção de bilhetes */
-
+/* Seleção de bilhetes */
 .select-circle {
     display: none;
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border: 1.5px solid #9CA3AF;
     border-radius: 50%;
     flex-shrink: 0;
@@ -326,7 +322,7 @@ body {
 }
 
 .ticket-item.selected {
-    background: rgba(215,255,0,0.12);
+    background: rgba(215, 255, 0, 0.12);
 }
 
 .ticket-item.selected .select-circle {
@@ -337,20 +333,19 @@ body {
 .ticket-item.selected .select-circle::after {
     content: "✓";
     color: #171923;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
 }
 
-/* lista vazia */
-
+/* Lista vazia */
 .empty-message {
     text-align: center;
     color: #6B7280;
-    font-size: 13px;
+    font-size: 15px;
     padding: 35px 15px;
 }
 
-/* confirmação de eliminação */
+/* Confirmação de eliminação */
 .modal {
     position: fixed;
     inset: 0;
@@ -359,7 +354,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background: rgba(23, 25, 35, .55);
+    background: rgba(23, 25, 35, 0.55);
 }
 
 .modal.show {
@@ -374,7 +369,7 @@ body {
     border-radius: 20px;
     background: #F8F7F1;
     text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Ícones dos modais */
@@ -403,7 +398,7 @@ body {
 
 /* Texto dos modais */
 .modal-content h2 {
-    font-size: 19px;
+    font-size: 21px;
     font-weight: 750;
     color: #171923;
     margin-bottom: 10px;
@@ -411,7 +406,7 @@ body {
 
 .modal-content p {
     color: #6B7280;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.5;
 }
 
@@ -425,9 +420,11 @@ body {
 .modal-buttons button,
 .success-button {
     flex: 1;
-    padding: 12px;
+    padding: 13px;
     border: none;
     border-radius: 22px;
+    font-family: inherit;
+    font-size: 16px;
     font-weight: 700;
     cursor: pointer;
 }
@@ -458,10 +455,8 @@ body {
     margin-top: 22px;
 }
 
-/* ecrares pequenos */
-
+/* Ecrãs pequenos */
 @media (max-width: 360px) {
-
     .page-header {
         padding-left: 15px;
         padding-right: 15px;
@@ -482,6 +477,6 @@ body {
     }
 
     .ticket-details h3 {
-        font-size: 14px;
+        font-size: 16px;
     }
 }

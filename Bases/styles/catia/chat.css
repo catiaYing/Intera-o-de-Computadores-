@@ -1,4 +1,3 @@
-
 /* BANDy - Chat */
 
 :root {
@@ -27,6 +26,11 @@ body {
     min-height: 100vh;
 }
 
+button,
+input {
+    font-family: inherit;
+}
+
 /* Página principal */
 
 .chat-page {
@@ -46,7 +50,7 @@ body {
 /* Cabeçalho */
 
 .chat-header {
-    height: 70px;
+    height: 72px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -59,7 +63,7 @@ body {
 }
 
 .back-button {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     color: var(--black);
     text-decoration: none;
@@ -81,8 +85,8 @@ body {
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     flex-shrink: 0;
     border-radius: 50%;
     background: var(--green);
@@ -90,19 +94,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 700;
 }
 
 .user-info h2 {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .user-info span {
     display: block;
     margin-top: 3px;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--gray);
 }
 
@@ -113,7 +117,7 @@ body {
     color: #4B5563;
     background: var(--light);
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 14px;
     padding: 7px 20px;
     margin: 10px 0;
     flex-shrink: 0;
@@ -137,7 +141,7 @@ body {
 .message {
     width: fit-content;
     max-width: 78%;
-    padding: 10px 14px 8px;
+    padding: 11px 15px 9px;
     border-radius: 18px;
     display: flex;
     flex-direction: column;
@@ -147,13 +151,13 @@ body {
 }
 
 .message p {
-    font-size: 15px;
-    line-height: 1.4;
+    font-size: 16px;
+    line-height: 1.45;
 }
 
 .message span {
     align-self: flex-end;
-    font-size: 11px;
+    font-size: 13px;
     color: var(--gray);
     white-space: nowrap;
 }
@@ -179,7 +183,7 @@ body {
 .sent span::after {
     content: " ✓✓";
     color: var(--black);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
 }
 
@@ -206,7 +210,7 @@ body {
     border: 1px solid var(--border);
     border-radius: 25px;
     color: var(--black);
-    font-size: 14px;
+    font-size: 16px;
     outline: none;
 }
 
@@ -220,8 +224,8 @@ body {
 
 .attach-button,
 .send-button {
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
     border: none;
     border-radius: 50%;
@@ -229,7 +233,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 21px;
+    font-size: 22px;
 }
 
 .attach-button {
@@ -257,7 +261,7 @@ body {
     position: absolute;
     left: 15px;
     bottom: 82px;
-    width: 210px;
+    width: 220px;
     padding: 8px;
     background: var(--white);
     border: 1px solid var(--border);
@@ -273,14 +277,14 @@ body {
 }
 
 .attachment-menu button {
-    min-height: 45px;
-    padding: 10px;
+    min-height: 46px;
+    padding: 10px 12px;
     border: none;
     border-radius: 10px;
     background: var(--white);
     color: var(--black);
     font-family: inherit;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     text-align: left;
     cursor: pointer;
@@ -314,7 +318,7 @@ body {
     top: 80px;
     left: 0;
     width: 100%;
-    height: 35%;
+    height: 44%;
     padding: 0 12px;
     z-index: 20;
     pointer-events: none;
@@ -327,7 +331,7 @@ body {
 .point-modal {
     width: 100%;
     height: 100%;
-    padding: 12px;
+    padding: 14px;
     display: flex;
     flex-direction: column;
     background: var(--white);
@@ -349,25 +353,25 @@ body {
 }
 
 .point-modal-header h2 {
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 750;
 }
 
 .point-modal-header p {
     margin-top: 3px;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--gray);
 }
 
 #closePoint {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
     border: none;
     border-radius: 50%;
     background: var(--light);
     color: var(--black);
-    font-size: 17px;
+    font-size: 19px;
     cursor: pointer;
 }
 
@@ -378,7 +382,7 @@ body {
     min-height: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: minmax(76px, auto);
+    grid-auto-rows: minmax(82px, auto);
     gap: 8px;
     overflow-y: auto;
     padding: 1px 2px 5px;
@@ -386,12 +390,12 @@ body {
 
 .point-option {
     min-width: 0;
-    min-height: 76px;
-    padding: 7px;
+    min-height: 82px;
+    padding: 8px;
     display: grid;
     grid-template-columns: 15px 38px minmax(0, 1fr);
     align-items: center;
-    gap: 5px;
+    gap: 6px;
     border: 1px solid var(--border);
     border-radius: 11px;
     background: var(--white);
@@ -424,11 +428,12 @@ body {
 }
 
 .point-information strong {
-    font-size: 11px;
+    font-size: 13px;
+    line-height: 1.25;
 }
 
 .point-information span {
-    font-size: 9px;
+    font-size: 12px;
     color: var(--gray);
 }
 
@@ -437,17 +442,17 @@ body {
 .point-buttons {
     display: flex;
     gap: 8px;
-    margin-top: 9px;
+    margin-top: 10px;
     flex-shrink: 0;
 }
 
 .point-buttons button {
     flex: 1;
-    min-height: 36px;
+    min-height: 40px;
     border: none;
     border-radius: 10px;
     font-family: inherit;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 650;
     cursor: pointer;
 }
@@ -485,12 +490,12 @@ body {
 }
 
 .point-invitation h3 {
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .point-invitation p,
 .invitation-status {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .point-invitation p {
@@ -538,13 +543,14 @@ body {
 }
 
 .invite-modal h2 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 10px;
 }
 
 .invite-modal p {
-    font-size: 13px;
+    font-size: 15px;
     color: var(--gray);
+    line-height: 1.5;
 }
 
 #countdown {
@@ -593,15 +599,16 @@ body {
     }
 
     .point-information strong {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .point-information span {
-        font-size: 8px;
+        font-size: 11px;
     }
 }
 
-/* Cartao de ponto de encontro */
+/* Cartão de ponto de encontro */
+
 .message.point-message {
     background: transparent;
     padding: 0;
@@ -621,7 +628,7 @@ body {
 
 .point-invitation strong {
     display: block;
-    font-size: 14px;
+    font-size: 15px;
     color: #64748B;
     margin-bottom: 8px;
 }
@@ -633,7 +640,7 @@ body {
 }
 
 .point-invitation p {
-    font-size: 14px;
+    font-size: 15px;
     color: #6B7280;
     margin: 0 0 14px;
 }
@@ -642,9 +649,9 @@ body {
     display: inline-block;
     background: #E8F5B5;
     color: #506600;
-    padding: 7px 11px;
+    padding: 7px 12px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -654,9 +661,7 @@ body {
 }
 
 
-/* ==========================================
-   BANDy - Botão Ver Percurso
-   ========================================== */
+/* Botão Ver Percurso */
 
 .point-invitation .botao-ver-percurso {
     display: flex !important;
@@ -667,9 +672,9 @@ body {
     justify-content: center;
 
     width: 100%;
-    min-height: 48px;
+    min-height: 50px;
     margin-top: 14px;
-    padding: 12px;
+    padding: 13px;
 
     background-color: #D7FF00;
     color: #171923;
@@ -677,7 +682,7 @@ body {
     border: none;
     border-radius: 12px;
 
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
     text-decoration: none;
     text-align: center;
@@ -690,11 +695,7 @@ body {
 }
 
 
-
-/* ==========================================
-   ESCOLHER FESTIVAL - BANDy
-   ========================================== */
-
+/* ESCOLHER FESTIVAL  */
 /* Fundo do modal */
 
 .festival-overlay {
@@ -719,7 +720,7 @@ body {
 .festival-modal {
     width: 100%;
     max-width: 330px;
-    padding: 18px;
+    padding: 20px;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 18px;
@@ -737,27 +738,27 @@ body {
 }
 
 .festival-modal-header h2 {
-    font-size: 17px;
+    font-size: 19px;
     font-weight: 750;
 }
 
 .festival-modal-header p {
     margin-top: 4px;
-    font-size: 11px;
+    font-size: 14px;
     color: var(--gray);
 }
 
 /* Botão fechar */
 
 #closeFestival {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
     border: none;
     border-radius: 50%;
     background: var(--light);
     color: var(--black);
-    font-size: 17px;
+    font-size: 19px;
     cursor: pointer;
 }
 
@@ -773,16 +774,16 @@ body {
 /* Cada opção */
 
 .festival-option {
-    min-height: 45px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 12px;
+    padding: 11px 13px;
     border: 1px solid var(--border);
     border-radius: 10px;
     background: var(--white);
     cursor: pointer;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
 }
 
@@ -809,11 +810,11 @@ body {
 
 .festival-buttons button {
     flex: 1;
-    min-height: 40px;
+    min-height: 44px;
     border: none;
     border-radius: 10px;
     font-family: inherit;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
 }
