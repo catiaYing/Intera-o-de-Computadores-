@@ -836,3 +836,14 @@ input {
 #confirmFestival:hover {
     background: var(--green-dark);
 }
+/* Estado de leitura das mensagens enviadas */
+.message span.read-status.read {
+    color: #2563EB;
+    font-weight: 600;
+}
+
+.photo-message span.read-status {
+    display: block;
+    margin-top: 4px;
+    text-align: right;
+}

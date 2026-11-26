@@ -123,6 +123,27 @@
 
         </section>
 
+        <p class="sem-amigos" id="sem-amigos" hidden>Já não tens amigos na lista.</p>
+
+        <!-- Opções do amigo: deixar de seguir / remover -->
+        <div class="modal-amigo" id="modal-amigo" role="dialog" aria-modal="true" aria-labelledby="modal-amigo-titulo">
+            <div class="modal-amigo-caixa">
+                <h2 id="modal-amigo-titulo"></h2>
+                <p id="modal-amigo-texto"></p>
+
+                <div id="modal-amigo-opcoes">
+                    <button type="button" id="acao-seguir" class="acao-modal"></button>
+                    <button type="button" id="acao-remover" class="acao-modal perigo">Remover amigo</button>
+                    <button type="button" id="acao-fechar" class="acao-modal secundaria">Cancelar</button>
+                </div>
+
+                <div id="modal-amigo-confirmar" hidden>
+                    <button type="button" id="acao-confirmar" class="acao-modal perigo"></button>
+                    <button type="button" id="acao-cancelar" class="acao-modal secundaria">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Barra de Navegação -->
         <nav class="bottom-nav">
             <a href="home.html" class="nav-item">

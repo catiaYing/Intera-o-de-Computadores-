@@ -267,6 +267,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     id: user.id,
                     telefone: user.telefone
                 }));
+                sessionStorage.setItem("paginaOrigemPedido", window.location.href);
                 window.location.href = "../catia/pedido_amizade.html";
             });
         }
@@ -280,24 +281,23 @@ document.addEventListener("DOMContentLoaded", function () {
         return cartao;
     }
 
-    function atualizarLista() {
-
-        lista.innerHTML = "";
+    // Devolve as sugestões para um dado filtro (respeita etiquetas e pesquisa)
+    function obterSugestoes(filtro) {
 
         const termo = pesquisaPessoas
             ? normalizar(pesquisaPessoas.value)
             : "";
 
-        const sugestoes = utilizadores
+        return utilizadores
             .map(calcular)
             .filter(function (s) {
                 // 1. Verificar filtro de categoria (Todos / Artistas / Géneros / Festivais / Vai sozinho)
                 const correspondeFiltro =
-                    (filtroAtual === "artistas" && s.artistas.length > 0) ||
-                    (filtroAtual === "generos" && s.generos.length > 0) ||
-                    (filtroAtual === "festivais" && s.festivais.length > 0) ||
-                    (filtroAtual === "sozinho" && s.user.vaiSozinho) ||
-                    (filtroAtual === "todos" && (s.pontos > 0 || s.user.vaiSozinho));
+                    (filtro === "artistas" && s.artistas.length > 0) ||
+                    (filtro === "generos" && s.generos.length > 0) ||
+                    (filtro === "festivais" && s.festivais.length > 0) ||
+                    (filtro === "sozinho" && s.user.vaiSozinho) ||
+                    (filtro === "todos" && (s.pontos > 0 || s.user.vaiSozinho));
 
                 if (!correspondeFiltro) return false;
 
@@ -333,6 +333,32 @@ document.addEventListener("DOMContentLoaded", function () {
             .sort(function (a, b) {
                 return b.pontos - a.pontos;
             });
+    }
+
+    // Mostra o número de resultados em cada botão de filtro
+    function atualizarContagensFiltros() {
+        filtros.forEach(function (botao) {
+            let badge = botao.querySelector(".filtro-contagem");
+            if (!badge) {
+                badge = document.createElement("span");
+                badge.className = "filtro-contagem";
+                botao.appendChild(badge);
+            }
+            const n = obterSugestoes(botao.dataset.filtro).length;
+            badge.textContent = n;
+            botao.setAttribute("aria-label",
+                botao.firstChild.textContent.trim() + ": " + n +
+                (n === 1 ? " resultado" : " resultados"));
+        });
+    }
+
+    function atualizarLista() {
+
+        lista.innerHTML = "";
+
+        const sugestoes = obterSugestoes(filtroAtual);
+
+        atualizarContagensFiltros();
 
         sugestoes.forEach(function (sugestao) {
             lista.appendChild(criarCartao(sugestao));

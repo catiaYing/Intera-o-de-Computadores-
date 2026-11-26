@@ -45,6 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
             );
 
+            // Guardar a página de origem (document.referrer pode vir vazio)
+            sessionStorage.setItem("paginaOrigemPedido", window.location.href);
+
             window.location.href = "catia/pedido_amizade.html";
         });
     });

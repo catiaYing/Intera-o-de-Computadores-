@@ -84,6 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         JSON.stringify(user)
                     );
 
+                    sessionStorage.setItem("paginaOrigemPedido", window.location.href);
+
                     // Abrir a página de pedido de amizade
                     window.location.href = "pedido_amizade.html";
                 });

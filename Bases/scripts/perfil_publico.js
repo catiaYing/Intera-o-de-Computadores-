@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 nome: u.nome
                             })
                         );
+                        sessionStorage.setItem("paginaOrigemPedido", window.location.href);
                         window.location.href = "catia/pedido_amizade.html";
                     };
                 }

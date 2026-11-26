@@ -187,7 +187,26 @@ const mensagensIniciais = {
 
 // 5. Mensagens
 
-let chatMessages = mensagensIniciais[user].slice();
+let chatMessages = mensagensIniciais[user].map(function(item) {
+    // Mensagens antigas enviadas já foram lidas
+    return item.type === "sent"
+        ? Object.assign({}, item, { readStatus: "Lida" })
+        : item;
+});
+
+// Estado de leitura: "Enviada" e, 3 segundos depois, "Lida"
+function acompanharLeitura(mensagem) {
+
+    mensagem.readStatus = "Enviada";
+
+    setTimeout(function() {
+
+        mensagem.readStatus = "Lida";
+
+        showMessages();
+
+    }, 3000);
+}
 
 
 // 6. Elementos HTML
@@ -290,6 +309,14 @@ function showMessages() {
 
             message.appendChild(image);
 
+            if (item.readStatus) {
+                const photoStatus = document.createElement("span");
+                photoStatus.className = "read-status";
+                photoStatus.textContent =
+                    (item.time ? item.time + " · " : "") + item.readStatus;
+                message.appendChild(photoStatus);
+            }
+
         } else if (item.type === "invitation") {
 
             message.className =
@@ -343,7 +370,12 @@ function showMessages() {
             paragraph.textContent = item.text || "";
 
             const time = document.createElement("span");
-            time.textContent = item.time || "";
+            time.textContent = (item.time || "") +
+                (item.readStatus ? " · " + item.readStatus : "");
+
+            if (item.readStatus === "Lida") {
+                time.classList.add("read-status", "read");
+            }
 
             message.appendChild(paragraph);
             message.appendChild(time);
@@ -370,11 +402,15 @@ messageForm.addEventListener("submit", function(event) {
         return;
     }
 
-    chatMessages.push({
+    const novaMensagem = {
         type: "sent",
         text: texto,
         time: getCurrentTime()
-    });
+    };
+
+    chatMessages.push(novaMensagem);
+
+    acompanharLeitura(novaMensagem);
 
     showMessages();
 
@@ -415,11 +451,15 @@ if (
     (returnUser === null || returnUser === user)
 ) {
 
-    chatMessages.push({
+    const novaFoto = {
         type: "photo",
         photo: selectedPhoto,
         time: getCurrentTime()
-    });
+    };
+
+    chatMessages.push(novaFoto);
+
+    acompanharLeitura(novaFoto);
 
     showMessages();
 

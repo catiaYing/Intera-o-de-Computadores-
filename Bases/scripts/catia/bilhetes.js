@@ -26,6 +26,77 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectionMode = false;
     let currentMonth = "all";
 
+    // Dados dos festivais (data, mês e imagem)
+    const FESTIVAIS = {
+        "MEO Alive": { data: "10 – 12 Junho 2027", mes: "6", imagem: "image-one" },
+        "Primavera Sound": { data: "12 – 14 Junho 2027", mes: "6", imagem: "image-four" },
+        "Sumol Summer Fest": { data: "3 – 4 Julho 2027", mes: "7", imagem: "image-three" },
+        "Meo Kalorama": { data: "29 Agosto 2027", mes: "8", imagem: "image-two" }
+    };
+
+    function lerBilhetes() {
+        try {
+            return JSON.parse(localStorage.getItem("bilhetesComprados")) || [];
+        } catch (erro) {
+            return [];
+        }
+    }
+
+    // Mostrar apenas os bilhetes efetivamente comprados
+    function carregarBilhetes() {
+
+        ticketList.innerHTML = "";
+
+        lerBilhetes().forEach(function (b) {
+
+            const info = FESTIVAIS[b.festival] ||
+                { data: "", mes: "", imagem: "image-one" };
+
+            const artigo = document.createElement("article");
+            artigo.className = "ticket-item";
+            artigo.dataset.month = info.mes;
+            artigo.dataset.id = b.id;
+
+            const circulo = document.createElement("div");
+            circulo.className = "select-circle";
+
+            const imagem = document.createElement("div");
+            imagem.className = "ticket-image " + info.imagem;
+            imagem.innerHTML = "<span>♫</span>";
+
+            const detalhes = document.createElement("div");
+            detalhes.className = "ticket-details";
+
+            const tipo = document.createElement("span");
+            tipo.className = "ticket-type";
+            tipo.textContent = String(b.tipo).toUpperCase() +
+                (b.quantidade > 1 ? " · ×" + b.quantidade : "");
+
+            const nome = document.createElement("h3");
+            nome.textContent = b.festival;
+
+            const data = document.createElement("p");
+            data.textContent = info.data;
+
+            const preco = document.createElement("span");
+            preco.className = "ticket-price";
+            preco.textContent = Number(b.total).toLocaleString("pt-PT", {
+                style: "currency",
+                currency: "EUR"
+            });
+
+            detalhes.append(tipo, nome, data, preco);
+
+            const seta = document.createElement("a");
+            seta.href = "bilhete_digital.html";
+            seta.className = "ticket-arrow";
+            seta.textContent = "›";
+
+            artigo.append(circulo, imagem, detalhes, seta);
+            ticketList.appendChild(artigo);
+        });
+    }
+
     // Obter bilhetes selecionados
     function getSelectedTickets() {
         return ticketList.querySelectorAll(".ticket-item.selected");
@@ -144,7 +215,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (selecionados.length === 0) return;
 
-        // Remover bilhetes selecionados
+        // Remover bilhetes selecionados (também do armazenamento)
+        const idsRemovidos = Array.from(selecionados).map(t => t.dataset.id);
+
+        try {
+            localStorage.setItem(
+                "bilhetesComprados",
+                JSON.stringify(lerBilhetes().filter(
+                    b => !idsRemovidos.includes(String(b.id))
+                ))
+            );
+        } catch (erro) {}
+
         selecionados.forEach(ticket => {
             ticket.remove();
         });
@@ -254,6 +336,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Inicializar página
+    carregarBilhetes();
     atualizarLista();
 
 });
