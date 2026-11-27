@@ -41,12 +41,14 @@
 
 /* tipo de bilhete */
 
-.secao {
+.secao,
+.secao-dia {
     padding: 0 20px;
     margin-bottom: 20px;
 }
 
-.secao-titulo {
+.secao-titulo,
+.secao-escolher {
     margin-bottom: 12px;
 
     color: #6B7280;
@@ -133,7 +135,42 @@
 }
 
 
-/* qunatidade */
+/* escolher dia (passe 1 dia) */
+
+.opcoes-dia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+    gap: 8px;
+}
+
+.opcao-dia {
+    min-height: 44px;
+    padding: 10px 6px;
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    color: #171923;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.opcao-dia:hover {
+    border-color: #BFE600;
+}
+
+.opcao-dia.ativo {
+    background: #D7FF00;
+    border-color: #D7FF00;
+    color: #171923;
+    font-weight: 750;
+}
+
+
+/* quantidade */
 
 .quantidade {
     display: flex;
@@ -202,7 +239,7 @@
 }
 
 
-/* preço total*/
+/* preço total */
 
 .total-linha {
     display: flex;

@@ -1,49 +1,49 @@
-
-/* ==========================================
-   BANDy - Selecionar Bilhete
-   Ligação com a página de Pagamento
-   ========================================== */
+/* Selecionar Bilhete com ligação com a página de Pagamento*/
 
 
-/* ===== 1. IDENTIFICAR FESTIVAL ===== */
+/* 1. IDENTIFICAR FESTIVAL  */
 
 const params = new URLSearchParams(window.location.search);
 
-const nome = params.get("festival") || "MEO Alive";
+const nome = params.get("festival") || "NOS Alive";
 
 
-/* ===== 2. DADOS DOS FESTIVAIS ===== */
+/*  2. DADOS DOS FESTIVAIS  */
 
 const dados = {
 
-    "MEO Alive": {
+    "NOS Alive": {
         local: "Algés, Lisboa",
         data: "10 – 12 Junho 2027",
+        dias: ["10 Junho 2027", "11 Junho 2027", "12 Junho 2027"],
         precos: [45, 120, 190]
     },
 
     "Primavera Sound": {
         local: "Porto",
         data: "12 – 14 Junho 2027",
+        dias: ["12 Junho 2027", "13 Junho 2027", "14 Junho 2027"],
         precos: [75, 180, 250]
     },
 
     "Sumol Summer Fest": {
         local: "Ericeira",
         data: "3 – 4 Julho 2027",
+        dias: ["3 Julho 2027", "4 Julho 2027"],
         precos: [45, 80, 120]
     },
 
     "Meo Kalorama": {
         local: "Lisboa",
         data: "29 Agosto 2027",
+        dias: ["29 Agosto 2027"],
         precos: [65, 110, 170]
     }
 
 };
 
 
-/* ===== 3. VERIFICAR FESTIVAL ===== */
+/*3. VERIFICAR FESTIVAL  */
 
 const festival = dados[nome];
 
@@ -58,7 +58,7 @@ if (!festival) {
 }
 
 
-/* ===== 4. INICIAR SELEÇÃO ===== */
+/*  4. INICIAR SELEÇÃO  */
 
 function iniciarSelecao() {
 
@@ -77,9 +77,11 @@ function iniciarSelecao() {
         encodeURIComponent(nome);
 
 
-    /* ===== 5. ELEMENTOS ===== */
-
     const opcoes = document.querySelectorAll(".opcao");
+
+    const secaoDia = document.getElementById("secao-dia");
+
+    const opcoesDia = document.getElementById("opcoes-dia");
 
     const quantidadeTexto = document.getElementById("quantidade");
 
@@ -90,7 +92,7 @@ function iniciarSelecao() {
     const mensagem = document.getElementById("mensagem");
 
 
-    /* ===== 6. DADOS DA SELEÇÃO ===== */
+    /*  6. DADOS DA SELEÇÃO  */
 
     let quantidade = 1;
 
@@ -98,8 +100,10 @@ function iniciarSelecao() {
 
     let preco = 0;
 
+    let diaSelecionado = null;
 
-    /* ===== 7. FORMATAR PREÇO ===== */
+
+    /*  7. PREÇO  */
 
     function formatar(valor) {
 
@@ -108,7 +112,7 @@ function iniciarSelecao() {
     }
 
 
-    /* ===== 8. ATUALIZAR TOTAL ===== */
+    /*  8.  TOTAL  */
 
     function atualizarTotal() {
 
@@ -119,7 +123,52 @@ function iniciarSelecao() {
     }
 
 
-    /* ===== 9. ESCOLHER TIPO DE BILHETE ===== */
+    /* DIAS DO FESTIVAL  */
+
+    function mostrarDias() {
+
+        opcoesDia.innerHTML = "";
+        diaSelecionado = null;
+
+        festival.dias.forEach(function (dia) {
+
+            const botaoDia = document.createElement("button");
+            botaoDia.type = "button";
+            botaoDia.className = "opcao-dia";
+            botaoDia.dataset.dia = dia;
+            botaoDia.textContent = dia;
+            botaoDia.setAttribute("aria-pressed", "false");
+
+            botaoDia.addEventListener("click", function () {
+
+                opcoesDia.querySelectorAll(".opcao-dia").forEach(function (item) {
+                    item.classList.remove("ativo");
+                    item.setAttribute("aria-pressed", "false");
+                });
+
+                botaoDia.classList.add("ativo");
+                botaoDia.setAttribute("aria-pressed", "true");
+
+                diaSelecionado = dia;
+                continuar.disabled = false;
+                mensagem.textContent = "";
+            });
+
+            opcoesDia.appendChild(botaoDia);
+        });
+
+        secaoDia.hidden = false;
+
+        /* Se o festival só tiver 1 dia (ex: Meo Kalorama), seleciona logo */
+        if (festival.dias.length === 1) {
+            opcoesDia.querySelector(".opcao-dia").click();
+        } else {
+            continuar.disabled = true;
+        }
+    }
+
+
+    /* 9. ESCOLHER TIPO DE BILHETE */
 
     opcoes.forEach(function(opcao, index) {
 
@@ -154,12 +203,18 @@ function iniciarSelecao() {
 
             preco = Number(opcao.dataset.preco);
 
-
-            /* Ativar botão Continuar */
-
-            continuar.disabled = false;
-
             mensagem.textContent = "";
+
+
+            /* Mostrar escolha de dia se for Passe 1 dia */
+
+            if (tipo === "Passe 1 dia") {
+                mostrarDias();
+            } else {
+                secaoDia.hidden = true;
+                diaSelecionado = null;
+                continuar.disabled = false;
+            }
 
             atualizarTotal();
 
@@ -168,7 +223,7 @@ function iniciarSelecao() {
     });
 
 
-    /* ===== 10. AUMENTAR QUANTIDADE ===== */
+    /*  10. AUMENTAR QUANTIDADE  */
 
     document.getElementById("aumentar").onclick = function() {
 
@@ -183,7 +238,7 @@ function iniciarSelecao() {
     };
 
 
-    /* ===== 11. DIMINUIR QUANTIDADE ===== */
+    /*  11. DIMINUIR QUANTIDADE  */
 
     document.getElementById("diminuir").onclick = function() {
 
@@ -198,7 +253,7 @@ function iniciarSelecao() {
     };
 
 
-    /* ===== 12. CONTINUAR PARA PAGAMENTO ===== */
+    /*  12. CONTINUAR PARA PAGAMENTO  */
 
     continuar.onclick = function() {
 
@@ -208,6 +263,17 @@ function iniciarSelecao() {
 
             mensagem.textContent =
                 "Seleciona um tipo de bilhete.";
+
+            return;
+
+        }
+
+        /* Verificar se escolheu o dia no Passe 1 dia */
+
+        if (tipo === "Passe 1 dia" && !diaSelecionado) {
+
+            mensagem.textContent =
+                "Seleciona o dia do festival.";
 
             return;
 
@@ -230,6 +296,10 @@ function iniciarSelecao() {
 
         };
 
+        if (diaSelecionado) {
+            compra.dia = diaSelecionado;
+        }
+
 
         /* Guardar dados para a página Pagamento */
 
@@ -247,7 +317,7 @@ function iniciarSelecao() {
         );
 
 
-        /* Enviar dados também pelo URL */
+        /* Enviar dados pelo URL */
 
         Object.entries(compra).forEach(function([chave, valor]) {
 
@@ -255,15 +325,12 @@ function iniciarSelecao() {
 
         });
 
-
-        /* Navegar para Pagamento */
-
         window.location.href = destino.href;
 
     };
 
 
-    /* ===== 13. MOSTRAR TOTAL INICIAL ===== */
+    /*  13. MOSTRAR TOTAL INICIAL  */
 
     atualizarTotal();
 

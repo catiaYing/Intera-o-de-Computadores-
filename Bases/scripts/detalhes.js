@@ -7,7 +7,7 @@
 
 const festivais = {
 
-    "MEO Alive": {
+    "NOS Alive": {
         data: "10 – 12 Junho 2027",
         local: "Algés, Lisboa",
         genero: "Pop, Rock e Indie",
