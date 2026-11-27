@@ -60,6 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const circulo = document.createElement("div");
             circulo.className = "select-circle";
 
+            const link= document.createElement("a");
+            link.href = "bilhete_digital.html";
+            link.className = "ticket-link";
+
             const imagem = document.createElement("div");
             imagem.className = "ticket-image " + info.imagem;
             imagem.innerHTML = "<span>♫</span>";
@@ -87,12 +91,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             detalhes.append(tipo, nome, data, preco);
 
-            const seta = document.createElement("a");
-            seta.href = "bilhete_digital.html";
+            const seta = document.createElement("span");
             seta.className = "ticket-arrow";
             seta.textContent = "›";
 
-            artigo.append(circulo, imagem, detalhes, seta);
+            link.append(imagem, detalhes, seta);
+            artigo.append(circulo, link);
             ticketList.appendChild(artigo);
         });
     }
@@ -153,11 +157,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!ticket) return;
 
-        // Só permitir seleção no modo Selecionar
-        if (!selectionMode) return;
+        // abrir bilhete normalmente
+        if(!selectionMode) return;
 
-        // Ignorar bilhetes escondidos pelo filtro
-        if (ticket.style.display === "none") return;
+        //no modo selecionar, marcar o bilhete
+        event.preventDefault();
+
+        //ignorar bilhetes escondidos filtro
+        if (ticket.style.display== "none") return;
 
         ticket.classList.toggle("selected");
 

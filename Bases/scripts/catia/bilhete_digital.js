@@ -1,6 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    const ticketHolder =
+        document.getElementById("ticketHolder");
+
     const downloadButton =
         document.getElementById("downloadButton");
 
@@ -15,6 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const modalOk =
         document.getElementById("modalOk");
+
+    //associar o titular ao nome perfil
+    const nomeGuardado = sessionStorage.getItem("bandyNome");
+    if (ticketHolder && nomeGuardado){
+        ticketHolder.textContent = nomeGuardado;
+    }
 
 
     // Descarregar bilhete em PDF
