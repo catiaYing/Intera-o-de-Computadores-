@@ -5,19 +5,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Perfil - Maria</title>
+    <title>Perfil</title>
 
     <link rel="stylesheet" href="../../styles/catia/perfil_users.css">
+    <script src="../../scripts/catia/perfil_users.js" defer></script>
 </head>
 
 <body>
 
     <main class="profile-page">
 
-        <!-- Cabeçalho -->
         <header class="profile-header">
-
             <a href="contactos.html" class="back-button">←</a>
 
             <h1>Perfil</h1>
@@ -35,16 +33,21 @@
                         QR Code
                     </button>
 
-                    <button type="button" class="report-option"
+                    <button type="button"
+                        id="removeFriendOption"
+                        onclick="alternarAmizade()">
+                        Remover amigo
+                    </button>
+
+                    <button type="button"
+                        class="report-option"
                         onclick="abrirDenuncia()">
                         Denunciar
                     </button>
 
                 </div>
             </details>
-
         </header>
-
 
         <!-- Informações do perfil -->
         <section class="profile-info">
@@ -58,27 +61,27 @@
             <div class="profile-stats" id="profileStats">
 
                 <div>
-                    <strong>3</strong>
+                    <strong id="photoCount">3</strong>
                     <span>Fotos</span>
                 </div>
 
                 <div>
-                    <strong>4</strong>
+                    <strong id="friendCount">4</strong>
                     <span>Amigos</span>
                 </div>
 
                 <div>
-                    <strong>5</strong>
+                    <strong id="favoriteCount">5</strong>
                     <span>Favoritos</span>
                 </div>
 
             </div>
-
         </section>
 
-
         <!-- Perfil privado -->
-        <section class="private-profile" id="privateProfile" style="display: none;">
+        <section class="private-profile"
+            id="privateProfile"
+            style="display: none;">
 
             <div class="private-icon">🔒</div>
 
@@ -90,20 +93,19 @@
 
         </section>
 
-
         <!-- Fotografias -->
         <section class="photos-section" id="photosSection">
 
             <h3>Fotografias</h3>
 
             <div class="photo-grid" id="photoGrid">
+
                 <div class="photo-placeholder">Foto 1</div>
                 <div class="photo-placeholder">Foto 2</div>
                 <div class="photo-placeholder">Foto 3</div>
+
             </div>
-
         </section>
-
 
         <!-- Artistas favoritos -->
         <section class="favorite-section" id="artistsSection">
@@ -114,7 +116,6 @@
 
         </section>
 
-
         <!-- Músicas favoritas -->
         <section class="favorite-section" id="songsSection">
 
@@ -124,104 +125,183 @@
 
         </section>
 
-
         <!-- Botão Chat -->
-        <a href="chat.html?user=maria" id="profileChat" class="chat-button">
+        <a href="chat.html?user=maria"
+            id="profileChat"
+            data-user-id="maria"
+            class="chat-button">
             Chat
         </a>
 
     </main>
-
 
     <!-- Janela QR Code -->
     <div class="modal" id="qrModal">
 
         <div class="modal-content">
 
-            <button class="close-button" onclick="fecharQR()">×</button>
+            <button type="button"
+                class="close-button"
+                onclick="fecharQR()">
+                ×
+            </button>
 
             <h2>QR Code</h2>
 
             <div class="qr-placeholder">
-                <img src="../../../Bases/media/catia/qrcode.png" alt="QR Code BANDy">
+
+                <img src="../../../Bases/media/catia/qrcode.png"
+                    alt="QR Code BANDy">
+
             </div>
 
             <p id="qrUserId">@maria_123</p>
 
         </div>
-
     </div>
-
 
     <!-- Janela de denúncia -->
     <div class="modal" id="reportModal">
 
         <div class="modal-content report-content">
 
-            <button class="close-button" onclick="fecharDenuncia()">×</button>
+            <button type="button"
+                class="close-button"
+                onclick="fecharDenuncia()">
+                ×
+            </button>
 
             <h2 id="reportTitle">Denunciar Maria</h2>
 
-            <p>Indica o motivo da denúncia:</p>
+            <p>
+                Indica o motivo da denúncia:
+            </p>
 
             <form id="reportForm">
 
                 <label>
-                    <input type="radio" name="motivo"
-                        value="Conteúdo inadequado" required>
+                    <input type="radio"
+                        name="motivo"
+                        value="Conteúdo inadequado"
+                        required>
                     Conteúdo inadequado
                 </label>
 
                 <label>
-                    <input type="radio" name="motivo"
+                    <input type="radio"
+                        name="motivo"
                         value="Assédio ou bullying">
                     Assédio ou bullying
                 </label>
 
                 <label>
-                    <input type="radio" name="motivo"
+                    <input type="radio"
+                        name="motivo"
                         value="Conta falsa">
                     Conta falsa
                 </label>
 
                 <label>
-                    <input type="radio" name="motivo"
+                    <input type="radio"
+                        name="motivo"
                         value="Spam">
                     Spam
                 </label>
 
                 <label>
-                    <input type="radio" name="motivo"
+                    <input type="radio"
+                        name="motivo"
                         value="Outro">
                     Outro
                 </label>
 
-                <textarea
-                    id="reportReason"
+                <textarea id="reportReason"
                     placeholder="Descreve o motivo da denúncia..."
-                    rows="4"
-                ></textarea>
+                    rows="4"></textarea>
 
                 <div class="modal-buttons">
 
-                    <button type="button" onclick="fecharDenuncia()">
+                    <button type="button"
+                        onclick="fecharDenuncia()">
                         Cancelar
                     </button>
 
-                    <button type="submit" class="confirm-button">
+                    <button type="submit"
+                        class="confirm-button">
                         Enviar denúncia
                     </button>
 
                 </div>
-
             </form>
-
         </div>
-
     </div>
 
+    <!-- Janela de confirmação para remover amigo -->
+    <div class="modal"
+        id="removeFriendModal"
+        style="display: none;"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="removeFriendTitle">
 
-    <!-- Janela de confirmação -->
+        <div class="modal-content">
+
+            <button type="button"
+                class="close-button"
+                id="cancelRemoveFriend"
+                aria-label="Cancelar">
+                ×
+            </button>
+
+            <h2 id="removeFriendTitle">
+                Remover amigo
+            </h2>
+
+            <p id="removeFriendMessage">
+                Queres mesmo remover Maria dos teus amigos?
+            </p>
+
+            <div class="modal-buttons">
+
+                <button type="button"
+                    id="cancelRemoveFriendButton">
+                    Cancelar
+                </button>
+
+                <button type="button"
+                    class="confirm-button"
+                    id="confirmRemoveFriendButton">
+                    Sim, remover
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Janela de remoção concluída -->
+    <div class="modal"
+        id="removeFriendSuccessModal"
+        style="display: none;"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="removeFriendSuccessTitle">
+
+        <div class="modal-content success-content">
+
+            <div class="success-icon">✓</div>
+
+            <h2 id="removeFriendSuccessTitle">
+                Amigo removido!
+            </h2>
+
+            <p id="removeFriendSuccessMessage">
+                Maria foi removida dos teus amigos.
+            </p>
+
+        </div>
+    </div>
+
+    <!-- Janela de sucesso da denúncia -->
     <div class="modal" id="successModal">
 
         <div class="modal-content success-content">
@@ -230,269 +310,18 @@
 
             <h2>Denúncia enviada!</h2>
 
-            <p>A tua denúncia foi enviada com sucesso.</p>
+            <p>
+                A tua denúncia foi enviada com sucesso.
+            </p>
 
-            <button class="confirm-button" onclick="fecharSucesso()">
+            <button type="button"
+                class="confirm-button"
+                onclick="fecharSucesso()">
                 OK
             </button>
 
         </div>
-
     </div>
-
-
-    <script>
-
-        // Identificar o utilizador
-        const params = new URLSearchParams(window.location.search);
-        let user = params.get("user");
-
-        if (user == null) {
-            user = "maria";
-        }
-
-        // Informações do perfil
-        let profileName = "Maria";
-        let profileId = "@maria_123";
-        let profileAvatar = "M";
-        let isPrivate = false;
-
-        let artists = ["Billie Eilish", "The Weeknd"];
-        let songs = ["Birds of a Feather", "Blinding Lights"];
-
-        let photoNumber = 3;
-        let friendNumber = 4;
-        let favoriteNumber = 5;
-
-        if (user == "filipe") {
-
-            profileName = "Filipe";
-            profileId = "@filipe_123";
-            profileAvatar = "F";
-
-            artists = ["Linkin Park", "Travis Scott"];
-            songs = ["Numb", "FE!N"];
-
-            photoNumber = 5;
-            friendNumber = 8;
-            favoriteNumber = 4;
-
-        } else if (user == "ana") {
-
-            profileName = "Ana";
-            profileId = "@ana_123";
-            profileAvatar = "A";
-
-            artists = [];
-            songs = [];
-
-            photoNumber = 2;
-            friendNumber = 6;
-            favoriteNumber = 0;
-
-        } else if (user == "santiago") {
-
-            profileName = "Santiago";
-            profileId = "@santiago_123";
-            profileAvatar = "S";
-
-            isPrivate = true;
-
-        } else if (user == "martim") {
-
-            profileName = "Martim";
-            profileId = "@martim_123";
-            profileAvatar = "M";
-
-            artists = ["Coldplay", "Imagine Dragons"];
-            songs = ["Viva La Vida", "Believer"];
-
-            photoNumber = 4;
-            friendNumber = 7;
-            favoriteNumber = 3;
-
-        } else {
-
-            user = "maria";
-
-        }
-
-
-        // Atualizar informações do perfil
-        document.getElementById("profileName").textContent = profileName;
-        document.getElementById("profileId").textContent = profileId;
-        document.getElementById("profileAvatar").textContent = profileAvatar;
-
-        document.getElementById("qrUserId").textContent = profileId;
-
-        document.getElementById("reportTitle").textContent =
-            "Denunciar " + profileName;
-
-        document.getElementById("profileChat").href =
-            "chat.html?user=" + user;
-
-        document.title = "Perfil - " + profileName;
-
-
-        // Atualizar estatísticas
-        document.getElementById("profileStats").innerHTML =
-            '<div><strong>' + photoNumber + '</strong><span>Fotos</span></div>' +
-            '<div><strong>' + friendNumber + '</strong><span>Amigos</span></div>' +
-            '<div><strong>' + favoriteNumber + '</strong><span>Favoritos</span></div>';
-
-
-        // Mostrar perfil privado
-        if (isPrivate == true) {
-
-            document.getElementById("profileStats").style.display = "none";
-            document.getElementById("photosSection").style.display = "none";
-            document.getElementById("artistsSection").style.display = "none";
-            document.getElementById("songsSection").style.display = "none";
-
-            document.getElementById("privateProfile").style.display = "block";
-
-        } else {
-
-            // Mostrar artistas favoritos
-            if (artists.length > 0) {
-
-                for (let i = 0; i < artists.length; i++) {
-
-                    let item = document.createElement("div");
-                    item.className = "favorite-item";
-                    item.textContent = "🎤 " + artists[i];
-
-                    document.getElementById("artistsList").appendChild(item);
-
-                }
-
-            } else {
-
-                document.getElementById("artistsSection").style.display = "none";
-
-            }
-
-
-            // Mostrar músicas favoritas
-            if (songs.length > 0) {
-
-                for (let i = 0; i < songs.length; i++) {
-
-                    let item = document.createElement("div");
-                    item.className = "favorite-item";
-                    item.textContent = "♫ " + songs[i];
-
-                    document.getElementById("songsList").appendChild(item);
-
-                }
-
-            } else {
-
-                document.getElementById("songsSection").style.display = "none";
-
-            }
-
-        }
-
-
-        // Copiar ligação do perfil
-        function copiarLink() {
-
-            const link = window.location.href;
-
-            document.querySelector(".menu").removeAttribute("open");
-
-            navigator.clipboard.writeText(link)
-                .then(() => {
-                    mostrarSucesso("Ligação copiada!");
-                })
-                .catch(() => {
-                    mostrarSucesso("Não foi possível copiar a ligação.");
-                });
-
-        }
-
-
-        // Abrir QR Code
-        function abrirQR() {
-
-            document.querySelector(".menu").removeAttribute("open");
-
-            document.getElementById("qrModal").style.display = "flex";
-
-        }
-
-        function fecharQR() {
-
-            document.getElementById("qrModal").style.display = "none";
-
-        }
-
-
-        // Abrir denúncia
-        function abrirDenuncia() {
-
-            document.querySelector(".menu").removeAttribute("open");
-
-            document.getElementById("reportModal").style.display = "flex";
-
-        }
-
-        function fecharDenuncia() {
-
-            document.getElementById("reportModal").style.display = "none";
-
-        }
-
-
-        // Enviar denúncia
-        document.getElementById("reportForm").addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const motivo = document.querySelector(
-                'input[name="motivo"]:checked'
-            );
-
-            const descricao = document.getElementById("reportReason").value.trim();
-
-            if (!motivo) {
-                return;
-            }
-
-            if (motivo.value === "Outro" && descricao === "") {
-                document.getElementById("reportReason").focus();
-                return;
-            }
-
-            fecharDenuncia();
-
-            document.getElementById("reportForm").reset();
-
-            document.getElementById("successModal").style.display = "flex";
-
-        });
-
-
-        // Mostrar confirmação
-        function mostrarSucesso(mensagem) {
-
-            document.querySelector("#successModal h2").textContent = mensagem;
-            document.querySelector("#successModal p").textContent = "";
-
-            document.getElementById("successModal").style.display = "flex";
-
-        }
-
-
-        // Fechar confirmação
-        function fecharSucesso() {
-
-            document.getElementById("successModal").style.display = "none";
-
-        }
-
-    </script>
 
 </body>
 </html>
