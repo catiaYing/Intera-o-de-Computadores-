@@ -188,13 +188,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            localStorage.setItem(
-                "pedidosEnviados",
-                JSON.stringify(pedidosEnviados)
-            );
+            try {
+                localStorage.setItem(
+                    "pedidosEnviados",
+                    JSON.stringify(pedidosEnviados)
+                );
+            } catch (error) {}
         }
 
-        // Mostrar sucesso
+        // Mostrar sucesso, indicando a quem foi enviado
+        const textoSucesso = successModal.querySelector("p");
+
+        if (textoSucesso) {
+            textoSucesso.textContent =
+                destinatario && destinatario.nome
+                    ? "O teu pedido de amizade para " + destinatario.nome +
+                      " foi enviado com sucesso."
+                    : "O teu pedido de amizade foi enviado com sucesso.";
+        }
+
         successModal.style.display = "flex";
     });
 

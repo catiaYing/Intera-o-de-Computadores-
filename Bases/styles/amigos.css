@@ -223,3 +223,91 @@ body {
     border-bottom-left-radius: 30px !important;
     border-bottom-right-radius: 30px !important;
 }
+/* ===== Opções do amigo (remover / deixar de seguir) ===== */
+.botao-opcoes-amigo {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #F3F4F6;
+    color: #171923;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.botao-opcoes-amigo:hover {
+    background: #E5E7EB;
+}
+
+.estado-seguir {
+    margin-top: 2px;
+    color: #6B7280;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sem-amigos {
+    padding: 20px;
+    text-align: center;
+    color: #6B7280;
+}
+
+.modal-amigo {
+    position: absolute;
+    inset: 0;
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 50;
+}
+
+.modal-amigo.show {
+    display: flex;
+}
+
+.modal-amigo-caixa {
+    width: 100%;
+    padding: 20px 20px 28px;
+    background: #FFFFFF;
+    border-radius: 24px 24px 0 0;
+    text-align: center;
+}
+
+.modal-amigo-caixa h2 {
+    margin: 0 0 6px;
+    font-size: 18px;
+}
+
+.modal-amigo-caixa p {
+    margin: 0 0 16px;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.acao-modal {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #D7FF00;
+    color: #171923;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.acao-modal.perigo {
+    background: #FEE2E2;
+    color: #B91C1C;
+}
+
+.acao-modal.secundaria {
+    background: #F3F4F6;
+    color: #4B5563;
+}
