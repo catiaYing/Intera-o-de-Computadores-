@@ -28,7 +28,8 @@
     color: #9CA3AF;
 }
 
-/* validar numero */
+/* Validar número */
+
 /* Campo selecionado */
 #numero:focus {
     border: 2px solid #BFE600;
@@ -41,62 +42,10 @@
     background-color: #FEF2F2;
 }
 
+/* Texto de ajuda */
 .ajuda {
     margin: 10px 0 24px;
     color: #6B7280;
     font-size: 14px;
     line-height: 1.5;
-}
-
-/* resultado da autorização */
-.resultado {
-    padding: 14px;
-
-    background-color: rgba(215, 255, 0, 0.15);
-    border: 1px solid #BFE600;
-    border-radius: 12px;
-
-    color: #171923;
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.5;
-    text-align: center;
-}
-
-/* ocultar mensagem quando vazia */
-.resultado:empty {
-    display: none;
-}
-
-
-/*janela de autorização */
-
-body > .dialogo {
-    position: fixed;
-
-    top: 50%;
-    left: 50%;
-    right: auto;
-    bottom: auto;
-
-    transform: translate(-50%, -50%);
-    margin: 0;
-
-    width: min(340px, calc(100vw - 32px));
-    max-height: 80dvh;
-
-    box-sizing: border-box;
-    overflow-y: auto;
-
-    background-color: #FFFFFF;
-    color: #171923;
-
-    border: 1px solid #E5E7EB;
-    border-radius: 16px;
-
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-}
-
-body > .dialogo::backdrop {
-    background-color: rgba(23, 25, 35, 0.55);
 }

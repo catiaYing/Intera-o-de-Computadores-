@@ -43,7 +43,45 @@ document.title = "Chat - " + userName;
 
 
 /* =====================================================
-   2. Elementos da página
+   2. Festival atual
+===================================================== */
+
+const festivaisValidos = [
+    "alive",
+    "kalorama",
+    "primavera"
+];
+
+const festivalURL = params.get("festival");
+
+if (festivaisValidos.includes(festivalURL)) {
+    localStorage.setItem("festivalMapa", festivalURL);
+}
+
+let festivalAtualChat =
+    festivaisValidos.includes(festivalURL)
+        ? festivalURL
+        : (
+            festivaisValidos.includes(
+                localStorage.getItem("festivalMapa")
+            )
+                ? localStorage.getItem("festivalMapa")
+                : "alive"
+        );
+
+
+/* Correspondência entre palcos e mapa */
+
+const pontosMapa = {
+    "Palco X": "palco-x",
+    "Side Stage": "side-stage",
+    "Palco Y": "palco-y",
+    "Palco Z": "palco-z"
+};
+
+
+/* =====================================================
+   3. Elementos HTML
 ===================================================== */
 
 const messages = document.getElementById("messages");
@@ -60,7 +98,7 @@ const storageKey = "bandy_messages_" + user;
 
 
 /* =====================================================
-   3. Mensagens iniciais
+   4. Mensagens iniciais
 ===================================================== */
 
 /*
@@ -218,7 +256,7 @@ function createInitialMessages() {
 
 
 /* =====================================================
-   4. Carregar e guardar mensagens
+   5. Carregar e guardar mensagens
 ===================================================== */
 
 /* Carregar mensagens guardadas */
@@ -250,7 +288,6 @@ function loadMessages() {
 function saveMessages(list) {
     try {
         const formattedMessages = list.map(item => {
-
             let text = "";
 
             if (item.type === "photo") {
@@ -276,13 +313,6 @@ function saveMessages(list) {
             JSON.stringify(formattedMessages)
         );
 
-        /*
-           O evento storage atualiza automaticamente
-           outras páginas ou separadores.
-
-           Este evento personalizado atualiza a página
-           atual quando necessário.
-        */
         window.dispatchEvent(
             new Event("mensagensAtualizadas")
         );
@@ -298,7 +328,7 @@ let chatMessages = loadMessages();
 
 
 /* =====================================================
-   5. Hora atual
+   6. Hora atual
 ===================================================== */
 
 function getCurrentTime() {
@@ -309,23 +339,35 @@ function getCurrentTime() {
 }
 
 
+/* Atualizar o estado de leitura das mensagens enviadas */
+function acompanharLeitura(mensagem) {
+    mensagem.readStatus = "Enviada";
+
+    saveMessages(chatMessages);
+    showMessages();
+
+    setTimeout(function() {
+        mensagem.readStatus = "Lida";
+
+        saveMessages(chatMessages);
+        showMessages();
+    }, 3000);
+}
+
+
 /* =====================================================
-   6. Mostrar mensagens
+   7. Mostrar mensagens
 ===================================================== */
 
 function showMessages() {
-
     messages.innerHTML = "";
 
     for (let i = 0; i < chatMessages.length; i++) {
-
         const item = chatMessages[i];
-
         const message = document.createElement("div");
 
         /* Fotografia */
         if (item.type === "photo") {
-
             message.className = "message sent photo-message";
 
             const image = document.createElement("img");
@@ -334,16 +376,16 @@ function showMessages() {
 
             message.appendChild(image);
 
-            const time = document.createElement("span");
-            time.textContent = item.time || "";
+            const photoStatus = document.createElement("span");
+            photoStatus.className = "read-status";
+            photoStatus.textContent =
+                (item.time ? item.time + " · " : "") +
+                (item.readStatus || "");
 
-            message.appendChild(time);
-
-        }
+            message.appendChild(photoStatus);
 
         /* Convite de ponto de encontro */
-        else if (item.type === "invitation") {
-
+        } else if (item.type === "invitation") {
             message.className = "message sent point-message";
 
             const content = document.createElement("div");
@@ -380,24 +422,26 @@ function showMessages() {
             const routeButton = document.createElement("a");
             routeButton.className = "botao-ver-percurso";
             routeButton.href =
-                "mapa.html?local=" +
-                encodeURIComponent(item.place);
+                "mapa.html?local=" + encodeURIComponent(item.place);
             routeButton.textContent = "Ver Percurso";
 
             content.appendChild(routeButton);
             message.appendChild(content);
-        }
 
         /* Mensagem de texto */
-        else {
-
+        } else {
             message.className = "message " + item.type;
 
             const paragraph = document.createElement("p");
             paragraph.textContent = item.text || "";
 
             const time = document.createElement("span");
-            time.textContent = item.time || "";
+            time.textContent = (item.time || "") +
+                (item.readStatus ? " · " + item.readStatus : "");
+
+            if (item.readStatus === "Lida") {
+                time.classList.add("read-status", "read");
+            }
 
             message.appendChild(paragraph);
             message.appendChild(time);
@@ -415,11 +459,10 @@ showMessages();
 
 
 /* =====================================================
-   7. Enviar mensagem
+   8. Enviar mensagem
 ===================================================== */
 
 messageForm.addEventListener("submit", function(event) {
-
     event.preventDefault();
 
     const text = messageInput.value.trim();
@@ -432,13 +475,16 @@ messageForm.addEventListener("submit", function(event) {
         type: "sent",
         text: text,
         time: getCurrentTime(),
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        readStatus: "Enviada"
     };
 
     chatMessages.push(newMessage);
 
     /* Guardar para sincronizar com Contactos */
     saveMessages(chatMessages);
+
+    acompanharLeitura(newMessage);
 
     showMessages();
 
@@ -447,23 +493,21 @@ messageForm.addEventListener("submit", function(event) {
 
 
 /* =====================================================
-   8. Menu de anexos
+   9. Menu de anexos
 ===================================================== */
 
 document.getElementById("attachButton")
     .addEventListener("click", function() {
-
         attachmentMenu.classList.toggle("show");
     });
 
 
 /* =====================================================
-   9. Abrir álbum
+   10. Abrir álbum
 ===================================================== */
 
 document.getElementById("sendPhotoOption")
     .addEventListener("click", function() {
-
         sessionStorage.setItem(
             "bandyReturnUser",
             user
@@ -475,7 +519,7 @@ document.getElementById("sendPhotoOption")
 
 
 /* =====================================================
-   10. Receber fotografia do álbum
+   11. Receber fotografia do álbum
 ===================================================== */
 
 const selectedPhoto =
@@ -488,17 +532,18 @@ if (
     selectedPhoto !== null &&
     (returnUser === null || returnUser === user)
 ) {
-
     const photoMessage = {
         type: "photo",
         photo: selectedPhoto,
         time: getCurrentTime(),
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        readStatus: "Enviada"
     };
 
     chatMessages.push(photoMessage);
 
     saveMessages(chatMessages);
+    acompanharLeitura(photoMessage);
 
     showMessages();
 
@@ -508,12 +553,11 @@ if (
 
 
 /* =====================================================
-   11. Escolher Festival
+   12. Escolher Festival
 ===================================================== */
 
 document.getElementById("markPointOption")
     .addEventListener("click", function() {
-
         attachmentMenu.classList.remove("show");
         festivalOverlay.classList.add("show");
     });
@@ -534,7 +578,6 @@ document.getElementById("cancelFestival")
 /* Confirmar Festival e abrir escolha do Palco */
 document.getElementById("confirmFestival")
     .addEventListener("click", function() {
-
         const selectedFestival =
             document.querySelector(
                 'input[name="festival"]:checked'
@@ -557,7 +600,7 @@ document.getElementById("confirmFestival")
 
 
 /* =====================================================
-   12. Escolher ponto de encontro
+   13. Escolher ponto de encontro
 ===================================================== */
 
 /* Fechar painel de Palco */
@@ -575,7 +618,6 @@ document.getElementById("cancelPoint")
 /* Enviar convite */
 document.getElementById("confirmPoint")
     .addEventListener("click", function() {
-
         const selected = document.querySelector(
             'input[name="meetingPoint"]:checked'
         );
@@ -589,7 +631,6 @@ document.getElementById("confirmPoint")
             sessionStorage.getItem("festivalSelecionado");
 
         if (selectedFestival === null) {
-
             alert("Escolhe primeiro um festival.");
 
             closePoint();
@@ -622,7 +663,6 @@ document.getElementById("confirmPoint")
 
         /* Simular aceitação do convite */
         setTimeout(function() {
-
             invitation.status = "✓ Convite aceite!";
             invitation.accepted = true;
 
@@ -640,13 +680,11 @@ document.getElementById("confirmPoint")
             countdown.textContent = seconds;
 
             const timer = setInterval(function() {
-
                 seconds--;
 
                 countdown.textContent = seconds;
 
                 if (seconds <= 0) {
-
                     clearInterval(timer);
 
                     inviteOverlay.classList.remove("show");
@@ -661,9 +699,7 @@ document.getElementById("confirmPoint")
 
                     showMessages();
                 }
-
             }, 1000);
 
         }, 3000);
-
     });

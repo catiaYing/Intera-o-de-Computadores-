@@ -18,7 +18,6 @@ const festivais = {
             "Descobre novos artistas e partilha " +
             "momentos especiais com os teus amigos.",
 
-        artistas: ["Cartaz a anunciar"],
         preco: 45
     },
 
@@ -32,7 +31,6 @@ const festivais = {
             "de música alternativa e desfruta de uma " +
             "experiência cultural única na cidade do Porto.",
 
-        artistas: ["Cartaz a anunciar"],
         preco: 75
     },
 
@@ -47,7 +45,6 @@ const festivais = {
             "Desfruta de concertos e bons momentos " +
             "com os teus amigos.",
 
-        artistas: ["Cartaz a anunciar"],
         preco: 45
     },
 
@@ -61,7 +58,6 @@ const festivais = {
             "música, arte e cultura, com diferentes " +
             "estilos musicais num ambiente vibrante.",
 
-        artistas: ["Cartaz a anunciar"],
         preco: 65
     }
 };
@@ -120,35 +116,11 @@ function mostrarDetalhes() {
         festival.preco.toFixed(2).replace(".", ",") +
         " €";
 
-    mostrarArtistas();
     configurarCompra();
 }
 
 
-/* ===== 5. MOSTRAR ARTISTAS ===== */
-
-function mostrarArtistas() {
-
-    const lista = document.getElementById(
-        "lista-artistas"
-    );
-
-    lista.replaceChildren();
-
-    festival.artistas.forEach(function(nomeArtista) {
-
-        const elemento = document.createElement("span");
-
-        elemento.className = "artista";
-        elemento.textContent = nomeArtista;
-
-        lista.appendChild(elemento);
-
-    });
-}
-
-
-/* ===== 6. ESCOLHER BILHETE ===== */
+/* ===== 5. ESCOLHER BILHETE ===== */
 
 function configurarCompra() {
 

@@ -190,15 +190,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             }
 
-            localStorage.setItem(
-                "pedidosEnviados",
-                JSON.stringify(pedidosEnviados)
-            );
+            try {
+                localStorage.setItem(
+                    "pedidosEnviados",
+                    JSON.stringify(pedidosEnviados)
+                );
+            } catch (error) {}
         }
 
 
         // Mostrar sucesso
-
         successModal.style.display = "flex";
 
     });

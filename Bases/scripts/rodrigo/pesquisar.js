@@ -58,6 +58,40 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    function corresponde(festival, est, texto) {
+        return (est.mes === "todos" || festival.dataset.mes === est.mes) &&
+            (est.zona === "todas" || festival.dataset.zona === est.zona) &&
+            verificarPreco(Number(festival.dataset.preco), est.preco) &&
+            festival.textContent.toLocaleLowerCase("pt-PT").includes(texto);
+    }
+
+    // Mostra em cada opção do modal quantos festivais teria, antes de aplicar
+    function atualizarContagensChips() {
+        const texto = pesquisa.value.toLocaleLowerCase("pt-PT").trim();
+        const cartoes = Array.from(lista.querySelectorAll(".festival"));
+
+        opcoesFiltro.forEach(function (chip) {
+            const hipotese = Object.assign({}, estado);
+            hipotese[chip.dataset.grupo] = chip.dataset.valor;
+
+            const n = cartoes.filter(function (f) {
+                return corresponde(f, hipotese, texto);
+            }).length;
+
+            let badge = chip.querySelector(".chip-contagem");
+            if (!badge) {
+                badge = document.createElement("span");
+                badge.className = "chip-contagem";
+                chip.appendChild(badge);
+            }
+            badge.textContent = n;
+            chip.classList.toggle("sem-resultados-chip", n === 0);
+            chip.setAttribute("aria-label",
+                chip.firstChild.textContent.trim() + ": " + n +
+                (n === 1 ? " festival" : " festivais"));
+        });
+    }
+
     function atualizarLista() {
 
         const texto = pesquisa.value.toLocaleLowerCase("pt-PT").trim();
@@ -79,25 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cartoes.forEach(function (festival) {
             lista.appendChild(festival);
 
-            const correspondeMes =
-                estado.mes === "todos" ||
-                festival.dataset.mes === estado.mes;
-
-            const correspondeZona =
-                estado.zona === "todas" ||
-                festival.dataset.zona === estado.zona;
-
-            const correspondePreco =
-                verificarPreco(Number(festival.dataset.preco), estado.preco);
-
-            const correspondeTexto =
-                festival.textContent.toLocaleLowerCase("pt-PT").includes(texto);
-
-            const mostrar =
-                correspondeMes &&
-                correspondeZona &&
-                correspondePreco &&
-                correspondeTexto;
+            const mostrar = corresponde(festival, estado, texto);
 
             festival.hidden = !mostrar;
             festival.style.display = mostrar ? "flex" : "none";
@@ -115,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         semResultados.hidden = visiveis !== 0;
 
         atualizarBotoesTopo();
+        atualizarContagensChips();
     }
 
     // Carregar em "Todos" repõe todos os filtros
@@ -156,6 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             chip.classList.add("ativo");
             estado[grupo] = valor;
+            atualizarContagensChips();
         });
     });
 
@@ -165,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
         estado.zona = "todas";
         estado.preco = "todos";
         sincronizarChipsModal();
+        atualizarContagensChips();
     });
 
     // Aplicar e fechar modal

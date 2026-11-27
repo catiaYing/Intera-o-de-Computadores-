@@ -278,3 +278,44 @@ a:focus-visible {
         font-size: 25px;
     }
 }
+
+
+/* ==========================================
+   Diálogos de pagamento
+   MB WAY, Cartão e PayPal
+   ========================================== */
+
+/* Centrar as janelas de diálogo */
+dialog.dialogo {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+
+    transform: translate(-50%, -50%);
+    margin: 0;
+
+    width: min(320px, calc(100vw - 32px));
+    max-height: 80dvh;
+
+    padding: 24px;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    background-color: #FFFFFF;
+    color: #171923;
+
+    border: none;
+    border-radius: 18px;
+
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+    text-align: center;
+}
+
+/* Fundo escurecido quando o diálogo está aberto */
+dialog.dialogo::backdrop {
+    background-color: rgba(23, 25, 35, 0.55);
+}
