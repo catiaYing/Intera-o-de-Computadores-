@@ -1,4 +1,3 @@
-
 /* BANDy - Chat */
 
 /* =====================================================
@@ -31,6 +30,28 @@ if (user === "maria") {
 } else if (user === "martim") {
     userName = "Martim";
     userAvatar = "M";
+}
+
+/* Identificar contactos adicionados recentemente */
+try {
+    const novosContactos = JSON.parse(
+        localStorage.getItem("bandy_novos_contactos") || "[]"
+    );
+
+    if (Array.isArray(novosContactos)) {
+        const contactoAtual = novosContactos.find(
+            contacto => String(contacto.id) === String(user)
+        );
+
+        if (contactoAtual) {
+            userName = String(
+                contactoAtual.nome || contactoAtual.name || "Novo contacto"
+            );
+            userAvatar = userName.trim().charAt(0).toUpperCase() || "?";
+        }
+    }
+} catch (error) {
+    console.error("Erro ao identificar contacto:", error);
 }
 
 /* Atualizar o cabeçalho */
@@ -251,6 +272,7 @@ function createInitialMessages() {
         ];
     }
 
+    /* Contactos novos começam com conversa vazia */
     return [];
 }
 

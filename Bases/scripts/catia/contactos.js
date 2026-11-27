@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
     const searchForm = document.querySelector(".search-form");
@@ -19,11 +18,138 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const rows = Array.from(
+    let rows = Array.from(
         conversationList.querySelectorAll(
             ".conversation-row[data-user-id]"
         )
     );
+
+    /* Ler contactos adicionados através dos pedidos de amizade */
+    function getNewContacts() {
+        try {
+            const value = JSON.parse(
+                localStorage.getItem("bandy_novos_contactos") || "[]"
+            );
+            return Array.isArray(value) ? value : [];
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function saveNewContacts(list) {
+        try {
+            localStorage.setItem(
+                "bandy_novos_contactos",
+                JSON.stringify(list)
+            );
+        } catch (error) {
+            console.error("Erro ao guardar novos contactos:", error);
+        }
+    }
+
+    /* Criar a linha de contacto com o mesmo formato dos contactos existentes */
+    function addContactRow(contact) {
+        const userId = String(contact.id || "");
+        if (!userId) return;
+
+        const existing = rows.find(
+            row => String(row.dataset.userId) === userId
+        );
+        if (existing) return;
+
+        const name = String(contact.nome || contact.name || "Novo contacto");
+        const avatar = name.trim().charAt(0).toUpperCase() || "?";
+
+        const row = document.createElement("div");
+        row.className = "conversation-row";
+        row.dataset.userId = userId;
+        row.dataset.removed = "false";
+
+        const profileLink = document.createElement("a");
+        profileLink.className = "conversation";
+        profileLink.href = "perfil_users.html?user=" + encodeURIComponent(userId);
+
+        const avatarElement = document.createElement("div");
+        avatarElement.className = "avatar";
+        avatarElement.textContent = avatar;
+
+        const info = document.createElement("div");
+        info.className = "conversation-info";
+
+        const top = document.createElement("div");
+        top.className = "conversation-top";
+
+        const heading = document.createElement("h2");
+        heading.textContent = name;
+
+        const time = document.createElement("span");
+        time.className = "time";
+        time.dataset.messageTime = "";
+
+        top.appendChild(heading);
+        top.appendChild(time);
+
+        const preview = document.createElement("p");
+        preview.className = "last-message";
+        preview.dataset.messagePreview = "";
+
+        info.appendChild(top);
+        info.appendChild(preview);
+        profileLink.appendChild(avatarElement);
+        profileLink.appendChild(info);
+
+        const chatLink = document.createElement("a");
+        chatLink.className = "chat-button";
+        chatLink.href = "chat.html?user=" + encodeURIComponent(userId);
+        chatLink.setAttribute("aria-label", "Abrir chat com " + name);
+        chatLink.textContent = "💬";
+
+        row.appendChild(profileLink);
+        row.appendChild(chatLink);
+        conversationList.appendChild(row);
+
+        rows.push(row);
+    }
+
+    /* Mostrar contactos já guardados, sem duplicar os contactos fixos */
+    getNewContacts().forEach(addContactRow);
+
+    /* Processar o novo contacto 2 segundos depois de entrar em Contactos */
+    setTimeout(function () {
+        let pending = null;
+        try {
+            pending = JSON.parse(
+                localStorage.getItem("bandy_contacto_pendente") || "null"
+            );
+        } catch (error) {
+            pending = null;
+        }
+
+        if (!pending || !pending.id) return;
+
+        const newContacts = getNewContacts();
+        const pendingId = String(pending.id);
+        const existingIndex = newContacts.findIndex(
+            contact => String(contact.id) === pendingId
+        );
+
+        if (existingIndex >= 0) {
+            newContacts[existingIndex] = {
+                ...newContacts[existingIndex],
+                ...pending,
+                id: pendingId
+            };
+        } else {
+            newContacts.push({ ...pending, id: pendingId });
+        }
+
+        saveNewContacts(newContacts);
+        addContactRow(pending);
+        localStorage.removeItem("bandy_contacto_pendente");
+
+        updateRemovedFriends();
+        updateLastMessages();
+    }, 2000);
 
     /* Mensagem quando não existem contactos */
     const noResults = document.createElement("p");
@@ -97,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * [
      *   {
      *     text: "Olá!",
-         timestamp: 1730000000000,
+     *     timestamp: 1730000000000,
      *     sender: "me"
      *   }
      * ]
